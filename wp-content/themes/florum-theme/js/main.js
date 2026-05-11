@@ -6,21 +6,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const sliderTracks = document.querySelectorAll("[data-slider]");
   const arrivalStacks = document.querySelectorAll("[data-arrival-stack]");
   const hospitalityTabs = document.querySelectorAll("[data-hospitality-tabs], .hospitality-tabs");
+  const serviceCards = document.querySelectorAll(".service-card");
   const siteHeader = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const mainNav = document.querySelector(".main-nav");
+  const runWhenIdle = (callback) => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(callback, { timeout: 1800 });
+      return;
+    }
+
+    window.setTimeout(callback, 160);
+  };
 
   if (siteHeader && menuToggle && mainNav) {
     const closeMenu = () => {
+      const openLabel = menuToggle.dataset.labelOpen || "Open menu";
       siteHeader.classList.remove("is-menu-open");
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open menu");
+      menuToggle.setAttribute("aria-label", openLabel);
     };
 
     const openMenu = () => {
+      const closeLabel = menuToggle.dataset.labelClose || "Close menu";
       siteHeader.classList.add("is-menu-open");
       menuToggle.setAttribute("aria-expanded", "true");
-      menuToggle.setAttribute("aria-label", "Close menu");
+      menuToggle.setAttribute("aria-label", closeLabel);
     };
 
     menuToggle.addEventListener("click", () => {
@@ -57,43 +68,60 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.setAttribute("aria-label", isOpen ? "Close booking drawer" : "Open booking drawer");
     };
 
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
       setDrawerOpen(!drawer.classList.contains("is-open"));
     });
 
     if (drawerId) {
       document.querySelectorAll(`a[href="#${drawerId}"]`).forEach((link) => {
-        link.addEventListener("click", () => {
-          setDrawerOpen(true);
-        });
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        setDrawerOpen(true);
+      });
       });
     }
   });
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.14,
-        rootMargin: "0px 0px -40px 0px",
-      }
-    );
-
-    reveals.forEach((item) => observer.observe(item));
-  } else {
+  window.requestAnimationFrame(() => {
     reveals.forEach((item) => item.classList.add("is-visible"));
+  });
+
+  if (serviceCards.length > 0) {
+    serviceCards.forEach((card, index) => {
+      card.style.setProperty("--service-delay", `${Math.min(index * 85, 420)}ms`);
+      card.classList.add("is-service-ready");
+    });
+
+    const revealServiceCard = (card) => {
+      card.classList.add("is-service-visible");
+    };
+
+    if ("IntersectionObserver" in window) {
+      const serviceObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          revealServiceCard(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.16 });
+
+      serviceCards.forEach((card) => serviceObserver.observe(card));
+    } else {
+      window.requestAnimationFrame(() => {
+        serviceCards.forEach(revealServiceCard);
+      });
+    }
   }
 
-  fadeCarousels.forEach((carousel) => {
-    const slides = Array.from(carousel.querySelectorAll(".hero-slide, .hospitality-slide, .room-card-slide, .room-slide"));
+  const initFadeCarousel = (carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".hero-slide, .hospitality-slide, .room-slide"));
     let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active-slide"));
+    const slideImages = slides.map((slide) => slide.querySelector("img"));
 
     if (slides.length < 2) {
       return;
@@ -104,11 +132,58 @@ document.addEventListener("DOMContentLoaded", () => {
       slides[0].classList.add("is-active-slide");
     }
 
+    slideImages.forEach((image) => {
+      if (!image) {
+        return;
+      }
+
+      if (image.complete && image.naturalWidth > 0) {
+        image.dataset.carouselReady = "true";
+        return;
+      }
+
+      image.addEventListener("load", () => {
+        image.dataset.carouselReady = "true";
+      }, { once: true });
+    });
+
+    const isSlideReady = (index) => {
+      const image = slideImages[index];
+      return !image || image.dataset.carouselReady === "true" || (image.complete && image.naturalWidth > 0);
+    };
+
+    const getNextReadyIndex = () => {
+      for (let offset = 1; offset < slides.length; offset += 1) {
+        const nextIndex = (activeIndex + offset) % slides.length;
+
+        if (isSlideReady(nextIndex)) {
+          return nextIndex;
+        }
+      }
+
+      return activeIndex;
+    };
+
     window.setInterval(() => {
+      const nextIndex = getNextReadyIndex();
+
+      if (nextIndex === activeIndex) {
+        return;
+      }
+
       slides[activeIndex].classList.remove("is-active-slide");
-      activeIndex = (activeIndex + 1) % slides.length;
+      activeIndex = nextIndex;
       slides[activeIndex].classList.add("is-active-slide");
-    }, 4600);
+    }, 6200);
+  };
+
+  fadeCarousels.forEach((carousel) => {
+    if (carousel.closest(".urban-hero")) {
+      initFadeCarousel(carousel);
+      return;
+    }
+
+    runWhenIdle(() => initFadeCarousel(carousel));
   });
 
   bookingStrips.forEach((strip) => {
@@ -288,7 +363,9 @@ document.addEventListener("DOMContentLoaded", () => {
       picker.trigger.setAttribute("aria-expanded", "false");
       renderCalendar(key);
 
-      picker.trigger.addEventListener("click", () => {
+      picker.trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         const wasHidden = picker.calendar.hidden;
         closeCalendars();
         picker.calendar.hidden = !wasHidden;
@@ -309,6 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const initSliders = () => {
   sliderTracks.forEach((track) => {
     const id = track.getAttribute("data-slider");
     const prevButton = document.querySelector(`[data-slider-prev="${id}"]`);
@@ -316,10 +394,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeMeta = document.querySelector(`[data-slider-active-meta="${id}"]`);
     const sliderDots = Array.from(document.querySelectorAll(`[data-slider-dot="${id}"]`));
     const autoPlay = track.hasAttribute("data-slider-autoplay");
+    const isRoomSlider = track.classList.contains("room-slider");
     let autoPlayTimer = null;
+    let roomImageTimer = null;
+    let roomImageSwapTimer = null;
+    let activeRoomImageIndex = 0;
+    let activeSlideIndex = -1;
+    let roomActiveIndex = 0;
     let isAdjustingLoop = false;
     const originalSlides = Array.from(track.querySelectorAll(".slider-slide"));
-    const preferredCloneCount = track.classList.contains("room-slider") ? 3 : 2;
+    const preferredCloneCount = isRoomSlider ? 0 : 2;
     const loopCloneCount = Math.min(preferredCloneCount, originalSlides.length);
 
     if (!prevButton || !nextButton) {
@@ -370,19 +454,182 @@ document.addEventListener("DOMContentLoaded", () => {
       track.scrollLeft = getStep() * loopCloneCount;
     };
 
+    const getNormalizedIndex = () => {
+      if (originalSlides.length === 0) {
+        return 0;
+      }
+
+      const step = getStep();
+      const adjustedIndex = Math.round(track.scrollLeft / step) - loopCloneCount;
+      return ((adjustedIndex % originalSlides.length) + originalSlides.length) % originalSlides.length;
+    };
+
+    const scrollToSlide = (index, behavior = "smooth") => {
+      if (originalSlides.length === 0) {
+        return 0;
+      }
+
+      const normalizedIndex = ((index % originalSlides.length) + originalSlides.length) % originalSlides.length;
+
+      track.scrollTo({
+        left: getStep() * (loopCloneCount + normalizedIndex),
+        behavior,
+      });
+
+      return normalizedIndex;
+    };
+
+    const getRoomImages = (slide) => {
+      if (!slide || !slide.dataset.roomImages) {
+        return [];
+      }
+
+      try {
+        const images = JSON.parse(slide.dataset.roomImages);
+        return Array.isArray(images) ? images.filter(Boolean) : [];
+      } catch (error) {
+        return [];
+      }
+    };
+
+    const clearRoomImageSwap = () => {
+      if (roomImageSwapTimer) {
+        window.clearTimeout(roomImageSwapTimer);
+        roomImageSwapTimer = null;
+      }
+    };
+
+    const preloadImage = (src) => new Promise((resolve) => {
+      const preloader = new Image();
+
+      preloader.onload = () => resolve(true);
+      preloader.onerror = () => resolve(false);
+      preloader.src = src;
+    });
+
+    const finishRoomImageSwap = (slide) => {
+      window.requestAnimationFrame(() => {
+        slide.classList.remove("is-switching-image");
+      });
+    };
+
+    const setRoomImage = (slide, imageIndex, options = {}) => {
+      const image = slide ? slide.querySelector(".room-card__photo") : null;
+      const images = getRoomImages(slide);
+
+      if (!image || images.length === 0) {
+        return;
+      }
+
+      const normalizedImageIndex = ((imageIndex % images.length) + images.length) % images.length;
+      const nextSrc = images[normalizedImageIndex];
+
+      if (image.getAttribute("src") === nextSrc) {
+        return;
+      }
+
+      if (options.instant) {
+        clearRoomImageSwap();
+        slide.classList.remove("is-switching-image");
+        image.setAttribute("src", nextSrc);
+        return;
+      }
+
+      slide.dataset.roomImageTarget = nextSrc;
+
+      preloadImage(nextSrc).then(() => {
+        if (slide.dataset.roomImageTarget !== nextSrc || !slide.classList.contains("is-active")) {
+          return;
+        }
+
+        clearRoomImageSwap();
+        slide.classList.add("is-switching-image");
+
+        roomImageSwapTimer = window.setTimeout(() => {
+          if (slide.dataset.roomImageTarget !== nextSrc || !slide.classList.contains("is-active")) {
+            slide.classList.remove("is-switching-image");
+            return;
+          }
+
+          image.setAttribute("src", nextSrc);
+
+          if (image.decode) {
+            image.decode().catch(() => {}).finally(() => finishRoomImageSwap(slide));
+          } else if (image.complete) {
+            finishRoomImageSwap(slide);
+          } else {
+            image.addEventListener("load", () => finishRoomImageSwap(slide), { once: true });
+          }
+        }, 180);
+      });
+    };
+
+    const stopRoomImageCarousel = () => {
+      if (roomImageTimer) {
+        window.clearInterval(roomImageTimer);
+        roomImageTimer = null;
+      }
+
+      clearRoomImageSwap();
+    };
+
+    const startRoomImageCarousel = (slide) => {
+      const images = getRoomImages(slide);
+
+      stopRoomImageCarousel();
+
+      if (!isRoomSlider || images.length < 2) {
+        return;
+      }
+
+      roomImageTimer = window.setInterval(() => {
+        activeRoomImageIndex = (activeRoomImageIndex + 1) % images.length;
+        setRoomImage(slide, activeRoomImageIndex);
+      }, 5600);
+    };
+
+    const setActiveSlide = (normalizedIndex) => {
+      const activeSlide = originalSlides[normalizedIndex];
+
+      if (!activeSlide) {
+        return;
+      }
+
+      if (isRoomSlider && activeSlideIndex === normalizedIndex) {
+        return;
+      }
+
+      originalSlides.forEach((slide, index) => {
+        const isActive = index === normalizedIndex;
+        slide.classList.toggle("is-active-slide", isActive);
+        slide.classList.toggle("is-active", isActive);
+
+        if (isRoomSlider && !isActive) {
+          setRoomImage(slide, 0, { instant: true });
+        }
+      });
+
+      if (isRoomSlider) {
+        activeSlideIndex = normalizedIndex;
+        activeRoomImageIndex = 0;
+        setRoomImage(activeSlide, activeRoomImageIndex, { instant: true });
+        startRoomImageCarousel(activeSlide);
+      }
+    };
+
     const updateActiveMeta = () => {
       if (originalSlides.length === 0) {
         return;
       }
 
-      const step = getStep();
-      const adjustedIndex = Math.round(track.scrollLeft / step) - loopCloneCount;
-      const normalizedIndex = ((adjustedIndex % originalSlides.length) + originalSlides.length) % originalSlides.length;
+      const normalizedIndex = getNormalizedIndex();
       const activeSlide = originalSlides[normalizedIndex];
 
-      originalSlides.forEach((slide, index) => {
-        slide.classList.toggle("is-active-slide", index === normalizedIndex);
-      });
+      if (isRoomSlider) {
+        roomActiveIndex = normalizedIndex;
+      }
+
+      setActiveSlide(normalizedIndex);
 
       if (activeMeta) {
         const guests = activeSlide.getAttribute("data-room-guests");
@@ -432,6 +679,13 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const goNext = () => {
+      if (isRoomSlider) {
+        roomActiveIndex = scrollToSlide(roomActiveIndex + 1);
+        setActiveSlide(roomActiveIndex);
+        window.setTimeout(updateActiveMeta, 430);
+        return;
+      }
+
       const step = getStep();
       const nearEndThreshold = step * (loopCloneCount + originalSlides.length - 1.6);
 
@@ -464,6 +718,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (prevButton) {
       prevButton.addEventListener("click", () => {
+        if (isRoomSlider) {
+          roomActiveIndex = scrollToSlide(roomActiveIndex - 1);
+          setActiveSlide(roomActiveIndex);
+          window.setTimeout(updateActiveMeta, 430);
+          return;
+        }
+
         const step = getStep();
         const nearStartThreshold = step * (loopCloneCount - 0.4);
 
@@ -517,6 +778,9 @@ document.addEventListener("DOMContentLoaded", () => {
     jumpToOriginalStart();
     updateActiveMeta();
   });
+  };
+
+  window.requestAnimationFrame(initSliders);
 
   hospitalityTabs.forEach((tabGroup) => {
     const triggers = Array.from(tabGroup.querySelectorAll("[data-hospitality-trigger], [data-tab]"));
@@ -576,10 +840,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   arrivalStacks.forEach((stack) => {
+    if (stack.dataset.arrivalInitialized === "true") {
+      return;
+    }
+
+    stack.dataset.arrivalInitialized = "true";
+
     const cards = Array.from(stack.querySelectorAll("[data-arrival-card]"));
     const triggers = Array.from(stack.querySelectorAll("[data-arrival-trigger]"));
+    let activeTarget = cards.find((card) => card.classList.contains("is-active"))?.getAttribute("data-arrival-card") || null;
+
+    const syncCardMaps = (target) => {
+      cards.forEach((card) => {
+        const frame = card.querySelector(".arrival-map-frame");
+
+        if (!frame) {
+          return;
+        }
+
+        const isActive = card.getAttribute("data-arrival-card") === target;
+        const mapSrc = frame.dataset.mapSrc;
+
+        if (isActive && mapSrc && frame.getAttribute("src") !== mapSrc) {
+          frame.setAttribute("src", mapSrc);
+          return;
+        }
+
+        if (!isActive && frame.hasAttribute("src")) {
+          frame.removeAttribute("src");
+        }
+      });
+    };
 
     const setActiveCard = (target) => {
+      if (!target || target === activeTarget) {
+        return;
+      }
+
+      const nextCard = cards.find((card) => card.getAttribute("data-arrival-card") === target);
+
+      if (!nextCard) {
+        return;
+      }
+
+      activeTarget = target;
+
       cards.forEach((card) => {
         const isActive = card.getAttribute("data-arrival-card") === target;
         card.classList.toggle("is-active", isActive);
@@ -588,11 +893,21 @@ document.addEventListener("DOMContentLoaded", () => {
       triggers.forEach((trigger) => {
         trigger.setAttribute("aria-expanded", String(trigger.getAttribute("data-arrival-trigger") === target));
       });
+
+      window.requestAnimationFrame(() => {
+        syncCardMaps(target);
+      });
     };
+
+    if (activeTarget) {
+      syncCardMaps(activeTarget);
+    }
 
     cards.forEach((card) => {
       card.addEventListener("click", (event) => {
-        const target = card.getAttribute("data-arrival-card");
+        event.preventDefault();
+        const trigger = event.target.closest("[data-arrival-trigger]");
+        const target = trigger?.getAttribute("data-arrival-trigger") || card.getAttribute("data-arrival-card");
 
         if (!target) {
           return;
@@ -600,8 +915,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setActiveCard(target);
 
-        if (event.target.matches("[data-arrival-trigger]")) {
-          event.target.focus();
+        if (trigger) {
+          trigger.focus();
         }
       });
     });
