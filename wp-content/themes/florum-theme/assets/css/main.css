@@ -473,15 +473,6 @@ html[dir="rtl"] .main-nav__side--right {
   color: var(--cream);
 }
 
-.eyebrow {
-  margin: 0 0 18px;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
 @media (max-width: 980px) {
   .site-header {
     position: sticky;
@@ -679,10 +670,6 @@ html[dir="rtl"] .main-nav__side--right {
     display: none;
   }
 
-  .eyebrow {
-    text-align: center;
-  }
-
   .footer-inner {
     flex-direction: column;
     justify-content: center;
@@ -714,40 +701,6 @@ html[dir="rtl"] .main-nav__side--right {
 .home-page > .section > .container {
   position: relative;
   z-index: 1;
-}
-
-.home-page > .section:not(.direct-booking-section)::after {
-  content: "";
-  position: absolute;
-  top: -1px;
-  right: 0;
-  left: 0;
-  z-index: 0;
-  height: clamp(70px, 8vw, 118px);
-  background: linear-gradient(
-    to bottom,
-    var(--previous-section-bg) 0%,
-    color-mix(in srgb, var(--previous-section-bg) 52%, var(--section-bg) 48%) 42%,
-    var(--section-bg) 100%
-  );
-  pointer-events: none;
-}
-
-@supports not (background: color-mix(in srgb, #000 50%, #fff 50%)) {
-  .home-page > .section:not(.direct-booking-section)::after {
-    background: linear-gradient(to bottom, var(--previous-section-bg), var(--section-bg));
-  }
-}
-
-.section-kicker {
-  margin: 0 0 14px;
-  color: var(--green-botanical);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 1.3;
-  text-align: left;
-  text-transform: uppercase;
 }
 
 h1,
@@ -1965,40 +1918,30 @@ html[dir="rtl"] .slider-track {
 }
 
 .room-fact-list {
+  display: grid;
+  gap: 8px;
+  align-content: start;
   min-height: 204px;
   margin: 0;
   padding: 0;
-  border-top: 1px solid rgba(16, 47, 36, 0.1);
 }
 
 .room-fact-row {
-  display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 14px;
-  align-items: baseline;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(16, 47, 36, 0.085);
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 12px;
+  border: 1px solid rgba(16, 47, 36, 0.08);
+  border-radius: 12px;
+  background: rgba(251, 247, 239, 0.52);
 }
 
-.room-fact-row dt,
 .room-fact-row dd {
   margin: 0;
-}
-
-.room-fact-row dt {
-  color: rgba(49, 91, 69, 0.9);
-  font-size: 0.74rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.room-fact-row dd {
   color: var(--green-ink);
-  font-size: 0.93rem;
-  font-weight: 650;
-  line-height: 1.35;
+  font-size: 0.95rem;
+  font-weight: 680;
+  line-height: 1.3;
 }
 
 .hospitality-section {
@@ -2101,7 +2044,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.02;
 }
 
-.hospitality-copy--lobby p:not(.section-kicker) {
+.hospitality-copy--lobby p {
   max-width: 500px;
   line-height: 1.68;
 }
@@ -2147,7 +2090,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.hospitality-copy p:not(.section-kicker) {
+.hospitality-copy p {
   max-width: 660px;
   margin-bottom: 0;
   color: rgba(32, 36, 30, 0.68);
@@ -2207,7 +2150,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.service-editorial__intro > p:not(.section-kicker) {
+.service-editorial__intro > p {
   max-width: 520px;
   margin: 0;
   color: rgba(32, 36, 30, 0.68);
@@ -3067,7 +3010,7 @@ html[dir="rtl"] .slider-track {
   color: #fffaf1;
 }
 
-.inner-page-hero__copy p:not(.section-kicker) {
+.inner-page-hero__copy p {
   max-width: 410px;
   margin: clamp(22px, 3vw, 34px) 0 0;
   color: rgba(247, 240, 230, 0.76);
@@ -3516,7 +3459,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.apartments-hero__copy p:not(.section-kicker) {
+.apartments-hero__copy p {
   max-width: 410px;
   margin: clamp(22px, 3vw, 34px) 0 0;
   color: rgba(247, 240, 230, 0.76);
@@ -3596,13 +3539,13 @@ html[dir="rtl"] .slider-track {
   color: var(--green-ink);
 }
 
-.apartments-intro-card p:not(.section-kicker),
+.apartments-intro-card p,
 .apartment-amenities-card > p,
 .apartment-hotel-card p,
-.apartments-split-card > div:first-child p:not(.section-kicker),
+.apartments-split-card > div:first-child p,
 .apartments-vienna-content p,
 .apartments-corporate-card p,
-.apartments-breakfast-card p:not(.section-kicker),
+.apartments-breakfast-card p,
 .apartments-final-card p {
   max-width: 760px;
   margin: clamp(18px, 2vw, 26px) 0 0;
@@ -3916,12 +3859,12 @@ html[dir="rtl"] .slider-track {
   margin: 0;
 }
 
-.apartments-split-card > div:first-child p:not(.section-kicker) {
+.apartments-split-card > div:first-child p {
   max-width: 520px;
 }
 
 .apartments-corporate-section {
-  background: #e4ebdf;
+  background: #eef1e9;
 }
 
 .apartments-corporate-card {
@@ -3934,18 +3877,6 @@ html[dir="rtl"] .slider-track {
   max-width: 980px;
   padding: clamp(24px, 3.2vw, 44px);
   text-align: center;
-}
-
-.apartments-corporate-card.events-final-cta .section-kicker,
-.apartments-final-card.events-final-cta .section-kicker {
-  margin: 0 0 14px;
-  color: var(--green-botanical);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 1.3;
-  text-align: left;
-  text-transform: uppercase;
 }
 
 .apartments-corporate-card.events-final-cta h2,
@@ -4041,7 +3972,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.rooms-hero__copy p:not(.section-kicker) {
+.rooms-hero__copy p {
   max-width: 410px;
   margin: clamp(22px, 3vw, 34px) 0 0;
   color: rgba(247, 240, 230, 0.76);
@@ -4130,7 +4061,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.rooms-amenities-heading p:not(.section-kicker) {
+.rooms-amenities-heading p {
   margin: 12px 0 0;
   color: rgba(32, 36, 30, 0.68);
   font-weight: 560;
@@ -4277,7 +4208,7 @@ html[dir="rtl"] .slider-track {
 }
 
 .rooms-corporate-section {
-  background: #e4ebdf;
+  background: #eef1e9;
 }
 
 .rooms-support-card.apartments-corporate-card.events-final-cta,
@@ -4285,18 +4216,6 @@ html[dir="rtl"] .slider-track {
   max-width: 980px;
   padding: clamp(24px, 3.2vw, 44px);
   text-align: center;
-}
-
-.rooms-support-card.apartments-corporate-card.events-final-cta .section-kicker,
-.rooms-final-cta.apartments-final-card.events-final-cta .section-kicker {
-  margin: 0 0 14px;
-  color: var(--green-botanical);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 1.3;
-  text-align: left;
-  text-transform: uppercase;
 }
 
 .rooms-support-card.apartments-corporate-card.events-final-cta h2,
@@ -4372,7 +4291,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.room-detail-hero__copy p:not(.section-kicker) {
+.room-detail-hero__copy p {
   max-width: 470px;
   margin: clamp(22px, 3vw, 34px) 0 0;
   color: rgba(247, 240, 230, 0.76);
@@ -4570,7 +4489,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.events-hero__copy p:not(.section-kicker) {
+.events-hero__copy p {
   max-width: 410px;
   margin: clamp(22px, 3vw, 34px) 0 0;
   color: rgba(247, 240, 230, 0.76);
@@ -4663,7 +4582,7 @@ html[dir="rtl"] .slider-track {
   color: var(--green-ink);
 }
 
-.events-overview-card p:not(.section-kicker),
+.events-overview-card p,
 .events-final-cta p {
   max-width: 760px;
   margin: 0;
@@ -4823,7 +4742,7 @@ html[dir="rtl"] .slider-track {
   line-height: 1.08;
 }
 
-.service-page-hero__copy p:not(.section-kicker) {
+.service-page-hero__copy p {
   max-width: 410px;
   margin: clamp(22px, 3vw, 34px) 0 0;
   color: rgba(247, 240, 230, 0.76);
@@ -4855,7 +4774,7 @@ html[dir="rtl"] .slider-track {
   .room-detail-hero__copy,
   .events-hero__copy,
   .service-page-hero__copy
-) > p:not(.section-kicker) {
+) > p {
   margin-top: 0;
 }
 
@@ -4866,7 +4785,7 @@ html[dir="rtl"] .slider-track {
   .room-detail-hero__copy,
   .events-hero__copy,
   .service-page-hero__copy
-) > p:not(.section-kicker)::before {
+) > p::before {
   display: block;
   width: clamp(160px, 24vw, 300px);
   height: 1px;
@@ -4905,11 +4824,11 @@ html[dir="rtl"] .slider-track {
 
 .service-breakfast-note p,
 .service-breakfast-room p,
-.service-jewish-panel > p:not(.section-kicker),
+.service-jewish-panel > p,
 .service-info-rows p,
 .service-page-card p,
-.service-amenities-heading p:not(.section-kicker),
-.service-group-card p:not(.section-kicker) {
+.service-amenities-heading p,
+.service-group-card p {
   margin: clamp(18px, 2vw, 26px) 0 0;
   color: rgba(32, 36, 30, 0.68);
   font-size: clamp(1rem, 1.18vw, 1.12rem);
@@ -6069,7 +5988,6 @@ html[dir="rtl"] .slider-track {
   }
 
   .urban-botanical-page,
-  .urban-botanical-page .section-kicker,
   .urban-botanical-page h1,
   .urban-botanical-page h2,
   .urban-botanical-page h3,
@@ -6088,7 +6006,6 @@ html[dir="rtl"] .slider-track {
     margin-left: auto;
   }
 
-  .urban-botanical-page .section-kicker,
   .urban-botanical-page .btn,
   .urban-botanical-page .room-card__link {
     margin-right: auto;
@@ -6104,7 +6021,6 @@ html[dir="rtl"] .slider-track {
   }
 
   .urban-botanical-page .room-fact-row,
-  .urban-botanical-page .room-fact-row dt,
   .urban-botanical-page .room-fact-row dd {
     text-align: left;
   }
@@ -6208,16 +6124,6 @@ html[dir="rtl"] .slider-track {
     text-align: center;
   }
 
-  .home-page .hospitality-copy .section-kicker {
-    margin: 0 0 14px;
-    color: var(--green-botanical);
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    line-height: 1.3;
-    text-align: left;
-    text-transform: uppercase;
-  }
 }
 
 @media (max-width: 980px) {
@@ -6228,7 +6134,7 @@ html[dir="rtl"] .slider-track {
     .room-detail-hero__copy,
     .events-hero__copy,
     .service-page-hero__copy
-  ) > p:not(.section-kicker)::before {
+  ) > p::before {
     margin-right: auto;
     margin-left: auto;
   }
@@ -6292,21 +6198,10 @@ html[dir="rtl"] .slider-track {
     .room-detail-hero__copy,
     .events-hero__copy,
     .service-page-hero__copy
-  ) > p:not(.section-kicker)::before {
+  ) > p::before {
     width: min(220px, 48vw);
     margin: 18px auto 18px;
   }
-}
-
-.events-page .events-final-cta .section-kicker {
-  margin: 0 0 14px;
-  color: var(--green-botanical);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 1.3;
-  text-align: left;
-  text-transform: uppercase;
 }
 
 .events-page .events-final-cta {
