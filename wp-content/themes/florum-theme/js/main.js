@@ -53,6 +53,98 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (siteHeader) {
+    const headerBookingToggle = siteHeader.querySelector("[data-header-booking-toggle]");
+    const headerBookingPanel = siteHeader.querySelector("[data-header-booking-panel]");
+    const headerBookingClose = siteHeader.querySelector("[data-header-booking-close]");
+    const desktopBookingQuery = typeof window.matchMedia === "function"
+      ? window.matchMedia("(min-width: 981px)")
+      : { matches: true };
+
+    if (headerBookingToggle && headerBookingPanel) {
+      let headerBookingTransitionTimer;
+      let isHeaderBookingOpen = !headerBookingPanel.hasAttribute("hidden");
+
+      const setHeaderBookingOpen = (isOpen) => {
+        window.clearTimeout(headerBookingTransitionTimer);
+        isHeaderBookingOpen = isOpen;
+
+        if (isOpen) {
+          headerBookingPanel.removeAttribute("hidden");
+          headerBookingPanel.setAttribute("aria-hidden", "false");
+          headerBookingPanel.classList.remove("is-open", "is-closing", "is-ready");
+          headerBookingPanel.offsetHeight;
+
+          window.requestAnimationFrame(() => {
+            headerBookingPanel.classList.add("is-open");
+          });
+
+          headerBookingTransitionTimer = window.setTimeout(() => {
+            if (headerBookingPanel.classList.contains("is-open")) {
+              headerBookingPanel.classList.add("is-ready");
+            }
+          }, 320);
+        } else {
+          headerBookingPanel.classList.remove("is-open", "is-ready");
+          headerBookingPanel.classList.add("is-closing");
+          headerBookingPanel.setAttribute("aria-hidden", "true");
+
+          headerBookingTransitionTimer = window.setTimeout(() => {
+            headerBookingPanel.classList.remove("is-closing");
+            headerBookingPanel.setAttribute("hidden", "");
+          }, 280);
+        }
+
+        siteHeader.classList.toggle("is-booking-open", isOpen);
+        headerBookingToggle.setAttribute("aria-expanded", String(isOpen));
+      };
+
+      headerBookingToggle.addEventListener("click", (event) => {
+        if (!desktopBookingQuery.matches) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        setHeaderBookingOpen(!isHeaderBookingOpen);
+      });
+
+      headerBookingClose?.addEventListener("click", () => {
+        setHeaderBookingOpen(false);
+        headerBookingToggle.focus();
+      });
+
+      document.addEventListener("click", (event) => {
+        if (headerBookingPanel.hasAttribute("hidden") || siteHeader.contains(event.target)) {
+          return;
+        }
+
+        setHeaderBookingOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || headerBookingPanel.hasAttribute("hidden")) {
+          return;
+        }
+
+        setHeaderBookingOpen(false);
+        headerBookingToggle.focus();
+      });
+
+      const handleDesktopBookingChange = (event) => {
+        if (!event.matches) {
+          setHeaderBookingOpen(false);
+        }
+      };
+
+      if (typeof desktopBookingQuery.addEventListener === "function") {
+        desktopBookingQuery.addEventListener("change", handleDesktopBookingChange);
+      } else if (typeof desktopBookingQuery.addListener === "function") {
+        desktopBookingQuery.addListener(handleDesktopBookingChange);
+      }
+    }
+  }
+
   bookingDrawers.forEach((drawer) => {
     const toggle = drawer.querySelector("[data-booking-toggle]");
     const drawerId = drawer.getAttribute("id");
@@ -83,6 +175,52 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+  if (bookingDrawers.length > 0) {
+    let bookingOffsetTicking = false;
+
+    const syncBookingOffset = () => {
+      const headerBottom = siteHeader ? siteHeader.getBoundingClientRect().bottom : 0;
+      const offset = Math.max(0, Math.ceil(headerBottom));
+
+      bookingDrawers.forEach((drawer) => {
+        const panel = drawer.querySelector(".urban-booking-panel");
+        const panelHeight = panel ? Math.ceil(panel.getBoundingClientRect().height) : 0;
+
+        drawer.style.setProperty("--booking-drawer-top-offset", `${offset}px`);
+
+        if (panelHeight > 0) {
+          drawer.style.setProperty("--booking-panel-height", `${panelHeight}px`);
+        }
+      });
+
+      bookingOffsetTicking = false;
+    };
+
+    const requestBookingOffset = () => {
+      if (bookingOffsetTicking) {
+        return;
+      }
+
+      bookingOffsetTicking = true;
+      window.requestAnimationFrame(syncBookingOffset);
+    };
+
+    syncBookingOffset();
+    window.addEventListener("load", syncBookingOffset);
+    window.addEventListener("resize", requestBookingOffset);
+    window.addEventListener("scroll", requestBookingOffset, { passive: true });
+
+    if (siteHeader && "ResizeObserver" in window) {
+      const headerResizeObserver = new ResizeObserver(requestBookingOffset);
+      headerResizeObserver.observe(siteHeader);
+    }
+
+    if (siteHeader && "MutationObserver" in window) {
+      const headerMutationObserver = new MutationObserver(requestBookingOffset);
+      headerMutationObserver.observe(siteHeader, { attributes: true, attributeFilter: ["class", "style"] });
+    }
+  }
 
   window.requestAnimationFrame(() => {
     reveals.forEach((item) => item.classList.add("is-visible"));
@@ -850,28 +988,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const triggers = Array.from(stack.querySelectorAll("[data-arrival-trigger]"));
     let activeTarget = cards.find((card) => card.classList.contains("is-active"))?.getAttribute("data-arrival-card") || null;
 
-    const syncCardMaps = (target) => {
-      cards.forEach((card) => {
-        const frame = card.querySelector(".arrival-map-frame");
-
-        if (!frame) {
-          return;
-        }
-
-        const isActive = card.getAttribute("data-arrival-card") === target;
-        const mapSrc = frame.dataset.mapSrc;
-
-        if (isActive && mapSrc && frame.getAttribute("src") !== mapSrc) {
-          frame.setAttribute("src", mapSrc);
-          return;
-        }
-
-        if (!isActive && frame.hasAttribute("src")) {
-          frame.removeAttribute("src");
-        }
-      });
-    };
-
     const setActiveCard = (target) => {
       if (!target || target === activeTarget) {
         return;
@@ -893,18 +1009,14 @@ document.addEventListener("DOMContentLoaded", () => {
       triggers.forEach((trigger) => {
         trigger.setAttribute("aria-expanded", String(trigger.getAttribute("data-arrival-trigger") === target));
       });
-
-      window.requestAnimationFrame(() => {
-        syncCardMaps(target);
-      });
     };
-
-    if (activeTarget) {
-      syncCardMaps(activeTarget);
-    }
 
     cards.forEach((card) => {
       card.addEventListener("click", (event) => {
+        if (event.target.closest(".arrival-map-link")) {
+          return;
+        }
+
         event.preventDefault();
         const trigger = event.target.closest("[data-arrival-trigger]");
         const target = trigger?.getAttribute("data-arrival-trigger") || card.getAttribute("data-arrival-card");
