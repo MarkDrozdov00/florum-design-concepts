@@ -10,6 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const siteHeader = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const mainNav = document.querySelector(".main-nav");
+  const syncAdminBarOffset = () => {
+    if (window.innerWidth <= 980) {
+      document.documentElement.style.setProperty("--wp-admin-bar-offset", "0px");
+      return;
+    }
+
+    const adminBar = document.getElementById("wpadminbar");
+    const adminBarHeight = adminBar && window.getComputedStyle(adminBar).display !== "none"
+      ? Math.ceil(adminBar.getBoundingClientRect().height)
+      : 0;
+
+    document.documentElement.style.setProperty("--wp-admin-bar-offset", `${adminBarHeight}px`);
+  };
   const runWhenIdle = (callback) => {
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(callback, { timeout: 1800 });
@@ -18,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.setTimeout(callback, 160);
   };
+
+  syncAdminBarOffset();
+  window.addEventListener("load", syncAdminBarOffset);
+  window.addEventListener("resize", syncAdminBarOffset);
 
   if (siteHeader && menuToggle && mainNav) {
     const closeMenu = () => {
