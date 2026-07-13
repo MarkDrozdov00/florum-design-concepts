@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/it/camere/">Camere</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/it/home-italiano/">Home</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link is-current" href="/florum-design-concepts/it/camere/" aria-current="page">Camere</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/it/appartamenti/">Appartamenti</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop is-current-parent" href="/florum-design-concepts/it/camere/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu" aria-current="page">
+            <span>Camere</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Camere</h4>
-                <a href="/florum-design-concepts/it/camere/">
+                <a class="rooms-dropdown__item is-current" href="/florum-design-concepts/it/camere/" aria-current="page">
                   <span>Le nostre camere</span>
-                  <small>Camere classiche, studio e soggiorni in città</small>
+                  <small>Camere moderne per ogni tipo di soggiorno.</small>
                 </a>
-                <a href="/florum-design-concepts/it/appartamenti/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/it/appartamenti/">
                   <span>Appartamenti</span>
-                  <small>Comfort per soggiorni lunghi con servizi alberghieri</small>
+                  <small>Appartamenti completamente attrezzati per soggiorni prolungati.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Il tuo soggiorno</h4>
-                <p>Scopri camere, comfort da appartamento e vantaggi della prenotazione diretta per il tuo soggiorno a Vienna.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/it/business-3/">B2B</a>
-        <a href="/florum-design-concepts/it/eventi/">Eventi</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/it/servizi/">Servizi</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Servizi</h4>
-                <a href="/florum-design-concepts/it/servizi/">
-                  <span>I nostri servizi</span>
-                  <small>Colazione, reception, lobby bar ed extra</small>
-                </a>
-                <a href="/florum-design-concepts/it/offerta-kosher/">
-                  <span>Offerta Kosher</span>
-                  <small>Un supporto attento per soggiorni kosher</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Comfort in hotel</h4>
-                <p>Servizi pensati per rendere più semplici sia le visite brevi sia i soggiorni prolungati.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/it/servizi/">Servizi</a>
         <a href="/florum-design-concepts/it/posizione/">Posizione</a>
       </div>
 
@@ -101,162 +86,61 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/it/business-3/">B2B</a>
+        <a href="/florum-design-concepts/it/contatti/">Contatti</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Lingua</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Scegli lingua" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Lingua</h4>
-                <a href="/florum-design-concepts/rooms/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/zimmer/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/nomera/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Altro</h4>
-                <a href="/florum-design-concepts/it/camere/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/habitaciones/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/chadarim/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/rooms/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/zimmer/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/nomera/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/camere/" class="is-current" aria-current="page"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/habitaciones/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/chadarim/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/it/contatti/">Contatti</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Chiudi pannello prenotazione">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Arrivo</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Scegli data di arrivo">Seleziona data</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Partenza</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Scegli data di partenza">Seleziona data</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Persone e camera">
-            <option value="1">2 persone • 1 camera</option>
-            <option value="2">1 persona • 1 camera</option>
-            <option value="3">3 persone • 1 camera</option>
-            <option value="4">4 persone • 2 camere</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Verifica disponibilità          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page rooms-page">
-  <section class="rooms-hero">
+  <section class="rooms-hero internal-page-hero internal-page-hero--gallery">
     <div class="container rooms-hero__grid">
       <div class="rooms-hero__copy reveal">
         <h1>Camere all Hotel Florum</h1>
         <p>Scopri le camere Florum, con tonalità floreali come rosa tenue e verde salvia, pavimenti in legno naturale, arredi eleganti e letti box-spring ultra confortevoli.</p>
-        <a class="btn rooms-hero__cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
       </div>
       <div class="rooms-hero__media rooms-hero__gallery hospitality-fade-carousel reveal delay-1" data-fade-carousel aria-label="Galleria camere">
-                  <div class="hospitality-slide is-active-slide">
+                  <div class="hospitality-slide is-active-slide" style="--rooms-hero-focal-y: 68%;">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Deluxe Studio all Hotel Florum" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
           </div>
-                  <div class="hospitality-slide">
+                  <div class="hospitality-slide" style="--rooms-hero-focal-y: 58%;">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Panorama Studio all Hotel Florum" width="1200" height="800" loading="eager" decoding="async">
           </div>
-                  <div class="hospitality-slide">
+                  <div class="hospitality-slide" style="--rooms-hero-focal-y: 62%;">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp" alt="Camera singola all Hotel Florum" width="1200" height="800" loading="lazy" decoding="async">
           </div>
-                  <div class="hospitality-slide">
+                  <div class="hospitality-slide" style="--rooms-hero-focal-y: 62%;">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp" alt="Camera standard all Hotel Florum" width="1200" height="800" loading="lazy" decoding="async">
           </div>
-                  <div class="hospitality-slide">
+                  <div class="hospitality-slide" style="--rooms-hero-focal-y: 55%;">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Studio all Hotel Florum" width="1200" height="800" loading="lazy" decoding="async">
           </div>
-                  <div class="hospitality-slide">
+                  <div class="hospitality-slide" style="--rooms-hero-focal-y: 62%;">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp" alt="Camera superior all Hotel Florum" width="1200" height="800" loading="lazy" decoding="async">
           </div>
               </div>
-    </div>
-  </section>
-
-  <section class="section rooms-amenities-section">
-    <div class="container">
-      <div class="rooms-amenities-band rooms-amenities-band--overview reveal">
-        <div class="rooms-amenities-heading">
-          <h2>Dotazioni standard della camera</h2>
-        </div>
-        <div class="rooms-amenities-content">
-          <div class="rooms-amenities-group rooms-amenities-group--standard">
-            <ul class="rooms-standard-list rooms-standard-list--amenities">
-                              <li>Wi-Fi</li>
-                              <li>Letto box-spring con materasso premium</li>
-                              <li>Minibar</li>
-                              <li>Set caffe/te e bollitore</li>
-                              <li>TV a schermo piatto</li>
-                              <li>Aria condizionata / riscaldamento</li>
-                              <li>Rilevatore antincendio</li>
-                              <li>Cassaforte</li>
-                              <li>Pavimenti senza moquette</li>
-                              <li>Vasca da bagno</li>
-                              <li>Scrivania</li>
-                              <li>Asciugamani e biancheria</li>
-                              <li>Set completo di cortesia</li>
-                              <li>Asciugacapelli</li>
-                              <li>Pantofole</li>
-                              <li>Ferro da stiro su richiesta</li>
-                              <li>Accesso elettrico con chiave</li>
-                              <li>Accesso con chiave meccanica</li>
-                          </ul>
-          </div>
-          <div class="rooms-amenities-heading rooms-amenities-heading--hotel">
-            <h3>Servizi dell hotel</h3>
-          </div>
-          <div class="rooms-amenities-group rooms-hotel-amenities">
-            <ul class="rooms-standard-list rooms-standard-list--hotel">
-                              <li>Reception 24 ore</li>
-                              <li>Lobby bar aperto tutti i giorni</li>
-                              <li>Room service / lavanderia</li>
-                              <li>Animali ammessi</li>
-                          </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -264,111 +148,235 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <div class="container">
       <div class="section-heading reveal">
         <h2>Le nostre camere</h2>
+        <p class="rooms-overview-intro">Scopri la camera più adatta al tuo soggiorno.</p>
       </div>
       <div class="rooms-overview-grid">
-                  <article class="rooms-overview-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp" alt="Camera singola al Florum Hotel" width="1200" height="800" loading="eager" decoding="async">
+                  <article class="rooms-overview-card reveal" id="room-single-room" data-room-key="single-room" data-room-title="Camera singola" data-room-size="15 mq" data-room-capacity="1 ospite" data-room-description="Ideale per chi viaggia da solo, questa camera luminosa dispone di letto queen-size, TV a schermo piatto e minibar. Senza moquette e adatta a chi soffre di allergie, offre comfort e pulizia.">
+            <a class="rooms-overview-card__media" href="#room-single-room" data-room-preview-trigger aria-label="Scopri Camera singola">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp" alt="Camera singola al Florum Hotel" width="1200" height="800" loading="eager" decoding="async">
+            </a>
             <div class="rooms-overview-card__body">
-              <div>
-                <h3>Camera singola</h3>
+              <h3><a href="#room-single-room" data-room-preview-trigger>Camera singola</a></h3>
+              <div class="rooms-overview-card__footer-row">
                 <div class="rooms-overview-card__facts" aria-label="Dettagli Camera singola">
                   <span>15 mq</span>
                   <span>1 ospite</span>
                 </div>
-              </div>
-              <p>Ideale per chi viaggia da solo, questa camera luminosa dispone di letto queen-size, TV a schermo piatto e minibar. Senza moquette e adatta a chi soffre di allergie, offre comfort e pulizia.</p>
-              <div class="rooms-overview-card__actions">
-                <a class="rooms-read-link" href="/florum-design-concepts/it/camere/camera-singola/">Leggi di più</a>
-                <a class="btn rooms-book-link" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
+                <a class="rooms-explore-link" href="#room-single-room" data-room-preview-trigger>
+                  <span>Scopri la camera</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp" alt="Camera standard al Florum Hotel" width="1200" height="800" loading="eager" decoding="async">
+                  <article class="rooms-overview-card reveal" id="room-standard-room" data-room-key="standard-room" data-room-title="Camera standard" data-room-size="22 mq" data-room-capacity="2 ospiti" data-room-description="Perfetta per coppie o viaggiatori singoli, questa camera include letto queen-size, minibar e TV a schermo piatto per un soggiorno elegante.">
+            <a class="rooms-overview-card__media" href="#room-standard-room" data-room-preview-trigger aria-label="Scopri Camera standard">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp" alt="Camera standard al Florum Hotel" width="1200" height="800" loading="eager" decoding="async">
+            </a>
             <div class="rooms-overview-card__body">
-              <div>
-                <h3>Camera standard</h3>
+              <h3><a href="#room-standard-room" data-room-preview-trigger>Camera standard</a></h3>
+              <div class="rooms-overview-card__footer-row">
                 <div class="rooms-overview-card__facts" aria-label="Dettagli Camera standard">
                   <span>22 mq</span>
                   <span>2 ospiti</span>
                 </div>
-              </div>
-              <p>Perfetta per coppie o viaggiatori singoli, questa camera include letto queen-size, minibar e TV a schermo piatto per un soggiorno elegante.</p>
-              <div class="rooms-overview-card__actions">
-                <a class="rooms-read-link" href="/florum-design-concepts/it/camere/camera-standard/">Leggi di più</a>
-                <a class="btn rooms-book-link" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
+                <a class="rooms-explore-link" href="#room-standard-room" data-room-preview-trigger>
+                  <span>Scopri la camera</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp" alt="Camera superior al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="rooms-overview-card reveal" id="room-superior-room" data-room-key="superior-room" data-room-title="Camera superior" data-room-size="29 mq" data-room-capacity="2–3 ospiti" data-room-description="Ideale per piccoli gruppi, questa camera dispone di letto queen e divano letto, con comfort moderni in uno spazio accogliente.">
+            <a class="rooms-overview-card__media" href="#room-superior-room" data-room-preview-trigger aria-label="Scopri Camera superior">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp" alt="Camera superior al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </a>
             <div class="rooms-overview-card__body">
-              <div>
-                <h3>Camera superior</h3>
+              <h3><a href="#room-superior-room" data-room-preview-trigger>Camera superior</a></h3>
+              <div class="rooms-overview-card__footer-row">
                 <div class="rooms-overview-card__facts" aria-label="Dettagli Camera superior">
                   <span>29 mq</span>
                   <span>2–3 ospiti</span>
                 </div>
-              </div>
-              <p>Ideale per piccoli gruppi, questa camera dispone di letto queen e divano letto, con comfort moderni in uno spazio accogliente.</p>
-              <div class="rooms-overview-card__actions">
-                <a class="rooms-read-link" href="/florum-design-concepts/it/camere/camera-superior/">Leggi di più</a>
-                <a class="btn rooms-book-link" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
+                <a class="rooms-explore-link" href="#room-superior-room" data-room-preview-trigger>
+                  <span>Scopri la camera</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Studio al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="rooms-overview-card reveal" id="room-studio" data-room-key="studio" data-room-title="Studio" data-room-size="29 mq" data-room-capacity="2–3 ospiti" data-room-description="Pensato per soggiorni piu lunghi, questo studio include angolo cottura, macchina da caffe barista e area salotto accogliente. Perfetto come opzione long-stay o serviced apartment per visite prolungate anche aziendali.">
+            <a class="rooms-overview-card__media" href="#room-studio" data-room-preview-trigger aria-label="Scopri Studio">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Studio al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </a>
             <div class="rooms-overview-card__body">
-              <div>
-                <h3>Studio</h3>
+              <h3><a href="#room-studio" data-room-preview-trigger>Studio</a></h3>
+              <div class="rooms-overview-card__footer-row">
                 <div class="rooms-overview-card__facts" aria-label="Dettagli Studio">
                   <span>29 mq</span>
                   <span>2–3 ospiti</span>
                 </div>
-              </div>
-              <p>Pensato per soggiorni piu lunghi, questo studio include angolo cottura, macchina da caffe barista e area salotto accogliente. Perfetto come opzione long-stay o serviced apartment per visite prolungate anche aziendali.</p>
-              <div class="rooms-overview-card__actions">
-                <a class="rooms-read-link" href="/florum-design-concepts/it/camere/studio/">Leggi di più</a>
-                <a class="btn rooms-book-link" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
+                <a class="rooms-explore-link" href="#room-studio" data-room-preview-trigger>
+                  <span>Scopri la camera</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Studio deluxe al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="rooms-overview-card reveal" id="room-deluxe-studio" data-room-key="deluxe-studio" data-room-title="Studio deluxe" data-room-size="35 mq" data-room-capacity="4–5 ospiti" data-room-description="Questa suite spaziosa e lussuosa include letto queen, divano letto e zona cucina con dotazioni di alto livello. Perfetta per famiglie, funziona anche come opzione long-stay o serviced apartment per visite prolungate.">
+            <a class="rooms-overview-card__media" href="#room-deluxe-studio" data-room-preview-trigger aria-label="Scopri Studio deluxe">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Studio deluxe al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </a>
             <div class="rooms-overview-card__body">
-              <div>
-                <h3>Studio deluxe</h3>
+              <h3><a href="#room-deluxe-studio" data-room-preview-trigger>Studio deluxe</a></h3>
+              <div class="rooms-overview-card__footer-row">
                 <div class="rooms-overview-card__facts" aria-label="Dettagli Studio deluxe">
                   <span>35 mq</span>
                   <span>4–5 ospiti</span>
                 </div>
-              </div>
-              <p>Questa suite spaziosa e lussuosa include letto queen, divano letto e zona cucina con dotazioni di alto livello. Perfetta per famiglie, funziona anche come opzione long-stay o serviced apartment per visite prolungate.</p>
-              <div class="rooms-overview-card__actions">
-                <a class="rooms-read-link" href="/florum-design-concepts/it/camere/studio-deluxe/">Leggi di più</a>
-                <a class="btn rooms-book-link" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
+                <a class="rooms-explore-link" href="#room-deluxe-studio" data-room-preview-trigger>
+                  <span>Scopri la camera</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Panorama Studio al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="rooms-overview-card reveal" id="room-panorama-studio" data-room-key="panorama-studio" data-room-title="Panorama Studio" data-room-size="29 mq" data-room-capacity="2–3 ospiti" data-room-description="Perfetto per fughe romantiche, questo studio dispone di terrazza esclusiva con vista citta, angolo cottura completamente attrezzato e arredi eleganti.">
+            <a class="rooms-overview-card__media" href="#room-panorama-studio" data-room-preview-trigger aria-label="Scopri Panorama Studio">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Panorama Studio al Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </a>
             <div class="rooms-overview-card__body">
-              <div>
-                <h3>Panorama Studio</h3>
+              <h3><a href="#room-panorama-studio" data-room-preview-trigger>Panorama Studio</a></h3>
+              <div class="rooms-overview-card__footer-row">
                 <div class="rooms-overview-card__facts" aria-label="Dettagli Panorama Studio">
                   <span>29 mq</span>
                   <span>2–3 ospiti</span>
                 </div>
-              </div>
-              <p>Perfetto per fughe romantiche, questo studio dispone di terrazza esclusiva con vista citta, angolo cottura completamente attrezzato e arredi eleganti.</p>
-              <div class="rooms-overview-card__actions">
-                <a class="rooms-read-link" href="/florum-design-concepts/it/camere/panorama-studio/">Leggi di più</a>
-                <a class="btn rooms-book-link" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
+                <a class="rooms-explore-link" href="#room-panorama-studio" data-room-preview-trigger>
+                  <span>Scopri la camera</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
               </div>
+    </div>
+  </section>
+
+  <script type="application/json" data-room-preview-catalog>{"single-room":{"title":"Camera singola","description":"Ideale per chi viaggia da solo, questa camera luminosa dispone di letto queen-size, TV a schermo piatto e minibar. Senza moquette e adatta a chi soffre di allergie, offre comfort e pulizia.","facts":[{"label":"Ospiti","value":"1 persona"},{"label":"Dimensione","value":"13–16 m²"},{"label":"Vista","value":"Vista strada o cortile"},{"label":"Letto","value":"Letto largo 140 cm"}],"highlights":["Layout compatto per una persona","Camera adatta agli allergici","Pavimento senza moquette","Minibar e TV a schermo piatto"],"amenities":["Wi-Fi ad alta velocita","Letto box-spring con materasso premium","TV a schermo piatto","Minibar","Set caffe e te","Aria condizionata e riscaldamento","Cassaforte","Pavimento senza moquette","Set completo di cortesia","Asciugacapelli"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp","srcset":"","alt":"Camera singola al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/Single1-carousel.webp","srcset":"","alt":"Camera singola al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/Single2-carousel.webp","srcset":"","alt":"Camera singola al Florum Hotel"}]},"standard-room":{"title":"Camera standard","description":"Perfetta per coppie o viaggiatori singoli, questa camera include letto queen-size, minibar e TV a schermo piatto per un soggiorno elegante.","facts":[{"label":"Ospiti","value":"1–2 persone"},{"label":"Dimensione","value":"18–22 m²"},{"label":"Vista","value":"Vista strada o cortile"},{"label":"Letto","value":"Letto largo 160 cm"}],"highlights":["Letto largo 160 cm","18–22 m²","Minibar e set caffe/te","Vista strada o cortile"],"amenities":["Wi-Fi ad alta velocita","Letto box-spring con materasso premium","TV a schermo piatto","Minibar","Set caffe e te","Aria condizionata e riscaldamento","Cassaforte","Pavimento senza moquette","Set completo di cortesia","Asciugacapelli"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp","srcset":"","alt":"Camera standard al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris2-carousel.webp","srcset":"","alt":"Camera standard al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris3-carousel.webp","srcset":"","alt":"Camera standard al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris4-carousel.webp","srcset":"","alt":"Camera standard al Florum Hotel"}]},"superior-room":{"title":"Camera superior","description":"Ideale per piccoli gruppi, questa camera dispone di letto queen e divano letto, con comfort moderni in uno spazio accogliente.","facts":[{"label":"Ospiti","value":"1–3 persone"},{"label":"Dimensione","value":"24–28 m²"},{"label":"Vista","value":"Vista strada o cortile"},{"label":"Letto","value":"Letto largo 180 cm"},{"label":"Extra","value":"Divano letto"}],"highlights":["Divano letto","24–28 m²","Letto largo 180 cm","Vista strada o cortile"],"amenities":["Wi-Fi ad alta velocita","Letto box-spring con materasso premium","TV a schermo piatto","Minibar","Set caffe e te","Aria condizionata e riscaldamento","Cassaforte","Pavimento senza moquette","Set completo di cortesia","Asciugacapelli"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior2-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior3-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior4-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior5-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior6-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior7-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior8-carousel.webp","srcset":"","alt":"Camera superior al Florum Hotel"}]},"studio":{"title":"Studio","description":"Pensato per soggiorni piu lunghi, questo studio include angolo cottura, macchina da caffe barista e area salotto accogliente. Perfetto come opzione long-stay o serviced apartment per visite prolungate anche aziendali.","facts":[{"label":"Ospiti","value":"1–3 persone"},{"label":"Dimensione","value":"24–28 m²"},{"label":"Vista","value":"Vista strada o cortile"},{"label":"Letto","value":"Letto largo 180 cm"},{"label":"Extra","value":"Cucina, divano letto, accappatoio"}],"highlights":["Cucina","Divano letto","Accappatoio","Vista strada o cortile"],"amenities":["Wi-Fi ad alta velocita","Letto box-spring con materasso premium","TV a schermo piatto","Minibar","Set caffe e te","Aria condizionata e riscaldamento","Cassaforte","Pavimento senza moquette","Set completo di cortesia","Asciugacapelli"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp","srcset":"","alt":"Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia2-carousel.webp","srcset":"","alt":"Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp","srcset":"","alt":"Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia4-carousel.webp","srcset":"","alt":"Studio al Florum Hotel"}]},"deluxe-studio":{"title":"Studio deluxe","description":"Questa suite spaziosa e lussuosa include letto queen, divano letto e zona cucina con dotazioni di alto livello. Perfetta per famiglie, funziona anche come opzione long-stay o serviced apartment per visite prolungate.","facts":[{"label":"Ospiti","value":"1–4 persone"},{"label":"Dimensione","value":"30–35 m²"},{"label":"Vista","value":"Vista strada o cortile"},{"label":"Letto","value":"2 letti larghi 160 cm"},{"label":"Extra","value":"Cucina, accappatoio"}],"highlights":["Cucina","2 letti larghi 160 cm","Accappatoio","Vista strada o cortile"],"amenities":["Wi-Fi ad alta velocita","Letto box-spring con materasso premium","TV a schermo piatto","Minibar","Set caffe e te","Aria condizionata e riscaldamento","Cassaforte","Pavimento senza moquette","Set completo di cortesia","Asciugacapelli"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe2-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe3-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe4-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe5-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe6-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe7-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe8-carousel.webp","srcset":"","alt":"Studio deluxe al Florum Hotel"}]},"panorama-studio":{"title":"Panorama Studio","description":"Perfetto per fughe romantiche, questo studio dispone di terrazza esclusiva con vista citta, angolo cottura completamente attrezzato e arredi eleganti.","facts":[{"label":"Ospiti","value":"1–2 persone"},{"label":"Dimensione","value":"24–28 m²"},{"label":"Vista","value":"Vista panoramica sulla citta"},{"label":"Letto","value":"Letto largo 180 cm"},{"label":"Extra","value":"Cucina, accappatoio"}],"highlights":["Terrazza","Vista panoramica sulla citta","Cucina","Accappatoio"],"amenities":["Wi-Fi ad alta velocita","Letto box-spring con materasso premium","TV a schermo piatto","Minibar","Set caffe e te","Aria condizionata e riscaldamento","Cassaforte","Pavimento senza moquette","Set completo di cortesia","Asciugacapelli"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose2-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose3-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose4-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose6-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose7-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose8-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose9-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose10-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose11-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose12-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose13-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose14-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose15-carousel.webp","srcset":"","alt":"Panorama Studio al Florum Hotel"}]}}</script>
+
+  <dialog class="room-preview-modal" data-room-preview-modal aria-labelledby="room-preview-title">
+    <div class="room-preview-modal__shell">
+      <header class="room-preview-modal__header">
+        <button class="room-preview-modal__close" type="button" data-room-preview-close aria-label="Chiudi l’anteprima della camera">
+          <span aria-hidden="true">×</span>
+          <span>Chiudi</span>
+        </button>
+      </header>
+
+      <div class="room-preview-modal__status" data-room-preview-status role="status" aria-live="polite">
+        Caricamento dei dettagli della camera…      </div>
+
+      <div class="room-preview-modal__content" data-room-preview-content hidden>
+        <div class="room-preview-gallery" data-room-preview-gallery>
+          <div class="room-preview-gallery__track" data-room-preview-track></div>
+          <button class="room-preview-gallery__control room-preview-gallery__control--previous" type="button" data-room-preview-previous aria-label="Immagine precedente">←</button>
+          <button class="room-preview-gallery__control room-preview-gallery__control--next" type="button" data-room-preview-next aria-label="Immagine successiva">→</button>
+          <div class="room-preview-gallery__indicators" data-room-preview-indicators aria-label="Immagini della galleria della camera"></div>
+        </div>
+
+        <div class="room-preview-modal__details">
+          <div class="room-preview-modal__title-row">
+            <h2 id="room-preview-title" data-room-preview-title></h2>
+          </div>
+          <dl class="room-preview-modal__room-facts" data-room-preview-room-facts></dl>
+          <p class="room-preview-modal__description" data-room-preview-description></p>
+          <section class="room-preview-modal__feature-group">
+            <h3>Punti forti della camera</h3>
+            <ul class="room-preview-modal__check-list" data-room-preview-highlights></ul>
+          </section>
+          <section class="room-preview-modal__feature-group room-preview-modal__feature-group--amenities">
+            <h3>Dotazioni incluse</h3>
+            <button class="room-preview-modal__amenities-toggle" id="room-preview-amenities-trigger" type="button" data-room-preview-amenities-toggle data-label-open="Vedi tutti i servizi" data-label-close="Nascondi i servizi" aria-expanded="false" aria-controls="room-preview-amenities-panel">
+              <span data-room-preview-amenities-label>Vedi tutti i servizi</span>
+              <span class="room-preview-modal__amenities-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="room-preview-modal__amenities-panel" id="room-preview-amenities-panel" role="region" aria-labelledby="room-preview-amenities-trigger" data-room-preview-amenities-panel hidden>
+              <ul class="room-preview-modal__check-list" data-room-preview-included-amenities></ul>
+            </div>
+          </section>
+          <div class="room-preview-modal__divider" aria-hidden="true"></div>
+          <div class="room-preview-modal__actions">
+            <a class="btn room-preview-modal__booking" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Verifica disponibilità</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="room-image-lightbox" data-room-image-lightbox role="dialog" aria-modal="true" aria-labelledby="room-image-lightbox-title" data-open-label="Apri immagine a schermo intero">
+    <h2 class="screen-reader-text" id="room-image-lightbox-title">Galleria camera a schermo intero</h2>
+    <div class="room-image-lightbox__stage" data-room-image-lightbox-stage>
+      <img class="room-image-lightbox__image" data-room-image-lightbox-image alt="">
+    </div>
+    <button class="room-image-lightbox__close" type="button" data-room-image-lightbox-close aria-label="Chiudi immagine a schermo intero">×</button>
+    <button class="room-image-lightbox__control room-image-lightbox__control--previous" type="button" data-room-image-lightbox-previous aria-label="Immagine precedente">←</button>
+    <button class="room-image-lightbox__control room-image-lightbox__control--next" type="button" data-room-image-lightbox-next aria-label="Immagine successiva">→</button>
+    <p class="room-image-lightbox__counter" data-room-image-lightbox-counter aria-live="polite"></p>
+  </dialog>
+
+  <section class="section rooms-amenities-section">
+    <div class="container">
+      <div class="rooms-amenities-band rooms-amenities-band--overview rooms-amenities-accordion mobile-list-accordion reveal" data-mobile-list-accordion>
+        <div class="rooms-amenities-heading rooms-amenities-heading--desktop">
+          <h2 class="type-section-heading">Cosa è incluso di serie in tutte le nostre camere?</h2>
+        </div>
+        <h2 class="rooms-amenities-accordion__heading">
+          <button class="rooms-amenities-accordion__trigger" id="rooms-amenities-trigger" type="button" aria-expanded="false" aria-controls="rooms-amenities-panel" data-mobile-list-trigger>
+            <span class="rooms-amenities-accordion__title">Cosa è incluso di serie in tutte le nostre camere?</span>
+            <span class="rooms-amenities-accordion__chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="rooms-amenities-accordion__panel" id="rooms-amenities-panel" role="region" aria-labelledby="rooms-amenities-trigger" data-mobile-list-panel hidden>
+        <div class="rooms-amenities-content">
+          <ul class="rooms-standard-editorial__list" aria-label="Dotazioni standard della camera">
+      <li>Wi-Fi</li>
+      <li>Letto box-spring con materasso premium</li>
+      <li>Minibar</li>
+      <li>Set caffe/te e bollitore</li>
+      <li>TV a schermo piatto</li>
+      <li>Aria condizionata / riscaldamento</li>
+      <li>Rilevatore antincendio</li>
+      <li>Cassaforte</li>
+      <li>Pavimenti senza moquette</li>
+      <li>Vasca da bagno</li>
+      <li>Scrivania</li>
+      <li>Asciugamani e biancheria</li>
+      <li>Set completo di cortesia</li>
+      <li>Asciugacapelli</li>
+      <li>Pantofole</li>
+      <li>Ferro da stiro su richiesta</li>
+      <li>Accesso con chiave elettronica e meccanica</li>
+  </ul>
+          <div class="rooms-amenities-divider" aria-hidden="true"></div>
+          <div class="rooms-amenities-heading rooms-amenities-heading--hotel">
+            <h3 class="subsection-heading">Servizi dell hotel</h3>
+          </div>
+          <ul class="rooms-standard-editorial__list rooms-standard-editorial__list--hotel-band" aria-label="Servizi dell hotel">
+      <li>Reception 24 ore</li>
+      <li>Lobby bar aperto tutti i giorni</li>
+      <li>Room service / lavanderia</li>
+      <li>Animali ammessi</li>
+  </ul>
+          <div class="rooms-amenities-services-cta">
+            <a class="rooms-amenities-services-link" href="/florum-design-concepts/it/servizi/">
+              <span>Scopri di più sui nostri servizi</span>
+              <span class="rooms-amenities-services-link__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -430,12 +438,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/it/termini-condizioni/">Termini e Condizioni</a>
       <a href="/florum-design-concepts/it/contatti/">Contatti</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contatta Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

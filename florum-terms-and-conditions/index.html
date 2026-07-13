@@ -11,6 +11,7 @@
 <link rel="alternate" href="/florum-design-concepts/he/tnaim-ve-hagbalot/" hreflang="he">
 <link rel="alternate" href="/florum-design-concepts/it/termini-condizioni/" hreflang="it">
 <link rel="alternate" href="/florum-design-concepts/es/terminos-condiciones/" hreflang="es">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/florum-design-concepts/wp-json/oembed/1.0/embed?url=%2Fflorum-terms-and-conditions%2F&amp;lang=en">
 <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/florum-design-concepts/wp-json/oembed/1.0/embed?url=%2Fflorum-terms-and-conditions%2F&amp;format=xml&amp;lang=en">
@@ -34,14 +35,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/florum-design-concepts/wp-json/wp/v2/pages/24"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 <link rel="canonical" href="/florum-design-concepts/florum-terms-and-conditions/">
 <link rel="shortlink" href="/florum-design-concepts/?p=24">
 </head>
 <body class="wp-singular page-template page-template-page-terms-and-conditions page-template-page-terms-and-conditions-php page page-id-24 wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -57,52 +61,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/rooms/">Rooms</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/">Home</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/rooms/">Rooms</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/serviced-apartments/">Serviced Apartments</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/rooms/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Rooms</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Rooms</h4>
-                <a href="/florum-design-concepts/rooms/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/rooms/">
                   <span>Our Rooms</span>
-                  <small>Classic rooms, studios, and city stays</small>
+                  <small>Modern rooms for every type of stay.</small>
                 </a>
-                <a href="/florum-design-concepts/serviced-apartments/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/serviced-apartments/">
                   <span>Serviced Apartments</span>
-                  <small>Long-stay comfort with hotel services</small>
+                  <small>Fully equipped apartments for extended stays.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Stay Your Way</h4>
-                <p>Compare room types, apartment-style amenities, and direct booking options for your Vienna stay.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/business/">B2B</a>
-        <a href="/florum-design-concepts/events/">Events</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/service/">Service</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Services</h4>
-                <a href="/florum-design-concepts/service/">
-                  <span>Our Services</span>
-                  <small>Breakfast, reception, lobby bar, and extras</small>
-                </a>
-                <a href="/florum-design-concepts/service-kosher/">
-                  <span>Kosher Service</span>
-                  <small>Thoughtful support for kosher stays</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Hotel Comfort</h4>
-                <p>Find practical services designed to make short visits and longer stays easier.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/service/">Service</a>
         <a href="/florum-design-concepts/location/">Location</a>
       </div>
 
@@ -111,94 +96,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/business/">B2B</a>
+        <a href="/florum-design-concepts/contact/">Contact</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Language</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Choose language" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Language</h4>
-                <a href="/florum-design-concepts/florum-terms-and-conditions/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/agb/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/pravila-i-usloviya/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>More</h4>
-                <a href="/florum-design-concepts/it/termini-condizioni/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/terminos-condiciones/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/tnaim-ve-hagbalot/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/florum-terms-and-conditions/" class="is-current" aria-current="page"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/agb/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/pravila-i-usloviya/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/termini-condizioni/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/terminos-condiciones/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/tnaim-ve-hagbalot/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/contact/">Contact</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Close booking panel">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Arrival</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Choose arrival date">Select date</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Departure</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Choose departure date">Select date</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Persons and room">
-            <option value="1">2 Persons • 1 Room</option>
-            <option value="2">1 Person • 1 Room</option>
-            <option value="3">3 Persons • 1 Room</option>
-            <option value="4">4 Persons • 2 Rooms</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Check Availability          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page legal-page">
-  <section class="inner-page-hero legal-hero">
+  <section class="inner-page-hero legal-hero internal-page-hero">
     <div class="container inner-page-hero__grid legal-hero__grid">
       <div class="inner-page-hero__copy reveal">
-        <h2>Terms &amp; Conditions</h2>
+        <h1>Terms &amp; Conditions</h1>
         <p>General terms and conditions for Hotel Florum stays.</p>
       </div>
       <div class="inner-page-hero__media legal-hero__media reveal delay-1" aria-hidden="true">
@@ -209,40 +139,60 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   <section class="section legal-section">
     <div class="container legal-layout">
-      <article class="legal-card legal-card--wide legal-document reveal">
-                                                        <h2 class="legal-document__title">General Terms and Conditions</h2>
-                                                            <h3>Intelligence Lucrative Cooperation ILC GmbH</h3>
-                                                            <h3>Scope of Application</h3>
-                                                            <p>These General Terms and Conditions (hereinafter: Terms and Conditions) apply to all contracts concluded by Intelligence Lucrative Cooperation ILC GmbH in relation to an accommodation business operated by it. Deviations from these Terms and Conditions are binding only if they have been agreed in writing and acknowledged by Intelligence Lucrative Cooperation ILC GmbH.<br>
+      <article class="legal-card legal-card--wide legal-document privacy-document reveal">
+                              <section class="privacy-document__section">
+                                                <h2 class="legal-document__title">General Terms and Conditions</h2>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH</p>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Scope of Application</h3>
+                              
+                              <p>These General Terms and Conditions (hereinafter: Terms and Conditions) apply to all contracts concluded by Intelligence Lucrative Cooperation ILC GmbH in relation to an accommodation business operated by it. Deviations from these Terms and Conditions are binding only if they have been agreed in writing and acknowledged by Intelligence Lucrative Cooperation ILC GmbH.<br>
 A contract with Intelligence Lucrative Cooperation ILC GmbH is concluded exclusively on the basis of these Terms and Conditions. Any terms and conditions of the contracting party do not apply unless Intelligence Lucrative Cooperation ILC GmbH has expressly agreed to them in writing.<br>
 Should any provision of these Terms and Conditions be invalid for any reason, the validity of the remaining provisions remains unaffected. In the event of regulatory gaps, the relevant statutory provisions apply.<br>
 The version of the Terms and Conditions valid at the time the contract is concluded is decisive.</p>
-                                                            <h3>Definitions</h3>
-                                                            <p>Accommodation provider: An accommodation business (natural or legal person) of Intelligence Lucrative Cooperation ILC GmbH that accommodates guests for payment.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Definitions</h3>
+                              
+                              <p>Accommodation provider: An accommodation business (natural or legal person) of Intelligence Lucrative Cooperation ILC GmbH that accommodates guests for payment.<br>
 Guest: A natural person who uses accommodation. The guest is usually also the contracting party. Persons travelling with the contracting party (family members, friends, etc.) are also deemed guests.<br>
 Contracting party: A natural or legal person who concludes an accommodation contract as a guest or for a guest.<br>
 Entrepreneur or consumer: These terms are to be understood within the meaning of the Austrian Consumer Protection Act.<br>
 Contract: The agreement concluded between Intelligence Lucrative Cooperation ILC GmbH and the contracting party concerning accommodation or another service.</p>
-                                                            <h3>Conclusion of Contract and Deposits</h3>
-                                                            <p>A contract is deemed concluded when Intelligence Lucrative Cooperation ILC GmbH accepts the contracting party’s room reservation.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Conclusion of Contract and Deposits</h3>
+                              
+                              <p>A contract is deemed concluded when Intelligence Lucrative Cooperation ILC GmbH accepts the contracting party’s room reservation.<br>
 Intelligence Lucrative Cooperation ILC GmbH is entitled to conclude a contract subject to the condition that the contracting party pays a deposit. In such a case, Intelligence Lucrative Cooperation ILC GmbH will inform the contracting party of the deposit and its amount before accepting the order. The contract is concluded only if the contracting party agrees in writing to pay the deposit.<br>
 Depending on the agreement, the contracting party may be obliged to pay a deposit 30 days before the accommodation begins, with the amount received in an account of Intelligence Lucrative Cooperation ILC GmbH. Any costs for transferring the deposit, including bank charges and fees, are borne by the contracting party. For transfers by credit or debit card, the respective terms of the card companies apply.<br>
 A deposit paid is considered a partial payment toward the agreed fee.</p>
-                                                            <h3>Room Availability, Arrival and Departure</h3>
-                                                            <p>The contracting party has the right to occupy the booked rooms from 4:00 p.m. on the agreed day of arrival.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Room Availability, Arrival and Departure</h3>
+                              
+                              <p>The contracting party has the right to occupy the booked rooms from 4:00 p.m. on the agreed day of arrival.<br>
 Intelligence Lucrative Cooperation ILC GmbH reserves the right to agree an earlier availability time with the relevant contracting party in exceptional cases. The contracting party has no entitlement to earlier availability.<br>
 If a room is first occupied before 6:00 a.m., the preceding night counts as the first overnight stay.<br>
 The booked rooms must be vacated by the contracting party by 11:00 a.m. on the day of departure. If the contracting party does not vacate the room on time, Intelligence Lucrative Cooperation ILC GmbH has the right to charge the contracting party for an additional day and to claim any further damages incurred.</p>
-                                                            <h3>Withdrawal from the Contract by Intelligence Lucrative Cooperation ILC GmbH</h3>
-                                                            <p>If no deposit has been paid and the hotel guest does not appear on the agreed day of arrival by 6:00 p.m. at the latest, without notice and without giving reasons, this constitutes grounds for withdrawal from the contract. This ground for withdrawal applies only if no later arrival time than 6:00 p.m. was expressly agreed in the contract.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Withdrawal from the Contract by Intelligence Lucrative Cooperation ILC GmbH</h3>
+                              
+                              <p>If no deposit has been paid and the hotel guest does not appear on the agreed day of arrival by 6:00 p.m. at the latest, without notice and without giving reasons, this constitutes grounds for withdrawal from the contract. This ground for withdrawal applies only if no later arrival time than 6:00 p.m. was expressly agreed in the contract.<br>
 Intelligence Lucrative Cooperation ILC GmbH may withdraw from the contract with immediate effect if a deposit (see Sections 3.2 and 3.3) is not paid on time and in the agreed amount.<br>
 If the contracting party has paid a deposit, the rooms remain reserved until 11:00 a.m. on the day following the agreed day of arrival. In the case of deposits covering, for example, more than four days, the accommodation obligation ends at 6:00 p.m. on the fourth day, with the day of arrival counted as the first day, unless the guest announces a later arrival date.<br>
 If objectively justified reasons exist, Intelligence Lucrative Cooperation ILC GmbH may withdraw from the contract with immediate effect, for example:<br>
 force majeure or other circumstances not attributable to Intelligence Lucrative Cooperation ILC GmbH that make performance of the contract impossible;<br>
 breaches of these Terms and Conditions;<br>
 breaches of the house rules of the relevant accommodation provider.</p>
-                                                            <h3>Withdrawal by the Contracting Party, Cancellation Fees and Exceptional Circumstances</h3>
-                                                            <p>The accommodation contract may be terminated by unilateral declaration of the contracting party without payment of a cancellation fee no later than three months before the agreed day of arrival of the guest.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Withdrawal by the Contracting Party, Cancellation Fees and Exceptional Circumstances</h3>
+                              
+                              <p>The accommodation contract may be terminated by unilateral declaration of the contracting party without payment of a cancellation fee no later than three months before the agreed day of arrival of the guest.<br>
 Outside the period specified in Section 6.1, and if the rooms booked by the contracting party cannot be rented elsewhere, withdrawal from the contract is possible, unless otherwise agreed, only upon payment of the following cancellation fees:<br>
 For withdrawal from three months to four weeks before the day of arrival: 20% of the fee for the entire booking period.<br>
 For withdrawal from four weeks to one week before the day of arrival: 50% of the fee for the entire booking period.<br>
@@ -250,64 +200,98 @@ For withdrawal from one week to one day before the day of arrival: 90% of the fe
 For withdrawal on the day of arrival: 100% of the fee for the entire booking period.<br>
 Without notice of withdrawal (simple non-appearance on the day of arrival): 100% of the fee for the entire booking period.<br>
 If the contracting party does not appear on the agreed day of arrival due to unforeseeable, extraordinary circumstances of force majeure (flooding, extreme snowfall, natural disasters, etc.), the contractual fee is not payable by the contracting party or must be refunded by Intelligence Lucrative Cooperation ILC GmbH within 14 days after written notification by the contracting party of the extraordinary circumstance.</p>
-                                                            <h3>Provision of Substitute Accommodation</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH may provide the contracting party or guests with adequate substitute accommodation if this is reasonable for the contracting party, especially if the deviation is minor and objectively justified.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Provision of Substitute Accommodation</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH may provide the contracting party or guests with adequate substitute accommodation if this is reasonable for the contracting party, especially if the deviation is minor and objectively justified.<br>
 An objective justification exists, for example, if the booked room or rooms have become unusable or if other important operational measures require such action.<br>
 Any additional expenses for substitute accommodation are borne by Intelligence Lucrative Cooperation ILC GmbH.</p>
-                                                            <h3>Rights of the Contracting Party</h3>
-                                                            <p>By concluding an accommodation contract, the contracting party acquires the right to the usual use of the rented rooms, the facilities of the accommodation business that are usually accessible to guests without special conditions, and the usual service.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Rights of the Contracting Party</h3>
+                              
+                              <p>By concluding an accommodation contract, the contracting party acquires the right to the usual use of the rented rooms, the facilities of the accommodation business that are usually accessible to guests without special conditions, and the usual service.<br>
 The contracting party must exercise these rights in accordance with any hotel guidelines or house rules.</p>
-                                                            <p>Obligations of the Contracting Party: Payment, Default Interest and Proper Room Use</p>
-                                                            <p>The contracting party is obliged to pay any agreed deposit and the agreed fee plus statutory value added tax on time and in accordance with the agreement.<br>
+                              <p>Obligations of the Contracting Party: Payment, Default Interest and Proper Room Use</p>
+                              <p>The contracting party is obliged to pay any agreed deposit and the agreed fee plus statutory value added tax on time and in accordance with the agreement.<br>
 In the event of default in payment, Intelligence Lucrative Cooperation ILC GmbH is entitled to charge default interest in the amount permitted for consumers or entrepreneurs. The assertion of further damage caused by default remains expressly reserved.<br>
 Intelligence Lucrative Cooperation ILC GmbH is not obliged to accept foreign currencies.<br>
 If Intelligence Lucrative Cooperation ILC GmbH accepts foreign currencies, these are accepted as payment where possible at the daily exchange rate. If Intelligence Lucrative Cooperation ILC GmbH accepts foreign currencies or cashless payment methods, the contracting party bears all related costs, such as inquiries with credit card companies.<br>
 The contracting party is liable to Intelligence Lucrative Cooperation ILC GmbH for any damage caused by the contracting party, the guest, or other persons who receive services from Intelligence Lucrative Cooperation ILC GmbH with the knowledge or will of the contracting party.<br>
 The booked rooms may be used by the contracting party exclusively for accommodation purposes. If use for another purpose is planned, written consent must be obtained from Intelligence Lucrative Cooperation ILC GmbH in good time, before the day of arrival. Otherwise, Intelligence Lucrative Cooperation ILC GmbH reserves the right to withdraw from the contract with immediate effect.</p>
-                                                            <h3>Rights of the Accommodation Provider and Intelligence Lucrative Cooperation ILC GmbH</h3>
-                                                            <p>If the contracting party refuses to pay the agreed fee or is in arrears, the statutory right of retention pursuant to Section 970c of the Austrian Civil Code and the statutory lien pursuant to Section 1101 of the Austrian Civil Code apply to the items brought in by the contracting party or guest. This right of retention or lien also secures claims arising from the accommodation contract, in particular for meals, other expenses incurred for the contracting party, and any compensation claims of any kind.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Rights of the Accommodation Provider and Intelligence Lucrative Cooperation ILC GmbH</h3>
+                              
+                              <p>If the contracting party refuses to pay the agreed fee or is in arrears, the statutory right of retention pursuant to Section 970c of the Austrian Civil Code and the statutory lien pursuant to Section 1101 of the Austrian Civil Code apply to the items brought in by the contracting party or guest. This right of retention or lien also secures claims arising from the accommodation contract, in particular for meals, other expenses incurred for the contracting party, and any compensation claims of any kind.<br>
 Services requested by the contracting party at unusual times of day (after 10:00 p.m. and before 6:00 a.m.) may be refused for operational reasons. If such services are provided, an additional special fee specified in the house rules or room notice may be charged to the contracting party.</p>
-                                                            <h3>Obligations of the Accommodation Provider and Intelligence Lucrative Cooperation ILC GmbH</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH is obliged to provide the agreed services to a standard corresponding to its classification.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Obligations of the Accommodation Provider and Intelligence Lucrative Cooperation ILC GmbH</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH is obliged to provide the agreed services to a standard corresponding to its classification.<br>
 Special services that are subject to separate pricing and are not included in the accommodation fee include, by way of example:<br>
 special accommodation services that may be charged separately, such as the provision of a sauna, indoor pool, swimming pool, solarium, shuttle service or similar services;<br>
 the provision of extra beds or children’s beds, for which a separate price is charged.</p>
-                                                            <h3>Liability for Items Brought In</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH is liable pursuant to Sections 970 et seq. of the Austrian Civil Code for items brought in by the contracting party. This liability applies only if the items have been handed over to the accommodation provider or to persons authorised by the accommodation provider, or brought to a place instructed or designated by them. Unless the accommodation provider can prove otherwise, the accommodation provider is liable for its own fault or the fault of its people and of persons entering and leaving. Pursuant to Section 970 paragraph 1 of the Austrian Civil Code, liability is limited to the amount set out in the Federal Act of 16 November 1921 on the Liability of Innkeepers and Other Entrepreneurs, as amended, currently EUR 1,100.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Liability for Items Brought In</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH is liable pursuant to Sections 970 et seq. of the Austrian Civil Code for items brought in by the contracting party. This liability applies only if the items have been handed over to the accommodation provider or to persons authorised by the accommodation provider, or brought to a place instructed or designated by them. Unless the accommodation provider can prove otherwise, the accommodation provider is liable for its own fault or the fault of its people and of persons entering and leaving. Pursuant to Section 970 paragraph 1 of the Austrian Civil Code, liability is limited to the amount set out in the Federal Act of 16 November 1921 on the Liability of Innkeepers and Other Entrepreneurs, as amended, currently EUR 1,100.<br>
 If the contracting party or guest does not immediately comply with a request by an accommodation provider, or a corresponding notice in the room, to deposit items or valuables in a special place of safekeeping, Intelligence Lucrative Cooperation ILC GmbH is released from any liability.<br>
 The amount of any liability of Intelligence Lucrative Cooperation ILC GmbH is limited to the insured sum under the liability insurance of the respective accommodation provider. Fault on the part of the contracting party or guest must be taken into account.<br>
 Liability of Intelligence Lucrative Cooperation ILC GmbH for slight negligence is excluded. If the contracting party is an entrepreneur, liability for gross negligence is also excluded. In this case, the contracting party bears the burden of proof for the existence of fault. Consequential or indirect damages and lost profits are not compensated.<br>
 For valuables, money and securities, Intelligence Lucrative Cooperation ILC GmbH is liable pursuant to Section 970a of the Austrian Civil Code only up to the current amount of EUR 550. Intelligence Lucrative Cooperation ILC GmbH is liable for damage exceeding this amount only if one of its accommodation providers accepted these items for safekeeping with knowledge of their nature, or if the damage was caused by Intelligence Lucrative Cooperation ILC GmbH itself, an accommodation provider, or one of its people. The limitation of liability under Section 13 of these Terms and Conditions applies accordingly.<br>
 Intelligence Lucrative Cooperation ILC GmbH may refuse to keep valuables, money and securities if they are substantially more valuable than items usually deposited by guests of the relevant accommodation business.<br>
 In every case of accepted safekeeping, liability is excluded if the contracting party or guest does not report the damage to Intelligence Lucrative Cooperation ILC GmbH immediately after becoming aware of it. In addition, these claims must be asserted in court within three years from knowledge or possible knowledge by the contracting party or guest; otherwise the right expires.</p>
-                                                            <h3>Limitations of Liability</h3>
-                                                            <p>If the contracting party is a consumer, liability of Intelligence Lucrative Cooperation ILC GmbH for slight negligence, except for personal injury, is excluded.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Limitations of Liability</h3>
+                              
+                              <p>If the contracting party is a consumer, liability of Intelligence Lucrative Cooperation ILC GmbH for slight negligence, except for personal injury, is excluded.<br>
 If the contracting party is an entrepreneur, liability of Intelligence Lucrative Cooperation ILC GmbH for slight and gross negligence is excluded. In this case, the contracting party bears the burden of proof for the existence of fault. Consequential damages, immaterial damages or indirect damages and lost profits are not compensated. In every case, the damage to be compensated is limited to the reliance interest.<br>
 Wake-up calls are carried out by the respective accommodation providers with the greatest care. Claims for damages, except in cases of gross negligence or intent, are excluded.</p>
-                                                            <h3>Pets</h3>
-                                                            <p>Animals may be brought into the accommodation business only with the prior consent of Intelligence Lucrative Cooperation ILC GmbH and, where applicable, against a special fee.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Pets</h3>
+                              
+                              <p>Animals may be brought into the accommodation business only with the prior consent of Intelligence Lucrative Cooperation ILC GmbH and, where applicable, against a special fee.<br>
 The contracting party who brings an animal is obliged to properly keep or supervise the animal during the stay, or to have it kept or supervised by suitable third parties at the contracting party’s expense.<br>
 The contracting party or guest bringing an animal must have appropriate animal liability insurance or private liability insurance that also covers possible damage caused by animals. Proof of such insurance must be provided upon request by Intelligence Lucrative Cooperation ILC GmbH or its accommodation providers.<br>
 The contracting party or the contracting party’s insurer is jointly and severally liable to Intelligence Lucrative Cooperation ILC GmbH for damage caused by animals brought in. The damage also includes compensation that Intelligence Lucrative Cooperation ILC GmbH or its accommodation providers must provide to third parties.<br>
 Animals are not permitted in social rooms or restaurant areas.</p>
-                                                            <h3>Extension of Accommodation</h3>
-                                                            <p>The contracting party has no entitlement to an extension of the stay. If the contracting party announces a wish to extend the stay in good time, Intelligence Lucrative Cooperation ILC GmbH may agree to extend the accommodation contract. Intelligence Lucrative Cooperation ILC GmbH has no obligation to do so.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Extension of Accommodation</h3>
+                              
+                              <p>The contracting party has no entitlement to an extension of the stay. If the contracting party announces a wish to extend the stay in good time, Intelligence Lucrative Cooperation ILC GmbH may agree to extend the accommodation contract. Intelligence Lucrative Cooperation ILC GmbH has no obligation to do so.<br>
 If the contracting party cannot leave the accommodation business on the day of departure because all departure options are blocked or unusable due to unforeseeable extraordinary circumstances (for example extreme snowfall or flooding), the accommodation contract is automatically extended for the duration of the impossibility of departure. A reduction of the fee for this period is possible only if the contracting party cannot fully use the offered services of the accommodation business due to the extraordinary weather conditions. Intelligence Lucrative Cooperation ILC GmbH is entitled to charge at least the fee usually charged in the low season.</p>
-                                                            <h3>Data Protection</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH complies with the data protection provisions (GDPR, Austrian Data Protection Act, Telecommunications Act) as amended. Personal data is collected, used and disclosed only where this is permitted by law or where the contracting party consents to data collection.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Data Protection</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH complies with the data protection provisions (GDPR, Austrian Data Protection Act, Telecommunications Act) as amended. Personal data is collected, used and disclosed only where this is permitted by law or where the contracting party consents to data collection.<br>
 The privacy policy of Intelligence Lucrative Cooperation ILC GmbH is available at <a href="https://florum-hotels.com/privacy-policy/" rel="nofollow">https://florum-hotels.com/privacy-policy/</a></p>
-                                                            <h3>Place of Performance, Place of Jurisdiction and Applicable Law</h3>
-                                                            <p>The place of performance is the place where the respective accommodation provider is located.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Place of Performance, Place of Jurisdiction and Applicable Law</h3>
+                              
+                              <p>The place of performance is the place where the respective accommodation provider is located.<br>
 This contract is governed by Austrian formal and substantive law, excluding the conflict-of-law rules of private international law (in particular the Austrian Private International Law Act and the Rome Convention) and excluding the UN Convention on Contracts for the International Sale of Goods.<br>
 For all disputes arising in connection with a contractual relationship in transactions between entrepreneurs, the court with subject-matter jurisdiction for 1230 Vienna has exclusive local jurisdiction. Intelligence Lucrative Cooperation ILC GmbH is also entitled to assert its rights before any other court with local and subject-matter jurisdiction. Mandatory jurisdictions in consumer matters remain unaffected.</p>
-                                                            <p>Final Provisions: Deadlines and Set-Off</p>
-                                                            <p>Unless the above provisions state otherwise, a deadline begins when the document ordering the deadline is served on the contracting party who must observe the deadline.<br>
+                              <p>Final Provisions: Deadlines and Set-Off</p>
+                              <p>Unless the above provisions state otherwise, a deadline begins when the document ordering the deadline is served on the contracting party who must observe the deadline.<br>
 When calculating a deadline determined by days, the day on which the time or event occurs from which the beginning of the deadline is calculated is not counted.<br>
 Deadlines determined by weeks or months refer to the day of the week or month that corresponds by name or number to the day from which the deadline is to be counted. If that day is missing in the month, the last day of that month is decisive.<br>
 Declarations must be received by the other contracting party on the last day of the deadline by 24:00.<br>
 Intelligence Lucrative Cooperation ILC GmbH is entitled to set off its own claims against claims of the contracting party. The contracting party is not entitled to set off its own claims against claims of Intelligence Lucrative Cooperation ILC GmbH unless Intelligence Lucrative Cooperation ILC GmbH is insolvent or the contracting party’s claim has been legally established by a court or acknowledged by Intelligence Lucrative Cooperation ILC GmbH.</p>
-                                                            <h3>Version November 2019</h3>
-                                    </article>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Version November 2019</h3>
+                              
+                          </section>
+                        </article>
     </div>
   </section>
 </main>
@@ -324,12 +308,25 @@ Intelligence Lucrative Cooperation ILC GmbH is entitled to set off its own claim
       <a href="/florum-design-concepts/florum-terms-and-conditions/">Terms &amp; Conditions</a>
       <a href="/florum-design-concepts/contact/">Contact</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contact Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

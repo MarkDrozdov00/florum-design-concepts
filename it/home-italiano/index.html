@@ -12,6 +12,7 @@
 <link rel="alternate" href="/florum-design-concepts/it/home-italiano/" hreflang="it">
 <link rel="alternate" href="/florum-design-concepts/es/home-espanol/" hreflang="es">
 <link rel="preload" as="image" href="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby1-hero.webp" type="image/webp" fetchpriority="high">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/florum-design-concepts/wp-json/oembed/1.0/embed?url=%2Fit%2Fhome-italiano%2F&amp;lang=it">
 <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/florum-design-concepts/wp-json/oembed/1.0/embed?url=%2Fit%2Fhome-italiano%2F&amp;format=xml&amp;lang=it">
@@ -35,14 +36,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/florum-design-concepts/wp-json/wp/v2/pages/18"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 <link rel="canonical" href="/florum-design-concepts/it/home-italiano/">
 <link rel="shortlink" href="/florum-design-concepts/">
 </head>
 <body class="home wp-singular page-template-default page page-id-18 wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -58,52 +62,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/it/camere/">Camere</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/it/home-italiano/">Home</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/it/camere/">Camere</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/it/appartamenti/">Appartamenti</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/it/camere/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Camere</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Camere</h4>
-                <a href="/florum-design-concepts/it/camere/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/it/camere/">
                   <span>Le nostre camere</span>
-                  <small>Camere classiche, studio e soggiorni in città</small>
+                  <small>Camere moderne per ogni tipo di soggiorno.</small>
                 </a>
-                <a href="/florum-design-concepts/it/appartamenti/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/it/appartamenti/">
                   <span>Appartamenti</span>
-                  <small>Comfort per soggiorni lunghi con servizi alberghieri</small>
+                  <small>Appartamenti completamente attrezzati per soggiorni prolungati.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Il tuo soggiorno</h4>
-                <p>Scopri camere, comfort da appartamento e vantaggi della prenotazione diretta per il tuo soggiorno a Vienna.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/it/business-3/">B2B</a>
-        <a href="/florum-design-concepts/it/eventi/">Eventi</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/it/servizi/">Servizi</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Servizi</h4>
-                <a href="/florum-design-concepts/it/servizi/">
-                  <span>I nostri servizi</span>
-                  <small>Colazione, reception, lobby bar ed extra</small>
-                </a>
-                <a href="/florum-design-concepts/it/offerta-kosher/">
-                  <span>Offerta Kosher</span>
-                  <small>Un supporto attento per soggiorni kosher</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Comfort in hotel</h4>
-                <p>Servizi pensati per rendere più semplici sia le visite brevi sia i soggiorni prolungati.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/it/servizi/">Servizi</a>
         <a href="/florum-design-concepts/it/posizione/">Posizione</a>
       </div>
 
@@ -112,153 +97,44 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/it/business-3/">B2B</a>
+        <a href="/florum-design-concepts/it/contatti/">Contatti</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Lingua</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Scegli lingua" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Lingua</h4>
-                <a href="/florum-design-concepts/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/home-deutsch/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Altro</h4>
-                <a href="/florum-design-concepts/it/home-italiano/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/home-espanol/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/home-deutsch/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/home-italiano/" class="is-current" aria-current="page"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/home-espanol/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/it/contatti/">Contatti</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Chiudi pannello prenotazione">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Arrivo</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Scegli data di arrivo">Seleziona data</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Partenza</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Scegli data di partenza">Seleziona data</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Persone e camera">
-            <option value="1">2 persone • 1 camera</option>
-            <option value="2">1 persona • 1 camera</option>
-            <option value="3">3 persone • 1 camera</option>
-            <option value="4">4 persone • 2 camere</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Verifica disponibilità          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page home-page">
-  <aside class="urban-booking-drawer is-open" id="urban-booking-drawer" data-booking-drawer aria-label="Pannello prenotazione">
-    <button class="urban-booking-toggle" type="button" data-booking-toggle aria-expanded="true" aria-label="Chiudi pannello prenotazione">
-      <span class="urban-booking-toggle__label">Verifica disponibilità</span>
-      <span class="urban-booking-toggle__icon" aria-hidden="true"></span>
-      <span class="urban-booking-toggle__icon" aria-hidden="true"></span>
-    </button>
-
-    <div class="urban-booking-panel">
-      <div class="booking-strip urban-sticky-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Scegli la data di arrivo">Arrivo</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Scegli la data di partenza">Partenza</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Ospiti e camere">
-            <option value="1">2 persone • 1 camera</option>
-            <option value="2">1 persona • 1 camera</option>
-            <option value="3">3 persone • 1 camera</option>
-            <option value="4">4 persone • 2 camere</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Verifica disponibilità          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </aside>
 
   <section class="urban-hero">
     <div class="container urban-hero__content">
       <div class="urban-hero__copy">
         <div class="urban-hero__neon reveal">
-          <h1 class="hero-neon-title">
-            <span class="hero-neon-word hero-neon-word--florum">Florum</span>
-            <span class="hero-neon-word hero-neon-word--in">in</span>
-            <span class="hero-neon-word hero-neon-word--bloom">fiore</span>
+                    <h1 class="hero-neon-title" aria-label="Florum in Bloom">
+            <span class="hero-neon-word hero-neon-word--florum" aria-hidden="true">Florum</span>
+            <span class="hero-neon-word hero-neon-word--in" aria-hidden="true">in</span>
+            <span class="hero-neon-word hero-neon-word--bloom" aria-hidden="true">Bloom</span>
           </h1>
         </div>
 
@@ -269,19 +145,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
       <div class="urban-hero__media" aria-label="Carosello immagini di apertura">
         <div class="hero-fade-carousel" data-fade-carousel>
-                      <div class="hero-slide is-active-slide">
-              <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby1-hero.webp" alt="Sedute nella lobby di Hotel Florum" width="1800" height="2568" loading="eager" fetchpriority="high" decoding="async">
+                      <div class="hero-slide is-active-slide" style="--hero-focal-desktop: 15%; --hero-focal-tablet: 10%; --hero-focal-mobile: 18%;">
+              <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby1-hero.webp" alt="Hotel Florum entrance and facade" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 28%; --hero-focal-tablet: 24%; --hero-focal-mobile: 26%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby2-hero.webp" alt="Interno della lobby di Hotel Florum" width="1800" height="1324" loading="lazy" fetchpriority="low" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 22%; --hero-focal-tablet: 16%; --hero-focal-mobile: 20%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby3-hero.webp" alt="Dettaglio botanico della lounge di Hotel Florum" width="1800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 28%; --hero-focal-tablet: 24%; --hero-focal-mobile: 26%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby4-hero.webp" alt="Reception e lobby di Hotel Florum" width="1800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 30%; --hero-focal-tablet: 24%; --hero-focal-mobile: 28%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby5-hero.webp" alt="Atmosfera della lobby di Hotel Florum" width="1800" height="2250" loading="lazy" fetchpriority="low" decoding="async">
             </div>
                   </div>
@@ -289,18 +165,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section id="urban-booking" class="section direct-booking-section">
+  <span class="homepage-booking-sentinel" data-booking-sticky-sentinel aria-hidden="true"></span>
+  <section class="homepage-booking-bar" id="urban-booking" aria-label="Verifica disponibilità">
+    <div class="container homepage-booking-bar__inner">
+              <form class="booking-strip homepage-booking-strip" aria-label="Verifica disponibilità">
+          <div class="booking-field booking-field--date">
+            <i class="fa-regular fa-calendar-days booking-field__icon" aria-hidden="true"></i>
+            <span>Check-in</span>
+            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Scegli la data di check-in">Seleziona data</button>
+            <input type="hidden" name="check_in" data-check-in>
+            <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
+          </div>
+          <div class="booking-field booking-field--date">
+            <i class="fa-regular fa-calendar-days booking-field__icon" aria-hidden="true"></i>
+            <span>Check-out</span>
+            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Scegli la data di check-out">Seleziona data</button>
+            <input type="hidden" name="check_out" data-check-out>
+            <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
+          </div>
+          <label class="booking-field">
+            <i class="fa-regular fa-user booking-field__icon" aria-hidden="true"></i>
+            <span>Ospiti</span>
+            <select name="guests" aria-label="Ospiti e camere">
+              <option value="1">2 persone • 1 camera</option>
+              <option value="2">1 persona • 1 camera</option>
+              <option value="3">3 persone • 1 camera</option>
+              <option value="4">4 persone • 2 camere</option>
+            </select>
+          </label>
+          <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Verifica disponibilità</a>
+        </form>
+            </div>
+  </section>
+
+  <section class="section section-spacing--compact direct-booking-section">
     <div class="container direct-booking-grid">
       <div class="direct-booking-copy reveal">
         <h2>Vantaggi della prenotazione diretta</h2>
         <p class="body-copy">Più flessibilità, tariffe migliori e piccoli dettagli che rendono il soggiorno più fluido.</p>
-        <div class="direct-booking-glow" aria-hidden="true">
-          <span></span>
-        </div>
+        <div class="direct-booking-glow" aria-hidden="true"></div>
         <div class="direct-booking-notes" aria-label="Condizioni della prenotazione diretta">
           <p>* secondo disponibilità</p>
           <p>** per prenotazioni dirette</p>
-          <p>*** incluso per soggiorni di almeno due notti.</p>
+          <p>*** incluso per soggiorni di almeno due notti</p>
         </div>
       </div>
 
@@ -349,7 +256,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section id="urban-rooms" class="section room-carousel-section">
+  <section id="urban-rooms" class="section section-spacing--compact room-carousel-section">
     <div class="container">
       <div class="slider-block reveal">
         <div class="slider-head">
@@ -358,430 +265,325 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
 
-        <details class="rooms-standard-teaser">
-          <summary class="rooms-standard-teaser__summary">
-            <span class="rooms-standard-teaser__title">Cosa è incluso di standard in tutte le nostre camere?</span>
-            <span class="rooms-standard-teaser__items" aria-label="Dotazioni in camera">
-                              <span>Wi-Fi gratuito</span>
-                              <span>Doccia o vasca privata</span>
-                              <span>Cassaforte</span>
-                              <span>Bollitore</span>
-                              <span>Aria condizionata regolabile</span>
-                              <span>Non fumatori</span>
-                          </span>
-            <span class="rooms-standard-teaser__action">
-              Vedi tutte le dotazioni              <span class="rooms-standard-chevron" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="rooms-standard-content">
-            <ul class="rooms-standard-list">
-                              <li>Pet friendly</li>
-                              <li>Doccia o vasca privata</li>
-                              <li>Asciugacapelli</li>
-                              <li>Cassaforte</li>
-                              <li>Bollitore</li>
-                              <li>Bicchieri e tazze</li>
-                              <li>Tende oscuranti</li>
-                              <li>Aria condizionata regolabile</li>
-                              <li>Prodotti cosmetici</li>
-                              <li>Non fumatori</li>
-                              <li>TV a schermo piatto</li>
-                              <li>Minibar</li>
-                              <li>Wi-Fi gratuito</li>
-                              <li>Letto box-spring</li>
-                              <li>Pavimenti senza moquette</li>
-                          </ul>
+        <section class="rooms-standard-editorial" aria-labelledby="rooms-standard-title">
+          <div class="rooms-standard-editorial__intro">
+            <h3 class="rooms-standard-editorial__title" id="rooms-standard-title">Cosa è incluso di standard in tutte le nostre camere?</h3>
           </div>
-        </details>
+          <div class="mobile-list-accordion" data-mobile-list-accordion>
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="standard-list-1-trigger" type="button" aria-expanded="false" aria-controls="standard-list-1-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">Cosa è incluso di standard in tutte le nostre camere?</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="standard-list-1-panel" role="region" aria-labelledby="standard-list-1-trigger" data-mobile-list-panel hidden>
+    <ul class="rooms-standard-editorial__list" aria-label="Dotazioni in camera">
+                        <li>Pet friendly</li>
+                                <li>Doccia o vasca privata</li>
+                                <li>Asciugacapelli</li>
+                                <li>Cassaforte</li>
+                                <li>Bollitore</li>
+                                <li>Bicchieri e tazze</li>
+                                <li>Tende oscuranti</li>
+                                <li>Aria condizionata regolabile</li>
+                                <li>Prodotti cosmetici</li>
+                                <li>Non fumatori</li>
+                                <li>TV a schermo piatto</li>
+                                <li>Minibar</li>
+                                <li>Wi-Fi gratuito</li>
+                                <li>Letto box-spring</li>
+                                <li>Pavimenti senza moquette</li>
+                  </ul>
+  </div>
+</div>
+        </section>
 
-        <div class="slider-shell">
-          <button class="slider-button slider-button-floating slider-button-left" type="button" data-slider-prev="rooms-slider" aria-label="Camera precedente">
-            <span aria-hidden="true">←</span>
-          </button>
-          <button class="slider-button slider-button-floating slider-button-right" type="button" data-slider-next="rooms-slider" aria-label="Camera successiva">
-            <span aria-hidden="true">→</span>
-          </button>
-
-          <div class="slider-track room-slider" data-slider="rooms-slider">
-                                        <article class="room-card slider-slide is-active is-active-slide" data-room-guests="1 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/SingleBett-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single1-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single2-carousel.webp&quot;]">
+        <div class="slider-shell room-showcase-shell" role="region" aria-roledescription="carousel" aria-label="Le nostre categorie di camere">
+          <div class="slider-track room-slider" data-slider="rooms-slider" tabindex="0">
+                                                    <a class="room-card slider-slide is-active is-active-slide" href="/florum-design-concepts/it/camere/" aria-label="Scopri la camera: Camera singola" aria-setsize="6" aria-posinset="1" data-room-guests="1 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/SingleBett-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single1-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single2-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp" alt="Camera singola" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>Camera singola</h3>
-                  <dl class="room-fact-list" aria-label="Dettagli Camera singola">
-                                          <div class="room-fact-row">
-                        <dt>Ospiti</dt>
-                        <dd>1 persona</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Dimensione</dt>
-                        <dd>13–16m²</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Vista</dt>
-                        <dd>Vista strada o cortile</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Letto</dt>
-                        <dd>Letto largo 140 cm</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/it/camere/camera-singola/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="Dettagli Camera singola">
+                                                                      <div class="room-fact-row">
+                          <dt>Ospiti</dt>
+                          <dd>1 persona</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Dimensione</dt>
+                          <dd>13–16 m²</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Vista</dt>
+                          <dd>Vista strada o cortile</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Letto</dt>
+                          <dd>Letto largo 140 cm</dd>
+                        </div>
+                                          </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     Scopri la camera                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–2 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris4-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/it/camere/" aria-label="Scopri la camera: Camera standard" aria-setsize="6" aria-posinset="2" data-room-guests="1–2 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris4-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp" alt="Camera standard" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>Camera standard</h3>
-                  <dl class="room-fact-list" aria-label="Dettagli Camera standard">
-                                          <div class="room-fact-row">
-                        <dt>Ospiti</dt>
-                        <dd>1–2 persone</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Dimensione</dt>
-                        <dd>18–22m²</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Vista</dt>
-                        <dd>Vista strada o cortile</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Letto</dt>
-                        <dd>Letto largo 160 cm</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/it/camere/camera-standard/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="Dettagli Camera standard">
+                                                                      <div class="room-fact-row">
+                          <dt>Ospiti</dt>
+                          <dd>1–2 persone</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Dimensione</dt>
+                          <dd>18–22 m²</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Vista</dt>
+                          <dd>Vista strada o cortile</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Letto</dt>
+                          <dd>Letto largo 160 cm</dd>
+                        </div>
+                                          </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     Scopri la camera                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–3 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior8-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/it/camere/" aria-label="Scopri la camera: Superior" aria-setsize="6" aria-posinset="3" data-room-guests="1–3 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior8-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp" alt="Superior" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>Superior</h3>
-                  <dl class="room-fact-list" aria-label="Dettagli Superior">
-                                          <div class="room-fact-row">
-                        <dt>Ospiti</dt>
-                        <dd>1–3 persone</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Dimensione</dt>
-                        <dd>24–28m²</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Vista</dt>
-                        <dd>Vista strada o cortile</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Letto</dt>
-                        <dd>Letto largo 180 cm</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Extra</dt>
-                        <dd>Divano letto</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/it/camere/camera-superior/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="Dettagli Superior">
+                                                                      <div class="room-fact-row">
+                          <dt>Ospiti</dt>
+                          <dd>1–3 persone</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Dimensione</dt>
+                          <dd>24–28 m²</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Vista</dt>
+                          <dd>Vista strada o cortile</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Letto</dt>
+                          <dd>Letto largo 180 cm</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>Extra</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">Divano letto</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     Scopri la camera                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–3 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia4-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/it/camere/" aria-label="Scopri la camera: Studio" aria-setsize="6" aria-posinset="4" data-room-guests="1–3 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia4-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Studio" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>Studio</h3>
-                  <dl class="room-fact-list" aria-label="Dettagli Studio">
-                                          <div class="room-fact-row">
-                        <dt>Ospiti</dt>
-                        <dd>1–3 persone</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Dimensione</dt>
-                        <dd>24–28m²</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Vista</dt>
-                        <dd>Vista strada o cortile</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Letto</dt>
-                        <dd>Letto largo 180 cm</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Extra</dt>
-                        <dd>Cucina, divano letto, accappatoio</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/it/camere/studio/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="Dettagli Studio">
+                                                                      <div class="room-fact-row">
+                          <dt>Ospiti</dt>
+                          <dd>1–3 persone</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Dimensione</dt>
+                          <dd>24–28 m²</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Vista</dt>
+                          <dd>Vista strada o cortile</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Letto</dt>
+                          <dd>Letto largo 180 cm</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>Extra</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">Cucina</span>
+                                                              <span class="room-extra-item">Divano letto</span>
+                                                              <span class="room-extra-item">Accappatoio</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     Scopri la camera                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–4 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe8-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/it/camere/" aria-label="Scopri la camera: Studio deluxe" aria-setsize="6" aria-posinset="5" data-room-guests="1–4 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe8-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Studio deluxe" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>Studio deluxe</h3>
-                  <dl class="room-fact-list" aria-label="Dettagli Studio deluxe">
-                                          <div class="room-fact-row">
-                        <dt>Ospiti</dt>
-                        <dd>1–4 persone</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Dimensione</dt>
-                        <dd>30–35m²</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Vista</dt>
-                        <dd>Vista strada o cortile</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Letto</dt>
-                        <dd>2 letti larghi 160 cm</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Extra</dt>
-                        <dd>Cucina, accappatoio</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/it/camere/studio-deluxe/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="Dettagli Studio deluxe">
+                                                                      <div class="room-fact-row">
+                          <dt>Ospiti</dt>
+                          <dd>1–4 persone</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Dimensione</dt>
+                          <dd>30–35 m²</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Vista</dt>
+                          <dd>Vista strada o cortile</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Letto</dt>
+                          <dd>2 letti larghi 160 cm</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>Extra</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">Cucina</span>
+                                                              <span class="room-extra-item">Accappatoio</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     Scopri la camera                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–2 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose8-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose9-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose10-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose11-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose12-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose13-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose14-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose15-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/it/camere/" aria-label="Scopri la camera: Studio panorama con terrazza" aria-setsize="6" aria-posinset="6" data-room-guests="1–2 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose8-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose9-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose10-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose11-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose12-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose13-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose14-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose15-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Studio panorama con terrazza" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>Studio panorama con terrazza</h3>
-                  <dl class="room-fact-list" aria-label="Dettagli Studio panorama con terrazza">
-                                          <div class="room-fact-row">
-                        <dt>Ospiti</dt>
-                        <dd>1–2 persone</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Dimensione</dt>
-                        <dd>24–28m²</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Vista</dt>
-                        <dd>Vista panoramica sulla città</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Letto</dt>
-                        <dd>Letto largo 180 cm</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>Extra</dt>
-                        <dd>Cucina, accappatoio</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/it/camere/panorama-studio/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="Dettagli Studio panorama con terrazza">
+                                                                      <div class="room-fact-row">
+                          <dt>Ospiti</dt>
+                          <dd>1–2 persone</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Dimensione</dt>
+                          <dd>24–28 m²</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Vista</dt>
+                          <dd>Vista panoramica sulla città</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>Letto</dt>
+                          <dd>Letto largo 180 cm</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>Extra</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">Cucina</span>
+                                                              <span class="room-extra-item">Accappatoio</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     Scopri la camera                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
+              </a>
                       </div>
+          <div class="room-showcase-nav" aria-label="Le nostre categorie di camere">
+            <button class="slider-button room-showcase-nav__button" type="button" data-slider-prev="rooms-slider" aria-label="Camera precedente" disabled>
+              <span aria-hidden="true">←</span>
+            </button>
+            <p class="room-showcase-position" aria-live="polite" aria-atomic="true">
+              <span data-slider-current="rooms-slider">01</span>
+              <span aria-hidden="true">/</span>
+              <span data-slider-total="rooms-slider">06</span>
+            </p>
+            <button class="slider-button room-showcase-nav__button" type="button" data-slider-next="rooms-slider" aria-label="Camera successiva">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section group-offers-section">
+  <section class="section section-spacing--compact group-offers-section">
     <div class="container">
-      <div class="group-offers-intro reveal">
-        <h2>Offerte corporate e gruppi a Vienna</h2>
-      </div>
-
       <div class="group-offers-split">
-        <div class="group-offers-story reveal">
-          <div class="group-offers-media">
-            <img class="group-offers-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-section.webp" alt="Ospiti business a Hotel Florum" width="1300" height="920" loading="lazy" decoding="async">
-          </div>
-          <div class="group-offers-copy">
-            <p class="body-copy">
-              Hotel Florum offre soluzioni di soggiorno flessibili a Vienna per aziende, viaggiatori business, team di progetto, gruppi turistici e organizzazioni internazionali.            </p>
-            <p class="body-copy">
-              Per prenotazioni di oltre 9 camere offriamo tariffe corporate e di gruppo su misura, in base a date di viaggio, durata del soggiorno, numero di camere e disponibilità.            </p>
-          </div>
+        <div class="group-offers-media reveal">
+          <img class="group-offers-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-section.webp" alt="Ospiti business a Hotel Florum" width="1300" height="920" loading="lazy" decoding="async">
         </div>
-
-        <div class="group-offers-panel reveal delay-1">
-          <div class="group-benefits-list benefit-stack">
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-tag"></i>
-                                  </span>
-                <div>
-                  <h3>Tariffe corporate e di gruppo su misura a Vienna</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-bed"></i>
-                                  </span>
-                <div>
-                  <h3>Assegnazione camere flessibile con tariffe dirette scontate</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-calendar-check"></i>
-                                  </span>
-                <div>
-                  <h3>Opzioni a tariffa fissa per soggiorni business regolari</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-briefcase"></i>
-                                  </span>
-                <div>
-                  <h3>Offerte long stay per team di progetto e soggiorni prolungati</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-utensils"></i>
-                                  </span>
-                <div>
-                  <h3>Colazione, catering e lunch package su richiesta</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-bus"></i>
-                                  </span>
-                <div>
-                  <h3>Accesso semplice per arrivi di gruppo e bus turistici</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-location-dot"></i>
-                                  </span>
-                <div>
-                  <h3>Posizione centrale a Vienna per viaggi business e leisure</h3>
-                </div>
-              </article>
-                      </div>
+        <div class="group-offers-copy reveal delay-1">
+          <h2>Offerte corporate e gruppi a Vienna</h2>
+          <p class="body-copy">Hotel Florum offre soluzioni di soggiorno flessibili a Vienna per aziende, viaggiatori business, team di progetto, gruppi turistici e organizzazioni internazionali.</p>
+          <p class="body-copy">Per prenotazioni di oltre 9 camere offriamo tariffe corporate e di gruppo su misura, in base a date di viaggio, durata del soggiorno, numero di camere e disponibilità.</p>
+          <div class="group-offers-contact">
+            <a class="group-offers-learn-more" href="/florum-design-concepts/it/business-3/">
+              Scopri di più              <span aria-hidden="true">→</span>
+            </a>
+            <p class="group-offers-inquiry">Per informazioni dettagliate su tariffe e pacchetti, inviateci una richiesta a <a href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a></p>
+          </div>
         </div>
       </div>
-      <div class="group-offers-actions">
-        <p class="group-offers-inquiry">
-          Per informazioni dettagliate su tariffe e pacchetti, inviateci una richiesta a <a href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a>
-        </p>
-        <a class="group-offers-learn-more" href="/florum-design-concepts/it/business-3/">Scopri di più</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section home-events-section">
-    <div class="container">
-      <div class="home-events-panel reveal">
-        <div class="home-events-head">
-          <div class="home-events-copy">
-            <h2>Meeting ed eventi al Florum Hotel</h2>
-            <p>I nostri spazi si sviluppano su tre piani collegati da scale, con un’ampia aula principale di 180 m² dotata di bar completo, elegante pavimento in legno e luce naturale. Una lounge secondaria di 100 m² offre un ambiente accogliente, mentre il rooftop bar, con viste mozzafiato, è adatto a incontri più intimi. Gli spazi completi o le singole sale possono essere affittati separatamente.</p>
-          </div>
-          <div class="home-events-media" aria-label="Spazio eventi al Florum Hotel">
-            <img class="home-events-photo home-events-photo--main" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="Spazio eventi al Florum Hotel" width="1800" height="1200" loading="lazy" decoding="async">
-            <img class="home-events-photo home-events-photo--accent" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-29.webp" alt="Dettaglio della lobby di Hotel Florum" width="1800" height="1200" loading="lazy" decoding="async">
-          </div>
-        </div>
-
-        <div class="home-events-content">
-          <div class="home-events-capacity">
-            <div class="home-events-subhead">
-              <span>Capienza eventi</span>
-              <p>Capienza potenziale totale: fino a 430 ospiti in base all’allestimento.</p>
-            </div>
-            <div class="home-events-capacity-grid">
-                              <article class="home-events-capacity-card">
-                  <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-champagne-glasses"></i></span>
-                  <h3>Aula 180 m² (sala principale)</h3>
-                  <dl>
-                                          <div>
-                        <dt>Cena seduta</dt>
-                        <dd>120 ospiti</dd>
-                      </div>
-                                          <div>
-                        <dt>Cocktail in piedi</dt>
-                        <dd>180 ospiti</dd>
-                      </div>
-                                      </dl>
-                </article>
-                              <article class="home-events-capacity-card">
-                  <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-couch"></i></span>
-                  <h3>Lounge 100 m²</h3>
-                  <dl>
-                                          <div>
-                        <dt>Cena seduta</dt>
-                        <dd>66 ospiti</dd>
-                      </div>
-                                          <div>
-                        <dt>Cocktail in piedi</dt>
-                        <dd>100 ospiti</dd>
-                      </div>
-                                      </dl>
-                </article>
-                              <article class="home-events-capacity-card">
-                  <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-city"></i></span>
-                  <h3>Rooftop Bar 150 m²</h3>
-                  <dl>
-                                          <div>
-                        <dt>Cena seduta</dt>
-                        <dd>100 ospiti</dd>
-                      </div>
-                                          <div>
-                        <dt>Cocktail in piedi</dt>
-                        <dd>150 ospiti</dd>
-                      </div>
-                                      </dl>
-                </article>
-                          </div>
-            <p class="home-events-note">Contattaci per opzioni personalizzabili, inclusi eventi per piccoli gruppi.</p>
-          </div>
-
-          <div class="home-events-feature-grid">
-                          <article class="home-events-feature-card">
-                <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-utensils"></i></span>
-                <div>
-                  <h3>Food &amp; Drinks</h3>
-                  <p>Il catering di Florum propone menu versatili, con opzioni halal e kosher su richiesta.</p>
-                </div>
-              </article>
-                          <article class="home-events-feature-card">
-                <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-music"></i></span>
-                <div>
-                  <h3>Musica</h3>
-                  <p>Goditi la musica di Radio Florum, una playlist creata appositamente per il tuo evento. Inoltre, DJ e attrezzatura audio sono disponibili a noleggio.</p>
-                </div>
-              </article>
-                          <article class="home-events-feature-card">
-                <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-file-signature"></i></span>
-                <div>
-                  <h3>Prezzi</h3>
-                  <p>Offriamo pacchetti flessibili adatti a diverse fasce di budget: contattaci per saperne di più!</p>
-                </div>
-              </article>
-                      </div>
-        </div>
-
-        <div class="home-events-actions">
-          <a class="home-events-cta" href="/florum-design-concepts/it/eventi/">Scopri Florum Events</a>
+      <div class="group-benefits-accordion mobile-list-accordion reveal" data-mobile-list-accordion>
+        <h3 class="group-benefits-accordion__heading">
+          <button class="group-benefits-accordion__trigger" id="group-benefits-trigger" type="button" aria-expanded="false" aria-controls="group-benefits-panel" data-mobile-list-trigger>
+            <span>Scopri i vantaggi per aziende e gruppi</span>
+            <span class="group-benefits-accordion__chevron" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="group-benefits-accordion__panel" id="group-benefits-panel" role="region" aria-labelledby="group-benefits-trigger" data-mobile-list-panel hidden>
+          <ul class="group-benefits-list" aria-label="Offerte corporate e gruppi a Vienna">
+                          <li>Tariffe corporate e di gruppo su misura a Vienna</li>
+                          <li>Assegnazione camere flessibile con tariffe dirette scontate</li>
+                          <li>Opzioni a tariffa fissa per soggiorni business regolari</li>
+                          <li>Offerte long stay per team di progetto e soggiorni prolungati</li>
+                          <li>Colazione, catering e lunch package su richiesta</li>
+                          <li>Accesso semplice per arrivi di gruppo e bus turistici</li>
+                          <li>Posizione centrale a Vienna per viaggi business e leisure</li>
+                      </ul>
         </div>
       </div>
     </div>
@@ -789,169 +591,107 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   <section class="section hospitality-section" id="services">
     <div class="container">
-      <div class="hospitality-intro reveal">
+      <div class="hospitality-intro hospitality-intro--service reveal">
         <h2 class="hospitality-intro__text">Servizi al Florum Hotel</h2>
       </div>
 
-      <div class="hospitality-block hospitality-block--services reveal delay-1">
-        <div class="service-editorial" aria-label="Servizi hotel">
-          <div class="service-editorial__intro">
-            <div class="service-editorial__intro-copy">
-              <p>Al Florum Hotel ci concentriamo sui dettagli pratici che rendono più semplice il soggiorno a Vienna: opzioni di arrivo flessibili, deposito bagagli gratuito, lavanderia, soggiorni pet-friendly, rinfreschi selezionati in camera e soluzioni utili per soggiorni più lunghi.</p>
-            </div>
-
-            <div class="service-card-stack">
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/checkin-card.webp" alt="Servizio check-in a Hotel Florum" width="1200" height="1200" loading="lazy" decoding="async">
-                <div>
-                  <span>Flessibile</span>
-                  <h4>Check-in e late check-out</h4>
-                  <p>Opzioni flessibili di arrivo e partenza, soggette a disponibilità.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-carousel.webp" alt="Deposito bagagli gratuito" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>Semplice</span>
-                  <h4>Deposito bagagli gratuito</h4>
-                  <p>Lasciate gratuitamente i bagagli prima del check-in o dopo il check-out.</p>
-                </div>
-              </article>
-              <article class="service-card service-card--laundry">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/laundry-card.webp" alt="Servizio lavanderia a Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>Semplice</span>
-                  <h4>Servizio lavanderia</h4>
-                  <p>Supporto pratico per soggiorni più lunghi a Vienna.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div class="service-editorial__showcase">
-            <article class="service-card service-card--feature">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-480.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-480.webp 480w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-800.webp 800w" sizes="(max-width: 760px) 92vw, 430px" alt="Soggiorno kosher e Shabbat-friendly" width="480" height="720" loading="lazy" decoding="async">
-              <div>
-                <span>Supporto</span>
-                <h4>Soggiorno kosher e Shabbat-friendly</h4>
-                <p>Situato nel 2° distretto di Vienna, offriamo su richiesta anche soluzioni kosher-friendly per ospiti ebrei.</p>
-              </div>
-            </article>
-
-            <div class="service-card-row service-card-row--home-services">
-              <article class="service-card">
-                <img class="service-card__image--pet" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/pet-thumb.webp" alt="Soggiorno pet-friendly a Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>Pet-friendly</span>
-                  <h4>Soggiorno pet-friendly</h4>
-                  <p>Soggiorni confortevoli per ospiti che viaggiano con animali.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby1-carousel-760.webp" alt="Ascensore per tutte le camere" width="760" height="760" loading="lazy" decoding="async">
-                <div>
-                  <span>Semplice</span>
-                  <h4>Ascensore per tutte le camere</h4>
-                  <p>Tutte le camere sono comodamente raggiungibili in ascensore.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/roomDrinks-carousel.webp" alt="Drink con room service a Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>In camera</span>
-                  <h4>Room service selezionato</h4>
-                  <p>Godetevi rinfreschi selezionati direttamente in camera.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/drinks-thumb.webp" alt="Drink al bar di Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>Sociale</span>
-                  <h4>Bar e catering</h4>
-                  <p>Drink, snack leggeri e opzioni catering su richiesta.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="breakfast-lobby-editorial reveal" aria-label="Colazione &amp; Lobby Bar">
-        <div class="breakfast-lobby-copy">
-          <h2>Colazione &amp; Lobby Bar</h2>
-          <div class="breakfast-lobby-intro">
-            <p>Inizia la giornata al Florum Hotel con un ricco buffet per la colazione, caffè fresco, tè e opzioni breakfast-to-go per partire con calma alla scoperta di Vienna.</p>
-          </div>
-
-          <div class="breakfast-lobby-feature-list">
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>Ogni giorno</span>
-                <h4>7:30-10:30</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>Weekend e festivi</span>
-                <h4>8:00-11:00</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>Breakfast-to-go</span>
-                <h4>Disponibile su richiesta</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>Opzioni</span>
-                <h4>Vegetariano, vegano e senza lattosio</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>Kosher-friendly</span>
-                <h4>Disponibile su richiesta</h4>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="breakfast-lobby-showcase">
-          <article class="breakfast-lobby-image-card breakfast-lobby-image-card--large">
+      <div class="home-service-suite">
+        <article class="home-service-breakfast reveal delay-1">
+          <div class="home-service-breakfast__media">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast-carousel.webp" alt="Colazione a Hotel Florum" width="1600" height="1200" loading="lazy" decoding="async">
+          </div>
+          <div class="home-service-breakfast__content">
+            <h3>Colazione al Florum Hotel</h3>
+            <p>Inizia la giornata al Florum Hotel con un ricco buffet per la colazione, caffè fresco, tè e opzioni breakfast-to-go per partire con calma alla scoperta di Vienna.</p>
+            <div class="home-service-breakfast__facts">
+                              <div class="home-service-fact">
+                  <h4>Ogni giorno</h4>
+                  <p>7:30-10:30</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>Weekend e festivi</h4>
+                  <p>8:00-11:00</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>Breakfast-to-go</h4>
+                  <p>Disponibile su richiesta</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>Opzioni</h4>
+                  <p>Vegetariano, vegano e senza lattosio</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>Kosher-friendly</h4>
+                  <p>Disponibile su richiesta</p>
+                </div>
+                          </div>
+            <a class="btn home-service-breakfast__cta" href="/florum-design-concepts/it/servizi/">
+              Vedi colazione e bar            </a>
+          </div>
+        </article>
+
+        <section class="home-service-list reveal" aria-labelledby="home-services-title">
+          <h3 id="home-services-title">Servizi hotel</h3>
+          <p class="body-copy home-service-list__intro">Al Florum Hotel ci concentriamo sui dettagli pratici che rendono più semplice il soggiorno a Vienna: opzioni di arrivo flessibili, deposito bagagli gratuito, lavanderia, soggiorni pet-friendly, rinfreschi selezionati in camera e soluzioni utili per soggiorni più lunghi.</p>
+          <div class="mobile-list-accordion" data-mobile-list-accordion>
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="feature-list-2-trigger" type="button" aria-expanded="false" aria-controls="feature-list-2-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">Servizi hotel</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="feature-list-2-panel" role="region" aria-labelledby="feature-list-2-trigger" data-mobile-list-panel hidden>
+    <ul class="editorial-feature-list sustainability-list home-service-feature-list" aria-label="Servizi hotel">
+                        <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>Check-in e late check-out</h3></div>
+            <p>Opzioni flessibili di arrivo e partenza, soggette a disponibilità.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-suitcase-rolling"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>Deposito bagagli gratuito</h3></div>
+            <p>Lasciate gratuitamente i bagagli prima del check-in o dopo il check-out.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-shirt"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>Servizio lavanderia</h3></div>
+            <p>Supporto pratico per soggiorni più lunghi a Vienna.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>Soggiorno pet-friendly</h3></div>
+            <p>Soggiorni confortevoli per ospiti che viaggiano con animali.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-elevator"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>Ascensore per tutte le camere</h3></div>
+            <p>Tutte le camere sono comodamente raggiungibili in ascensore.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-bell-concierge"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>Room service selezionato</h3></div>
+            <p>Godetevi rinfreschi selezionati direttamente in camera.</p>
+          </li>
+                  </ul>
+  </div>
+</div>
+        </section>
+
+        <div class="home-service-featured-grid reveal">
+          <article class="home-service-feature-card">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby2-carousel.webp" alt="Sedute del lobby bar di Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
             <div>
-              <span>Fresco</span>
-              <h4>Colazione al Florum Hotel</h4>
+              <h3>Bar dell’hotel</h3>
+              <p>Drink, snack leggeri e opzioni catering su richiesta.</p>
             </div>
           </article>
-          <div class="breakfast-lobby-card-row">
-            <article class="breakfast-lobby-image-card">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/food-carousel.webp" alt="Proposte fresche per colazione a Hotel Florum" width="1600" height="1200" loading="lazy" decoding="async">
-              <div>
-                <span>Caffè e tè</span>
-                <h4>Colazione e caffè</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-image-card">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby2-carousel.webp" alt="Sedute del lobby bar di Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
-              <div>
-                <span>Drink</span>
-                <h4>Bar dell’hotel</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-image-card">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/drinks-thumb.webp" alt="Drink al Florum lobby bar" width="1200" height="900" loading="lazy" decoding="async">
-              <div>
-                <span>Sociale</span>
-                <h4>Bar e catering</h4>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="breakfast-lobby-actions">
-          <a class="breakfast-lobby-cta" href="/florum-design-concepts/it/servizi/">Vedi colazione e bar</a>
+          <article class="home-service-feature-card">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-800.webp" alt="Soggiorno kosher e Shabbat-friendly" width="800" height="1200" loading="lazy" decoding="async">
+            <div>
+              <h3>Soggiorno kosher e Shabbat-friendly</h3>
+              <p>Situato nel 2° distretto di Vienna, offriamo su richiesta soluzioni kosher e Shabbat-friendly per ospiti ebrei.</p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -960,7 +700,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <section class="section location-section">
     <div class="container">
       <div class="location-intro reveal">
-        <h2>Posizione e soggiorno consapevole</h2>
+        <h2>Posizione</h2>
         <p class="location-subtitle">Arriva facilmente, resta vicino alla città.</p>
         <div class="location-intro-copy">
           <p class="body-copy">Florum si trova nel vivace secondo distretto di Vienna, a pochi passi da ristoranti, bar, negozi, parchi verdi e collegamenti che rendono la città facile da scoprire.</p>
@@ -968,51 +708,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </div>
 
       <div class="location-distance-grid reveal delay-1" aria-label="Distanze da Hotel Florum">
-        <article class="location-distance-card">
-          <span>Aeroporto internazionale di Vienna</span>
-          <strong>20 km</strong>
-          <small>24 min</small>
-        </article>
-        <article class="location-distance-card">
-          <span>Stazione centrale di Vienna</span>
-          <strong>5 km</strong>
-          <small>17 min</small>
-        </article>
-        <article class="location-distance-card">
-          <span>Vienna Westbahnhof</span>
-          <strong>6 km</strong>
-          <small>18 min</small>
-        </article>
-        <article class="location-distance-card">
-          <span>CAT Wien Mitte</span>
-          <strong>1.6 km</strong>
-          <small>6 min</small>
-        </article>
-        <article class="location-distance-card">
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=St.%20Stephen%E2%80%99s%20Cathedral,%20Vienna&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Indicazioni dal Florum Hotel a Duomo di Santo Stefano / centro città">
           <span>Duomo di Santo Stefano / centro città</span>
           <strong>1.2 km</strong>
           <small>15 min a piedi</small>
-        </article>
-        <article class="location-distance-card">
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Augarten%20Park,%20Vienna&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Indicazioni dal Florum Hotel a Parco Augarten">
           <span>Parco Augarten</span>
           <strong>950 m</strong>
           <small>12 min a piedi</small>
-        </article>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Airport&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Indicazioni dal Florum Hotel a Aeroporto internazionale di Vienna">
+          <span>Aeroporto internazionale di Vienna</span>
+          <strong>20 km</strong>
+          <small>24 min</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20Central%20Station&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Indicazioni dal Florum Hotel a Stazione centrale di Vienna">
+          <span>Stazione centrale di Vienna</span>
+          <strong>5 km</strong>
+          <small>17 min</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20Westbahnhof&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Indicazioni dal Florum Hotel a Vienna Westbahnhof">
+          <span>Vienna Westbahnhof</span>
+          <strong>6 km</strong>
+          <small>18 min</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=CAT%20Wien%20Mitte&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Indicazioni dal Florum Hotel a CAT Wien Mitte">
+          <span>CAT Wien Mitte</span>
+          <strong>1.6 km</strong>
+          <small>6 min</small>
+        </a>
       </div>
 
-      <div class="arrival-card-stack reveal delay-2" data-arrival-stack>
-        <article class="arrival-card is-active" data-arrival-card="public-transport">
-          <button class="arrival-card__switch" type="button" data-arrival-trigger="public-transport" aria-expanded="true">Arriva con i mezzi pubblici</button>
+      <div class="arrival-layout reveal delay-2">
+        <article class="arrival-card arrival-card--primary">
           <a class="arrival-card__visual arrival-static-map arrival-static-map--hotel arrival-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer" aria-label="Mappa per Hotel Florum con i mezzi pubblici">
-            <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/florum-map-preview.webp" alt="" width="1040" height="586" loading="lazy" decoding="async">
-            <span class="arrival-map-pin">Florum</span>
+            <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/map-florum.webp" alt="Mappa con il Florum Hotel e i vicini collegamenti di trasporto pubblico." width="1536" height="1024" loading="lazy" decoding="async">
           </a>
           <div class="arrival-card__content">
             <h3 class="arrival-card__tab">Arrivare con i mezzi pubblici</h3>
             <p>Collegamenti rapidi rendono Florum comodo per centro, stazioni, parchi e luoghi culturali di Vienna.</p>
             <ul class="arrival-detail-list">
-              <li><strong>U2 Taborstrasse</strong><span>200 m, 2 min a piedi</span></li>
-              <li><strong>U1/U4 Schwedenplatz</strong><span>800 m, 10 min a piedi</span></li>
+              <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U2%20Taborstra%C3%9Fe,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a U2 Taborstrasse">U2 Taborstrasse</a></strong><span>200 m, 2 min a piedi</span></li>
+              <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U1/U4%20Schwedenplatz,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a U1/U4 Schwedenplatz">U1/U4 Schwedenplatz</a></strong><span>800 m, 10 min a piedi</span></li>
               <li><strong>Connessioni urbane</strong><span>Ottimi collegamenti in tutta Vienna</span></li>
             </ul>
             <p class="arrival-note">Scopri il percorso più rapido per Florum Hotel prima dell’arrivo.</p>
@@ -1020,77 +758,44 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </article>
 
-        <article class="arrival-card arrival-card--car" data-arrival-card="car">
-          <button class="arrival-card__switch" type="button" data-arrival-trigger="car" aria-expanded="false">Arriva in auto</button>
-          <a class="arrival-card__visual arrival-static-map arrival-static-map--parking arrival-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer" aria-label="Mappa dei parcheggi vicino a Hotel Florum">
-            <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/florum-map-preview.webp" alt="" width="1040" height="586" loading="lazy" decoding="async">
-            <span class="arrival-map-pin">Florum</span>
-          </a>
-          <div class="arrival-card__content">
-            <h3 class="arrival-card__tab">Arrivare in auto</h3>
-            <p>Hotel Florum non dispone di un garage proprio, ma nelle vicinanze ci sono diverse opzioni di parcheggio.</p>
-            <ul class="arrival-detail-list">
-              <li><strong>Parkgarage Rotensterngasse</strong><span>Rotensterngasse 23, 1020 Vienna</span></li>
-              <li><strong>Garage Karmelitermarkt</strong><span>Leopoldsgasse 39, 1020 Vienna</span></li>
-              <li><strong>Tiefgarage Odeongasse</strong><span>Odeongasse 2-4, 1020 Vienna</span></li>
-            </ul>
-            <p class="arrival-note">Scopri il percorso più rapido per Florum Hotel prima dell’arrivo.</p>
-            <a class="btn location-map-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer">Vedi mappa e indicazioni</a>
+        <section class="arrival-car-accordion" data-arrival-accordion>
+          <h3 class="arrival-car-accordion__heading">
+            <button class="arrival-car-accordion__trigger" type="button" aria-expanded="false" aria-controls="arrival-car-panel" id="arrival-car-trigger" data-arrival-accordion-trigger>
+              <span>Arrivare in auto</span>
+              <span class="arrival-car-accordion__chevron" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="arrival-car-accordion__panel" id="arrival-car-panel" role="region" aria-labelledby="arrival-car-trigger" data-arrival-accordion-panel hidden>
+            <div class="arrival-car-accordion__layout">
+              <div class="arrival-card__content">
+                <p>Hotel Florum non dispone di un garage proprio, ma nelle vicinanze ci sono diverse opzioni di parcheggio.</p>
+                <ul class="arrival-detail-list">
+                          <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a Parkgarage Rotensterngasse">Parkgarage Rotensterngasse</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a Parkgarage Rotensterngasse">Rotensterngasse 23, 1020 Vienna</a></span>
+        </li>
+                <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Garage%20Karmelitermarkt,%20Leopoldsgasse%2039,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a Garage Karmelitermarkt">Garage Karmelitermarkt</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Garage%20Karmelitermarkt,%20Leopoldsgasse%2039,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a Garage Karmelitermarkt">Leopoldsgasse 39, 1020 Vienna</a></span>
+        </li>
+                <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a Tiefgarage Odeongasse">Tiefgarage Odeongasse</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Apri le indicazioni dal Florum Hotel a Tiefgarage Odeongasse">Odeongasse 2–4, 1020 Vienna</a></span>
+        </li>
+                        </ul>
+                <p class="arrival-note">Scopri il percorso più rapido per Florum Hotel prima dell’arrivo.</p>
+                <a class="btn location-map-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer">Vedi mappa e indicazioni</a>
+              </div>
+              <a class="arrival-card__visual arrival-static-map arrival-static-map--parking arrival-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer" aria-label="Mappa dei parcheggi vicino a Hotel Florum">
+                <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/map-parking.webp" alt="Mappa con il Florum Hotel e i parcheggi coperti nelle vicinanze." width="1536" height="1024" loading="lazy" decoding="async">
+              </a>
+            </div>
           </div>
-        </article>
+        </section>
       </div>
     </div>
   </section>
 
-  <section class="section sustainability-section">
-    <div class="container">
-      <div class="sustainability-split">
-        <img class="sustainability-photo reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="Dettaglio di ospitalità sostenibile a Hotel Florum" width="1200" height="1500" loading="lazy" decoding="async">
-        <div class="sustainability-panel reveal delay-1">
-          <h2>Impegno per la sostenibilità</h2>
-          <p class="body-copy">Ci concentriamo anche su misure pratiche di sostenibilità che favoriscono un soggiorno più consapevole: dalla riduzione degli articoli monouso e raccolta differenziata alle operazioni quotidiane attente a energia e acqua.</p>
-          <div class="sustainability-list">
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-pump-soap"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>Riduzione dei rifiuti monouso</h3>
-              </div>
-              <p>Dispenser ricaricabili e alternative pratiche aiutano a ridurre gli imballaggi monouso.</p>
-            </article>
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-recycle"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>Raccolta differenziata</h3>
-              </div>
-              <p>Processi quotidiani chiari supportano una gestione alberghiera più responsabile.</p>
-            </article>
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-bolt"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>Operazioni attente all’energia</h3>
-              </div>
-              <p>Sistemi attenti aiutano a ridurre consumi energetici non necessari.</p>
-            </article>
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-droplet"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>Pulizia attenta all’acqua</h3>
-              </div>
-              <p>Routine di pulizia efficienti favoriscono un uso più attento delle risorse.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -1105,12 +810,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/it/termini-condizioni/">Termini e Condizioni</a>
       <a href="/florum-design-concepts/it/contatti/">Contatti</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contatta Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

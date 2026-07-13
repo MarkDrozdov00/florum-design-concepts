@@ -1,0 +1,37 @@
+@import url("/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css");
+
+* { box-sizing: border-box; }
+.concept-page { margin: 0; background: var(--color-surface-botanical); color: var(--green-ink); font-family: var(--font-sans); }
+.concept-page main { min-height: 100vh; padding: clamp(60px, 7vw, 100px) 0; }
+.concept-wrap { width: min(calc(100% - 40px), 1180px); margin: auto; }
+.concept-page h1 { margin: 0; font-size: clamp(2.55rem, 4.6vw, 4.7rem); font-weight: 500; letter-spacing: -0.025em; line-height: 0.98; text-wrap: balance; }
+.concept-page p { margin: 0; color: var(--color-text-muted); font-size: clamp(0.96rem, 1.05vw, 1.05rem); line-height: 1.68; }
+.concept-page img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.concept-link { display: inline-flex; min-height: 42px; align-items: center; gap: 9px; border-bottom: 1px solid var(--color-border-strong); color: var(--green-botanical); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+.concept-contact a { color: var(--green-ink); font-weight: 600; }
+.benefits { margin: 0; padding: 0; list-style: none; }
+.benefits li { color: var(--green-ink); font-size: clamp(0.92rem, 1vw, 1rem); font-weight: 500; line-height: 1.4; }
+
+/* A — Editorial Hospitality */
+.concept-a { display: grid; grid-template-columns: minmax(360px, 0.86fr) minmax(0, 1.14fr); gap: clamp(50px, 7vw, 96px); align-items: center; }
+.concept-a__image { height: clamp(610px, 57vw, 780px); overflow: hidden; border-radius: var(--radius-lg); }
+.concept-a__content { display: grid; gap: clamp(30px, 4vw, 52px); }
+.concept-a__copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+.concept-a .benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 42px; border-bottom: 1px solid var(--color-border-subtle); }
+.concept-a .benefits li { position: relative; padding: 15px 4px 15px 17px; border-top: 1px solid var(--color-border-subtle); }
+.concept-a .benefits li::before { position: absolute; top: 1.55em; left: 1px; width: 4px; height: 4px; border-radius: 50%; background: var(--green-botanical); content: ""; }
+.concept-a__footer { display: flex; align-items: end; justify-content: space-between; gap: 28px; }
+.concept-a__footer p { max-width: 540px; font-size: 0.88rem; }
+
+@media (max-width: 820px) {
+  .concept-a { grid-template-columns: 1fr; }
+  .concept-a__image { height: auto; aspect-ratio: 4 / 3; }
+  .concept-a__copy,
+  .concept-a .benefits { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .concept-page main { padding-block: 42px; }
+  .concept-wrap { width: min(calc(100% - 28px), 1180px); }
+  .concept-a__footer { align-items: start; flex-direction: column; }
+}

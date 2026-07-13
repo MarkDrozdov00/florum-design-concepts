@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,53 +51,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/de/zimmer/">Zimmer</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/de/home-deutsch/">Startseite</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/de/zimmer/">Zimmer</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/de/apartments/">Apartments</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/de/zimmer/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Zimmer</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Zimmer</h4>
-                <a href="/florum-design-concepts/de/zimmer/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/de/zimmer/">
                   <span>Unsere Zimmer</span>
-                  <small>Klassische Zimmer, Studios und Aufenthalte in Wien</small>
+                  <small>Moderne Zimmer für jede Art von Aufenthalt.</small>
                 </a>
-                <a href="/florum-design-concepts/de/apartments/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/de/apartments/">
                   <span>Apartments</span>
-                  <small>Langzeitkomfort mit Hotelservice</small>
+                  <small>Voll ausgestattete Apartments für längere Aufenthalte.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Ihr Aufenthalt</h4>
-                <p>Vergleichen Sie Zimmer, Apartment-Ausstattung und Direktbuchungsoptionen für Ihren Aufenthalt in Wien.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/de/geschaeftskunden/">B2B</a>
-        <a href="/florum-design-concepts/de/veranstaltungen/">Veranstaltungen</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/de/leistungen/">Leistungen</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Services</h4>
-                <a href="/florum-design-concepts/de/leistungen/">
-                  <span>Unsere Services</span>
-                  <small>Frühstück, Rezeption, Lobbybar und Extras</small>
-                </a>
-                <a href="/florum-design-concepts/de/koscheres-angebot/">
-                  <span>Koscheres Angebot</span>
-                  <small>Aufmerksame Unterstützung für koschere Aufenthalte</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Hotelkomfort</h4>
-                <p>Praktische Services für kurze Reisen und längere Aufenthalte.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="/florum-design-concepts/de/lage/">Lage</a>
+                <a href="/florum-design-concepts/de/leistungen/">Leistungen</a>
+        <a class="is-current" aria-current="page" href="/florum-design-concepts/de/lage/">Lage</a>
       </div>
 
       <a href="/florum-design-concepts/de/home-deutsch/" class="logo" aria-label="Florum Hotel Startseite">
@@ -101,94 +86,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/de/geschaeftskunden/">B2B</a>
+        <a href="/florum-design-concepts/de/kontakt/">Kontakt</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Jetzt buchen</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Sprache</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Sprache wählen" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Sprache</h4>
-                <a href="/florum-design-concepts/location/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/lage/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/lokaciya/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Mehr</h4>
-                <a href="/florum-design-concepts/it/posizione/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/ubicacion/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/mikum/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/location/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/lage/" class="is-current" aria-current="page"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/lokaciya/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/posizione/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/ubicacion/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/mikum/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/de/kontakt/">Kontakt</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Jetzt buchen</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Jetzt buchen</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Buchungsfeld schließen">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Anreise</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Anreisedatum wählen">Datum wählen</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Abreise</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Abreisedatum wählen">Datum wählen</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Personen und Zimmer">
-            <option value="1">2 Personen • 1 Zimmer</option>
-            <option value="2">1 Person • 1 Zimmer</option>
-            <option value="3">3 Personen • 1 Zimmer</option>
-            <option value="4">4 Personen • 2 Zimmer</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Verfügbarkeit prüfen          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page location-page">
-  <section class="inner-page-hero location-page-hero">
+  <section class="inner-page-hero location-page-hero internal-page-hero">
     <div class="container inner-page-hero__grid">
       <div class="inner-page-hero__copy reveal">
-        <h2>Finden Sie Florum im Herzen Wiens</h2>
+        <h1>Finden Sie Florum im Herzen Wiens</h1>
         <p>
           Das Hotel Florum liegt im lebendigen zweiten Bezirk Wiens, gut an den öffentlichen Verkehr angebunden und nahe dem Stadtzentrum, Parks, Restaurants und Kulturorten.        </p>
       </div>
@@ -202,7 +132,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section location-page-section">
     <div class="container">
       <div class="location-page-intro reveal">
-        <h2>Gut angebunden an die Stadt, entspannt bei der Ankunft.</h2>
+        <h2>Gut angebunden an die Stadt, entspannt bei der Ankunft</h2>
         <p class="body-copy">
           Florum liegt nur wenige Schritte von Restaurants, Bars, Geschäften, grünen Parks und Verkehrsanbindungen entfernt, mit denen Wien mühelos zu entdecken ist.        </p>
       </div>
@@ -215,44 +145,44 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <h3>Hotel Florum Wien</h3>
           <p>Schnelle Verbindungen bringen Sie vom Florum bequem ins Zentrum, zu Bahnhöfen, Parks und Kulturorten.</p>
           <ul class="arrival-detail-list">
-            <li><strong>U2 Taborstrasse</strong><span>200 m, 2 Minuten zu Fuss</span></li>
-            <li><strong>U1/U4 Schwedenplatz</strong><span>800 m, 10 Minuten zu Fuss</span></li>
+            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U2%20Taborstra%C3%9Fe,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zur U2 Taborstraße öffnen">U2 Taborstrasse</a></strong><span>200 m, 2 Minuten zu Fuss</span></li>
+            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U1/U4%20Schwedenplatz,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zum U1/U4 Schwedenplatz öffnen">U1/U4 Schwedenplatz</a></strong><span>800 m, 10 Minuten zu Fuss</span></li>
             <li><strong>Stadtanbindung</strong><span>Ausgezeichnete Anbindung in ganz Wien</span></li>
           </ul>
         </div>
       </div>
 
       <div class="location-distance-grid location-page-distance-grid reveal delay-1" aria-label="Entfernungen vom Hotel Florum">
-        <article class="location-distance-card">
-          <span>Flughafen Wien</span>
-          <strong>20 km</strong>
-          <small>24 Min.</small>
-        </article>
-        <article class="location-distance-card">
-          <span>Wien Hauptbahnhof</span>
-          <strong>5 km</strong>
-          <small>17 Min.</small>
-        </article>
-        <article class="location-distance-card">
-          <span>Wien Westbahnhof</span>
-          <strong>6 km</strong>
-          <small>18 Min.</small>
-        </article>
-        <article class="location-distance-card">
-          <span>CAT Wien Mitte</span>
-          <strong>1.6 km</strong>
-          <small>6 Min.</small>
-        </article>
-        <article class="location-distance-card">
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=St.%20Stephen%E2%80%99s%20Cathedral,%20Vienna&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Route zum Stephansdom">
           <span>Stephansdom / Stadtzentrum</span>
           <strong>1.2 km</strong>
           <small>15 Min. zu Fuss</small>
-        </article>
-        <article class="location-distance-card">
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Augarten%20Park,%20Vienna&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Route zum Augarten">
           <span>Augarten</span>
           <strong>950 m</strong>
           <small>12 Min. zu Fuss</small>
-        </article>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Airport&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Route zum Flughafen Wien">
+          <span>Flughafen Wien</span>
+          <strong>20 km</strong>
+          <small>24 Min.</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20Central%20Station&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Route zum Wiener Hauptbahnhof">
+          <span>Wien Hauptbahnhof</span>
+          <strong>5 km</strong>
+          <small>17 Min.</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20Westbahnhof&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Route zum Wiener Westbahnhof">
+          <span>Wien Westbahnhof</span>
+          <strong>6 km</strong>
+          <small>18 Min.</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=CAT%20Wien%20Mitte&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="Route zum CAT Wien Mitte">
+          <span>CAT Wien Mitte</span>
+          <strong>1.6 km</strong>
+          <small>6 Min.</small>
+        </a>
       </div>
 
       <div class="location-page-route-grid">
@@ -262,8 +192,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <p>Entdecken Sie vor Ihrer Ankunft die schnellste Route zum Florum Hotel. Die nahegelegenen U-Bahn-Stationen verbinden Sie rasch mit Zentrum, Bahnhöfen und Flughafenrouten.</p>
           </div>
           <ul class="arrival-detail-list">
-            <li><strong>U2 Taborstrasse</strong><span>200 m, 2 Minuten zu Fuss</span></li>
-            <li><strong>U1/U4 Schwedenplatz</strong><span>800 m, 10 Minuten zu Fuss</span></li>
+            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U2%20Taborstra%C3%9Fe,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zur U2 Taborstraße öffnen">U2 Taborstrasse</a></strong><span>200 m, 2 Minuten zu Fuss</span></li>
+            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U1/U4%20Schwedenplatz,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zum U1/U4 Schwedenplatz öffnen">U1/U4 Schwedenplatz</a></strong><span>800 m, 10 Minuten zu Fuss</span></li>
             <li><strong>Stadtanbindung</strong><span>Ausgezeichnete Anbindung in ganz Wien</span></li>
           </ul>
         </article>
@@ -274,14 +204,65 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <p>Das Hotel Florum verfügt über keine eigene Garage, mehrere Parkmöglichkeiten befinden sich jedoch in der Nähe.</p>
           </div>
           <ul class="arrival-detail-list">
-            <li><strong>Parkgarage Rotensterngasse</strong><span>Rotensterngasse 23, 1020 Vienna</span></li>
-            <li><strong>Garage Karmelitermarkt</strong><span>Leopoldsgasse 39, 1020 Vienna</span></li>
-            <li><strong>Tiefgarage Odeongasse</strong><span>Odeongasse 2-4, 1020 Vienna</span></li>
-          </ul>
+                    <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zu Parkgarage Rotensterngasse öffnen">Parkgarage Rotensterngasse</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zu Parkgarage Rotensterngasse öffnen">Rotensterngasse 23, 1020 Vienna</a></span>
+        </li>
+                <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Garage%20Karmelitermarkt,%20Leopoldsgasse%2039,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zu Garage Karmelitermarkt öffnen">Garage Karmelitermarkt</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Garage%20Karmelitermarkt,%20Leopoldsgasse%2039,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zu Garage Karmelitermarkt öffnen">Leopoldsgasse 39, 1020 Vienna</a></span>
+        </li>
+                <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zu Tiefgarage Odeongasse öffnen">Tiefgarage Odeongasse</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Route vom Florum Hotel zu Tiefgarage Odeongasse öffnen">Odeongasse 2–4, 1020 Vienna</a></span>
+        </li>
+                  </ul>
         </article>
       </div>
     </div>
   </section>
+
+  <section class="section sustainability-section">
+  <div class="container">
+    <div class="sustainability-split">
+      <img class="sustainability-photo reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="Nachhaltiges Hospitality-Detail im Hotel Florum" width="1200" height="1500" loading="lazy" decoding="async">
+      <div class="sustainability-panel reveal delay-1">
+        <h2>Nachhaltigkeitsversprechen</h2>
+        <p class="body-copy">Wir setzen außerdem auf praktische Nachhaltigkeitsmaßnahmen für einen bewussteren Aufenthalt - von reduzierten Einwegprodukten und Mülltrennung bis zu energie- und wasserbewussten Abläufen im Alltag.</p>
+        <ul class="editorial-feature-list sustainability-list">
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-pump-soap"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Weniger Einwegabfall</h3>
+      </div>
+      <p>Nachfüllspender und praktische Alternativen helfen, Einwegverpackungen zu reduzieren</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-recycle"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Mülltrennung</h3>
+      </div>
+      <p>Klare tägliche Abläufe unterstützen einen verantwortungsvolleren Hotelbetrieb</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Energiebewusster Betrieb</h3>
+      </div>
+      <p>Durchdachte Systeme helfen, unnötigen Energieverbrauch zu reduzieren</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-droplet"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Wasserbewusste Reinigung</h3>
+      </div>
+      <p>Effiziente Reinigungsabläufe unterstützen einen sorgsameren Umgang mit Ressourcen</p>
+    </li>
+  </ul>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -296,12 +277,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/de/agb/">AGB</a>
       <a href="/florum-design-concepts/de/kontakt/">Kontakt</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Florum Hotel kontaktieren">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

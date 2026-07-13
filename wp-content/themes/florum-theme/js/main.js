@@ -1,17 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const COLLAPSED_NAV_MAX = 1199;
+  const isCollapsedNavigation = () => window.innerWidth <= COLLAPSED_NAV_MAX;
   const reveals = document.querySelectorAll(".reveal");
   const fadeCarousels = document.querySelectorAll("[data-fade-carousel]");
   const bookingStrips = document.querySelectorAll(".booking-strip");
-  const bookingDrawers = document.querySelectorAll("[data-booking-drawer]");
   const sliderTracks = document.querySelectorAll("[data-slider]");
-  const arrivalStacks = document.querySelectorAll("[data-arrival-stack]");
+  const arrivalAccordions = document.querySelectorAll("[data-arrival-accordion]");
+  const mobileListAccordions = document.querySelectorAll("[data-mobile-list-accordion]");
+  const contactForms = document.querySelectorAll("[data-contact-form]");
   const hospitalityTabs = document.querySelectorAll("[data-hospitality-tabs], .hospitality-tabs");
-  const serviceCards = document.querySelectorAll(".service-card");
+  const serviceCards = document.querySelectorAll(".service-card, .service-reveal-item");
   const siteHeader = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const mainNav = document.querySelector(".main-nav");
   const syncAdminBarOffset = () => {
-    if (window.innerWidth <= 980) {
+    if (isCollapsedNavigation()) {
       document.documentElement.style.setProperty("--wp-admin-bar-offset", "0px");
       return;
     }
@@ -37,16 +40,29 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", syncAdminBarOffset);
 
   if (siteHeader && menuToggle && mainNav) {
+    const setMenuScrollLock = (locked) => {
+      document.documentElement.classList.toggle("is-navigation-open", locked);
+      document.body.classList.toggle("is-navigation-open", locked);
+    };
+
     const closeMenu = () => {
       const openLabel = menuToggle.dataset.labelOpen || "Open menu";
       siteHeader.classList.remove("is-menu-open");
+      setMenuScrollLock(false);
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", openLabel);
+      mainNav.querySelectorAll(".nav-dropdown.is-open").forEach((dropdown) => {
+        dropdown.classList.remove("is-open");
+        dropdown.querySelectorAll(":scope > .nav-dropdown__trigger").forEach((trigger) => {
+          trigger.setAttribute("aria-expanded", "false");
+        });
+      });
     };
 
     const openMenu = () => {
       const closeLabel = menuToggle.dataset.labelClose || "Close menu";
       siteHeader.classList.add("is-menu-open");
+      setMenuScrollLock(true);
       menuToggle.setAttribute("aria-expanded", "true");
       menuToggle.setAttribute("aria-label", closeLabel);
     };
@@ -59,185 +75,653 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    mainNav.querySelectorAll("a").forEach((link) => {
+    mainNav.querySelectorAll("a:not(.nav-dropdown__trigger)").forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 980) {
+      if (!isCollapsedNavigation()) {
         closeMenu();
       }
     });
+
   }
 
-  if (siteHeader) {
-    const headerBookingToggle = siteHeader.querySelector("[data-header-booking-toggle]");
-    const headerBookingPanel = siteHeader.querySelector("[data-header-booking-panel]");
-    const headerBookingClose = siteHeader.querySelector("[data-header-booking-close]");
-    const desktopBookingQuery = typeof window.matchMedia === "function"
-      ? window.matchMedia("(min-width: 981px)")
-      : { matches: true };
+  const DROPDOWN_CLOSE_DELAY = 600;
+  document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
+    const triggers = dropdown.querySelectorAll(":scope > .nav-dropdown__trigger");
+    const trigger = triggers[0];
+    const getActiveTrigger = () => isCollapsedNavigation()
+      ? dropdown.querySelector(":scope > .nav-dropdown__trigger--mobile") || trigger
+      : trigger;
+    const panel = dropdown.querySelector(":scope > .nav-dropdown__menu");
+    const isLanguageDropdown = dropdown.classList.contains("nav-dropdown--language");
+    let closeTimer = null;
 
-    if (headerBookingToggle && headerBookingPanel) {
-      let headerBookingTransitionTimer;
-      let isHeaderBookingOpen = !headerBookingPanel.hasAttribute("hidden");
+    const cancelClose = () => {
+      if (closeTimer !== null) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    };
 
-      const setHeaderBookingOpen = (isOpen) => {
-        window.clearTimeout(headerBookingTransitionTimer);
-        isHeaderBookingOpen = isOpen;
+    const setDropdownOpen = (open) => {
+      if (open && isCollapsedNavigation()) {
+        document.querySelectorAll(".nav-dropdown.is-open").forEach((openDropdown) => {
+          if (openDropdown === dropdown) {
+            return;
+          }
 
-        if (isOpen) {
-          headerBookingPanel.removeAttribute("hidden");
-          headerBookingPanel.setAttribute("aria-hidden", "false");
-          headerBookingPanel.classList.remove("is-open", "is-closing", "is-ready");
-          headerBookingPanel.offsetHeight;
-
-          window.requestAnimationFrame(() => {
-            headerBookingPanel.classList.add("is-open");
+          openDropdown.classList.remove("is-open");
+          openDropdown.querySelectorAll(":scope > .nav-dropdown__trigger").forEach((openTrigger) => {
+            openTrigger.setAttribute("aria-expanded", "false");
           });
+        });
+      }
 
-          headerBookingTransitionTimer = window.setTimeout(() => {
-            if (headerBookingPanel.classList.contains("is-open")) {
-              headerBookingPanel.classList.add("is-ready");
-            }
-          }, 320);
-        } else {
-          headerBookingPanel.classList.remove("is-open", "is-ready");
-          headerBookingPanel.classList.add("is-closing");
-          headerBookingPanel.setAttribute("aria-hidden", "true");
+      dropdown.classList.toggle("is-open", open);
+      triggers.forEach((dropdownTrigger) => {
+        dropdownTrigger.setAttribute("aria-expanded", String(open));
+      });
+    };
 
-          headerBookingTransitionTimer = window.setTimeout(() => {
-            headerBookingPanel.classList.remove("is-closing");
-            headerBookingPanel.setAttribute("hidden", "");
-          }, 280);
-        }
+    const openDropdown = () => {
+      if (isCollapsedNavigation()) {
+        return;
+      }
 
-        siteHeader.classList.toggle("is-booking-open", isOpen);
-        headerBookingToggle.setAttribute("aria-expanded", String(isOpen));
-      };
+      cancelClose();
+      setDropdownOpen(true);
+    };
 
-      headerBookingToggle.addEventListener("click", (event) => {
-        if (!desktopBookingQuery.matches) {
+    const closeDropdown = (immediate = false) => {
+      cancelClose();
+
+      if (immediate) {
+        setDropdownOpen(false);
+        return;
+      }
+
+      closeTimer = window.setTimeout(() => {
+        setDropdownOpen(false);
+        closeTimer = null;
+      }, DROPDOWN_CLOSE_DELAY);
+    };
+
+    dropdown.addEventListener("pointerenter", openDropdown);
+    dropdown.addEventListener("pointerleave", () => closeDropdown());
+    dropdown.querySelectorAll(":scope > .nav-dropdown__menu a").forEach((link) => {
+      link.addEventListener("pointerdown", cancelClose);
+    });
+    dropdown.addEventListener("focusin", openDropdown);
+    dropdown.addEventListener("focusout", (event) => {
+      if (!dropdown.contains(event.relatedTarget)) {
+        closeDropdown();
+      }
+    });
+    dropdown.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      event.preventDefault();
+      closeDropdown(true);
+      getActiveTrigger()?.focus();
+    });
+
+    triggers.forEach((dropdownTrigger) => {
+      dropdownTrigger.addEventListener("click", (event) => {
+        const isResponsiveRoomsTrigger = dropdown.classList.contains("nav-dropdown--rooms")
+          && isCollapsedNavigation();
+
+        if (!isLanguageDropdown && !isResponsiveRoomsTrigger) {
           return;
         }
 
         event.preventDefault();
         event.stopPropagation();
-        setHeaderBookingOpen(!isHeaderBookingOpen);
+        cancelClose();
+        setDropdownOpen(!dropdown.classList.contains("is-open"));
       });
-
-      headerBookingClose?.addEventListener("click", () => {
-        setHeaderBookingOpen(false);
-        headerBookingToggle.focus();
-      });
-
-      document.addEventListener("click", (event) => {
-        if (headerBookingPanel.hasAttribute("hidden") || siteHeader.contains(event.target)) {
-          return;
-        }
-
-        setHeaderBookingOpen(false);
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key !== "Escape" || headerBookingPanel.hasAttribute("hidden")) {
-          return;
-        }
-
-        setHeaderBookingOpen(false);
-        headerBookingToggle.focus();
-      });
-
-      const handleDesktopBookingChange = (event) => {
-        if (!event.matches) {
-          setHeaderBookingOpen(false);
-        }
-      };
-
-      if (typeof desktopBookingQuery.addEventListener === "function") {
-        desktopBookingQuery.addEventListener("change", handleDesktopBookingChange);
-      } else if (typeof desktopBookingQuery.addListener === "function") {
-        desktopBookingQuery.addListener(handleDesktopBookingChange);
-      }
-    }
-  }
-
-  bookingDrawers.forEach((drawer) => {
-    const toggle = drawer.querySelector("[data-booking-toggle]");
-    const drawerId = drawer.getAttribute("id");
-
-    if (!toggle) {
-      return;
-    }
-
-    const setDrawerOpen = (isOpen) => {
-      drawer.classList.toggle("is-open", isOpen);
-      drawer.classList.toggle("is-collapsed", !isOpen);
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.setAttribute("aria-label", isOpen ? "Close booking drawer" : "Open booking drawer");
-    };
-
-    toggle.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      setDrawerOpen(!drawer.classList.contains("is-open"));
     });
 
-    if (drawerId) {
-      document.querySelectorAll(`a[href="#${drawerId}"]`).forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        setDrawerOpen(true);
-      });
-      });
-    }
-  });
-
-  if (bookingDrawers.length > 0) {
-    let bookingOffsetTicking = false;
-
-    const syncBookingOffset = () => {
-      const headerBottom = siteHeader ? siteHeader.getBoundingClientRect().bottom : 0;
-      const offset = Math.max(0, Math.ceil(headerBottom));
-
-      bookingDrawers.forEach((drawer) => {
-        const panel = drawer.querySelector(".urban-booking-panel");
-        const panelHeight = panel ? Math.ceil(panel.getBoundingClientRect().height) : 0;
-
-        drawer.style.setProperty("--booking-drawer-top-offset", `${offset}px`);
-
-        if (panelHeight > 0) {
-          drawer.style.setProperty("--booking-panel-height", `${panelHeight}px`);
+    if (isLanguageDropdown) {
+      document.addEventListener("click", (event) => {
+        if (!dropdown.contains(event.target)) {
+          closeDropdown(true);
         }
       });
+    }
 
-      bookingOffsetTicking = false;
+    window.addEventListener("resize", () => {
+      if (isCollapsedNavigation()) {
+        closeDropdown(true);
+      }
+    });
+
+    window.addEventListener("pagehide", cancelClose, { once: true });
+  });
+
+  const roomPreviewModal = document.querySelector("[data-room-preview-modal]");
+  const roomPreviewTriggers = document.querySelectorAll("[data-room-preview-trigger]");
+
+  if (roomPreviewModal && roomPreviewTriggers.length > 0) {
+    const catalogElement = document.querySelector("[data-room-preview-catalog]");
+    const roomCatalog = catalogElement ? JSON.parse(catalogElement.textContent) : {};
+    const closeButton = roomPreviewModal.querySelector("[data-room-preview-close]");
+    const status = roomPreviewModal.querySelector("[data-room-preview-status]");
+    const content = roomPreviewModal.querySelector("[data-room-preview-content]");
+    const title = roomPreviewModal.querySelector("[data-room-preview-title]");
+    const description = roomPreviewModal.querySelector("[data-room-preview-description]");
+    const roomFacts = roomPreviewModal.querySelector("[data-room-preview-room-facts]");
+    const highlights = roomPreviewModal.querySelector("[data-room-preview-highlights]");
+    const includedAmenities = roomPreviewModal.querySelector("[data-room-preview-included-amenities]");
+    const amenitiesToggle = roomPreviewModal.querySelector("[data-room-preview-amenities-toggle]");
+    const amenitiesLabel = roomPreviewModal.querySelector("[data-room-preview-amenities-label]");
+    const amenitiesPanel = roomPreviewModal.querySelector("[data-room-preview-amenities-panel]");
+    const highlightsGroup = highlights?.closest(".room-preview-modal__feature-group");
+    const amenitiesGroup = includedAmenities?.closest(".room-preview-modal__feature-group");
+    const track = roomPreviewModal.querySelector("[data-room-preview-track]");
+    const indicators = roomPreviewModal.querySelector("[data-room-preview-indicators]");
+    const previousButton = roomPreviewModal.querySelector("[data-room-preview-previous]");
+    const nextButton = roomPreviewModal.querySelector("[data-room-preview-next]");
+    const imageLightbox = document.querySelector("[data-room-image-lightbox]");
+    const lightboxStage = imageLightbox?.querySelector("[data-room-image-lightbox-stage]");
+    const lightboxImage = imageLightbox?.querySelector("[data-room-image-lightbox-image]");
+    const lightboxClose = imageLightbox?.querySelector("[data-room-image-lightbox-close]");
+    const lightboxPrevious = imageLightbox?.querySelector("[data-room-image-lightbox-previous]");
+    const lightboxNext = imageLightbox?.querySelector("[data-room-image-lightbox-next]");
+    const lightboxCounter = imageLightbox?.querySelector("[data-room-image-lightbox-counter]");
+    const baseUrl = window.location.href;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let activeIndex = 0;
+    let activeImages = [];
+    let requestId = 0;
+    let returnFocus = null;
+    let lockedScrollY = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let lightboxTouchStartX = 0;
+    let lightboxTouchStartY = 0;
+    let lightboxReturnFocus = null;
+    let previewScrollPosition = 0;
+
+    const getPreviewScrollContainer = () => window.matchMedia("(max-width: 767px)").matches
+      ? roomPreviewModal.querySelector(".room-preview-modal__shell")
+      : roomPreviewModal.querySelector(".room-preview-modal__details");
+
+    const lockPage = () => {
+      lockedScrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.right = "0";
+      document.body.style.left = "0";
+      document.body.style.width = "100%";
+      document.body.classList.add("is-room-preview-open");
     };
 
-    const requestBookingOffset = () => {
-      if (bookingOffsetTicking) {
+    const unlockPage = () => {
+      document.body.classList.remove("is-room-preview-open");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.right = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
+      window.scrollTo(0, lockedScrollY);
+    };
+
+    const renderLightboxImage = () => {
+      if (!imageLightbox?.open || activeImages.length === 0) {
         return;
       }
 
-      bookingOffsetTicking = true;
-      window.requestAnimationFrame(syncBookingOffset);
+      const image = activeImages[activeIndex];
+      lightboxImage.src = image.src;
+      lightboxImage.srcset = image.srcset || "";
+      lightboxImage.alt = image.alt;
+      lightboxCounter.textContent = `${activeIndex + 1} / ${activeImages.length}`;
+      const multipleImages = activeImages.length > 1;
+      lightboxPrevious.hidden = !multipleImages;
+      lightboxNext.hidden = !multipleImages;
     };
 
-    syncBookingOffset();
-    window.addEventListener("load", syncBookingOffset);
-    window.addEventListener("resize", requestBookingOffset);
-    window.addEventListener("scroll", requestBookingOffset, { passive: true });
+    const showSlide = (index) => {
+      if (activeImages.length === 0) {
+        return;
+      }
 
-    if (siteHeader && "ResizeObserver" in window) {
-      const headerResizeObserver = new ResizeObserver(requestBookingOffset);
-      headerResizeObserver.observe(siteHeader);
-    }
+      activeIndex = (index + activeImages.length) % activeImages.length;
+      track.querySelectorAll(".room-preview-gallery__slide").forEach((slide, slideIndex) => {
+        const active = slideIndex === activeIndex;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", String(!active));
+        slide.tabIndex = active ? 0 : -1;
+      });
+      indicators.querySelectorAll("button").forEach((indicator, indicatorIndex) => {
+        const active = indicatorIndex === activeIndex;
+        indicator.classList.toggle("is-active", active);
+        indicator.setAttribute("aria-current", active ? "true" : "false");
+      });
+      renderLightboxImage();
+    };
 
-    if (siteHeader && "MutationObserver" in window) {
-      const headerMutationObserver = new MutationObserver(requestBookingOffset);
-      headerMutationObserver.observe(siteHeader, { attributes: true, attributeFilter: ["class", "style"] });
+    const closeImageLightbox = () => {
+      if (!imageLightbox?.open) {
+        return;
+      }
+
+      imageLightbox.classList.remove("is-open");
+      const close = () => {
+        imageLightbox.close();
+        const previewScroller = getPreviewScrollContainer();
+        if (previewScroller) {
+          previewScroller.scrollTop = previewScrollPosition;
+        }
+        const focusTarget = track.querySelector(".room-preview-gallery__slide.is-active") || lightboxReturnFocus;
+        focusTarget?.focus({ preventScroll: true });
+      };
+
+      if (prefersReducedMotion.matches) {
+        close();
+      } else {
+        window.setTimeout(close, 180);
+      }
+    };
+
+    const openImageLightbox = (trigger) => {
+      if (!imageLightbox || activeImages.length === 0 || imageLightbox.open) {
+        return;
+      }
+
+      lightboxReturnFocus = trigger;
+      previewScrollPosition = getPreviewScrollContainer()?.scrollTop || 0;
+      imageLightbox.showModal();
+      renderLightboxImage();
+      window.requestAnimationFrame(() => imageLightbox.classList.add("is-open"));
+      lightboxClose.focus({ preventScroll: true });
+    };
+
+    const renderRoomFacts = (items) => {
+      roomFacts.replaceChildren(...items.map((fact) => {
+        const wrapper = document.createElement("div");
+        const label = document.createElement("dt");
+        const value = document.createElement("dd");
+        label.textContent = fact.label;
+        value.textContent = fact.value;
+        wrapper.append(label, value);
+        return wrapper;
+      }));
+    };
+
+    const renderCheckList = (list, items) => {
+      list.replaceChildren(...items.map((text) => {
+        const item = document.createElement("li");
+        item.textContent = text;
+        return item;
+      }));
+    };
+
+    const getPreviewData = (trigger, roomKey) => {
+      const card = trigger?.closest(".rooms-overview-card");
+      return {
+        key: card?.dataset.roomKey || roomKey,
+        title: card?.dataset.roomTitle || "",
+        size: card?.dataset.roomSize || "",
+        capacity: card?.dataset.roomCapacity || "",
+        description: card?.dataset.roomDescription || "",
+      };
+    };
+
+    const renderRoom = (room, preview) => {
+      roomPreviewModal.classList.remove("is-loading");
+      title.textContent = preview.title || room.title;
+      description.textContent = preview.description || room.description;
+      renderRoomFacts(room.facts);
+      renderCheckList(highlights, room.highlights);
+      renderCheckList(includedAmenities, room.amenities);
+      highlightsGroup.hidden = room.highlights.length === 0;
+      amenitiesGroup.hidden = room.amenities.length === 0;
+      amenitiesPanel.hidden = true;
+      amenitiesToggle.hidden = room.amenities.length === 0;
+      amenitiesToggle.setAttribute("aria-expanded", "false");
+      amenitiesLabel.textContent = amenitiesToggle.dataset.labelOpen;
+
+      activeImages = room.images;
+      track.replaceChildren(...room.images.map((image, index) => {
+        const figure = document.createElement("figure");
+        const photo = document.createElement("img");
+        figure.className = "room-preview-gallery__slide";
+        figure.tabIndex = 0;
+        figure.setAttribute("role", "button");
+        figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
+        photo.src = image.src;
+        if (image.srcset) {
+          photo.srcset = image.srcset;
+        }
+        photo.alt = image.alt;
+        photo.loading = index === 0 ? "eager" : "lazy";
+        photo.decoding = "async";
+        figure.append(photo);
+        return figure;
+      }));
+      indicators.replaceChildren(...room.images.map((image, index) => {
+        const indicator = document.createElement("button");
+        indicator.type = "button";
+        indicator.setAttribute("aria-label", `${preview.title || room.title}: ${index + 1} / ${room.images.length}`);
+        indicator.addEventListener("click", () => showSlide(index));
+        return indicator;
+      }));
+      const multipleImages = room.images.length > 1;
+      previousButton.hidden = !multipleImages;
+      nextButton.hidden = !multipleImages;
+      indicators.hidden = !multipleImages;
+      showSlide(0);
+      status.hidden = true;
+      content.hidden = false;
+    };
+
+    const renderImmediatePreview = (trigger, roomKey) => {
+      const card = trigger?.closest(".rooms-overview-card");
+      const cardImage = card?.querySelector(".rooms-overview-card__media img");
+      const preview = getPreviewData(trigger, roomKey);
+
+      roomPreviewModal.classList.add("is-loading");
+      title.textContent = preview.title;
+      description.textContent = preview.description;
+      roomFacts.replaceChildren();
+      highlights.replaceChildren();
+      includedAmenities.replaceChildren();
+      highlightsGroup.hidden = true;
+      amenitiesGroup.hidden = true;
+      amenitiesPanel.hidden = true;
+      amenitiesToggle.hidden = true;
+      activeImages = cardImage ? [{
+        src: cardImage.currentSrc || cardImage.src,
+        srcset: cardImage.srcset || "",
+        alt: cardImage.alt || preview.title,
+      }] : [];
+      track.replaceChildren(...activeImages.map((image) => {
+        const figure = document.createElement("figure");
+        const photo = document.createElement("img");
+        figure.className = "room-preview-gallery__slide is-active";
+        figure.setAttribute("aria-hidden", "false");
+        figure.tabIndex = 0;
+        figure.setAttribute("role", "button");
+        figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
+        photo.src = image.src;
+        if (image.srcset) {
+          photo.srcset = image.srcset;
+        }
+        photo.alt = image.alt;
+        photo.loading = "eager";
+        photo.decoding = "async";
+        figure.append(photo);
+        return figure;
+      }));
+      indicators.replaceChildren();
+      indicators.hidden = true;
+      previousButton.hidden = true;
+      nextButton.hidden = true;
+      content.hidden = false;
+      return preview;
+    };
+
+    const finishClose = () => {
+      if (!roomPreviewModal.open) {
+        return;
+      }
+
+      requestId += 1;
+      roomPreviewModal.classList.remove("is-open");
+      const close = () => {
+        roomPreviewModal.close();
+        unlockPage();
+        returnFocus?.focus({ preventScroll: true });
+      };
+
+      if (prefersReducedMotion.matches) {
+        close();
+      } else {
+        window.setTimeout(close, 260);
+      }
+    };
+
+    const requestClose = () => {
+      if (window.history.state?.florumRoomPreview) {
+        window.history.back();
+      } else {
+        finishClose();
+      }
+    };
+
+    const openPreview = (roomKey, trigger = null, updateHistory = true) => {
+      const room = roomCatalog[roomKey];
+      if (!room) {
+        return;
+      }
+
+      requestId += 1;
+      returnFocus = trigger || document.querySelector(`[data-room-key="${CSS.escape(roomKey)}"] [data-room-preview-trigger]`) || returnFocus;
+
+      if (!roomPreviewModal.open) {
+        lockPage();
+        roomPreviewModal.showModal();
+        window.requestAnimationFrame(() => roomPreviewModal.classList.add("is-open"));
+      }
+
+      status.hidden = false;
+      const preview = renderImmediatePreview(returnFocus, roomKey);
+      closeButton?.focus({ preventScroll: true });
+
+      if (updateHistory) {
+        window.history.pushState({ florumRoomPreview: true, roomKey }, "", `#room-${roomKey}`);
+      }
+      renderRoom(room, preview);
+    };
+
+    roomPreviewTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+          return;
+        }
+        event.preventDefault();
+        const roomKey = trigger.closest(".rooms-overview-card")?.dataset.roomKey;
+        openPreview(roomKey, trigger, true);
+      });
+    });
+
+    closeButton?.addEventListener("click", requestClose);
+    previousButton?.addEventListener("click", () => showSlide(activeIndex - 1));
+    nextButton?.addEventListener("click", () => showSlide(activeIndex + 1));
+    track.addEventListener("click", (event) => {
+      const slide = event.target.closest(".room-preview-gallery__slide.is-active");
+      if (slide) {
+        openImageLightbox(slide);
+      }
+    });
+    track.addEventListener("keydown", (event) => {
+      if ((event.key === "Enter" || event.key === " ") && event.target.matches(".room-preview-gallery__slide.is-active")) {
+        event.preventDefault();
+        openImageLightbox(event.target);
+      }
+    });
+    amenitiesToggle?.addEventListener("click", () => {
+      const expanded = amenitiesToggle.getAttribute("aria-expanded") === "true";
+      amenitiesToggle.setAttribute("aria-expanded", String(!expanded));
+      amenitiesLabel.textContent = expanded
+        ? amenitiesToggle.dataset.labelOpen
+        : amenitiesToggle.dataset.labelClose;
+      amenitiesPanel.hidden = expanded;
+    });
+
+    roomPreviewModal.addEventListener("click", (event) => {
+      if (event.target === roomPreviewModal) {
+        requestClose();
+      }
+    });
+    roomPreviewModal.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      requestClose();
+    });
+    roomPreviewModal.addEventListener("keydown", (event) => {
+      if (imageLightbox?.open) {
+        return;
+      }
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        requestClose();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showSlide(activeIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(activeIndex + 1);
+      } else if (event.key === "Tab") {
+        const focusable = Array.from(roomPreviewModal.querySelectorAll("button:not([hidden]), a[href], [tabindex]:not([tabindex='-1'])"))
+          .filter((item) => !item.disabled && item.getClientRects().length > 0);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    });
+
+    lightboxClose?.addEventListener("click", closeImageLightbox);
+    lightboxPrevious?.addEventListener("click", () => showSlide(activeIndex - 1));
+    lightboxNext?.addEventListener("click", () => showSlide(activeIndex + 1));
+    imageLightbox?.addEventListener("click", (event) => {
+      if (event.target === imageLightbox || event.target === lightboxStage) {
+        event.stopPropagation();
+        closeImageLightbox();
+      }
+    });
+    imageLightbox?.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeImageLightbox();
+    });
+    imageLightbox?.addEventListener("keydown", (event) => {
+      event.stopPropagation();
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeImageLightbox();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showSlide(activeIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(activeIndex + 1);
+      } else if (event.key === "Tab") {
+        const focusable = Array.from(imageLightbox.querySelectorAll("button:not([hidden])"))
+          .filter((item) => !item.disabled && item.getClientRects().length > 0);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    });
+    lightboxStage?.addEventListener("touchstart", (event) => {
+      lightboxTouchStartX = event.changedTouches[0].clientX;
+      lightboxTouchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+    lightboxStage?.addEventListener("touchend", (event) => {
+      const deltaX = event.changedTouches[0].clientX - lightboxTouchStartX;
+      const deltaY = event.changedTouches[0].clientY - lightboxTouchStartY;
+      if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+
+    track.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      touchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+    track.addEventListener("touchend", (event) => {
+      const deltaX = event.changedTouches[0].clientX - touchStartX;
+      const deltaY = event.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+
+    window.addEventListener("popstate", (event) => {
+      if (event.state?.florumRoomPreview && event.state.roomKey) {
+        openPreview(event.state.roomKey, null, false);
+      } else {
+        finishClose();
+      }
+    });
+
+    window.addEventListener("pagehide", () => {
+      if (roomPreviewModal.open) {
+        unlockPage();
+      }
+    });
+
+    const initialRoomMatch = window.location.hash.match(/^#room-([a-z0-9-]+)$/i);
+    const initialRoomKey = initialRoomMatch ? initialRoomMatch[1].toLowerCase() : "";
+
+    if (initialRoomKey && roomCatalog[initialRoomKey]) {
+      const cleanBaseUrl = new URL(baseUrl);
+      cleanBaseUrl.hash = "";
+      window.history.replaceState({ ...window.history.state, florumRoomPreviewBase: true }, "", cleanBaseUrl.href);
+      window.history.pushState({ florumRoomPreview: true, roomKey: initialRoomKey }, "", `#room-${initialRoomKey}`);
+      openPreview(initialRoomKey, null, false);
+    } else {
+      window.history.replaceState({ ...window.history.state, florumRoomPreviewBase: true }, "", baseUrl);
     }
   }
+
+  const homepageBookingBar = document.querySelector(".homepage-booking-bar");
+  const homepageBookingSentinel = document.querySelector("[data-booking-sticky-sentinel]");
+
+  if (homepageBookingBar && homepageBookingSentinel && siteHeader && "IntersectionObserver" in window) {
+    let bookingStickyObserver;
+
+    const setBookingStickyState = (isSticky) => {
+      homepageBookingBar.classList.toggle("is-sticky", isSticky);
+      document.body.classList.toggle("has-sticky-booking", isSticky);
+    };
+
+    const observeBookingStickyState = () => {
+      bookingStickyObserver?.disconnect();
+
+      if (isCollapsedNavigation()) {
+        setBookingStickyState(false);
+        return;
+      }
+
+      const headerBottom = Math.ceil(siteHeader.getBoundingClientRect().bottom);
+      const stickyLift = Number.parseFloat(
+        window.getComputedStyle(document.documentElement).getPropertyValue("--booking-sticky-lift")
+      ) || 0;
+      const stickyLine = headerBottom - stickyLift;
+      bookingStickyObserver = new IntersectionObserver(([entry]) => {
+        const isSticky = !entry.isIntersecting && entry.boundingClientRect.top <= stickyLine;
+        setBookingStickyState(isSticky);
+      }, {
+        rootMargin: `-${stickyLine}px 0px 0px 0px`,
+        threshold: 0,
+      });
+
+      bookingStickyObserver.observe(homepageBookingSentinel);
+    };
+
+    observeBookingStickyState();
+    window.addEventListener("resize", observeBookingStickyState);
+  }
+
 
   window.requestAnimationFrame(() => {
     reveals.forEach((item) => item.classList.add("is-visible"));
@@ -245,7 +729,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (serviceCards.length > 0) {
     serviceCards.forEach((card, index) => {
-      card.style.setProperty("--service-delay", `${Math.min(index * 85, 420)}ms`);
+      const requestedDelayIndex = Number.parseInt(card.dataset.serviceDelayIndex || "", 10);
+      const delayIndex = Number.isFinite(requestedDelayIndex) ? requestedDelayIndex : index;
+      card.style.setProperty("--service-delay", `${Math.min(delayIndex * 70, 210)}ms`);
       card.classList.add("is-service-ready");
     });
 
@@ -263,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
           revealServiceCard(entry.target);
           observer.unobserve(entry.target);
         });
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.16 });
+      }, { rootMargin: "300px 0px", threshold: 0.01 });
 
       serviceCards.forEach((card) => serviceObserver.observe(card));
     } else {
@@ -275,8 +761,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const initFadeCarousel = (carousel) => {
     const slides = Array.from(carousel.querySelectorAll(".hero-slide, .hospitality-slide, .room-slide"));
+    const previousButton = carousel.querySelector("[data-fade-prev]");
+    const nextButton = carousel.querySelector("[data-fade-next]");
+    const indicators = Array.from(carousel.querySelectorAll("[data-fade-indicators] > *"));
     let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active-slide"));
     const slideImages = slides.map((slide) => slide.querySelector("img"));
+    let autoplayTimer = null;
+    let touchStartX = 0;
+    let touchStartY = 0;
 
     if (slides.length < 2) {
       return;
@@ -307,9 +799,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return !image || image.dataset.carouselReady === "true" || (image.complete && image.naturalWidth > 0);
     };
 
-    const getNextReadyIndex = () => {
+    const getNextReadyIndex = (direction = 1) => {
       for (let offset = 1; offset < slides.length; offset += 1) {
-        const nextIndex = (activeIndex + offset) % slides.length;
+        const nextIndex = (activeIndex + (offset * direction) + slides.length) % slides.length;
 
         if (isSlideReady(nextIndex)) {
           return nextIndex;
@@ -319,17 +811,49 @@ document.addEventListener("DOMContentLoaded", () => {
       return activeIndex;
     };
 
-    window.setInterval(() => {
-      const nextIndex = getNextReadyIndex();
-
-      if (nextIndex === activeIndex) {
+    const showSlide = (nextIndex) => {
+      if (nextIndex === activeIndex || !isSlideReady(nextIndex)) {
         return;
       }
 
       slides[activeIndex].classList.remove("is-active-slide");
+      indicators[activeIndex]?.classList.remove("is-active");
       activeIndex = nextIndex;
       slides[activeIndex].classList.add("is-active-slide");
-    }, 6200);
+      indicators[activeIndex]?.classList.add("is-active");
+    };
+
+    const startAutoplay = () => {
+      if (autoplayTimer !== null) {
+        window.clearInterval(autoplayTimer);
+      }
+
+      autoplayTimer = window.setInterval(() => showSlide(getNextReadyIndex(1)), 6200);
+    };
+
+    const navigate = (direction) => {
+      showSlide(getNextReadyIndex(direction));
+      startAutoplay();
+    };
+
+    previousButton?.addEventListener("click", () => navigate(-1));
+    nextButton?.addEventListener("click", () => navigate(1));
+
+    carousel.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      touchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+
+    carousel.addEventListener("touchend", (event) => {
+      const deltaX = event.changedTouches[0].clientX - touchStartX;
+      const deltaY = event.changedTouches[0].clientY - touchStartY;
+
+      if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        navigate(deltaX > 0 ? -1 : 1);
+      }
+    }, { passive: true });
+
+    startAutoplay();
   };
 
   fadeCarousels.forEach((carousel) => {
@@ -341,7 +865,7 @@ document.addEventListener("DOMContentLoaded", () => {
     runWhenIdle(() => initFadeCarousel(carousel));
   });
 
-  bookingStrips.forEach((strip) => {
+  bookingStrips.forEach((strip, stripIndex) => {
     const checkIn = strip.querySelector("[data-check-in]");
     const checkOut = strip.querySelector("[data-check-out]");
     const checkInTrigger = strip.querySelector('[data-date-trigger="check-in"]');
@@ -353,21 +877,27 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const locale = document.documentElement.lang || "en";
+    const language = locale.toLowerCase().split("-")[0];
+    const isRtl = document.documentElement.dir === "rtl";
+    const calendarCopy = {
+      en: { previousMonth: "Previous month", nextMonth: "Next month", calendar: "Choose a date" },
+      de: { previousMonth: "Vorheriger Monat", nextMonth: "Nächster Monat", calendar: "Datum auswählen" },
+      ru: { previousMonth: "Предыдущий месяц", nextMonth: "Следующий месяц", calendar: "Выберите дату" },
+      it: { previousMonth: "Mese precedente", nextMonth: "Mese successivo", calendar: "Scegli una data" },
+      es: { previousMonth: "Mes anterior", nextMonth: "Mes siguiente", calendar: "Elegir una fecha" },
+      he: { previousMonth: "החודש הקודם", nextMonth: "החודש הבא", calendar: "בחירת תאריך" },
+    }[language] || { previousMonth: "Previous month", nextMonth: "Next month", calendar: "Choose a date" };
+    const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" });
+    const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: "short" });
+    const fullDateFormatter = new Intl.DateTimeFormat(locale, { dateStyle: "full" });
+    const weekdayStart = new Date(2024, 0, 1);
+    const weekdays = Array.from({ length: 7 }, (_, index) => weekdayFormatter.format(new Date(2024, 0, weekdayStart.getDate() + index)));
+    const escapeAttribute = (value) => String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
     const today = new Date();
     const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
@@ -412,31 +942,84 @@ document.addEventListener("DOMContentLoaded", () => {
       "check-in": {
         input: checkIn,
         trigger: checkInTrigger,
+        field: checkInTrigger.closest(".booking-field--date"),
         calendar: checkInCalendar,
         minDate: startOfToday,
         selectedDate: null,
         activeMonth: new Date(startOfToday.getFullYear(), startOfToday.getMonth(), 1),
+        emptyLabel: checkInTrigger.textContent.trim(),
       },
       "check-out": {
         input: checkOut,
         trigger: checkOutTrigger,
+        field: checkOutTrigger.closest(".booking-field--date"),
         calendar: checkOutCalendar,
         minDate: addDays(startOfToday, 1),
         selectedDate: null,
         activeMonth: new Date(startOfToday.getFullYear(), startOfToday.getMonth(), 1),
+        emptyLabel: checkOutTrigger.textContent.trim(),
       },
+    };
+
+    const positionCalendar = (picker) => {
+      const calendar = picker.calendar;
+
+      if (calendar.hidden) {
+        return;
+      }
+
+      const field = picker.trigger.closest(".booking-field");
+      const offsetParent = calendar.offsetParent;
+
+      if (!field || !offsetParent) {
+        return;
+      }
+
+      const viewportGutter = 16;
+      const fieldRect = field.getBoundingClientRect();
+      calendar.style.transform = "none";
+      const calendarRect = calendar.getBoundingClientRect();
+      const calendarWidth = calendarRect.width;
+      const idealViewportLeft = fieldRect.left + ((fieldRect.width - calendarWidth) / 2);
+      const maximumViewportLeft = Math.max(viewportGutter, window.innerWidth - calendarWidth - viewportGutter);
+      const clampedViewportLeft = Math.min(
+        Math.max(idealViewportLeft, viewportGutter),
+        maximumViewportLeft
+      );
+
+      calendar.style.removeProperty("left");
+      calendar.style.removeProperty("right");
+      calendar.style.removeProperty("inset-inline-start");
+      calendar.style.transform = `translateX(${clampedViewportLeft - calendarRect.left}px)`;
+    };
+
+    const positionOpenCalendars = () => {
+      Object.values(pickers).forEach(positionCalendar);
+    };
+    let calendarPositionTicking = false;
+    const requestCalendarPosition = () => {
+      if (calendarPositionTicking) {
+        return;
+      }
+
+      calendarPositionTicking = true;
+      window.requestAnimationFrame(() => {
+        positionOpenCalendars();
+        calendarPositionTicking = false;
+      });
     };
 
     const closeCalendars = () => {
       Object.values(pickers).forEach((picker) => {
         picker.calendar.hidden = true;
         picker.trigger.setAttribute("aria-expanded", "false");
+        picker.field?.setAttribute("aria-expanded", "false");
       });
     };
 
     const updateTrigger = (picker) => {
       if (!picker.selectedDate) {
-        picker.trigger.textContent = "Select date";
+        picker.trigger.textContent = picker.emptyLabel;
         picker.trigger.classList.remove("has-value");
         return;
       }
@@ -453,41 +1036,77 @@ document.addEventListener("DOMContentLoaded", () => {
       const leadingDays = (monthStart.getDay() + 6) % 7;
       const firstCellDate = addDays(monthStart, -leadingDays);
       const cells = Array.from({ length: 42 }, (_, index) => addDays(firstCellDate, index));
+      const firstEnabledIndex = cells.findIndex((date) => date >= picker.minDate);
+      const minimumMonth = new Date(picker.minDate.getFullYear(), picker.minDate.getMonth(), 1);
+      const canNavigatePrevious = activeMonth > minimumMonth;
+      const calendarId = `booking-calendar-${stripIndex}-${key}`;
+      const monthId = `${calendarId}-month`;
+      const previousIcon = isRtl ? "&rarr;" : "&larr;";
+      const nextIcon = isRtl ? "&larr;" : "&rarr;";
 
       picker.calendar.innerHTML = `
         <div class="booking-calendar__head">
-          <button class="booking-calendar__nav" type="button" data-calendar-prev aria-label="Previous month">&larr;</button>
-          <div class="booking-calendar__month">${monthNames[activeMonth.getMonth()]} ${activeMonth.getFullYear()}</div>
-          <button class="booking-calendar__nav" type="button" data-calendar-next aria-label="Next month">&rarr;</button>
+          <button class="booking-calendar__nav" type="button" data-calendar-prev aria-label="${escapeAttribute(calendarCopy.previousMonth)}"${canNavigatePrevious ? "" : " disabled"}>${previousIcon}</button>
+          <div class="booking-calendar__month" id="${monthId}" aria-live="polite">${monthFormatter.format(activeMonth)}</div>
+          <button class="booking-calendar__nav" type="button" data-calendar-next aria-label="${escapeAttribute(calendarCopy.nextMonth)}">${nextIcon}</button>
         </div>
-        <div class="booking-calendar__grid">
-          ${weekdays.map((day) => `<div class="booking-calendar__weekday">${day}</div>`).join("")}
-          ${cells.map((date) => {
+        <div class="booking-calendar__grid" role="grid" aria-labelledby="${monthId}">
+          ${weekdays.map((day) => `<div class="booking-calendar__weekday" role="columnheader" aria-label="${escapeAttribute(day)}">${day}</div>`).join("")}
+          ${cells.map((date, index) => {
             const isMuted = date.getMonth() !== activeMonth.getMonth();
             const isDisabled = date < picker.minDate;
+            const isToday = isSameDay(date, startOfToday);
+            const isSelected = isSameDay(date, selectedDate);
+            const isTabStop = isSelected || (!selectedDate && index === firstEnabledIndex);
             const classes = [
               "booking-calendar__day",
               isMuted ? "is-muted" : "",
-              isSameDay(date, startOfToday) ? "is-today" : "",
-              isSameDay(date, selectedDate) ? "is-selected" : "",
+              isToday ? "is-today" : "",
+              isSelected ? "is-selected" : "",
             ].filter(Boolean).join(" ");
 
-            return `<button class="${classes}" type="button" data-calendar-day="${formatDate(date)}"${isDisabled ? " disabled" : ""}>${date.getDate()}</button>`;
+            return `<button class="${classes}" type="button" role="gridcell" tabindex="${isTabStop ? "0" : "-1"}" data-calendar-day="${formatDate(date)}" aria-label="${escapeAttribute(fullDateFormatter.format(date))}" aria-selected="${isSelected}"${isToday ? ' aria-current="date"' : ""}${isDisabled ? " disabled" : ""}>${date.getDate()}</button>`;
           }).join("")}
         </div>
       `;
 
+      picker.calendar.id = calendarId;
+      picker.calendar.setAttribute("role", "dialog");
+      picker.calendar.setAttribute("aria-modal", "false");
+      picker.calendar.setAttribute("aria-labelledby", monthId);
+      picker.calendar.setAttribute("aria-label", picker.trigger.getAttribute("aria-label") || calendarCopy.calendar);
+      picker.trigger.setAttribute("aria-controls", calendarId);
+      picker.field?.setAttribute("aria-controls", calendarId);
+
       picker.calendar.querySelector("[data-calendar-prev]").addEventListener("click", () => {
         picker.activeMonth = new Date(activeMonth.getFullYear(), activeMonth.getMonth() - 1, 1);
         renderCalendar(key);
+        window.requestAnimationFrame(() => picker.calendar.querySelector("[data-calendar-prev]")?.focus());
       });
 
       picker.calendar.querySelector("[data-calendar-next]").addEventListener("click", () => {
         picker.activeMonth = new Date(activeMonth.getFullYear(), activeMonth.getMonth() + 1, 1);
         renderCalendar(key);
+        window.requestAnimationFrame(() => picker.calendar.querySelector("[data-calendar-next]")?.focus());
       });
 
-      picker.calendar.querySelectorAll("[data-calendar-day]").forEach((button) => {
+      const dayButtons = Array.from(picker.calendar.querySelectorAll("[data-calendar-day]"));
+      const focusDay = (startIndex, step) => {
+        let targetIndex = startIndex;
+
+        while (targetIndex >= 0 && targetIndex < dayButtons.length) {
+          if (!dayButtons[targetIndex].disabled) {
+            dayButtons.forEach((dayButton) => { dayButton.tabIndex = -1; });
+            dayButtons[targetIndex].tabIndex = 0;
+            dayButtons[targetIndex].focus();
+            return;
+          }
+
+          targetIndex += step;
+        }
+      };
+
+      dayButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
           const nextSelectedDate = parseDate(button.getAttribute("data-calendar-day"));
           picker.selectedDate = nextSelectedDate;
@@ -509,13 +1128,58 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           closeCalendars();
+          picker.field?.focus();
+        });
+
+        button.addEventListener("keydown", (event) => {
+          const horizontalPrevious = isRtl ? 1 : -1;
+          const horizontalNext = isRtl ? -1 : 1;
+          const movement = {
+            ArrowLeft: horizontalPrevious,
+            ArrowRight: horizontalNext,
+            ArrowUp: -7,
+            ArrowDown: 7,
+            Home: -(index % 7),
+            End: 6 - (index % 7),
+          }[event.key];
+
+          if (typeof movement === "number") {
+            event.preventDefault();
+            focusDay(index + movement, movement < 0 ? -1 : 1);
+            return;
+          }
+
+          if (event.key === "PageUp" || event.key === "PageDown") {
+            event.preventDefault();
+            const direction = event.key === "PageUp" ? -1 : 1;
+
+            if (direction < 0 && !canNavigatePrevious) {
+              return;
+            }
+
+            picker.activeMonth = new Date(activeMonth.getFullYear(), activeMonth.getMonth() + direction, 1);
+            renderCalendar(key);
+            window.requestAnimationFrame(() => picker.calendar.querySelector('[data-calendar-day][tabindex="0"]')?.focus());
+          }
         });
       });
     };
 
     Object.entries(pickers).forEach(([key, picker]) => {
+      if (!picker.field) {
+        return;
+      }
+
+      const fieldLabel = picker.trigger.getAttribute("aria-label") || calendarCopy.calendar;
+      picker.field.setAttribute("role", "button");
+      picker.field.setAttribute("tabindex", "0");
+      picker.field.setAttribute("aria-label", fieldLabel);
+      picker.field.setAttribute("aria-haspopup", "dialog");
+      picker.field.setAttribute("aria-expanded", "false");
       picker.trigger.setAttribute("aria-haspopup", "dialog");
       picker.trigger.setAttribute("aria-expanded", "false");
+      picker.trigger.setAttribute("tabindex", "-1");
+      picker.trigger.setAttribute("aria-hidden", "true");
       renderCalendar(key);
 
       picker.trigger.addEventListener("click", (event) => {
@@ -525,8 +1189,36 @@ document.addEventListener("DOMContentLoaded", () => {
         closeCalendars();
         picker.calendar.hidden = !wasHidden;
         picker.trigger.setAttribute("aria-expanded", String(wasHidden));
+        picker.field.setAttribute("aria-expanded", String(wasHidden));
+
+        if (wasHidden) {
+          window.requestAnimationFrame(() => {
+            positionCalendar(picker);
+            picker.calendar.querySelector('[data-calendar-day][tabindex="0"]')?.focus();
+          });
+        }
+      });
+
+      picker.field.addEventListener("click", (event) => {
+        if (picker.calendar.contains(event.target) || event.target === picker.trigger) {
+          return;
+        }
+
+        picker.trigger.click();
+      });
+
+      picker.field.addEventListener("keydown", (event) => {
+        if (event.target !== picker.field || (event.key !== "Enter" && event.key !== " ")) {
+          return;
+        }
+
+        event.preventDefault();
+        picker.trigger.click();
       });
     });
+
+    window.addEventListener("resize", requestCalendarPosition);
+    window.addEventListener("scroll", requestCalendarPosition, { passive: true });
 
     document.addEventListener("click", (event) => {
       if (!strip.contains(event.target)) {
@@ -536,7 +1228,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
+        const openPicker = Object.values(pickers).find((picker) => !picker.calendar.hidden);
         closeCalendars();
+        openPicker?.field?.focus();
       }
     });
   });
@@ -547,6 +1241,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.querySelector(`[data-slider-prev="${id}"]`);
     const nextButton = document.querySelector(`[data-slider-next="${id}"]`);
     const activeMeta = document.querySelector(`[data-slider-active-meta="${id}"]`);
+    const currentPosition = document.querySelector(`[data-slider-current="${id}"]`);
+    const totalPosition = document.querySelector(`[data-slider-total="${id}"]`);
     const sliderDots = Array.from(document.querySelectorAll(`[data-slider-dot="${id}"]`));
     const autoPlay = track.hasAttribute("data-slider-autoplay");
     const isRoomSlider = track.classList.contains("room-slider");
@@ -556,6 +1252,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeRoomImageIndex = 0;
     let activeSlideIndex = -1;
     let roomActiveIndex = 0;
+    let suppressRoomLinkClick = false;
+    let roomTouchStartX = 0;
+    let roomTouchStartY = 0;
     let isAdjustingLoop = false;
     const originalSlides = Array.from(track.querySelectorAll(".slider-slide"));
     const preferredCloneCount = isRoomSlider ? 0 : 2;
@@ -624,7 +1323,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return 0;
       }
 
-      const normalizedIndex = ((index % originalSlides.length) + originalSlides.length) % originalSlides.length;
+      const normalizedIndex = isRoomSlider
+        ? Math.max(0, Math.min(index, originalSlides.length - 1))
+        : ((index % originalSlides.length) + originalSlides.length) % originalSlides.length;
 
       track.scrollTo({
         left: getStep() * (loopCloneCount + normalizedIndex),
@@ -759,6 +1460,17 @@ document.addEventListener("DOMContentLoaded", () => {
         slide.classList.toggle("is-active-slide", isActive);
         slide.classList.toggle("is-active", isActive);
 
+        if (isRoomSlider) {
+          slide.tabIndex = isActive ? 0 : -1;
+          slide.setAttribute("aria-hidden", String(!isActive));
+
+          if (isActive) {
+            slide.setAttribute("aria-current", "true");
+          } else {
+            slide.removeAttribute("aria-current");
+          }
+        }
+
         if (isRoomSlider && !isActive) {
           setRoomImage(slide, 0, { instant: true });
         }
@@ -782,6 +1494,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isRoomSlider) {
         roomActiveIndex = normalizedIndex;
+
+        if (currentPosition) {
+          currentPosition.textContent = String(normalizedIndex + 1).padStart(2, "0");
+        }
+
+        if (totalPosition) {
+          totalPosition.textContent = String(originalSlides.length).padStart(2, "0");
+        }
+
+        if (prevButton) {
+          prevButton.disabled = normalizedIndex === 0;
+        }
+
+        if (nextButton) {
+          nextButton.disabled = normalizedIndex === originalSlides.length - 1;
+        }
       }
 
       setActiveSlide(normalizedIndex);
@@ -833,11 +1561,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    const goNext = () => {
+    const goNext = (behavior = "smooth") => {
       if (isRoomSlider) {
-        roomActiveIndex = scrollToSlide(roomActiveIndex + 1);
+        roomActiveIndex = scrollToSlide(roomActiveIndex + 1, behavior);
         setActiveSlide(roomActiveIndex);
-        window.setTimeout(updateActiveMeta, 430);
+        window.setTimeout(updateActiveMeta, behavior === "smooth" ? 430 : 0);
         return;
       }
 
@@ -872,11 +1600,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (prevButton) {
-      prevButton.addEventListener("click", () => {
+      prevButton.addEventListener("click", (event) => {
         if (isRoomSlider) {
-          roomActiveIndex = scrollToSlide(roomActiveIndex - 1);
+          const behavior = event.detail === 0 ? "auto" : "smooth";
+          roomActiveIndex = scrollToSlide(roomActiveIndex - 1, behavior);
           setActiveSlide(roomActiveIndex);
-          window.setTimeout(updateActiveMeta, 430);
+          window.setTimeout(updateActiveMeta, behavior === "smooth" ? 430 : 0);
           return;
         }
 
@@ -897,7 +1626,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (nextButton) {
-      nextButton.addEventListener("click", goNext);
+      nextButton.addEventListener("click", (event) => {
+        goNext(event.detail === 0 ? "auto" : "smooth");
+      });
+    }
+
+    if (isRoomSlider) {
+      track.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+          return;
+        }
+
+        event.preventDefault();
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        const rtlDirection = document.documentElement.dir === "rtl" ? -direction : direction;
+        roomActiveIndex = scrollToSlide(roomActiveIndex + rtlDirection, "auto");
+        setActiveSlide(roomActiveIndex);
+        updateActiveMeta();
+      });
+
+      track.addEventListener("touchstart", (event) => {
+        const touch = event.touches[0];
+
+        if (!touch) {
+          return;
+        }
+
+        roomTouchStartX = touch.clientX;
+        roomTouchStartY = touch.clientY;
+        suppressRoomLinkClick = false;
+      }, { passive: true });
+
+      track.addEventListener("touchmove", (event) => {
+        const touch = event.touches[0];
+
+        if (!touch) {
+          return;
+        }
+
+        if (Math.abs(touch.clientX - roomTouchStartX) > 8 || Math.abs(touch.clientY - roomTouchStartY) > 8) {
+          suppressRoomLinkClick = true;
+        }
+      }, { passive: true });
+
+      track.addEventListener("click", (event) => {
+        if (!suppressRoomLinkClick) {
+          return;
+        }
+
+        event.preventDefault();
+        suppressRoomLinkClick = false;
+      });
     }
 
     sliderDots.forEach((dot) => {
@@ -994,60 +1773,189 @@ document.addEventListener("DOMContentLoaded", () => {
     setActivePanel(getTriggerTarget(activeTrigger));
   });
 
-  arrivalStacks.forEach((stack) => {
-    if (stack.dataset.arrivalInitialized === "true") {
+  arrivalAccordions.forEach((accordion) => {
+    const trigger = accordion.querySelector("[data-arrival-accordion-trigger]");
+    const panel = accordion.querySelector("[data-arrival-accordion-panel]");
+
+    if (!trigger || !panel) {
       return;
     }
 
-    stack.dataset.arrivalInitialized = "true";
-
-    const cards = Array.from(stack.querySelectorAll("[data-arrival-card]"));
-    const triggers = Array.from(stack.querySelectorAll("[data-arrival-trigger]"));
-    let activeTarget = cards.find((card) => card.classList.contains("is-active"))?.getAttribute("data-arrival-card") || null;
-
-    const setActiveCard = (target) => {
-      if (!target || target === activeTarget) {
-        return;
-      }
-
-      const nextCard = cards.find((card) => card.getAttribute("data-arrival-card") === target);
-
-      if (!nextCard) {
-        return;
-      }
-
-      activeTarget = target;
-
-      cards.forEach((card) => {
-        const isActive = card.getAttribute("data-arrival-card") === target;
-        card.classList.toggle("is-active", isActive);
-      });
-
-      triggers.forEach((trigger) => {
-        trigger.setAttribute("aria-expanded", String(trigger.getAttribute("data-arrival-trigger") === target));
-      });
+    const setOpen = (isOpen) => {
+      trigger.setAttribute("aria-expanded", String(isOpen));
+      panel.hidden = !isOpen;
+      accordion.classList.toggle("is-open", isOpen);
     };
 
-    cards.forEach((card) => {
-      card.addEventListener("click", (event) => {
-        if (event.target.closest(".arrival-map-link")) {
-          return;
-        }
+    trigger.addEventListener("click", () => {
+      setOpen(trigger.getAttribute("aria-expanded") !== "true");
+    });
 
-        event.preventDefault();
-        const trigger = event.target.closest("[data-arrival-trigger]");
-        const target = trigger?.getAttribute("data-arrival-trigger") || card.getAttribute("data-arrival-card");
+    accordion.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && trigger.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        trigger.focus();
+      }
+    });
+  });
 
-        if (!target) {
-          return;
-        }
+  const initializeMobileAccordion = (accordion, triggerSelector, panelSelector) => {
+    const trigger = accordion.querySelector(triggerSelector);
+    const panel = accordion.querySelector(panelSelector);
+    const mobileQuery = window.matchMedia(
+      accordion.dataset.accordionMedia || `(max-width: ${COLLAPSED_NAV_MAX}px)`
+    );
+    let closeTimer = null;
 
-        setActiveCard(target);
+    if (!trigger || !panel) return;
 
-        if (trigger) {
-          trigger.focus();
-        }
-      });
+    const setOpen = (isOpen, animate = true) => {
+      window.clearTimeout(closeTimer);
+      trigger.setAttribute("aria-expanded", String(isOpen));
+      accordion.classList.toggle("is-open", isOpen);
+
+      if (!mobileQuery.matches) {
+        panel.hidden = false;
+        panel.inert = false;
+        panel.removeAttribute("aria-hidden");
+        panel.style.maxHeight = "none";
+        return;
+      }
+
+      panel.inert = !isOpen;
+      panel.setAttribute("aria-hidden", String(!isOpen));
+      panel.style.transition = animate ? "" : "none";
+
+      if (isOpen) {
+        panel.hidden = false;
+        panel.style.maxHeight = "0px";
+        requestAnimationFrame(() => {
+          panel.style.maxHeight = `${panel.scrollHeight}px`;
+          panel.style.transition = "";
+        });
+        return;
+      }
+
+      if (!animate) {
+        panel.style.maxHeight = "0px";
+        panel.hidden = true;
+        requestAnimationFrame(() => { panel.style.transition = ""; });
+        return;
+      }
+
+      panel.style.maxHeight = `${panel.scrollHeight}px`;
+      requestAnimationFrame(() => { panel.style.maxHeight = "0px"; });
+      closeTimer = window.setTimeout(() => { panel.hidden = true; }, 440);
+    };
+
+    trigger.addEventListener("click", () => setOpen(trigger.getAttribute("aria-expanded") !== "true"));
+    accordion.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && trigger.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        trigger.focus();
+      }
+    });
+    mobileQuery.addEventListener("change", () => setOpen(false, false));
+    window.addEventListener("resize", () => {
+      if (!mobileQuery.matches || trigger.getAttribute("aria-expanded") === "true") panel.style.maxHeight = `${panel.scrollHeight}px`;
+    });
+    setOpen(false, false);
+  };
+
+  mobileListAccordions.forEach((accordion) => {
+    initializeMobileAccordion(accordion, "[data-mobile-list-trigger]", "[data-mobile-list-panel]");
+  });
+
+  contactForms.forEach((form) => {
+    const fields = Array.from(form.querySelectorAll("input, select, textarea"));
+    const submitButton = form.querySelector("[data-submit-button]");
+    const notice = form.querySelector("[data-form-notice]");
+    const defaultSubmitLabel = submitButton ? submitButton.textContent : "";
+    const messages = {
+      required: form.dataset.requiredMessage || "This field is required.",
+      email: form.dataset.emailMessage || "Please enter a valid email address.",
+      consent: form.dataset.consentMessage || "Please confirm the privacy consent.",
+      loading: form.dataset.loadingMessage || "Sending your message…",
+      success: form.dataset.successMessage || "Thank you. Your message has been sent and our team will get back to you shortly.",
+      error: form.dataset.errorMessage || "We could not send your message. Please try again or contact us by email.",
+    };
+
+    const getErrorElement = (field) => {
+      const describedBy = field.getAttribute("aria-describedby");
+      return describedBy ? document.getElementById(describedBy) : null;
+    };
+
+    const clearFieldError = (field) => {
+      const errorElement = getErrorElement(field);
+      field.removeAttribute("aria-invalid");
+
+      if (errorElement) {
+        errorElement.textContent = "";
+        errorElement.hidden = true;
+      }
+    };
+
+    const validateField = (field) => {
+      if (!field.required) {
+        return true;
+      }
+
+      const isConsent = field.type === "checkbox";
+      const isEmpty = isConsent ? !field.checked : !field.value.trim();
+      const isInvalidEmail = field.type === "email" && !isEmpty && !field.validity.valid;
+      const errorElement = getErrorElement(field);
+
+      if (!isEmpty && !isInvalidEmail) {
+        clearFieldError(field);
+        return true;
+      }
+
+      field.setAttribute("aria-invalid", "true");
+
+      if (errorElement) {
+        errorElement.textContent = isInvalidEmail ? messages.email : (isConsent ? messages.consent : messages.required);
+        errorElement.hidden = false;
+      }
+
+      return false;
+    };
+
+    fields.forEach((field) => {
+      const eventName = field.matches("select, input[type='checkbox']") ? "change" : "input";
+      field.addEventListener(eventName, () => clearFieldError(field));
+      field.addEventListener("blur", () => validateField(field));
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const invalidFields = fields.filter((field) => !validateField(field));
+
+      if (invalidFields.length > 0) {
+        invalidFields[0].focus();
+        return;
+      }
+
+      if (!submitButton || !notice) {
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.classList.add("is-loading");
+      notice.hidden = false;
+      notice.dataset.state = "loading";
+      notice.textContent = messages.loading;
+
+      // Development-safe placeholder. Replace this timer when plugin-rendered
+      // markup handles the real WordPress submission lifecycle.
+      window.setTimeout(() => {
+        form.reset();
+        fields.forEach(clearFieldError);
+        submitButton.disabled = false;
+        submitButton.classList.remove("is-loading");
+        submitButton.textContent = defaultSubmitLabel;
+        notice.dataset.state = "success";
+        notice.textContent = messages.success;
+      }, 450);
     });
   });
 });

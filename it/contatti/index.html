@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/it/camere/">Camere</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/it/home-italiano/">Home</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/it/camere/">Camere</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/it/appartamenti/">Appartamenti</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/it/camere/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Camere</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Camere</h4>
-                <a href="/florum-design-concepts/it/camere/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/it/camere/">
                   <span>Le nostre camere</span>
-                  <small>Camere classiche, studio e soggiorni in città</small>
+                  <small>Camere moderne per ogni tipo di soggiorno.</small>
                 </a>
-                <a href="/florum-design-concepts/it/appartamenti/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/it/appartamenti/">
                   <span>Appartamenti</span>
-                  <small>Comfort per soggiorni lunghi con servizi alberghieri</small>
+                  <small>Appartamenti completamente attrezzati per soggiorni prolungati.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Il tuo soggiorno</h4>
-                <p>Scopri camere, comfort da appartamento e vantaggi della prenotazione diretta per il tuo soggiorno a Vienna.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/it/business-3/">B2B</a>
-        <a href="/florum-design-concepts/it/eventi/">Eventi</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/it/servizi/">Servizi</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Servizi</h4>
-                <a href="/florum-design-concepts/it/servizi/">
-                  <span>I nostri servizi</span>
-                  <small>Colazione, reception, lobby bar ed extra</small>
-                </a>
-                <a href="/florum-design-concepts/it/offerta-kosher/">
-                  <span>Offerta Kosher</span>
-                  <small>Un supporto attento per soggiorni kosher</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Comfort in hotel</h4>
-                <p>Servizi pensati per rendere più semplici sia le visite brevi sia i soggiorni prolungati.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/it/servizi/">Servizi</a>
         <a href="/florum-design-concepts/it/posizione/">Posizione</a>
       </div>
 
@@ -101,94 +86,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/it/business-3/">B2B</a>
+        <a class="is-current" aria-current="page" href="/florum-design-concepts/it/contatti/">Contatti</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Lingua</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Scegli lingua" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Lingua</h4>
-                <a href="/florum-design-concepts/contact/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/kontakt/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/kontakty/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Altro</h4>
-                <a href="/florum-design-concepts/it/contatti/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/contacto/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/kesher/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/contact/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/kontakt/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/kontakty/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/contatti/" class="is-current" aria-current="page"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/contacto/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/kesher/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/it/contatti/">Contatti</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Prenota ora</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Chiudi pannello prenotazione">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Arrivo</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Scegli data di arrivo">Seleziona data</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Partenza</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Scegli data di partenza">Seleziona data</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Persone e camera">
-            <option value="1">2 persone • 1 camera</option>
-            <option value="2">1 persona • 1 camera</option>
-            <option value="3">3 persone • 1 camera</option>
-            <option value="4">4 persone • 2 camere</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Verifica disponibilità          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page legal-page contact-page">
-  <section class="inner-page-hero legal-hero">
+  <section class="inner-page-hero legal-hero internal-page-hero">
     <div class="container inner-page-hero__grid legal-hero__grid">
       <div class="inner-page-hero__copy reveal">
-        <h2>Mettiti in contatto</h2>
+        <h1>Mettiti in contatto</h1>
         <p>Hai una domanda o una richiesta speciale? Contattaci: saremo felici di aiutarti e risponderemo il prima possibile.</p>
       </div>
       <div class="inner-page-hero__media legal-hero__media reveal delay-1" aria-hidden="true">
@@ -196,6 +126,73 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </div>
     </div>
   </section>
+
+  <section class="section section-spacing--compact contact-form-section" aria-labelledby="contact-form-title">
+  <div class="container contact-form-shell">
+    <div class="contact-form-intro reveal">
+      <h2 id="contact-form-title">Come possiamo aiutarti?</h2>
+      <p>Inviaci la tua domanda o richiesta speciale e il nostro team ti risponderà il prima possibile.</p>
+      <p class="contact-form-intro__note">
+        Per prenotazioni aziendali e di gruppo puoi anche contattarci a        <a href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a>.
+      </p>
+    </div>
+
+    <div class="contact-form-component reveal delay-1">
+      <form class="florum-contact-form" data-contact-form novalidate data-required-message="Questo campo è obbligatorio." data-email-message="Inserisci un indirizzo email valido." data-consent-message="Conferma il consenso alla privacy." data-loading-message="Invio del messaggio…" data-success-message="Grazie. Il messaggio è stato inviato e il nostro team ti risponderà a breve." data-error-message="Non è stato possibile inviare il messaggio. Riprova o contattaci via email.">
+        <div class="florum-contact-form__grid">
+          <div class="florum-form-field">
+            <label for="contact-full-name">Nome completo <span aria-hidden="true">*</span></label>
+            <input class="florum-form-control" id="contact-full-name" name="full_name" type="text" autocomplete="name" placeholder="Il tuo nome completo" required aria-required="true" aria-describedby="contact-full-name-error">
+            <p class="florum-form-error" id="contact-full-name-error" data-field-error hidden></p>
+          </div>
+
+          <div class="florum-form-field">
+            <label for="contact-email">Indirizzo email <span aria-hidden="true">*</span></label>
+            <input class="florum-form-control" id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-required="true" aria-describedby="contact-email-error">
+            <p class="florum-form-error" id="contact-email-error" data-field-error hidden></p>
+          </div>
+
+          <div class="florum-form-field">
+            <label for="contact-phone">Numero di telefono</label>
+            <input class="florum-form-control" id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="Facoltativo">
+          </div>
+
+          <div class="florum-form-field">
+            <label for="contact-request-type">Tipo di richiesta <span aria-hidden="true">*</span></label>
+            <select class="florum-form-control" id="contact-request-type" name="request_type" required aria-required="true" aria-describedby="contact-request-type-error">
+              <option value="" disabled selected>Seleziona un tipo di richiesta</option>
+              <option value="general">Richiesta generale</option>
+              <option value="reservation">Domanda sulla prenotazione</option>
+              <option value="special-request">Richiesta speciale</option>
+              <option value="corporate-group">Prenotazione aziendale o di gruppo</option>
+              <option value="other">Altro</option>
+            </select>
+            <p class="florum-form-error" id="contact-request-type-error" data-field-error hidden></p>
+          </div>
+
+          <div class="florum-form-field florum-form-field--full">
+            <label for="contact-message">Messaggio <span aria-hidden="true">*</span></label>
+            <textarea class="florum-form-control" id="contact-message" name="message" rows="6" placeholder="Come possiamo aiutarti?" required aria-required="true" aria-describedby="contact-message-error"></textarea>
+            <p class="florum-form-error" id="contact-message-error" data-field-error hidden></p>
+          </div>
+
+          <div class="florum-form-field florum-form-field--full florum-form-field--consent">
+            <label class="florum-form-checkbox" for="contact-privacy">
+              <input id="contact-privacy" name="privacy_consent" type="checkbox" required aria-required="true" aria-describedby="contact-privacy-error">
+              <span>Acconsento all’uso dei miei dati per elaborare la richiesta. Consulta la nostra <a href="/florum-design-concepts/it/informativa-privacy/">Informativa sulla privacy</a> per maggiori informazioni.</span>
+            </label>
+            <p class="florum-form-error" id="contact-privacy-error" data-field-error hidden></p>
+          </div>
+        </div>
+
+        <div class="florum-contact-form__actions">
+          <button class="btn florum-form-submit" type="submit" data-submit-button>Invia messaggio</button>
+          <div class="florum-form-notice" data-form-notice role="status" aria-live="polite" aria-atomic="true" hidden></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
   <section class="section legal-section contact-section">
     <div class="container legal-layout contact-layout">
@@ -228,6 +225,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <div>
               <h2>Email</h2>
               <p><a href="mailto:info@florum-hotels.com">info@florum-hotels.com</a></p>
+              <p><a href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a></p>
             </div>
           </div>
         </div>
@@ -256,12 +254,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/it/termini-condizioni/">Termini e Condizioni</a>
       <a href="/florum-design-concepts/it/contatti/">Contatti</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contatta Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

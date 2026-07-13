@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/rooms/">Rooms</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/">Home</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/rooms/">Rooms</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/serviced-apartments/">Serviced Apartments</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/rooms/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Rooms</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Rooms</h4>
-                <a href="/florum-design-concepts/rooms/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/rooms/">
                   <span>Our Rooms</span>
-                  <small>Classic rooms, studios, and city stays</small>
+                  <small>Modern rooms for every type of stay.</small>
                 </a>
-                <a href="/florum-design-concepts/serviced-apartments/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/serviced-apartments/">
                   <span>Serviced Apartments</span>
-                  <small>Long-stay comfort with hotel services</small>
+                  <small>Fully equipped apartments for extended stays.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Stay Your Way</h4>
-                <p>Compare room types, apartment-style amenities, and direct booking options for your Vienna stay.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/business/">B2B</a>
-        <a href="/florum-design-concepts/events/">Events</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/service/">Service</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Services</h4>
-                <a href="/florum-design-concepts/service/">
-                  <span>Our Services</span>
-                  <small>Breakfast, reception, lobby bar, and extras</small>
-                </a>
-                <a href="/florum-design-concepts/service-kosher/">
-                  <span>Kosher Service</span>
-                  <small>Thoughtful support for kosher stays</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Hotel Comfort</h4>
-                <p>Find practical services designed to make short visits and longer stays easier.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a class="is-current" aria-current="page" href="/florum-design-concepts/service/">Service</a>
         <a href="/florum-design-concepts/location/">Location</a>
       </div>
 
@@ -101,98 +86,43 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/business/">B2B</a>
+        <a href="/florum-design-concepts/contact/">Contact</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Language</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Choose language" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Language</h4>
-                <a href="/florum-design-concepts/service/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/leistungen/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/uslugi/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>More</h4>
-                <a href="/florum-design-concepts/it/servizi/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/servicios/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/sherutim/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/service/" class="is-current" aria-current="page"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/leistungen/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/uslugi/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/servizi/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/servicios/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/sherutim/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/contact/">Contact</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Close booking panel">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Arrival</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Choose arrival date">Select date</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Departure</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Choose departure date">Select date</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Persons and room">
-            <option value="1">2 Persons • 1 Room</option>
-            <option value="2">1 Person • 1 Room</option>
-            <option value="3">3 Persons • 1 Room</option>
-            <option value="4">4 Persons • 2 Rooms</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Check Availability          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page service-page">
-  <section class="service-page-hero">
+  <section class="service-page-hero internal-page-hero">
     <div class="container service-page-hero__grid">
       <div class="service-page-hero__copy reveal">
-        <h1>Service Offerings of the Florum Hotel</h1>
+        <h1>Service at Florum Hotel</h1>
         <p>At Florum Hotel, guests can enjoy a range of services and amenities tailored for comfort and convenience.</p>
       </div>
       <div class="service-page-hero__media reveal delay-1">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Detail-pet-friendly.webp" alt="Hospitality service at Florum Hotel" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/detail-pet-friendly-hero.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/detail-pet-friendly-hero-768.webp 768w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/detail-pet-friendly-hero.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 980px) 50vw, 58vw" alt="Hospitality service at Florum Hotel" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
       </div>
     </div>
   </section>
@@ -203,11 +133,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <h2>Breakfast at Florum Hotel</h2>
         <div class="service-breakfast-story">
           <article class="service-breakfast-note">
-            <span>Morning table</span>
+            <h3>A balanced start to your day</h3>
             <p>Start your holiday with a balanced and hearty breakfast featuring organic products, vegetarian and vegan alternatives, and lactose-free options.</p>
           </article>
           <article class="service-breakfast-room">
-            <span>Flexible formats</span>
             <h3>Breakfast Delivered to Your Room or Prepared To Go</h3>
             <p>Start your morning in comfort and enjoy a delicious breakfast right in your room. For those eager to explore the city, we offer breakfast-to-go.</p>
           </article>
@@ -215,19 +144,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </div>
       <div class="service-breakfast-gallery">
                   <figure class="service-breakfast-gallery__item is-tall reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/service-slider/Fruhstuck-am-Bett-1.webp" alt="Breakfast served in bed at Florum Hotel" width="1200" height="1600" loading="eager" decoding="async">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/service-slider/Fruhstuck-am-Bett-1.webp" alt="Breakfast served in bed at Florum Hotel" width="1200" height="1600" loading="lazy" fetchpriority="low" decoding="async">
           </figure>
                   <figure class="service-breakfast-gallery__item  reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/service-slider/Fruhstuck-1.webp" alt="Breakfast buffet at Florum Hotel" width="1600" height="1200" loading="lazy" decoding="async">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/service-slider/Fruhstuck-1.webp" alt="Breakfast buffet at Florum Hotel" width="1600" height="1200" loading="lazy" fetchpriority="low" decoding="async">
           </figure>
                   <figure class="service-breakfast-gallery__item  reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/service-slider/In-Room-Breakfast-5.webp" alt="Fresh breakfast and food options at Florum Hotel" width="1600" height="1200" loading="lazy" decoding="async">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/in-room-breakfast-card-960.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/in-room-breakfast-card-640.webp 640w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/in-room-breakfast-card-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 40px), 24vw" alt="Fresh breakfast and food options at Florum Hotel" width="960" height="1440" loading="lazy" fetchpriority="low" decoding="async">
           </figure>
               </div>
     </div>
 
     <div class="container service-price-card reveal">
-      <img class="service-price-card__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast.webp" alt="Breakfast buffet at Florum Hotel" width="1024" height="683" loading="lazy" decoding="async">
+      <img class="service-price-card__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast.webp" alt="Breakfast buffet at Florum Hotel" width="1024" height="683" loading="lazy" fetchpriority="low" decoding="async">
       <div>
         <h4>Breakfast Price List</h4>
         <div class="service-price-grid">
@@ -248,81 +177,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section class="section service-jewish-section">
-    <div class="container service-jewish-grid">
-      <div class="service-jewish-media reveal">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-480.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-480.webp 480w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-800.webp 800w" sizes="(max-width: 760px) 92vw, 360px" alt="Services for Jewish guests at Florum Hotel" width="480" height="720" loading="lazy" decoding="async">
-      </div>
-      <div class="service-jewish-panel reveal delay-1">
-        <h2>Services for Our Jewish Guests at Florum Hotel</h2>
-        <p>Hotel Florum offers practical Shabbat-friendly and Kosher-friendly arrangements to help ensure a comfortable and respectful stay for our Jewish guests.</p>
-
-        <div class="service-jewish-feature-grid">
-                      <article class="service-jewish-feature-card">
-              <span class="service-jewish-feature-icon" aria-hidden="true"><i class="fa-solid fa-star-of-david"></i></span>
-              <div>
-                <h3>Shabbat-Friendly Stay</h3>
-                <p>Practical arrangements for a calmer Shabbat stay.</p>
-              </div>
-            </article>
-                      <article class="service-jewish-feature-card">
-              <span class="service-jewish-feature-icon" aria-hidden="true"><i class="fa-solid fa-utensils"></i></span>
-              <div>
-                <h3>Kosher Options Nearby</h3>
-                <p>Restaurants, cafés, and supermarkets within walking distance.</p>
-              </div>
-            </article>
-                      <article class="service-jewish-feature-card">
-              <span class="service-jewish-feature-icon" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
-              <div>
-                <h3>Hebrew-Speaking Assistance</h3>
-                <p>Support is available during your stay.</p>
-              </div>
-            </article>
-                      <article class="service-jewish-feature-card">
-              <span class="service-jewish-feature-icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
-              <div>
-                <h3>Supportive Staff</h3>
-                <p>Respectful help for Jewish customs and routines.</p>
-              </div>
-            </article>
-                  </div>
-        <div class="service-jewish-cta">
-          <p>Discover all available Kosher and Shabbat-friendly services.</p>
-          <a class="btn" href="/florum-design-concepts/service-kosher/">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section service-other-section">
     <div class="container">
       <div class="section-heading reveal">
-        <h2>Other Services to accommodate you comfortably at Florum Hotel</h2>
+        <h2>More Services for Your Stay</h2>
       </div>
       <div class="service-card-grid">
-                  <article class="service-page-card reveal">
+                  <article class="service-card service-page-card reveal">
                           <div class="service-page-card__media">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/In-Room-Breakfast.webp" alt="Room service breakfast at Florum Hotel" width="1200" height="900" loading="lazy" decoding="async">
+                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/in-room-breakfast-card-960.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/in-room-breakfast-card-640.webp 640w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/in-room-breakfast-card-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1024px) 50vw, 32vw" alt="Room service breakfast at Florum Hotel" width="960" height="1440" loading="lazy" fetchpriority="low" decoding="async">
               </div>
                         <div>
               <h3>Room Service</h3>
               <p>If you have a request or need assistance, our room service operates from 9 am to 4 pm, alongside our 24-hour reception.</p>
             </div>
           </article>
-                  <article class="service-page-card reveal">
+                  <article class="service-card service-page-card reveal">
                           <div class="service-page-card__media service-page-card__media--pair">
-                                  <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-new.webp" alt="Hotel bar at Florum Hotel" width="1200" height="900" loading="lazy" decoding="async">
-                                  <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-new2.webp" alt="Drinks at the Florum Hotel bar" width="1200" height="900" loading="lazy" decoding="async">
+                                  <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-card-1-800.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-card-1-480.webp 480w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-card-1-800.webp 800w" sizes="(max-width: 760px) 50vw, 16vw" alt="Hotel bar at Florum Hotel" width="800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
+                                  <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-card-2-800.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-card-2-480.webp 480w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/bar-card-2-800.webp 800w" sizes="(max-width: 760px) 50vw, 16vw" alt="Drinks at the Florum Hotel bar" width="800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
                               </div>
                         <div>
               <h3>Hotel Bar</h3>
               <p>Our hotel bar offers a rich selection of drinks, including Austria’s famous Spritzer. We welcome you daily from 4 pm for a drink or two.</p>
             </div>
           </article>
-                  <article class="service-page-card reveal">
+                  <article class="service-card service-page-card reveal">
                           <div class="service-page-card__media">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-services.webp" alt="Reception service at Florum Hotel" width="1200" height="900" loading="lazy" decoding="async">
+                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-card-960.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-card-640.webp 640w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-card-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1024px) 50vw, 32vw" alt="Reception service at Florum Hotel" width="960" height="1440" loading="lazy" fetchpriority="low" decoding="async">
               </div>
                         <div>
               <h3>24-Hour Reception</h3>
@@ -336,68 +218,106 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section service-amenities-section">
     <div class="container service-amenities-card amenities-band reveal">
       <div class="service-amenities-heading">
-        <h3>Room Amenities</h3>
-        <img class="service-amenities-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/swans.webp" alt="Room amenities at Florum Hotel" width="1200" height="900" loading="lazy" decoding="async">
+        <img class="service-amenities-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/swans-960.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/swans-640.webp 640w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/swans-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 40px), 420px" alt="Room amenities at Florum Hotel" width="960" height="1440" loading="lazy" fetchpriority="low" decoding="async">
       </div>
       <div class="service-amenities-content">
-        <p class="service-amenities-intro">All rooms at Florum Hotel feature the following amenities:</p>
-        <ul class="service-amenity-grid">
-                      <li class="service-amenity-item">
-              <p>High-speed Wi-Fi</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Flat-screen TV</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Tea and coffee set</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Minibar</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Bathtub or Shower</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Bath towels &amp; slippers</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Shower cap</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Air Conditioner</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Toothbrush set</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Shampoo &amp; body lotion</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Sewing kit</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Nail file</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Toiletry set</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Room service</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Laundry Service</p>
-            </li>
-                      <li class="service-amenity-item">
-              <p>Hair dryer</p>
-            </li>
+        <h2 class="type-section-heading">What comes as standard in our rooms</h2>
+        <div class="mobile-list-accordion" data-mobile-list-accordion>
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="standard-list-1-trigger" type="button" aria-expanded="false" aria-controls="standard-list-1-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">Room Amenities</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="standard-list-1-panel" role="region" aria-labelledby="standard-list-1-trigger" data-mobile-list-panel hidden>
+    <ul class="rooms-standard-editorial__list rooms-standard-editorial__list--two-column" aria-label="Room Amenities">
+                        <li>High-speed Wi-Fi</li>
+                                <li>Flat-screen TV</li>
+                                <li>Tea and coffee set</li>
+                                <li>Minibar</li>
+                                <li>Bathtub or Shower</li>
+                                <li>Bath towels &amp; slippers</li>
+                                <li>Shower cap</li>
+                                <li>Air Conditioner</li>
+                                <li>Toothbrush set</li>
+                                <li>Shampoo &amp; body lotion</li>
+                                <li>Sewing kit</li>
+                                <li>Nail file</li>
+                                <li>Toiletry set</li>
+                                <li>Room service</li>
+                                <li>Laundry Service</li>
+                                <li>Hair dryer</li>
                   </ul>
+  </div>
+</div>
       </div>
     </div>
   </section>
 
+  <section id="kosher-shabbat" class="section b2b-rooms-section editorial-room-showcase-section kosher-stay-section" aria-labelledby="kosher-stay-title">
+  <div class="container">
+    <div class="service-editorial b2b-rooms-editorial reveal">
+      <div class="service-editorial__intro">
+        <h2 id="kosher-stay-title" class="type-section-heading">Kosher &amp; Shabbat-Friendly Stay</h2>
+        <p class="body-copy">Everything you need for a comfortable and respectful stay in Vienna's Jewish district.</p>
+      </div>
+      <div class="service-card-row b2b-room-service-grid">
+                            <article class="service-card b2b-room-service-card b2b-room-service-card--studio-four" data-service-delay-index="0">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-card-1200.webp" alt="Kosher options near Florum Hotel" width="1200" height="800" loading="lazy" fetchpriority="low" decoding="async">
+            <div><h4>Kosher dining nearby</h4><p>The neighborhood offers a variety of kosher restaurants, cafés, and supermarkets, all within walking distance.</p></div>
+          </article>
+                            <article class="service-card b2b-room-service-card b2b-room-service-card--breakfast" data-service-delay-index="1">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby2-carousel-800.webp" alt="Quiet support for synagogue visits from Florum Hotel" width="800" height="800" loading="lazy" fetchpriority="low" decoding="async">
+            <div><h4>Nearby synagogues</h4><p>Several synagogues are located close to the hotel, making it convenient for guests to participate in prayers and religious services.</p></div>
+          </article>
+                            <article class="service-card b2b-room-service-card b2b-room-service-card--studio-five" data-service-delay-index="2">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-services-800.webp" alt="Supportive reception team at Florum Hotel" width="400" height="600" loading="lazy" fetchpriority="low" decoding="async">
+            <div><h4>Hebrew-speaking support</h4><p>Our team receives training to respectfully support Jewish customs and traditions. We also have a Hebrew-speaking staff member available to assist you during your stay.</p></div>
+          </article>
+              </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sustainability-section kosher-adjustments-section" aria-labelledby="kosher-adjustments-title">
+  <div class="container">
+    <div class="sustainability-split kosher-adjustments-split">
+      <img class="sustainability-photo reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/key.webp" alt="Hotel room door prepared for a comfortable Shabbat stay" width="1800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
+      <div class="sustainability-panel kosher-shabbat-adjustments reveal delay-1">
+        <div class="kosher-adjustments-content">
+          <h2 id="kosher-adjustments-title">Easy Movement During Shabbat</h2>
+          <ul class="editorial-feature-list sustainability-list kosher-shabbat-adjustments-list">
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-key"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Mechanical door locks</h3>
+      </div>
+      <p>Mechanical door locks and Shabbat mode options are available.</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Continuous hallway lighting</h3>
+      </div>
+      <p>Hallway lighting remains continuously active throughout Shabbat.</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-person-walking"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Deactivated motion sensors</h3>
+      </div>
+      <p>Motion sensors in common areas and hallways are deactivated during Shabbat.</p>
+    </li>
+  </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <section class="section service-group-section">
     <div class="container service-group-card reveal">
-      <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-section.webp" alt="Group and corporate offers at Florum Hotel" width="1600" height="1067" loading="lazy" decoding="async">
+      <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-section.webp" alt="Group and corporate offers at Florum Hotel" width="1600" height="1067" loading="lazy" fetchpriority="low" decoding="async">
       <div>
         <h2>Group &amp; Corporate Offers</h2>
         <p>Are you a long-term booker, working for a travel agency, or part of a group? Learn more about our many special offers for group travelers!</p>
@@ -419,12 +339,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/florum-terms-and-conditions/">Terms &amp; Conditions</a>
       <a href="/florum-design-concepts/contact/">Contact</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contact Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

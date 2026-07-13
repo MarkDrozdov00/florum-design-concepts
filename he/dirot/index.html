@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="rtl blog wp-theme-florum-theme florum-rtl" dir="rtl">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/he/chadarim/">חדרים</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/">בית</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/he/chadarim/">חדרים</a>
+          <a class="main-nav__tablet-room-link is-current" href="/florum-design-concepts/he/dirot/" aria-current="page">דירות</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/he/chadarim/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>חדרים</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>חדרים</h4>
-                <a href="/florum-design-concepts/he/chadarim/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/he/chadarim/">
                   <span>החדרים שלנו</span>
-                  <small>חדרים קלאסיים, סטודיו ואירוח עירוני בווינה</small>
+                  <small>חדרים מודרניים לכל סוג של שהייה.</small>
                 </a>
-                <a href="/florum-design-concepts/he/dirot/">
+                <a class="rooms-dropdown__item is-current" href="/florum-design-concepts/he/dirot/" aria-current="page">
                   <span>דירות</span>
-                  <small>נוחות לשהייה ממושכת עם שירותי מלון</small>
+                  <small>דירות מאובזרות במלואן לשהיות ממושכות.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>השהייה שלך</h4>
-                <p>בחרו בין סוגי חדרים, נוחות בסגנון דירה ואפשרויות הזמנה ישירה לשהייה בווינה.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/he/asakim/">B2B</a>
-        <a href="/florum-design-concepts/he/eruim/">אירועים</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/he/sherutim/">שירותים</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>שירותים</h4>
-                <a href="/florum-design-concepts/he/sherutim/">
-                  <span>השירותים שלנו</span>
-                  <small>ארוחת בוקר, קבלה, לובי בר ותוספות</small>
-                </a>
-                <a href="/florum-design-concepts/he/sherut-kasher/">
-                  <span>שירות כשר</span>
-                  <small>מענה קשוב לשהייה כשרה ונוחה</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>נוחות של מלון</h4>
-                <p>שירותים שימושיים שנועדו להקל על ביקורים קצרים ועל שהיות ממושכות.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/he/sherutim/">שירותים</a>
         <a href="/florum-design-concepts/he/mikum/">מיקום</a>
       </div>
 
@@ -101,189 +86,87 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/he/asakim/">B2B</a>
+        <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">שפה</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="בחירת שפה" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>שפה</h4>
-                <a href="/florum-design-concepts/serviced-apartments/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/apartments/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/apartamenty/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>עוד</h4>
-                <a href="/florum-design-concepts/it/appartamenti/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/apartamentos/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/dirot/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/serviced-apartments/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/apartments/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/apartamenty/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/appartamenti/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/apartamentos/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/dirot/" class="is-current" aria-current="page"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="סגירת חלונית ההזמנה">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>הגעה</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="בחירת תאריך הגעה">בחרו תאריך</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>עזיבה</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="בחירת תאריך עזיבה">בחרו תאריך</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="אורחים וחדר">
-            <option value="1">2 אורחים • חדר 1</option>
-            <option value="2">אורח 1 • חדר 1</option>
-            <option value="3">3 אורחים • חדר 1</option>
-            <option value="4">4 אורחים • 2 חדרים</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          בדיקת זמינות          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page apartments-page">
-  <section class="apartments-hero">
+  <section class="apartments-hero internal-page-hero internal-page-hero--gallery">
     <div class="container apartments-hero__grid">
       <div class="apartments-hero__copy reveal">
         <h1>דירות שירות</h1>
         <p>דירות השירות של מלון פלורום משלבות נוחות ביתית עם שירותי מלון, ומתאימות לאנשי עסקים, עובדים מרחוק, נוודים דיגיטליים, דיפלומטים, גמלאים, סטודנטים ומשפחות.</p>
-        <p>כל חדר תוכנן בקפידה עם נוחות בסגנון דירה, כולל מטבחון מאובזר וריהוט אלגנטי.</p>
       </div>
 
       <div class="apartments-hero__media reveal delay-1">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="דירת שירות במלון פלורום" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp" alt="פרט מהטרסה של סטודיו רוז" width="1200" height="800" loading="eager" decoding="async">
+        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp" alt="אורחת נרגעת במרפסת של סטודיו רוז" width="1200" height="1500" loading="eager" fetchpriority="high" decoding="async">
       </div>
     </div>
   </section>
 
-  <section class="section apartment-benefits-section">
-    <div class="container apartment-feature-grid">
-      <div class="apartment-section-copy direct-booking-copy reveal">
-        <h2>יתרונות דירות השירות</h2>
-        <p class="body-copy">כל חדר תוכנן בקפידה עם נוחות בסגנון דירה, כולל מטבחון מאובזר וריהוט אלגנטי.</p>
-        <div class="direct-booking-glow" aria-hidden="true">
-          <span></span>
+  <section class="section apartment-benefits-section sustainability-section">
+    <div class="container">
+      <div class="sustainability-split apartments-advantages-split">
+        <div class="apartments-advantage-carousel hospitality-fade-carousel reveal" data-fade-carousel aria-label="קרוסלת תמונות של דירות שירות">
+                      <div class="hospitality-slide is-active-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="פינת ישיבה ומטבחון בדירת סטודיו" width="1200" height="800" loading="eager" decoding="async">
+            </div>
+                      <div class="hospitality-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="פנים סטודיו דלקס" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+                      <div class="hospitality-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="טרסת סטודיו רוז עם נוף לעיר" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+                      <div class="hospitality-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp" alt="חדר רחצה בדירת שירות" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+                    <button class="apartments-carousel-control apartments-carousel-control--previous" type="button" data-fade-prev aria-label="תמונה קודמת">←</button>
+          <button class="apartments-carousel-control apartments-carousel-control--next" type="button" data-fade-next aria-label="התמונה הבאה">→</button>
+          <div class="apartments-carousel-indicators" data-fade-indicators aria-hidden="true">
+                          <span class="is-active"></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </div>
+        </div>
+        <div class="sustainability-panel apartments-advantages-panel reveal delay-1">
+          <h2>יתרונות דירות השירות</h2>
+          <p class="body-copy">כל חדר תוכנן בקפידה עם נוחות בסגנון דירה, כולל מטבחון מאובזר וריהוט אלגנטי.</p>
+          <ul class="apartments-advantages-list">
+                          <li>נוחות כמו בבית</li>
+                          <li>מטבח מאובזר במלואו</li>
+                          <li>משתלם לשהיות ארוכות</li>
+                          <li>שירותי מלון</li>
+                          <li>אירוח גמיש</li>
+                          <li>פרטיות ועצמאות</li>
+                          <li>ניתן להוסיף ארוחת בוקר קונטיננטלית ב-15 € ליום</li>
+                      </ul>
         </div>
       </div>
-      <div class="apartment-benefit-list">
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-house"></i>
-            </span>
-            <div>
-              <h3>נוחות כמו בבית</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-kitchen-set"></i>
-            </span>
-            <div>
-              <h3>מטבח מאובזר במלואו</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-tag"></i>
-            </span>
-            <div>
-              <h3>משתלם לשהיות ארוכות בהשוואה לחדרי מלון רגילים</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-bell-concierge"></i>
-            </span>
-            <div>
-              <h3>שירותי מלון</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-calendar-days"></i>
-            </span>
-            <div>
-              <h3>אירוח גמיש</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-key"></i>
-            </span>
-            <div>
-              <h3>פרטיות ועצמאות</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-mug-saucer"></i>
-            </span>
-            <div>
-              <h3>ניתן להוסיף ארוחת בוקר קונטיננטלית ב-15 € ליום</h3>
-            </div>
-          </article>
-              </div>
-      <div class="apartments-advantage-carousel hospitality-fade-carousel reveal delay-1" data-fade-carousel aria-label="קרוסלת תמונות של דירות שירות">
-                  <div class="hospitality-slide is-active-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="פינת ישיבה ומטבחון בדירת סטודיו" width="1200" height="800" loading="eager" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="פנים סטודיו דלקס" width="1200" height="800" loading="eager" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="טרסת סטודיו רוז עם נוף לעיר" width="1200" height="800" loading="lazy" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp" alt="חדר רחצה בדירת שירות" width="1200" height="800" loading="lazy" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp" alt="פרט מהטרסה של סטודיו רוז" width="1200" height="800" loading="lazy" decoding="async">
-          </div>
-              </div>
     </div>
   </section>
 
@@ -292,23 +175,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="section-heading reveal">
         <h2>הדירות שלנו</h2>
       </div>
-      <div class="apartment-card-grid">
-                  <article class="apartment-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="דירת סטודיו במלון פלורום" width="1200" height="800" loading="lazy" decoding="async">
+      <div class="service-card-grid">
+                  <article class="service-card service-page-card reveal">
+            <div class="service-page-card__media">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="דירת סטודיו במלון פלורום" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
             <div>
               <h3>סטודיו</h3>
               <p>הסטודיו (29 מ&quot;ר) מושלם לשניים עד שלושה אורחים, עם פינת ישיבה נעימה, מיטת קווין, מטבחון וריהוט ידידותי לאלרגיות לשהייה ממושכת נוחה.</p>
             </div>
           </article>
-                  <article class="apartment-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="דירת סטודיו דלקס במלון פלורום" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="service-card service-page-card reveal">
+            <div class="service-page-card__media">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="דירת סטודיו דלקס במלון פלורום" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
             <div>
               <h3>סטודיו דלקס</h3>
               <p>לקבוצות גדולות יותר, סטודיו דלקס (35 מ&quot;ר) מתאים לארבעה עד חמישה אורחים, עם מיטת קווין, ספת מיטה ואזור מטבח מרווח, אידיאלי למשפחות או קבוצות עסקיות.</p>
             </div>
           </article>
-                  <article class="apartment-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="סטודיו רוז במלון פלורום" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="service-card service-page-card reveal">
+            <div class="service-page-card__media">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="סטודיו רוז במלון פלורום" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
             <div>
               <h3>סטודיו רוז</h3>
               <p>סטודיו רוז (29 מ&quot;ר) מציע אווירה רומנטית עם טרסה פרטית ונוף עירוני מרהיב, מושלם לזוגות או קבוצות קטנות המחפשות שהייה בלתי נשכחת בווינה.</p>
@@ -318,69 +207,66 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section class="section apartment-amenities-section">
-    <div class="container apartment-amenities-card amenities-band reveal">
-      <div class="apartment-amenities-heading">
-        <h2>אבזור הדירה</h2>
-        <p>כל דירת שירות כוללת:</p>
-      </div>
-      <div class="apartment-amenities-groups">
-        <div class="apartment-check-grid">
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Wi-Fi</p>
+  <section class="section rooms-amenities-section">
+    <div class="container">
+      <div class="rooms-amenities-band rooms-amenities-band--overview rooms-amenities-accordion reveal" data-mobile-list-accordion data-accordion-media="(min-width: 768px) and (max-width: 1199px)">
+        <div class="rooms-amenities-heading rooms-amenities-heading--desktop">
+          <h2 class="type-section-heading">כל דירת שירות כוללת:</h2>
+        </div>
+        <h2 class="rooms-amenities-accordion__heading">
+          <button class="rooms-amenities-accordion__trigger" id="apartments-amenities-trigger" type="button" aria-expanded="false" aria-controls="apartments-amenities-panel" data-mobile-list-trigger>
+            <span class="rooms-amenities-accordion__title">כל דירת שירות כוללת:</span>
+            <span class="rooms-amenities-accordion__chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="rooms-amenities-accordion__panel" id="apartments-amenities-panel" role="region" aria-labelledby="apartments-amenities-trigger" data-mobile-list-panel hidden>
+          <div class="rooms-amenities-content">
+          <div class="mobile-list-accordion" data-mobile-list-accordion data-accordion-media="(max-width: 767px)">
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="standard-list-1-trigger" type="button" aria-expanded="false" aria-controls="standard-list-1-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">כל דירת שירות כוללת:</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="standard-list-1-panel" role="region" aria-labelledby="standard-list-1-trigger" data-mobile-list-panel hidden>
+    <ul class="rooms-standard-editorial__list" aria-label="כל דירת שירות כוללת:">
+                        <li>Wi-Fi</li>
+                                <li>מיטת box-spring עם מזרן פרימיום</li>
+                                <li>מיני בר</li>
+                                <li>ערכת קפה/תה וקומקום</li>
+                                <li>טלוויזיה עם מסך שטוח</li>
+                                <li>מיזוג אוויר / חימום</li>
+                                <li>גלאי אש</li>
+                                <li>כספת</li>
+                                <li>רצפה ללא שטיחים</li>
+                                <li>אמבטיה</li>
+                                <li>שולחן עבודה</li>
+                                <li>מגבות ומצעים</li>
+                                <li>ערכת טיפוח מלאה</li>
+                                <li>מייבש שיער</li>
+                                <li>נעלי בית</li>
+                                <li>מגהץ לפי בקשה</li>
+                                <li>גישה באמצעות מפתח אלקטרוני ומכני</li>
+                  </ul>
+  </div>
+</div>
+            <div class="rooms-amenities-divider" aria-hidden="true"></div>
+            <div class="rooms-amenities-heading rooms-amenities-heading--hotel">
+              <h3 class="subsection-heading">שירותי המלון</h3>
             </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>מיטת box-spring עם מזרן פרימיום</p>
+          <ul class="rooms-standard-editorial__list rooms-standard-editorial__list--hotel-band" aria-label="שירותי המלון">
+      <li>קבלה 24 שעות</li>
+      <li>בר לובי פתוח מדי יום</li>
+      <li>שירות חדרים / כביסה</li>
+      <li>מותר להביא חיות מחמד</li>
+  </ul>
+            <div class="rooms-amenities-services-cta">
+              <a class="rooms-amenities-services-link" href="/florum-design-concepts/he/sherutim/">
+                <span>למידע נוסף על השירותים שלנו</span>
+                <span class="rooms-amenities-services-link__arrow" aria-hidden="true">→</span>
+              </a>
             </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>טלוויזיה עם מסך שטוח</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>מיזוג אוויר וחימום</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>מיני בר</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>ערכת קפה ותה</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>קומקום</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>שולחן עבודה</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>כספת</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>ערכת מוצרי טיפוח מלאה</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>נעלי בית</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>מייבש שיער</p>
-            </div>
-                  </div>
-      </div>
-      <div class="apartment-hotel-plus-note">
-        <span aria-hidden="true">+</span>
-        <div>
-          <h3>שירותי המלון</h3>
-          <p>תיהנו מקבלה 24 שעות, בר לובי, שירות חדרים ועוד, כדי שהשהייה הארוכה תהיה נוחה ככל האפשר.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -404,7 +290,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <h2>הצעות בלעדיות לקבוצות ולחברות</h2>
       <p>אנו מציעים תעריפים ושירותים מיוחדים לקבוצות עסקיות, כולל חדרים שמורים, אפשרויות קייטרינג וגישה נוחה. צרו קשר למידע נוסף!</p>
       <div class="corporate-card-actions">
-        <a class="btn events-cta apartments-cta" href="/florum-design-concepts/he/asakim/">למידע נוסף</a>
+        <a class="btn btn-primary apartments-cta" href="/florum-design-concepts/he/asakim/">למידע נוסף</a>
       </div>
     </div>
   </section>
@@ -415,7 +301,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="reveal delay-1">
         <h2>התחילו את היום עם ארוחת הבוקר של פלורום</h2>
         <p>תיהנו מארוחת בוקר עם גבינות, בשרים, פירות עונתיים, לחמים וקפה טרי.</p>
-        <a class="apartments-text-link" href="/florum-design-concepts/he/sherutim/">לפרטי ארוחת בוקר ובר</a>
+        <a class="apartments-text-link rooms-breakfast-link" href="/florum-design-concepts/he/sherutim/">לפרטי ארוחת בוקר ובר</a>
       </div>
     </div>
   </section>
@@ -425,7 +311,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <h2>הזמינו את דירת השהייה הממושכת הבאה שלכם</h2>
       <p>התמקמו בדירת שירות עם נוחות של מלון, תמיכה גמישה וגישה נוחה לווינה.</p>
       <div class="apartments-final-actions">
-        <a class="btn events-cta apartments-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
+        <a class="btn btn-primary apartments-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
         <a class="btn apartments-cta apartments-cta--outline" href="/florum-design-concepts/he/kesher/">צרו קשר</a>
       </div>
     </div>
@@ -444,12 +330,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/he/tnaim-ve-hagbalot/">תנאים והגבלות</a>
       <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="יצירת קשר עם מלון פלורום">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

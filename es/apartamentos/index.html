@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/es/habitaciones/">Habitaciones</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/es/home-espanol/">Inicio</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/es/habitaciones/">Habitaciones</a>
+          <a class="main-nav__tablet-room-link is-current" href="/florum-design-concepts/es/apartamentos/" aria-current="page">Apartamentos</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/es/habitaciones/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Habitaciones</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Habitaciones</h4>
-                <a href="/florum-design-concepts/es/habitaciones/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/es/habitaciones/">
                   <span>Nuestras habitaciones</span>
-                  <small>Habitaciones clásicas, estudios y estancias urbanas</small>
+                  <small>Habitaciones modernas para todo tipo de estancia.</small>
                 </a>
-                <a href="/florum-design-concepts/es/apartamentos/">
+                <a class="rooms-dropdown__item is-current" href="/florum-design-concepts/es/apartamentos/" aria-current="page">
                   <span>Apartamentos</span>
-                  <small>Comodidad para estancias largas con servicios de hotel</small>
+                  <small>Apartamentos totalmente equipados para estancias prolongadas.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Tu estancia</h4>
-                <p>Compara habitaciones, comodidades tipo apartamento y ventajas de reserva directa para tu estancia en Viena.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/es/negocios/">B2B</a>
-        <a href="/florum-design-concepts/es/eventos/">Eventos</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/es/servicios/">Servicios</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Servicios</h4>
-                <a href="/florum-design-concepts/es/servicios/">
-                  <span>Nuestros servicios</span>
-                  <small>Desayuno, recepción, lobby bar y extras</small>
-                </a>
-                <a href="/florum-design-concepts/es/servicio-kosher/">
-                  <span>Servicio Kosher</span>
-                  <small>Atención cuidada para estancias kosher</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Confort de hotel</h4>
-                <p>Servicios prácticos para hacer más fáciles las visitas breves y las estancias largas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/es/servicios/">Servicios</a>
         <a href="/florum-design-concepts/es/ubicacion/">Ubicación</a>
       </div>
 
@@ -101,189 +86,87 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/es/negocios/">B2B</a>
+        <a href="/florum-design-concepts/es/contacto/">Contacto</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Idioma</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Elegir idioma" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Idioma</h4>
-                <a href="/florum-design-concepts/serviced-apartments/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/apartments/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/apartamenty/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Más</h4>
-                <a href="/florum-design-concepts/it/appartamenti/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/apartamentos/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/dirot/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/serviced-apartments/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/apartments/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/apartamenty/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/appartamenti/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/apartamentos/" class="is-current" aria-current="page"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/dirot/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/es/contacto/">Contacto</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Cerrar panel de reserva">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Llegada</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Elegir fecha de llegada">Seleccionar fecha</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Salida</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Elegir fecha de salida">Seleccionar fecha</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Personas y habitación">
-            <option value="1">2 personas • 1 habitación</option>
-            <option value="2">1 persona • 1 habitación</option>
-            <option value="3">3 personas • 1 habitación</option>
-            <option value="4">4 personas • 2 habitaciones</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Consultar disponibilidad          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page apartments-page">
-  <section class="apartments-hero">
+  <section class="apartments-hero internal-page-hero internal-page-hero--gallery">
     <div class="container apartments-hero__grid">
       <div class="apartments-hero__copy reveal">
         <h1>Apartamentos con servicios</h1>
         <p>Los apartamentos con servicios de Florum Hotel combinan comodidad de hogar y conveniencia hotelera para viajeros de negocios, trabajadores remotos, nomadas digitales, diplomaticos, jubilados, estudiantes y familias.</p>
-        <p>Cada habitacion esta disenada con comodidades de apartamento, incluida una kitchenette equipada y mobiliario elegante.</p>
       </div>
 
       <div class="apartments-hero__media reveal delay-1">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Apartamento con servicios en Florum Hotel" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp" alt="Detalle de la terraza del Rose Studio" width="1200" height="800" loading="eager" decoding="async">
+        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp" alt="Huésped relajándose en el balcón del Rose Studio" width="1200" height="1500" loading="eager" fetchpriority="high" decoding="async">
       </div>
     </div>
   </section>
 
-  <section class="section apartment-benefits-section">
-    <div class="container apartment-feature-grid">
-      <div class="apartment-section-copy direct-booking-copy reveal">
-        <h2>Ventajas de los apartamentos con servicios</h2>
-        <p class="body-copy">Cada habitacion esta disenada con comodidades de apartamento, incluida una kitchenette equipada y mobiliario elegante.</p>
-        <div class="direct-booking-glow" aria-hidden="true">
-          <span></span>
+  <section class="section apartment-benefits-section sustainability-section">
+    <div class="container">
+      <div class="sustainability-split apartments-advantages-split">
+        <div class="apartments-advantage-carousel hospitality-fade-carousel reveal" data-fade-carousel aria-label="Carrusel de imagenes de apartamentos">
+                      <div class="hospitality-slide is-active-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Zona de estar y kitchenette del estudio" width="1200" height="800" loading="eager" decoding="async">
+            </div>
+                      <div class="hospitality-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Interior del estudio deluxe" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+                      <div class="hospitality-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Terraza del Rose Studio con vista de la ciudad" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+                      <div class="hospitality-slide">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp" alt="Bano del apartamento con servicios" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+                    <button class="apartments-carousel-control apartments-carousel-control--previous" type="button" data-fade-prev aria-label="Imagen anterior">←</button>
+          <button class="apartments-carousel-control apartments-carousel-control--next" type="button" data-fade-next aria-label="Imagen siguiente">→</button>
+          <div class="apartments-carousel-indicators" data-fade-indicators aria-hidden="true">
+                          <span class="is-active"></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </div>
+        </div>
+        <div class="sustainability-panel apartments-advantages-panel reveal delay-1">
+          <h2>Ventajas de los apartamentos con servicios</h2>
+          <p class="body-copy">Cada habitacion esta disenada con comodidades de apartamento, incluida una kitchenette equipada y mobiliario elegante.</p>
+          <ul class="apartments-advantages-list">
+                          <li>Comodidad como en casa</li>
+                          <li>Cocina totalmente equipada</li>
+                          <li>Rentable para estancias largas</li>
+                          <li>Servicios de hotel</li>
+                          <li>Alojamiento flexible</li>
+                          <li>Privacidad e independencia</li>
+                          <li>El desayuno continental se puede anadir por 15 € al dia</li>
+                      </ul>
         </div>
       </div>
-      <div class="apartment-benefit-list">
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-house"></i>
-            </span>
-            <div>
-              <h3>Comodidad como en casa</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-kitchen-set"></i>
-            </span>
-            <div>
-              <h3>Cocina totalmente equipada</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-tag"></i>
-            </span>
-            <div>
-              <h3>Rentable para estancias largas en comparacion con habitaciones de hotel tradicionales</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-bell-concierge"></i>
-            </span>
-            <div>
-              <h3>Servicios de hotel</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-calendar-days"></i>
-            </span>
-            <div>
-              <h3>Alojamiento flexible</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-key"></i>
-            </span>
-            <div>
-              <h3>Privacidad e independencia</h3>
-            </div>
-          </article>
-                  <article class="apartment-benefit benefit-card reveal">
-            <span class="benefit-card__icon" aria-hidden="true">
-              <i class="fa-solid fa-mug-saucer"></i>
-            </span>
-            <div>
-              <h3>El desayuno continental se puede anadir por 15 € al dia</h3>
-            </div>
-          </article>
-              </div>
-      <div class="apartments-advantage-carousel hospitality-fade-carousel reveal delay-1" data-fade-carousel aria-label="Carrusel de imagenes de apartamentos">
-                  <div class="hospitality-slide is-active-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Zona de estar y kitchenette del estudio" width="1200" height="800" loading="eager" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Interior del estudio deluxe" width="1200" height="800" loading="eager" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Terraza del Rose Studio con vista de la ciudad" width="1200" height="800" loading="lazy" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp" alt="Bano del apartamento con servicios" width="1200" height="800" loading="lazy" decoding="async">
-          </div>
-                  <div class="hospitality-slide">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp" alt="Detalle de la terraza del Rose Studio" width="1200" height="800" loading="lazy" decoding="async">
-          </div>
-              </div>
     </div>
   </section>
 
@@ -292,23 +175,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="section-heading reveal">
         <h2>Nuestros apartamentos</h2>
       </div>
-      <div class="apartment-card-grid">
-                  <article class="apartment-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Estudio en Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+      <div class="service-card-grid">
+                  <article class="service-card service-page-card reveal">
+            <div class="service-page-card__media">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Estudio en Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
             <div>
               <h3>Estudio</h3>
               <p>El Estudio (29 m²) es perfecto para dos o tres huespedes, con una acogedora zona de estar, cama queen, kitchenette y mobiliario apto para alergicos para una estancia larga comoda.</p>
             </div>
           </article>
-                  <article class="apartment-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Estudio deluxe en Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="service-card service-page-card reveal">
+            <div class="service-page-card__media">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Estudio deluxe en Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
             <div>
               <h3>Estudio deluxe</h3>
               <p>Para grupos mas grandes, el Deluxe Studio (35 m²) aloja a cuatro o cinco huespedes, con cama queen, sofa cama y amplia zona de cocina, ideal para familias o grupos corporativos.</p>
             </div>
           </article>
-                  <article class="apartment-card reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Rose Studio en Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+                  <article class="service-card service-page-card reveal">
+            <div class="service-page-card__media">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Rose Studio en Florum Hotel" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
             <div>
               <h3>Rose Studio</h3>
               <p>El Rose Studio (29 m²) ofrece un ambiente romantico con terraza privada y vistas impresionantes de la ciudad, perfecto para parejas o grupos pequenos que buscan una estancia memorable en Viena.</p>
@@ -318,69 +207,66 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section class="section apartment-amenities-section">
-    <div class="container apartment-amenities-card amenities-band reveal">
-      <div class="apartment-amenities-heading">
-        <h2>Comodidades del apartamento</h2>
-        <p>Cada apartamento con servicios incluye:</p>
-      </div>
-      <div class="apartment-amenities-groups">
-        <div class="apartment-check-grid">
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Wi-Fi</p>
+  <section class="section rooms-amenities-section">
+    <div class="container">
+      <div class="rooms-amenities-band rooms-amenities-band--overview rooms-amenities-accordion reveal" data-mobile-list-accordion data-accordion-media="(min-width: 768px) and (max-width: 1199px)">
+        <div class="rooms-amenities-heading rooms-amenities-heading--desktop">
+          <h2 class="type-section-heading">Cada apartamento con servicios incluye:</h2>
+        </div>
+        <h2 class="rooms-amenities-accordion__heading">
+          <button class="rooms-amenities-accordion__trigger" id="apartments-amenities-trigger" type="button" aria-expanded="false" aria-controls="apartments-amenities-panel" data-mobile-list-trigger>
+            <span class="rooms-amenities-accordion__title">Cada apartamento con servicios incluye:</span>
+            <span class="rooms-amenities-accordion__chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="rooms-amenities-accordion__panel" id="apartments-amenities-panel" role="region" aria-labelledby="apartments-amenities-trigger" data-mobile-list-panel hidden>
+          <div class="rooms-amenities-content">
+          <div class="mobile-list-accordion" data-mobile-list-accordion data-accordion-media="(max-width: 767px)">
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="standard-list-1-trigger" type="button" aria-expanded="false" aria-controls="standard-list-1-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">Cada apartamento con servicios incluye:</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="standard-list-1-panel" role="region" aria-labelledby="standard-list-1-trigger" data-mobile-list-panel hidden>
+    <ul class="rooms-standard-editorial__list" aria-label="Cada apartamento con servicios incluye:">
+                        <li>Wi-Fi</li>
+                                <li>Cama box-spring con colchon premium</li>
+                                <li>Minibar</li>
+                                <li>Set de cafe/te y hervidor</li>
+                                <li>TV de pantalla plana</li>
+                                <li>Aire acondicionado / calefaccion</li>
+                                <li>Detector de incendios</li>
+                                <li>Caja fuerte</li>
+                                <li>Suelos sin moqueta</li>
+                                <li>Banera</li>
+                                <li>Escritorio</li>
+                                <li>Toallas y ropa de cama</li>
+                                <li>Set completo de articulos de aseo</li>
+                                <li>Secador de pelo</li>
+                                <li>Zapatillas</li>
+                                <li>Plancha bajo peticion</li>
+                                <li>Acceso con llave electrónica y mecánica</li>
+                  </ul>
+  </div>
+</div>
+            <div class="rooms-amenities-divider" aria-hidden="true"></div>
+            <div class="rooms-amenities-heading rooms-amenities-heading--hotel">
+              <h3 class="subsection-heading">Servicios del hotel</h3>
             </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Cama box-spring con colchon premium</p>
+          <ul class="rooms-standard-editorial__list rooms-standard-editorial__list--hotel-band" aria-label="Servicios del hotel">
+      <li>Recepcion 24 horas</li>
+      <li>Lobby bar abierto todos los dias</li>
+      <li>Servicio de habitaciones / lavanderia</li>
+      <li>Mascotas permitidas</li>
+  </ul>
+            <div class="rooms-amenities-services-cta">
+              <a class="rooms-amenities-services-link" href="/florum-design-concepts/es/servicios/">
+                <span>Más información sobre nuestros servicios</span>
+                <span class="rooms-amenities-services-link__arrow" aria-hidden="true">→</span>
+              </a>
             </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>TV de pantalla plana</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Aire acondicionado y calefaccion</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Minibar</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Set de cafe y te</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Hervidor</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Escritorio</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Caja fuerte</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Set completo de articulos de aseo</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Zapatillas</p>
-            </div>
-                      <div class="apartment-check-item">
-              <span aria-hidden="true">✓</span>
-              <p>Secador de pelo</p>
-            </div>
-                  </div>
-      </div>
-      <div class="apartment-hotel-plus-note">
-        <span aria-hidden="true">+</span>
-        <div>
-          <h3>Servicios del hotel</h3>
-          <p>Disfruta de recepcion 24 horas, lobby bar, servicio de habitaciones y mas para que tu estancia larga sea sencilla.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -404,7 +290,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <h2>Ofertas exclusivas para grupos y empresas</h2>
       <p>Ofrecemos tarifas y servicios especiales para grupos corporativos, con habitaciones reservadas, opciones de catering y acceso comodo. Contacta con nosotros para mas informacion!</p>
       <div class="corporate-card-actions">
-        <a class="btn events-cta apartments-cta" href="/florum-design-concepts/es/negocios/">Saber mas</a>
+        <a class="btn btn-primary apartments-cta" href="/florum-design-concepts/es/negocios/">Saber mas</a>
       </div>
     </div>
   </section>
@@ -415,7 +301,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="reveal delay-1">
         <h2>Empieza el dia con el desayuno de Florum</h2>
         <p>Disfruta de quesos, embutidos, frutas de temporada, panes y cafe recien hecho.</p>
-        <a class="apartments-text-link" href="/florum-design-concepts/es/servicios/">Ver desayuno y bar</a>
+        <a class="apartments-text-link rooms-breakfast-link" href="/florum-design-concepts/es/servicios/">Ver desayuno y bar</a>
       </div>
     </div>
   </section>
@@ -425,7 +311,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <h2>Reserva tu proximo apartamento de larga estancia</h2>
       <p>Instalate en un apartamento con servicios, comodidad hotelera, apoyo flexible y facil acceso a Viena.</p>
       <div class="apartments-final-actions">
-        <a class="btn events-cta apartments-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
+        <a class="btn btn-primary apartments-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
         <a class="btn apartments-cta apartments-cta--outline" href="/florum-design-concepts/es/contacto/">Contacta con nosotros</a>
       </div>
     </div>
@@ -444,12 +330,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/es/terminos-condiciones/">Términos y Condiciones</a>
       <a href="/florum-design-concepts/es/contacto/">Contacto</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contactar con Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

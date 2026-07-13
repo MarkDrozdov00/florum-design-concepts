@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/es/habitaciones/">Habitaciones</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/es/home-espanol/">Inicio</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/es/habitaciones/">Habitaciones</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/es/apartamentos/">Apartamentos</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/es/habitaciones/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Habitaciones</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Habitaciones</h4>
-                <a href="/florum-design-concepts/es/habitaciones/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/es/habitaciones/">
                   <span>Nuestras habitaciones</span>
-                  <small>Habitaciones clásicas, estudios y estancias urbanas</small>
+                  <small>Habitaciones modernas para todo tipo de estancia.</small>
                 </a>
-                <a href="/florum-design-concepts/es/apartamentos/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/es/apartamentos/">
                   <span>Apartamentos</span>
-                  <small>Comodidad para estancias largas con servicios de hotel</small>
+                  <small>Apartamentos totalmente equipados para estancias prolongadas.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Tu estancia</h4>
-                <p>Compara habitaciones, comodidades tipo apartamento y ventajas de reserva directa para tu estancia en Viena.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/es/negocios/">B2B</a>
-        <a href="/florum-design-concepts/es/eventos/">Eventos</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/es/servicios/">Servicios</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Servicios</h4>
-                <a href="/florum-design-concepts/es/servicios/">
-                  <span>Nuestros servicios</span>
-                  <small>Desayuno, recepción, lobby bar y extras</small>
-                </a>
-                <a href="/florum-design-concepts/es/servicio-kosher/">
-                  <span>Servicio Kosher</span>
-                  <small>Atención cuidada para estancias kosher</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Confort de hotel</h4>
-                <p>Servicios prácticos para hacer más fáciles las visitas breves y las estancias largas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/es/servicios/">Servicios</a>
         <a href="/florum-design-concepts/es/ubicacion/">Ubicación</a>
       </div>
 
@@ -101,94 +86,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/es/negocios/">B2B</a>
+        <a href="/florum-design-concepts/es/contacto/">Contacto</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Idioma</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Elegir idioma" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Idioma</h4>
-                <a href="/florum-design-concepts/florum-terms-and-conditions/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/agb/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/pravila-i-usloviya/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Más</h4>
-                <a href="/florum-design-concepts/it/termini-condizioni/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/terminos-condiciones/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/tnaim-ve-hagbalot/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/florum-terms-and-conditions/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/agb/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/pravila-i-usloviya/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/termini-condizioni/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/terminos-condiciones/" class="is-current" aria-current="page"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/tnaim-ve-hagbalot/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/es/contacto/">Contacto</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Cerrar panel de reserva">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Llegada</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Elegir fecha de llegada">Seleccionar fecha</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Salida</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Elegir fecha de salida">Seleccionar fecha</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Personas y habitación">
-            <option value="1">2 personas • 1 habitación</option>
-            <option value="2">1 persona • 1 habitación</option>
-            <option value="3">3 personas • 1 habitación</option>
-            <option value="4">4 personas • 2 habitaciones</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Consultar disponibilidad          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page legal-page">
-  <section class="inner-page-hero legal-hero">
+  <section class="inner-page-hero legal-hero internal-page-hero">
     <div class="container inner-page-hero__grid legal-hero__grid">
       <div class="inner-page-hero__copy reveal">
-        <h2>Términos y Condiciones</h2>
+        <h1>Términos y Condiciones</h1>
         <p>Términos y condiciones generales para estancias en Hotel Florum.</p>
       </div>
       <div class="inner-page-hero__media legal-hero__media reveal delay-1" aria-hidden="true">
@@ -199,90 +129,150 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   <section class="section legal-section">
     <div class="container legal-layout">
-      <article class="legal-card legal-card--wide legal-document reveal">
-                                                        <h2 class="legal-document__title">Términos y condiciones generales</h2>
-                                                            <h3>Intelligence Lucrative Cooperation ILC GmbH</h3>
-                                                            <h3>Ámbito de aplicación</h3>
-                                                            <p>Estos Términos y condiciones generales se aplican a todos los contratos celebrados con Intelligence Lucrative Cooperation ILC GmbH en relación con el establecimiento de alojamiento que opera. Las desviaciones solo serán vinculantes si se acuerdan por escrito y son confirmadas por Intelligence Lucrative Cooperation ILC GmbH.<br>
+      <article class="legal-card legal-card--wide legal-document privacy-document reveal">
+                              <section class="privacy-document__section">
+                                                <h2 class="legal-document__title">Términos y condiciones generales</h2>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH</p>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Ámbito de aplicación</h3>
+                              
+                              <p>Estos Términos y condiciones generales se aplican a todos los contratos celebrados con Intelligence Lucrative Cooperation ILC GmbH en relación con el establecimiento de alojamiento que opera. Las desviaciones solo serán vinculantes si se acuerdan por escrito y son confirmadas por Intelligence Lucrative Cooperation ILC GmbH.<br>
 El contrato con Intelligence Lucrative Cooperation ILC GmbH se celebra exclusivamente sobre la base de estos términos. Las condiciones del contratante no se aplican salvo aceptación expresa por escrito.<br>
 Si alguna disposición fuera inválida, la validez de las demás disposiciones no se verá afectada. En caso de lagunas, se aplicarán las normas legales correspondientes.<br>
 Será determinante la versión vigente en el momento de la celebración del contrato.</p>
-                                                            <h3>Definiciones</h3>
-                                                            <p>Proveedor de alojamiento: establecimiento de alojamiento de Intelligence Lucrative Cooperation ILC GmbH que hospeda huéspedes a cambio de pago.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Definiciones</h3>
+                              
+                              <p>Proveedor de alojamiento: establecimiento de alojamiento de Intelligence Lucrative Cooperation ILC GmbH que hospeda huéspedes a cambio de pago.<br>
 Huésped: persona física que utiliza el alojamiento. Las personas que viajan con el contratante también se consideran huéspedes.<br>
 Contratante: persona física o jurídica que celebra un contrato de alojamiento como huésped o para un huésped.<br>
 Empresario o consumidor: estos términos se entienden según la legislación austríaca de protección al consumidor.<br>
 Contrato: acuerdo entre Intelligence Lucrative Cooperation ILC GmbH y el contratante relativo al alojamiento u otro servicio.</p>
-                                                            <h3>Celebración del contrato y depósito</h3>
-                                                            <p>El contrato se considera celebrado cuando Intelligence Lucrative Cooperation ILC GmbH acepta la reserva de habitación del contratante.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Celebración del contrato y depósito</h3>
+                              
+                              <p>El contrato se considera celebrado cuando Intelligence Lucrative Cooperation ILC GmbH acepta la reserva de habitación del contratante.<br>
 Intelligence Lucrative Cooperation ILC GmbH puede supeditar la celebración del contrato al pago de un depósito. En tal caso, el contratante será informado previamente del depósito y su importe. El contrato solo se perfecciona si el contratante acepta por escrito pagar el depósito.<br>
 Según lo acordado, el depósito puede ser exigible 30 días antes del inicio del alojamiento. Los costes de transferencia, gastos bancarios y comisiones corren a cargo del contratante.<br>
 El depósito pagado se considera pago parcial del precio acordado.</p>
-                                                            <h3>Disponibilidad de habitaciones, llegada y salida</h3>
-                                                            <p>El contratante tiene derecho a ocupar las habitaciones reservadas desde las 16:00 del día de llegada acordado.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Disponibilidad de habitaciones, llegada y salida</h3>
+                              
+                              <p>El contratante tiene derecho a ocupar las habitaciones reservadas desde las 16:00 del día de llegada acordado.<br>
 Una disponibilidad anterior puede acordarse en casos excepcionales, sin que exista derecho a exigirla.<br>
 Si una habitación se ocupa por primera vez antes de las 6:00, la noche anterior cuenta como primera pernoctación.<br>
 Las habitaciones deben quedar libres antes de las 11:00 del día de salida. En caso de salida tardía, Intelligence Lucrative Cooperation ILC GmbH puede cobrar un día adicional y reclamar daños adicionales.</p>
-                                                            <h3>Desistimiento por Intelligence Lucrative Cooperation ILC GmbH</h3>
-                                                            <p>Si no se ha pagado depósito y el huésped no se presenta antes de las 18:00 del día acordado sin aviso, Intelligence Lucrative Cooperation ILC GmbH puede desistir del contrato, salvo que se haya acordado una hora posterior.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Desistimiento por Intelligence Lucrative Cooperation ILC GmbH</h3>
+                              
+                              <p>Si no se ha pagado depósito y el huésped no se presenta antes de las 18:00 del día acordado sin aviso, Intelligence Lucrative Cooperation ILC GmbH puede desistir del contrato, salvo que se haya acordado una hora posterior.<br>
 Intelligence Lucrative Cooperation ILC GmbH puede desistir con efecto inmediato si el depósito acordado no se paga puntualmente o en el importe convenido.<br>
 Si el depósito fue pagado, las habitaciones permanecen reservadas hasta las 11:00 del día siguiente, salvo acuerdo distinto.<br>
 Por motivos objetivamente justificados, como fuerza mayor, incumplimientos contractuales o infracciones del reglamento interno, Intelligence Lucrative Cooperation ILC GmbH puede desistir con efecto inmediato.</p>
-                                                            <h3>Desistimiento del contratante y gastos de cancelación</h3>
-                                                            <p>El contrato de alojamiento puede resolverse sin penalización hasta tres meses antes del día de llegada acordado.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Desistimiento del contratante y gastos de cancelación</h3>
+                              
+                              <p>El contrato de alojamiento puede resolverse sin penalización hasta tres meses antes del día de llegada acordado.<br>
 Fuera de ese plazo, si las habitaciones no pueden alquilarse a otros huéspedes y salvo acuerdo distinto, el desistimiento solo será posible con los siguientes gastos:<br>
 Desde tres meses hasta cuatro semanas antes de la llegada: 20% del precio del período completo.<br>
 Desde cuatro semanas hasta una semana antes de la llegada: 50% del precio.<br>
 Desde una semana hasta un día antes de la llegada: 90% del precio.<br>
 El día de llegada o en caso de no presentación sin aviso: 100% del precio.<br>
 Si el contratante no puede llegar por circunstancias imprevisibles y extraordinarias de fuerza mayor, el precio contractual no será exigible o deberá reembolsarse en un plazo de 14 días tras la notificación escrita.</p>
-                                                            <h3>Alojamiento sustitutorio</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH puede proporcionar al contratante o a los huéspedes un alojamiento sustitutorio adecuado si resulta razonable, especialmente en caso de desviación menor y objetivamente justificada.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Alojamiento sustitutorio</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH puede proporcionar al contratante o a los huéspedes un alojamiento sustitutorio adecuado si resulta razonable, especialmente en caso de desviación menor y objetivamente justificada.<br>
 Existe justificación objetiva, por ejemplo, si las habitaciones reservadas quedan inutilizables o si medidas operativas importantes lo requieren.<br>
 Los gastos adicionales del alojamiento sustitutorio serán asumidos por Intelligence Lucrative Cooperation ILC GmbH.</p>
-                                                            <h3>Derechos del contratante</h3>
-                                                            <p>Al celebrar el contrato de alojamiento, el contratante adquiere el derecho al uso habitual de las habitaciones alquiladas, de las instalaciones accesibles a los huéspedes y del servicio habitual.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Derechos del contratante</h3>
+                              
+                              <p>Al celebrar el contrato de alojamiento, el contratante adquiere el derecho al uso habitual de las habitaciones alquiladas, de las instalaciones accesibles a los huéspedes y del servicio habitual.<br>
 Estos derechos deberán ejercerse conforme a las normas del hotel y al reglamento interno.</p>
-                                                            <h3>Obligaciones del contratante</h3>
-                                                            <p>El contratante debe pagar puntualmente el depósito acordado y el precio convenido más el IVA legal.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Obligaciones del contratante</h3>
+                              
+                              <p>El contratante debe pagar puntualmente el depósito acordado y el precio convenido más el IVA legal.<br>
 En caso de mora, Intelligence Lucrative Cooperation ILC GmbH puede cobrar intereses de demora en la medida permitida por la ley. Queda reservado el derecho a reclamar daños adicionales.<br>
 Intelligence Lucrative Cooperation ILC GmbH no está obligada a aceptar moneda extranjera. Si se aceptan moneda extranjera o pagos sin efectivo, los costes relacionados serán a cargo del contratante.<br>
 El contratante responde por los daños causados por él, por los huéspedes o por terceros que reciban servicios con su conocimiento o voluntad.<br>
 Las habitaciones reservadas solo podrán utilizarse con fines de alojamiento. Cualquier otro uso requiere consentimiento previo por escrito.</p>
-                                                            <h3>Derechos del proveedor de alojamiento</h3>
-                                                            <p>En caso de negativa o retraso en el pago, se aplican el derecho legal de retención y el gravamen legal sobre los objetos introducidos por el contratante o huésped.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Derechos del proveedor de alojamiento</h3>
+                              
+                              <p>En caso de negativa o retraso en el pago, se aplican el derecho legal de retención y el gravamen legal sobre los objetos introducidos por el contratante o huésped.<br>
 Los servicios solicitados en horarios inusuales, especialmente después de las 22:00 y antes de las 6:00, pueden rechazarse por razones operativas o prestarse con cargo adicional.</p>
-                                                            <h3>Obligaciones del proveedor de alojamiento</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH debe prestar los servicios acordados conforme al estándar correspondiente a la clasificación del establecimiento.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Obligaciones del proveedor de alojamiento</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH debe prestar los servicios acordados conforme al estándar correspondiente a la clasificación del establecimiento.<br>
 Los servicios especiales sujetos a precio separado pueden incluir servicios adicionales de alojamiento, sauna, traslado, camas supletorias o cunas.</p>
-                                                            <h3>Responsabilidad por objetos introducidos</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH responde por los objetos introducidos conforme a los §§ 970 y siguientes del Código Civil austríaco si fueron entregados o depositados en el lugar indicado.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Responsabilidad por objetos introducidos</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH responde por los objetos introducidos conforme a los §§ 970 y siguientes del Código Civil austríaco si fueron entregados o depositados en el lugar indicado.<br>
 La responsabilidad está limitada en la medida permitida por la ley. Para objetos de valor, dinero y valores, la responsabilidad existe solo dentro de los límites legales y en caso de custodia adecuada o daño culposo.<br>
 Los daños deberán comunicarse inmediatamente tras ser conocidos. Las reclamaciones deberán ejercerse dentro de los plazos legales.</p>
-                                                            <h3>Limitaciones de responsabilidad</h3>
-                                                            <p>Frente a consumidores, se excluye la responsabilidad por negligencia leve, salvo daños personales.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Limitaciones de responsabilidad</h3>
+                              
+                              <p>Frente a consumidores, se excluye la responsabilidad por negligencia leve, salvo daños personales.<br>
 Frente a empresarios, se excluye, en la medida permitida por la ley, la responsabilidad por negligencia leve y grave. No se indemnizan daños indirectos, inmateriales ni lucro cesante.<br>
 Los servicios de despertador se realizan con el máximo cuidado; las reclamaciones por daños se excluyen salvo dolo o negligencia grave.</p>
-                                                            <h3>Mascotas</h3>
-                                                            <p>Los animales solo pueden introducirse con consentimiento previo de Intelligence Lucrative Cooperation ILC GmbH y, en su caso, con cargo adicional.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Mascotas</h3>
+                              
+                              <p>Los animales solo pueden introducirse con consentimiento previo de Intelligence Lucrative Cooperation ILC GmbH y, en su caso, con cargo adicional.<br>
 El contratante debe mantener o supervisar adecuadamente al animal y responde por los daños causados.<br>
 Los animales no están permitidos en salas comunes ni áreas de restaurante.</p>
-                                                            <h3>Prolongación de la estancia</h3>
-                                                            <p>No existe derecho a prolongar la estancia. Intelligence Lucrative Cooperation ILC GmbH puede aceptar una prolongación, pero no está obligada.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Prolongación de la estancia</h3>
+                              
+                              <p>No existe derecho a prolongar la estancia. Intelligence Lucrative Cooperation ILC GmbH puede aceptar una prolongación, pero no está obligada.<br>
 Si el contratante no puede salir por circunstancias extraordinarias imprevisibles, el contrato se prolonga durante la imposibilidad de salida. La reducción del precio solo es posible si los servicios ofrecidos no pueden utilizarse plenamente.</p>
-                                                            <h3>Protección de datos</h3>
-                                                            <p>Intelligence Lucrative Cooperation ILC GmbH cumple la normativa de protección de datos vigente. Los datos personales se recogen, usan y transmiten solo cuando la ley lo permite o cuando el contratante consiente.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Protección de datos</h3>
+                              
+                              <p>Intelligence Lucrative Cooperation ILC GmbH cumple la normativa de protección de datos vigente. Los datos personales se recogen, usan y transmiten solo cuando la ley lo permite o cuando el contratante consiente.<br>
 La política de privacidad está disponible en <a href="https://florum-hotels.com/privacy-policy/" rel="nofollow">https://florum-hotels.com/privacy-policy/</a></p>
-                                                            <h3>Lugar de cumplimiento, jurisdicción y derecho aplicable</h3>
-                                                            <p>El lugar de cumplimiento es el lugar donde se encuentra el establecimiento de alojamiento correspondiente.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Lugar de cumplimiento, jurisdicción y derecho aplicable</h3>
+                              
+                              <p>El lugar de cumplimiento es el lugar donde se encuentra el establecimiento de alojamiento correspondiente.<br>
 El contrato se rige por el derecho austríaco, excluidas las normas de conflicto y la Convención de Naciones Unidas sobre Compraventa Internacional de Mercaderías.<br>
 Para litigios entre empresarios será competente exclusivamente el tribunal territorialmente competente para 1230 Viena. Las jurisdicciones obligatorias en materia de consumidores permanecen intactas.</p>
-                                                            <h3>Disposiciones finales</h3>
-                                                            <p>Los plazos comienzan con la notificación del documento que los inicia. En plazos calculados por días, no se cuenta el día del hecho que los origina.<br>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Disposiciones finales</h3>
+                              
+                              <p>Los plazos comienzan con la notificación del documento que los inicia. En plazos calculados por días, no se cuenta el día del hecho que los origina.<br>
 Las declaraciones deben recibirse por la otra parte antes de las 24:00 del último día del plazo.<br>
 Intelligence Lucrative Cooperation ILC GmbH puede compensar sus propios créditos con créditos del contratante. El contratante solo puede compensar si el crédito contrario ha sido reconocido judicialmente, admitido o si Intelligence Lucrative Cooperation ILC GmbH es insolvente.</p>
-                                                            <h3>Versión noviembre de 2019</h3>
-                                    </article>
+                          </section>
+                      <section class="privacy-document__section">
+                                                <h3>Versión noviembre de 2019</h3>
+                              
+                          </section>
+                        </article>
     </div>
   </section>
 </main>
@@ -299,12 +289,25 @@ Intelligence Lucrative Cooperation ILC GmbH puede compensar sus propios crédito
       <a href="/florum-design-concepts/es/terminos-condiciones/">Términos y Condiciones</a>
       <a href="/florum-design-concepts/es/contacto/">Contacto</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contactar con Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

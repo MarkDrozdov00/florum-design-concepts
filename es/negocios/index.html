@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>florum</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -26,12 +27,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -47,52 +51,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/es/habitaciones/">Habitaciones</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/es/home-espanol/">Inicio</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/es/habitaciones/">Habitaciones</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/es/apartamentos/">Apartamentos</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/es/habitaciones/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>Habitaciones</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>Habitaciones</h4>
-                <a href="/florum-design-concepts/es/habitaciones/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/es/habitaciones/">
                   <span>Nuestras habitaciones</span>
-                  <small>Habitaciones clásicas, estudios y estancias urbanas</small>
+                  <small>Habitaciones modernas para todo tipo de estancia.</small>
                 </a>
-                <a href="/florum-design-concepts/es/apartamentos/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/es/apartamentos/">
                   <span>Apartamentos</span>
-                  <small>Comodidad para estancias largas con servicios de hotel</small>
+                  <small>Apartamentos totalmente equipados para estancias prolongadas.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Tu estancia</h4>
-                <p>Compara habitaciones, comodidades tipo apartamento y ventajas de reserva directa para tu estancia en Viena.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/es/negocios/">B2B</a>
-        <a href="/florum-design-concepts/es/eventos/">Eventos</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/es/servicios/">Servicios</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>Servicios</h4>
-                <a href="/florum-design-concepts/es/servicios/">
-                  <span>Nuestros servicios</span>
-                  <small>Desayuno, recepción, lobby bar y extras</small>
-                </a>
-                <a href="/florum-design-concepts/es/servicio-kosher/">
-                  <span>Servicio Kosher</span>
-                  <small>Atención cuidada para estancias kosher</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>Confort de hotel</h4>
-                <p>Servicios prácticos para hacer más fáciles las visitas breves y las estancias largas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/es/servicios/">Servicios</a>
         <a href="/florum-design-concepts/es/ubicacion/">Ubicación</a>
       </div>
 
@@ -101,96 +86,40 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/es/negocios/">B2B</a>
+        <a href="/florum-design-concepts/es/contacto/">Contacto</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">Idioma</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Elegir idioma" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>Idioma</h4>
-                <a href="/florum-design-concepts/business/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/geschaeftskunden/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/biznes/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>Más</h4>
-                <a href="/florum-design-concepts/it/business-3/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/negocios/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/asakim/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/business/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/geschaeftskunden/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/biznes/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/business-3/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/negocios/" class="is-current" aria-current="page"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/asakim/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/es/contacto/">Contacto</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="Cerrar panel de reserva">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Llegada</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="Elegir fecha de llegada">Seleccionar fecha</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>Salida</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="Elegir fecha de salida">Seleccionar fecha</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="Personas y habitación">
-            <option value="1">2 personas • 1 habitación</option>
-            <option value="2">1 persona • 1 habitación</option>
-            <option value="3">3 personas • 1 habitación</option>
-            <option value="4">4 personas • 2 habitaciones</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          Consultar disponibilidad          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page service-page b2b-page">
-  <section class="service-page-hero b2b-hero">
+  <section class="service-page-hero b2b-hero internal-page-hero internal-page-hero--gallery">
     <div class="container service-page-hero__grid">
       <div class="service-page-hero__copy reveal">
-        <h1>Tarifas corporativas y reservas de grupo en Florum Hotel Viena</h1>
+        <h1>Reservas corporativas y de grupo</h1>
         <p>Florum Hotel ofrece condiciones a medida para empresas, viajeros de negocios, equipos de proyecto y grupos en Viena. Ya sean reservas corporativas frecuentes, estancias largas o solicitudes de grupos grandes, preparamos ofertas flexibles según sus necesidades.</p>
-        <p>A partir de más de 9 habitaciones ofrecemos condiciones especiales individuales, ajustadas al número de habitaciones, duración de la estancia, periodo de viaje y disponibilidad.</p>
       </div>
       <div class="service-page-hero__media b2b-hero__media reveal delay-1">
         <div class="b2b-hero-carousel" data-fade-carousel aria-label="Carrusel de imágenes para reservas corporativas y de grupo">
@@ -210,30 +139,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   <section class="section b2b-models-section hospitality-section">
     <div class="container">
-      <div class="hospitality-intro reveal">
-        <h2 class="hospitality-intro__text">Condiciones flexibles para clientes corporativos</h2>
-      </div>
       <div class="hospitality-block hospitality-block--services reveal delay-1">
         <div class="service-editorial b2b-model-editorial">
           <div class="service-editorial__intro">
-            <h3>Dos modelos de tarifa claros para su ritmo de reservas.</h3>
-            <p>Elija descuentos flexibles para necesidades cambiantes o precios fijos para una demanda previsible.</p>
+            <h2 class="type-section-heading">Condiciones flexibles para clientes corporativos</h2>
+            <p class="body-copy">Elija descuentos flexibles para necesidades cambiantes o precios fijos para una demanda previsible.</p>
+          </div>
+          <div class="b2b-inline-photo-frame service-reveal-item" data-service-delay-index="0">
             <img class="b2b-inline-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-b2b.webp" alt="Estancia de negocios en Florum Hotel" width="1100" height="1650" loading="lazy" decoding="async">
           </div>
           <div class="service-editorial__showcase b2b-rate-cards">
-                          <article class="service-card service-card--feature b2b-rate-card">
+                          <article class="service-card service-card--feature b2b-rate-card" data-service-delay-index="0">
                 <div>
-                  <span>Flexible</span>
-                  <h4>Modelo híbrido</h4>
-                  <p>Recibirá un descuento fijo sobre nuestras tarifas actuales de reserva directa. Este modelo es ideal para empresas que desean mantener flexibilidad y necesitan habitaciones en Viena con regularidad. Bajo petición, también se puede reservar un cupo de habitaciones.</p>
-                </div>
+                  <h4 class="type-card-heading">Modelo híbrido</h4>
+                  <p class="body-copy">Recibirá un descuento fijo sobre nuestras tarifas actuales de reserva directa. Este modelo es ideal para empresas que desean mantener flexibilidad y necesitan habitaciones en Viena con regularidad. Bajo petición, también se puede reservar un cupo de habitaciones.</p>
+                                      <p class="body-copy">Para reservas de más de 9 habitaciones ofrecemos condiciones especiales individuales, ajustadas al número de habitaciones, la duración de la estancia, el periodo de viaje y la disponibilidad.</p>
+                                  </div>
               </article>
-                          <article class="service-card service-card--feature b2b-rate-card">
+                          <article class="service-card service-card--feature b2b-rate-card" data-service-delay-index="1">
                 <div>
-                  <span>Previsible</span>
-                  <h4>Modelo de precio fijo</h4>
-                  <p>Para reservas a largo plazo o recurrentes, acordamos precios fijos por habitación durante un periodo definido, mensual o estacional. Ideal para equipos de proyecto, técnicos, viajeros de negocios y empresas con necesidades previsibles.</p>
-                </div>
+                  <h4 class="type-card-heading">Modelo de precio fijo</h4>
+                  <p class="body-copy">Para reservas a largo plazo o recurrentes, acordamos precios fijos por habitación durante un periodo definido, mensual o estacional. Ideal para equipos de proyecto, técnicos, viajeros de negocios y empresas con necesidades previsibles.</p>
+                                  </div>
               </article>
                       </div>
         </div>
@@ -244,62 +171,78 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section b2b-audience-section">
     <div class="container hospitality-block hospitality-block--image-left reveal">
       <div class="hospitality-media hospitality-media--plain">
-        <img class="hospitality-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="Lobby de Florum Hotel para estancias de grupo" width="1800" height="1200" loading="lazy" decoding="async">
+        <img class="hospitality-photo service-reveal-item" data-service-delay-index="0" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="Lobby de Florum Hotel para estancias de grupo" width="1800" height="1200" loading="lazy" decoding="async">
       </div>
       <div class="hospitality-copy">
-        <h2>Ideal para empresas, grupos y huéspedes de larga estancia</h2>
-        <p>Desde viajes corporativos recurrentes hasta alojamiento de proyectos y solicitudes de grupos grandes, nuestro equipo mantiene el proceso personal, claro y sencillo.</p>
-        <div class="b2b-benefit-grid">
-                      <article class="b2b-benefit-card">
-              <span class="b2b-benefit-card__icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
-              <h3>Reservas corporativas en Viena</h3>
-              <p>Para viajes de negocios frecuentes, empleados, clientes o socios.</p>
-            </article>
-                      <article class="b2b-benefit-card">
-              <span class="b2b-benefit-card__icon" aria-hidden="true"><i class="fa-solid fa-helmet-safety"></i></span>
-              <h3>Equipos de proyecto y montaje</h3>
-              <p>Con condiciones previsibles, procesos sencillos y precios atractivos para estancias largas.</p>
-            </article>
-                      <article class="b2b-benefit-card">
-              <span class="b2b-benefit-card__icon" aria-hidden="true"><i class="fa-solid fa-people-group"></i></span>
-              <h3>Grupos desde 9 habitaciones</h3>
-              <p>Con ofertas individuales y condiciones adaptadas según fechas y disponibilidad.</p>
-            </article>
-                      <article class="b2b-benefit-card">
-              <span class="b2b-benefit-card__icon" aria-hidden="true"><i class="fa-solid fa-calendar-days"></i></span>
-              <h3>Estancias largas desde 14 noches</h3>
-              <p>Con condiciones especiales adicionales para reservas más largas.</p>
-            </article>
-                  </div>
+        <h2 class="type-section-heading b2b-audience-heading">
+          <span class="service-reveal-item" data-service-delay-index="0">Empresas</span>
+          <span class="service-reveal-item" data-service-delay-index="2">Grupos</span>
+          <span class="service-reveal-item" data-service-delay-index="4">Huéspedes de larga estancia</span>
+        </h2>
+        <p class="body-copy service-reveal-item" data-service-delay-index="4">Desde viajes corporativos recurrentes hasta alojamiento de proyectos y solicitudes de grupos grandes, nuestro equipo mantiene el proceso personal, claro y sencillo.</p>
+        <div class="b2b-audience-features service-reveal-item" data-service-delay-index="4">
+          <ul class="editorial-feature-list sustainability-list b2b-audience-list">
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Reservas corporativas en Viena</h3>
+      </div>
+      <p>Para viajes de negocios frecuentes, empleados, clientes o socios</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-helmet-safety"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Equipos de proyecto y montaje</h3>
+      </div>
+      <p>Con condiciones previsibles, procesos sencillos y precios atractivos para estancias largas</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-people-group"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Grupos desde 9 habitaciones</h3>
+      </div>
+      <p>Con ofertas individuales y condiciones adaptadas según fechas y disponibilidad</p>
+    </li>
+      <li class="editorial-feature-row sustainability-item">
+      <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-calendar-days"></i></span>
+      <div class="editorial-feature-row__title sustainability-item__title">
+        <h3>Estancias largas desde 14 noches</h3>
+      </div>
+      <p>Con condiciones especiales adicionales para reservas más largas</p>
+    </li>
+  </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section b2b-rooms-section">
+  <section class="section b2b-rooms-section editorial-room-showcase-section">
     <div class="container">
       <div class="service-editorial b2b-rooms-editorial reveal">
         <div class="service-editorial__intro">
-          <h2>Habitaciones para cada necesidad</h2>
-          <p>Florum Hotel ofrece diferentes categorías de habitaciones, desde individuales y dobles hasta estudios amplios.</p>
-          <img class="b2b-rooms-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Estudio en Florum Hotel" width="1800" height="1200" loading="lazy" decoding="async">
+          <h2 class="type-section-heading">Habitaciones para cada necesidad</h2>
+          <p class="body-copy">Florum Hotel ofrece diferentes categorías de habitaciones, desde individuales y dobles hasta estudios amplios.</p>
         </div>
-        <div class="service-editorial__showcase b2b-room-highlight-list">
-          <article class="service-card b2b-room-highlight-card">
+        <div class="service-card-row b2b-room-service-grid">
+          <article class="service-card b2b-room-service-card b2b-room-service-card--studio-four" data-service-delay-index="0">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/service-apartments/Cmelia-Studio-4.webp" alt="Estudio Camelia 4 en Florum Hotel" width="1800" height="1200" loading="lazy" decoding="async">
             <div>
-              <span>Estancias largas</span>
-              <p>Nuestros estudios son especialmente adecuados para estancias largas y huéspedes que necesitan más espacio.</p>
+              <h4>Estancias largas</h4>
+              <p>Nuestros estudios son especialmente adecuados para estancias largas y huéspedes que necesitan más espacio</p>
             </div>
           </article>
-          <article class="service-card b2b-room-highlight-card">
+          <article class="service-card b2b-room-service-card b2b-room-service-card--breakfast" data-service-delay-index="1">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast-carousel.webp" alt="Desayuno en Florum Hotel" width="1200" height="900" loading="lazy" decoding="async">
             <div>
-              <span>Grupos</span>
-              <p>Para familias o grupos pequeños también hay categorías de habitación más amplias.</p>
+              <h4>Desayuno</h4>
+              <p>Bajo petición, el desayuno puede integrarse en la oferta con condiciones B2B reducidas</p>
             </div>
           </article>
-          <article class="service-card b2b-room-highlight-card">
+          <article class="service-card b2b-room-service-card b2b-room-service-card--studio-five" data-service-delay-index="2">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/service-apartments/Camelia-Studio-5.webp" alt="Estudio Camelia 5 en Florum Hotel" width="1800" height="1200" loading="lazy" decoding="async">
             <div>
-              <span>Desayuno</span>
-              <p>Bajo petición, el desayuno puede integrarse en la oferta con condiciones B2B reducidas.</p>
+              <h4>Familias y grupos</h4>
+              <p>Para familias o grupos pequeños también hay categorías de habitación más amplias</p>
             </div>
           </article>
         </div>
@@ -307,41 +250,32 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section class="section b2b-advantages-section">
+  <section class="section section-spacing--compact b2b-advantages-section">
     <div class="container">
-      <div class="section-heading reveal">
-        <h2>Sus ventajas de un vistazo</h2>
-      </div>
-      <div class="b2b-advantage-grid reveal delay-1">
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Ofertas individuales para más de 9 habitaciones</p>
-          </article>
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Tarifas corporativas para reservas recurrentes</p>
-          </article>
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Posibilidad de precios fijos o modelos flexibles de descuento</p>
-          </article>
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Cupos de habitaciones bajo acuerdo</p>
-          </article>
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Condiciones especiales para estancias largas</p>
-          </article>
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Diferentes categorías de habitación, incluidos estudios</p>
-          </article>
-                  <article class="b2b-advantage-item">
-            <span aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            <p>Consulta sencilla y propuesta personalizada</p>
-          </article>
-              </div>
+      <section class="rooms-standard-editorial b2b-advantages-editorial reveal" aria-labelledby="b2b-advantages-title">
+        <div class="rooms-standard-editorial__intro">
+          <h2 class="rooms-standard-editorial__title" id="b2b-advantages-title">Sus ventajas de un vistazo</h2>
+        </div>
+        <div class="mobile-list-accordion" data-mobile-list-accordion>
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="standard-list-1-trigger" type="button" aria-expanded="false" aria-controls="standard-list-1-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">Sus ventajas de un vistazo</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="standard-list-1-panel" role="region" aria-labelledby="standard-list-1-trigger" data-mobile-list-panel hidden>
+    <ul class="rooms-standard-editorial__list" aria-label="Ventajas B2B">
+                        <li>Ofertas individuales para más de 9 habitaciones</li>
+                                <li>Tarifas corporativas para reservas recurrentes</li>
+                                <li>Posibilidad de precios fijos o modelos flexibles de descuento</li>
+                                <li>Cupos de habitaciones bajo acuerdo</li>
+                                <li>Condiciones especiales para estancias largas</li>
+                                <li>Diferentes categorías de habitación, incluidos estudios</li>
+                                <li>Consulta sencilla y propuesta personalizada</li>
+                  </ul>
+  </div>
+</div>
+      </section>
     </div>
   </section>
 
@@ -351,8 +285,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby2-b2b.webp" alt="Recepción de Florum Hotel para consultas B2B" width="1100" height="809" loading="lazy" decoding="async">
         <div>
           <h2>Enviar una consulta B2B</h2>
-          <p>¿Busca un hotel en Viena para reservas corporativas, personal de proyecto, viajeros de negocios o grupos?</p>
-          <p>Envíenos su consulta con fechas de viaje, número de habitaciones y duración de la estancia. Con gusto prepararemos una oferta individual para Florum Hotel Viena.</p>
+          <p class="body-copy">¿Busca un hotel en Viena para reservas corporativas, personal de proyecto, viajeros de negocios o grupos?</p>
+          <p class="body-copy">Envíenos su consulta con fechas de viaje, número de habitaciones y duración de la estancia. Con gusto prepararemos una oferta individual para Florum Hotel Viena.</p>
           <div class="b2b-inquiry-actions">
             <a class="b2b-email-link" href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a>
             <a class="btn service-page-cta" href="mailto:b2b@florum-hotels.com">Solicitar oferta</a>
@@ -375,12 +309,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/es/terminos-condiciones/">Términos y Condiciones</a>
       <a href="/florum-design-concepts/es/contacto/">Contacto</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="Contactar con Florum Hotel">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@
 <link rel="alternate" href="/florum-design-concepts/it/home-italiano/" hreflang="it">
 <link rel="alternate" href="/florum-design-concepts/es/home-espanol/" hreflang="es">
 <link rel="preload" as="image" href="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby1-hero.webp" type="image/webp" fetchpriority="high">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/florum-design-concepts/wp-json/oembed/1.0/embed?url=%2Fhe%2Fhome-%25d7%25a2%25d7%2591%25d7%25a8%25d7%2599%25d7%25aa%2F&amp;lang=he">
 <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/florum-design-concepts/wp-json/oembed/1.0/embed?url=%2Fhe%2Fhome-%25d7%25a2%25d7%2591%25d7%25a8%25d7%2599%25d7%25aa%2F&amp;format=xml&amp;lang=he">
@@ -35,14 +36,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783044181" media="all">
+<link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783940785" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/florum-design-concepts/wp-json/wp/v2/pages/17"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0">
+<meta name="generator" content="WordPress 7.0.1">
 <link rel="canonical" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/">
 <link rel="shortlink" href="/florum-design-concepts/">
 </head>
 <body class="rtl home wp-singular page-template-default page page-id-17 wp-theme-florum-theme florum-rtl" dir="rtl">
+<div class="site-scale-shell">
 
 <header class="site-header">
   <div class="container header-inner">
@@ -58,52 +62,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/he/chadarim/">חדרים</a>
-          <div class="nav-dropdown__menu">
+        <a class="main-nav__desktop-home" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/">בית</a>
+        <div class="main-nav__tablet-room-links">
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/he/chadarim/">חדרים</a>
+          <a class="main-nav__tablet-room-link" href="/florum-design-concepts/he/dirot/">דירות</a>
+        </div>
+        <div class="nav-dropdown nav-dropdown--rooms">
+          <a class="nav-dropdown__trigger nav-dropdown__trigger--desktop" href="/florum-design-concepts/he/chadarim/" aria-haspopup="true" aria-expanded="false" aria-controls="rooms-menu">
+            <span>חדרים</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </a>
+          <div class="nav-dropdown__menu" id="rooms-menu">
             <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
+              <div class="nav-dropdown__column nav-dropdown__column--rooms">
                 <h4>חדרים</h4>
-                <a href="/florum-design-concepts/he/chadarim/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/he/chadarim/">
                   <span>החדרים שלנו</span>
-                  <small>חדרים קלאסיים, סטודיו ואירוח עירוני בווינה</small>
+                  <small>חדרים מודרניים לכל סוג של שהייה.</small>
                 </a>
-                <a href="/florum-design-concepts/he/dirot/">
+                <a class="rooms-dropdown__item" href="/florum-design-concepts/he/dirot/">
                   <span>דירות</span>
-                  <small>נוחות לשהייה ממושכת עם שירותי מלון</small>
+                  <small>דירות מאובזרות במלואן לשהיות ממושכות.</small>
                 </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>השהייה שלך</h4>
-                <p>בחרו בין סוגי חדרים, נוחות בסגנון דירה ואפשרויות הזמנה ישירה לשהייה בווינה.</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/he/asakim/">B2B</a>
-        <a href="/florum-design-concepts/he/eruim/">אירועים</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown__trigger" href="/florum-design-concepts/he/sherutim/">שירותים</a>
-          <div class="nav-dropdown__menu">
-            <div class="nav-dropdown__inner">
-              <div class="nav-dropdown__column">
-                <h4>שירותים</h4>
-                <a href="/florum-design-concepts/he/sherutim/">
-                  <span>השירותים שלנו</span>
-                  <small>ארוחת בוקר, קבלה, לובי בר ותוספות</small>
-                </a>
-                <a href="/florum-design-concepts/he/sherut-kasher/">
-                  <span>שירות כשר</span>
-                  <small>מענה קשוב לשהייה כשרה ונוחה</small>
-                </a>
-              </div>
-              <div class="nav-dropdown__column nav-dropdown__column--note">
-                <h4>נוחות של מלון</h4>
-                <p>שירותים שימושיים שנועדו להקל על ביקורים קצרים ועל שהיות ממושכות.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <a href="/florum-design-concepts/he/sherutim/">שירותים</a>
         <a href="/florum-design-concepts/he/mikum/">מיקום</a>
       </div>
 
@@ -112,153 +97,44 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </a>
 
       <div class="main-nav__side main-nav__side--right">
+        <a class="main-nav__b2b" href="/florum-design-concepts/he/asakim/">B2B</a>
+        <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
+        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
         <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button">שפה</button>
-          <div class="nav-dropdown__menu">
+          <button class="nav-dropdown__trigger" type="button" aria-label="בחירת שפה" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu" role="menu">
             <div class="nav-dropdown__inner">
               <div class="nav-dropdown__column">
-                <h4>שפה</h4>
-                <a href="/florum-design-concepts/"><span>English</span></a>
-                <a href="/florum-design-concepts/de/home-deutsch/"><span>Deutsch</span></a>
-                <a href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/"><span>Русский</span></a>
-              </div>
-              <div class="nav-dropdown__column">
-                <h4>עוד</h4>
-                <a href="/florum-design-concepts/it/home-italiano/"><span>Italiano</span></a>
-                <a href="/florum-design-concepts/es/home-espanol/"><span>Español</span></a>
-                <a href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/"><span>עברית</span></a>
+                <a role="menuitem" href="/florum-design-concepts/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/home-deutsch/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/home-italiano/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/home-espanol/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/" class="is-current" aria-current="page"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
               </div>
             </div>
           </div>
         </div>
-        <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
-        <a class="main-nav__mobile-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
       </div>
     </nav>
   </div>
 
-  <div class="header-booking-panel" id="header-booking-panel" data-header-booking-panel aria-hidden="true" hidden>
-    <div class="container header-booking-panel__inner">
-      <button class="header-booking-panel__close" type="button" data-header-booking-close aria-label="סגירת חלונית ההזמנה">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <div class="booking-strip header-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>הגעה</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="בחירת תאריך הגעה">בחרו תאריך</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <span>עזיבה</span>
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="בחירת תאריך עזיבה">בחרו תאריך</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="אורחים וחדר">
-            <option value="1">2 אורחים • חדר 1</option>
-            <option value="2">אורח 1 • חדר 1</option>
-            <option value="3">3 אורחים • חדר 1</option>
-            <option value="4">4 אורחים • 2 חדרים</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          בדיקת זמינות          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main class="urban-botanical-page home-page">
-  <aside class="urban-booking-drawer is-open" id="urban-booking-drawer" data-booking-drawer aria-label="חלונית הזמנה">
-    <button class="urban-booking-toggle" type="button" data-booking-toggle aria-expanded="true" aria-label="סגירת חלונית ההזמנה">
-      <span class="urban-booking-toggle__label">בדיקת זמינות</span>
-      <span class="urban-booking-toggle__icon" aria-hidden="true"></span>
-      <span class="urban-booking-toggle__icon" aria-hidden="true"></span>
-    </button>
-
-    <div class="urban-booking-panel">
-      <div class="booking-strip urban-sticky-booking-strip">
-        <input type="hidden" name="check_in" data-check-in>
-        <input type="hidden" name="check_out" data-check-out>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--arrival">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="בחרו תאריך הגעה">הגעה</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
-        </div>
-
-        <div class="urban-sticky-booking-date urban-sticky-booking-date--departure">
-          <svg class="urban-sticky-booking-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          <div class="urban-sticky-booking-date-controls">
-            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="בחרו תאריך עזיבה">עזיבה</button>
-          </div>
-          <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
-        </div>
-
-        <label class="booking-field urban-sticky-booking-guests">
-          <span class="urban-sticky-booking-person-icon" aria-hidden="true"></span>
-          <select name="guests" aria-label="אורחים וחדרים">
-            <option value="1">2 אנשים • חדר אחד</option>
-            <option value="2">אדם אחד • חדר אחד</option>
-            <option value="3">3 אנשים • חדר אחד</option>
-            <option value="4">4 אנשים • 2 חדרים</option>
-          </select>
-        </label>
-
-        <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">
-          בדיקת זמינות          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </aside>
 
   <section class="urban-hero">
     <div class="container urban-hero__content">
       <div class="urban-hero__copy">
         <div class="urban-hero__neon reveal">
-          <h1 class="hero-neon-title">
-            <span class="hero-neon-word hero-neon-word--florum">Florum</span>
-            <span class="hero-neon-word hero-neon-word--in">ב</span>
-            <span class="hero-neon-word hero-neon-word--bloom">פריחה</span>
+                    <h1 class="hero-neon-title" aria-label="Florum ב פריחה">
+            <span class="hero-neon-word hero-neon-word--florum" aria-hidden="true">Florum</span>
+            <span class="hero-neon-word hero-neon-word--in" aria-hidden="true">ב</span>
+            <span class="hero-neon-word hero-neon-word--bloom" aria-hidden="true">פריחה</span>
           </h1>
         </div>
 
@@ -269,19 +145,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
       <div class="urban-hero__media" aria-label="קרוסלת תמונות ראשית">
         <div class="hero-fade-carousel" data-fade-carousel>
-                      <div class="hero-slide is-active-slide">
-              <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby1-hero.webp" alt="פינת ישיבה בלובי של מלון פלורום" width="1800" height="2568" loading="eager" fetchpriority="high" decoding="async">
+                      <div class="hero-slide is-active-slide" style="--hero-focal-desktop: 15%; --hero-focal-tablet: 10%; --hero-focal-mobile: 18%;">
+              <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby1-hero.webp" alt="Hotel Florum entrance and facade" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 28%; --hero-focal-tablet: 24%; --hero-focal-mobile: 26%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby2-hero.webp" alt="פנים הלובי של מלון פלורום" width="1800" height="1324" loading="lazy" fetchpriority="low" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 22%; --hero-focal-tablet: 16%; --hero-focal-mobile: 20%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby3-hero.webp" alt="פרט בוטני בלאונג׳ של מלון פלורום" width="1800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 28%; --hero-focal-tablet: 24%; --hero-focal-mobile: 26%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby4-hero.webp" alt="קבלה ולובי במלון פלורום" width="1800" height="1200" loading="lazy" fetchpriority="low" decoding="async">
             </div>
-                      <div class="hero-slide">
+                      <div class="hero-slide" style="--hero-focal-desktop: 30%; --hero-focal-tablet: 24%; --hero-focal-mobile: 28%;">
               <img class="hero-carousel-image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/header/Lobby5-hero.webp" alt="אווירת הלובי במלון פלורום" width="1800" height="2250" loading="lazy" fetchpriority="low" decoding="async">
             </div>
                   </div>
@@ -289,18 +165,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section id="urban-booking" class="section direct-booking-section">
+  <span class="homepage-booking-sentinel" data-booking-sticky-sentinel aria-hidden="true"></span>
+  <section class="homepage-booking-bar" id="urban-booking" aria-label="בדיקת זמינות">
+    <div class="container homepage-booking-bar__inner">
+              <form class="booking-strip homepage-booking-strip" aria-label="בדיקת זמינות">
+          <div class="booking-field booking-field--date">
+            <i class="fa-regular fa-calendar-days booking-field__icon" aria-hidden="true"></i>
+            <span>צ׳ק-אין</span>
+            <button class="booking-date-trigger" type="button" data-date-trigger="check-in" aria-label="בחרו תאריך צ׳ק-אין">בחירת תאריך</button>
+            <input type="hidden" name="check_in" data-check-in>
+            <div class="booking-calendar" data-date-calendar="check-in" hidden></div>
+          </div>
+          <div class="booking-field booking-field--date">
+            <i class="fa-regular fa-calendar-days booking-field__icon" aria-hidden="true"></i>
+            <span>צ׳ק-אאוט</span>
+            <button class="booking-date-trigger" type="button" data-date-trigger="check-out" aria-label="בחרו תאריך צ׳ק-אאוט">בחירת תאריך</button>
+            <input type="hidden" name="check_out" data-check-out>
+            <div class="booking-calendar" data-date-calendar="check-out" hidden></div>
+          </div>
+          <label class="booking-field">
+            <i class="fa-regular fa-user booking-field__icon" aria-hidden="true"></i>
+            <span>אורחים</span>
+            <select name="guests" aria-label="אורחים וחדרים">
+              <option value="1">2 אנשים • חדר אחד</option>
+              <option value="2">אדם אחד • חדר אחד</option>
+              <option value="3">3 אנשים • חדר אחד</option>
+              <option value="4">4 אנשים • 2 חדרים</option>
+            </select>
+          </label>
+          <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">בדיקת זמינות</a>
+        </form>
+            </div>
+  </section>
+
+  <section class="section section-spacing--compact direct-booking-section">
     <div class="container direct-booking-grid">
       <div class="direct-booking-copy reveal">
         <h2>יתרונות ההזמנה הישירה</h2>
         <p class="body-copy">יותר גמישות, מחירים טובים יותר ופרטים קטנים שהופכים את השהייה לנוחה יותר.</p>
-        <div class="direct-booking-glow" aria-hidden="true">
-          <span></span>
-        </div>
+        <div class="direct-booking-glow" aria-hidden="true"></div>
         <div class="direct-booking-notes" aria-label="תנאי הזמנה ישירה">
           <p>* בכפוף לתפוסה</p>
           <p>** להזמנות ישירות</p>
-          <p>*** כלול לשהייה של שני לילות או יותר.</p>
+          <p>*** כלול לשהייה של שני לילות או יותר</p>
         </div>
       </div>
 
@@ -349,7 +256,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <section id="urban-rooms" class="section room-carousel-section">
+  <section id="urban-rooms" class="section section-spacing--compact room-carousel-section">
     <div class="container">
       <div class="slider-block reveal">
         <div class="slider-head">
@@ -358,430 +265,325 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
 
-        <details class="rooms-standard-teaser">
-          <summary class="rooms-standard-teaser__summary">
-            <span class="rooms-standard-teaser__title">מה כלול כסטנדרט בכל החדרים שלנו?</span>
-            <span class="rooms-standard-teaser__items" aria-label="אבזור בחדר">
-                              <span>Wi-Fi חינם</span>
-                              <span>מקלחת או אמבטיה פרטית</span>
-                              <span>כספת</span>
-                              <span>קומקום</span>
-                              <span>מיזוג אוויר מתכוונן</span>
-                              <span>ללא עישון</span>
-                          </span>
-            <span class="rooms-standard-teaser__action">
-              לצפייה בכל האבזור              <span class="rooms-standard-chevron" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="rooms-standard-content">
-            <ul class="rooms-standard-list">
-                              <li>ידידותי לחיות מחמד</li>
-                              <li>מקלחת או אמבטיה פרטית</li>
-                              <li>מייבש שיער</li>
-                              <li>כספת</li>
-                              <li>קומקום</li>
-                              <li>כוסות מים וספלים</li>
-                              <li>וילונות האפלה</li>
-                              <li>מיזוג אוויר מתכוונן</li>
-                              <li>מוצרי טיפוח</li>
-                              <li>ללא עישון</li>
-                              <li>טלוויזיה עם מסך שטוח</li>
-                              <li>מיני בר</li>
-                              <li>Wi-Fi חינם</li>
-                              <li>מיטת בוקס ספרינג</li>
-                              <li>רצפה ללא שטיחים</li>
-                          </ul>
+        <section class="rooms-standard-editorial" aria-labelledby="rooms-standard-title">
+          <div class="rooms-standard-editorial__intro">
+            <h3 class="rooms-standard-editorial__title" id="rooms-standard-title">מה כלול כסטנדרט בכל החדרים שלנו?</h3>
           </div>
-        </details>
+          <div class="mobile-list-accordion" data-mobile-list-accordion>
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="standard-list-1-trigger" type="button" aria-expanded="false" aria-controls="standard-list-1-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">מה כלול כסטנדרט בכל החדרים שלנו?</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="standard-list-1-panel" role="region" aria-labelledby="standard-list-1-trigger" data-mobile-list-panel hidden>
+    <ul class="rooms-standard-editorial__list" aria-label="אבזור בחדר">
+                        <li>ידידותי לחיות מחמד</li>
+                                <li>מקלחת או אמבטיה פרטית</li>
+                                <li>מייבש שיער</li>
+                                <li>כספת</li>
+                                <li>קומקום</li>
+                                <li>כוסות מים וספלים</li>
+                                <li>וילונות האפלה</li>
+                                <li>מיזוג אוויר מתכוונן</li>
+                                <li>מוצרי טיפוח</li>
+                                <li>ללא עישון</li>
+                                <li>טלוויזיה עם מסך שטוח</li>
+                                <li>מיני בר</li>
+                                <li>Wi-Fi חינם</li>
+                                <li>מיטת בוקס ספרינג</li>
+                                <li>רצפה ללא שטיחים</li>
+                  </ul>
+  </div>
+</div>
+        </section>
 
-        <div class="slider-shell">
-          <button class="slider-button slider-button-floating slider-button-left" type="button" data-slider-prev="rooms-slider" aria-label="החדר הקודם">
-            <span aria-hidden="true">←</span>
-          </button>
-          <button class="slider-button slider-button-floating slider-button-right" type="button" data-slider-next="rooms-slider" aria-label="החדר הבא">
-            <span aria-hidden="true">→</span>
-          </button>
-
-          <div class="slider-track room-slider" data-slider="rooms-slider">
-                                        <article class="room-card slider-slide is-active is-active-slide" data-room-guests="1 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/SingleBett-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single1-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single2-carousel.webp&quot;]">
+        <div class="slider-shell room-showcase-shell" role="region" aria-roledescription="carousel" aria-label="קטגוריות החדרים שלנו">
+          <div class="slider-track room-slider" data-slider="rooms-slider" tabindex="0">
+                                                    <a class="room-card slider-slide is-active is-active-slide" href="/florum-design-concepts/he/chadarim/" aria-label="לצפייה בחדר: חדר יחיד" aria-setsize="6" aria-posinset="1" data-room-guests="1 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/SingleBett-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single1-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/single\/Single2-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp" alt="חדר יחיד" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>חדר יחיד</h3>
-                  <dl class="room-fact-list" aria-label="פרטי חדר יחיד">
-                                          <div class="room-fact-row">
-                        <dt>אורחים</dt>
-                        <dd>אדם אחד</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>גודל</dt>
-                        <dd>13-16 מ״ר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>נוף</dt>
-                        <dd>נוף לרחוב או לחצר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>מיטה</dt>
-                        <dd>מיטה ברוחב 140 ס״מ</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/he/chadarim/single-room/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="פרטי חדר יחיד">
+                                                                      <div class="room-fact-row">
+                          <dt>אורחים</dt>
+                          <dd>אדם אחד</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>גודל</dt>
+                          <dd>13–16 מ״ר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>נוף</dt>
+                          <dd>נוף לרחוב או לחצר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>מיטה</dt>
+                          <dd>מיטה ברוחב 140 ס״מ</dd>
+                        </div>
+                                          </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     לצפייה בחדר                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–2 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris4-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/he/chadarim/" aria-label="לצפייה בחדר: חדר סטנדרט" aria-setsize="6" aria-posinset="2" data-room-guests="1–2 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/standard\/Iris4-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp" alt="חדר סטנדרט" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>חדר סטנדרט</h3>
-                  <dl class="room-fact-list" aria-label="פרטי חדר סטנדרט">
-                                          <div class="room-fact-row">
-                        <dt>אורחים</dt>
-                        <dd>1–2 אנשים</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>גודל</dt>
-                        <dd>18-22 מ״ר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>נוף</dt>
-                        <dd>נוף לרחוב או לחצר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>מיטה</dt>
-                        <dd>מיטה ברוחב 160 ס״מ</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/he/chadarim/standard-room/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="פרטי חדר סטנדרט">
+                                                                      <div class="room-fact-row">
+                          <dt>אורחים</dt>
+                          <dd>1–2 אנשים</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>גודל</dt>
+                          <dd>18–22 מ״ר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>נוף</dt>
+                          <dd>נוף לרחוב או לחצר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>מיטה</dt>
+                          <dd>מיטה ברוחב 160 ס״מ</dd>
+                        </div>
+                                          </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     לצפייה בחדר                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–3 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior8-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/he/chadarim/" aria-label="לצפייה בחדר: סופריור" aria-setsize="6" aria-posinset="3" data-room-guests="1–3 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/superior\/Superior8-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp" alt="סופריור" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>סופריור</h3>
-                  <dl class="room-fact-list" aria-label="פרטי סופריור">
-                                          <div class="room-fact-row">
-                        <dt>אורחים</dt>
-                        <dd>1–3 אנשים</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>גודל</dt>
-                        <dd>24-28 מ״ר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>נוף</dt>
-                        <dd>נוף לרחוב או לחצר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>מיטה</dt>
-                        <dd>מיטה ברוחב 180 ס״מ</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>תוספות</dt>
-                        <dd>ספת מיטה</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/he/chadarim/superior-room/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="פרטי סופריור">
+                                                                      <div class="room-fact-row">
+                          <dt>אורחים</dt>
+                          <dd>1–3 אנשים</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>גודל</dt>
+                          <dd>24–28 מ״ר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>נוף</dt>
+                          <dd>נוף לרחוב או לחצר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>מיטה</dt>
+                          <dd>מיטה ברוחב 180 ס״מ</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>תוספות</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">ספת מיטה</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     לצפייה בחדר                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–3 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia4-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/he/chadarim/" aria-label="לצפייה בחדר: סטודיו" aria-setsize="6" aria-posinset="4" data-room-guests="1–3 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/studio\/Camelia4-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="סטודיו" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>סטודיו</h3>
-                  <dl class="room-fact-list" aria-label="פרטי סטודיו">
-                                          <div class="room-fact-row">
-                        <dt>אורחים</dt>
-                        <dd>1–3 אנשים</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>גודל</dt>
-                        <dd>24-28 מ״ר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>נוף</dt>
-                        <dd>נוף לרחוב או לחצר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>מיטה</dt>
-                        <dd>מיטה ברוחב 180 ס״מ</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>תוספות</dt>
-                        <dd>מטבח, ספת מיטה, חלוק רחצה</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/he/chadarim/studio/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="פרטי סטודיו">
+                                                                      <div class="room-fact-row">
+                          <dt>אורחים</dt>
+                          <dd>1–3 אנשים</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>גודל</dt>
+                          <dd>24–28 מ״ר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>נוף</dt>
+                          <dd>נוף לרחוב או לחצר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>מיטה</dt>
+                          <dd>מיטה ברוחב 180 ס״מ</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>תוספות</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">מטבח</span>
+                                                              <span class="room-extra-item">ספת מיטה</span>
+                                                              <span class="room-extra-item">חלוק רחצה</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     לצפייה בחדר                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–4 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe8-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/he/chadarim/" aria-label="לצפייה בחדר: סטודיו דלוקס" aria-setsize="6" aria-posinset="5" data-room-guests="1–4 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/deluxe\/Deluxe8-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="סטודיו דלוקס" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>סטודיו דלוקס</h3>
-                  <dl class="room-fact-list" aria-label="פרטי סטודיו דלוקס">
-                                          <div class="room-fact-row">
-                        <dt>אורחים</dt>
-                        <dd>1–4 אנשים</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>גודל</dt>
-                        <dd>30-35 מ״ר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>נוף</dt>
-                        <dd>נוף לרחוב או לחצר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>מיטה</dt>
-                        <dd>2 מיטות ברוחב 160 ס״מ</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>תוספות</dt>
-                        <dd>מטבח, חלוק רחצה</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/he/chadarim/deluxe-studio/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="פרטי סטודיו דלוקס">
+                                                                      <div class="room-fact-row">
+                          <dt>אורחים</dt>
+                          <dd>1–4 אנשים</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>גודל</dt>
+                          <dd>30–35 מ״ר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>נוף</dt>
+                          <dd>נוף לרחוב או לחצר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>מיטה</dt>
+                          <dd>2 מיטות ברוחב 160 ס״מ</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>תוספות</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">מטבח</span>
+                                                              <span class="room-extra-item">חלוק רחצה</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     לצפייה בחדר                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
-                                        <article class="room-card slider-slide" data-room-guests="1–2 person" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose8-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose9-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose10-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose11-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose12-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose13-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose14-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose15-carousel.webp&quot;]">
+              </a>
+                                        <a class="room-card slider-slide" href="/florum-design-concepts/he/chadarim/" aria-label="לצפייה בחדר: סטודיו פנורמה עם טרסה" aria-setsize="6" aria-posinset="6" data-room-guests="1–2 persons" data-room-images="[&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose1-card.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose2-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose3-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose4-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose5-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose6-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose7-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose8-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose9-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose10-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose11-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose12-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose13-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose14-carousel.webp&quot;,&quot;/florum-design-concepts/wp-content\/themes\/florum-theme\/images\/rooms\/panorama-studio-rose\/Rose15-carousel.webp&quot;]">
                 <div class="room-card__image">
                                     <img class="room-card__photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="סטודיו פנורמה עם טרסה" width="1200" height="800" loading="lazy" decoding="async">
                 </div>
                 <div class="room-card__content">
                   <h3>סטודיו פנורמה עם טרסה</h3>
-                  <dl class="room-fact-list" aria-label="פרטי סטודיו פנורמה עם טרסה">
-                                          <div class="room-fact-row">
-                        <dt>אורחים</dt>
-                        <dd>1–2 אנשים</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>גודל</dt>
-                        <dd>24-28 מ״ר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>נוף</dt>
-                        <dd>נוף פנורמי על העיר</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>מיטה</dt>
-                        <dd>מיטה ברוחב 180 ס״מ</dd>
-                      </div>
-                                          <div class="room-fact-row">
-                        <dt>תוספות</dt>
-                        <dd>מטבח, חלוק רחצה</dd>
-                      </div>
-                                      </dl>
-                  <a class="room-card__link" href="/florum-design-concepts/he/chadarim/panorama-studio/">
+                  <div class="room-card__meta">
+                    <dl class="room-fact-list" aria-label="פרטי סטודיו פנורמה עם טרסה">
+                                                                      <div class="room-fact-row">
+                          <dt>אורחים</dt>
+                          <dd>1–2 אנשים</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>גודל</dt>
+                          <dd>24–28 מ״ר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>נוף</dt>
+                          <dd>נוף פנורמי על העיר</dd>
+                        </div>
+                                                                      <div class="room-fact-row">
+                          <dt>מיטה</dt>
+                          <dd>מיטה ברוחב 180 ס״מ</dd>
+                        </div>
+                                                                  </dl>
+                                          <dl class="room-extras-list">
+                        <div class="room-extras-row">
+                          <dt>תוספות</dt>
+                          <dd>
+                            <span class="room-extras-items">
+                                                              <span class="room-extra-item">מטבח</span>
+                                                              <span class="room-extra-item">חלוק רחצה</span>
+                                                          </span>
+                          </dd>
+                        </div>
+                      </dl>
+                                      </div>
+                  <span class="room-card__link" aria-hidden="true">
                     לצפייה בחדר                    <span aria-hidden="true">→</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
+              </a>
                       </div>
+          <div class="room-showcase-nav" aria-label="קטגוריות החדרים שלנו">
+            <button class="slider-button room-showcase-nav__button" type="button" data-slider-prev="rooms-slider" aria-label="החדר הקודם" disabled>
+              <span aria-hidden="true">←</span>
+            </button>
+            <p class="room-showcase-position" aria-live="polite" aria-atomic="true">
+              <span data-slider-current="rooms-slider">01</span>
+              <span aria-hidden="true">/</span>
+              <span data-slider-total="rooms-slider">06</span>
+            </p>
+            <button class="slider-button room-showcase-nav__button" type="button" data-slider-next="rooms-slider" aria-label="החדר הבא">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section group-offers-section">
+  <section class="section section-spacing--compact group-offers-section">
     <div class="container">
-      <div class="group-offers-intro reveal">
-        <h2>הצעות לחברות ולקבוצות בווינה</h2>
-      </div>
-
       <div class="group-offers-split">
-        <div class="group-offers-story reveal">
-          <div class="group-offers-media">
-            <img class="group-offers-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-section.webp" alt="אורחים עסקיים במלון פלורום" width="1300" height="920" loading="lazy" decoding="async">
-          </div>
-          <div class="group-offers-copy">
-            <p class="body-copy">
-              מלון פלורום מציע פתרונות אירוח גמישים בווינה לחברות, אנשי עסקים, צוותי פרויקט, קבוצות נסיעה וארגונים בינלאומיים.            </p>
-            <p class="body-copy">
-              בהזמנות של יותר מ-9 חדרים אנו מציעים תעריפי חברה וקבוצות מותאמים לפי תאריכי הנסיעה, משך השהייה, כמות החדרים והזמינות.            </p>
-          </div>
+        <div class="group-offers-media reveal">
+          <img class="group-offers-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/business-section.webp" alt="אורחים עסקיים במלון פלורום" width="1300" height="920" loading="lazy" decoding="async">
         </div>
-
-        <div class="group-offers-panel reveal delay-1">
-          <div class="group-benefits-list benefit-stack">
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-tag"></i>
-                                  </span>
-                <div>
-                  <h3>תעריפי חברה וקבוצות מותאמים בווינה</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-bed"></i>
-                                  </span>
-                <div>
-                  <h3>הקצאת חדרים גמישה עם תעריפי הזמנה ישירה מוזלים</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-calendar-check"></i>
-                                  </span>
-                <div>
-                  <h3>אפשרויות מחיר קבוע לשהיות עסקיות קבועות</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-briefcase"></i>
-                                  </span>
-                <div>
-                  <h3>הצעות לשהייה ארוכה לצוותי פרויקט ולשהיות ממושכות</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-utensils"></i>
-                                  </span>
-                <div>
-                  <h3>ארוחת בוקר, קייטרינג וחבילות צהריים לפי בקשה</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-bus"></i>
-                                  </span>
-                <div>
-                  <h3>גישה נוחה להגעת קבוצות ואוטובוסי תיירים</h3>
-                </div>
-              </article>
-                          <article class="benefit-card">
-                <span class="benefit-card__icon" aria-hidden="true">
-                                      <i class="fa-solid fa-location-dot"></i>
-                                  </span>
-                <div>
-                  <h3>מיקום מרכזי בווינה לנסיעות עסקים ופנאי</h3>
-                </div>
-              </article>
-                      </div>
+        <div class="group-offers-copy reveal delay-1">
+          <h2>הצעות לחברות ולקבוצות בווינה</h2>
+          <p class="body-copy">מלון פלורום מציע פתרונות אירוח גמישים בווינה לחברות, אנשי עסקים, צוותי פרויקט, קבוצות נסיעה וארגונים בינלאומיים.</p>
+          <p class="body-copy">בהזמנות של יותר מ-9 חדרים אנו מציעים תעריפי חברה וקבוצות מותאמים לפי תאריכי הנסיעה, משך השהייה, כמות החדרים והזמינות.</p>
+          <div class="group-offers-contact">
+            <a class="group-offers-learn-more" href="/florum-design-concepts/he/asakim/">
+              למידע נוסף              <span aria-hidden="true">→</span>
+            </a>
+            <p class="group-offers-inquiry">למידע מפורט על תעריפים וחבילות, שלחו לנו פנייה אל <a href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a></p>
+          </div>
         </div>
       </div>
-      <div class="group-offers-actions">
-        <p class="group-offers-inquiry">
-          למידע מפורט על תעריפים וחבילות, שלחו לנו פנייה אל <a href="mailto:b2b@florum-hotels.com">b2b@florum-hotels.com</a>
-        </p>
-        <a class="group-offers-learn-more" href="/florum-design-concepts/he/asakim/">למידע נוסף</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section home-events-section">
-    <div class="container">
-      <div class="home-events-panel reveal">
-        <div class="home-events-head">
-          <div class="home-events-copy">
-            <h2>פגישות ואירועים במלון פלורום</h2>
-            <p>החלל שלנו משתרע על פני שלוש קומות המחוברות במדרגות, וכולל אולם ראשי מרווח בגודל 180 מ״ר עם בר מלא, רצפת עץ אלגנטית ואור טבעי. לאונג׳ נוסף בגודל 100 מ״ר מציע אווירה נעימה, ובר הגג עם הנוף המרשים מתאים למפגשים אינטימיים. ניתן לשכור את כל החללים או חדרים בודדים בנפרד.</p>
-          </div>
-          <div class="home-events-media" aria-label="חלל אירועים במלון פלורום">
-            <img class="home-events-photo home-events-photo--main" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="חלל אירועים במלון פלורום" width="1800" height="1200" loading="lazy" decoding="async">
-            <img class="home-events-photo home-events-photo--accent" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-29.webp" alt="פרט בלובי של מלון פלורום" width="1800" height="1200" loading="lazy" decoding="async">
-          </div>
-        </div>
-
-        <div class="home-events-content">
-          <div class="home-events-capacity">
-            <div class="home-events-subhead">
-              <span>קיבולת אירועים</span>
-              <p>קיבולת כוללת אפשרית: עד 430 אורחים בהתאם לסידור.</p>
-            </div>
-            <div class="home-events-capacity-grid">
-                              <article class="home-events-capacity-card">
-                  <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-champagne-glasses"></i></span>
-                  <h3>180 מ״ר Aula (חדר ראשי)</h3>
-                  <dl>
-                                          <div>
-                        <dt>ארוחה בישיבה</dt>
-                        <dd>120 אורחים</dd>
-                      </div>
-                                          <div>
-                        <dt>קוקטייל בעמידה</dt>
-                        <dd>180 אורחים</dd>
-                      </div>
-                                      </dl>
-                </article>
-                              <article class="home-events-capacity-card">
-                  <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-couch"></i></span>
-                  <h3>100 מ״ר לאונג׳</h3>
-                  <dl>
-                                          <div>
-                        <dt>ארוחה בישיבה</dt>
-                        <dd>66 אורחים</dd>
-                      </div>
-                                          <div>
-                        <dt>קוקטייל בעמידה</dt>
-                        <dd>100 אורחים</dd>
-                      </div>
-                                      </dl>
-                </article>
-                              <article class="home-events-capacity-card">
-                  <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-city"></i></span>
-                  <h3>150 מ״ר בר גג</h3>
-                  <dl>
-                                          <div>
-                        <dt>ארוחה בישיבה</dt>
-                        <dd>100 אורחים</dd>
-                      </div>
-                                          <div>
-                        <dt>קוקטייל בעמידה</dt>
-                        <dd>150 אורחים</dd>
-                      </div>
-                                      </dl>
-                </article>
-                          </div>
-            <p class="home-events-note">צרו קשר לאפשרויות מותאמות אישית, כולל אירועים לקבוצות קטנות.</p>
-          </div>
-
-          <div class="home-events-feature-grid">
-                          <article class="home-events-feature-card">
-                <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-utensils"></i></span>
-                <div>
-                  <h3>אוכל ומשקאות</h3>
-                  <p>הקייטרינג של פלורום מציע תפריטים מגוונים, עם אפשרויות חלאל וכשרות לפי בקשה.</p>
-                </div>
-              </article>
-                          <article class="home-events-feature-card">
-                <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-music"></i></span>
-                <div>
-                  <h3>מוזיקה</h3>
-                  <p>תיהנו ממוזיקה של Radio Florum, פלייליסט שנוצר במיוחד לאירוע שלכם. בנוסף, ניתן לשכור DJ וציוד סאונד.</p>
-                </div>
-              </article>
-                          <article class="home-events-feature-card">
-                <span class="home-events-card-icon" aria-hidden="true"><i class="fa-solid fa-file-signature"></i></span>
-                <div>
-                  <h3>מחירים</h3>
-                  <p>אנו מציעים חבילות גמישות המתאימות למגוון תקציבים - צרו קשר לפרטים נוספים!</p>
-                </div>
-              </article>
-                      </div>
-        </div>
-
-        <div class="home-events-actions">
-          <a class="home-events-cta" href="/florum-design-concepts/he/eruim/">עוד על אירועי פלורום</a>
+      <div class="group-benefits-accordion mobile-list-accordion reveal" data-mobile-list-accordion>
+        <h3 class="group-benefits-accordion__heading">
+          <button class="group-benefits-accordion__trigger" id="group-benefits-trigger" type="button" aria-expanded="false" aria-controls="group-benefits-panel" data-mobile-list-trigger>
+            <span>צפייה ביתרונות לחברות ולקבוצות</span>
+            <span class="group-benefits-accordion__chevron" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="group-benefits-accordion__panel" id="group-benefits-panel" role="region" aria-labelledby="group-benefits-trigger" data-mobile-list-panel hidden>
+          <ul class="group-benefits-list" aria-label="הצעות לחברות ולקבוצות בווינה">
+                          <li>תעריפי חברה וקבוצות מותאמים בווינה</li>
+                          <li>הקצאת חדרים גמישה עם תעריפי הזמנה ישירה מוזלים</li>
+                          <li>אפשרויות מחיר קבוע לשהיות עסקיות קבועות</li>
+                          <li>הצעות לשהייה ארוכה לצוותי פרויקט ולשהיות ממושכות</li>
+                          <li>ארוחת בוקר, קייטרינג וחבילות צהריים לפי בקשה</li>
+                          <li>גישה נוחה להגעת קבוצות ואוטובוסי תיירים</li>
+                          <li>מיקום מרכזי בווינה לנסיעות עסקים ופנאי</li>
+                      </ul>
         </div>
       </div>
     </div>
@@ -789,169 +591,107 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   <section class="section hospitality-section" id="services">
     <div class="container">
-      <div class="hospitality-intro reveal">
+      <div class="hospitality-intro hospitality-intro--service reveal">
         <h2 class="hospitality-intro__text">שירות במלון פלורום</h2>
       </div>
 
-      <div class="hospitality-block hospitality-block--services reveal delay-1">
-        <div class="service-editorial" aria-label="שירותי המלון">
-          <div class="service-editorial__intro">
-            <div class="service-editorial__intro-copy">
-              <p>במלון פלורום אנו מתמקדים בפרטים המעשיים שמקלים על השהייה בווינה: אפשרויות הגעה גמישות, שמירת מזוודות ללא תשלום, שירות כביסה, אירוח ידידותי לחיות מחמד, כיבוד נבחר בחדר וסידורים מועילים לשהיות ארוכות.</p>
-            </div>
-
-            <div class="service-card-stack">
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/checkin-card.webp" alt="שירות צ׳ק-אין במלון פלורום" width="1200" height="1200" loading="lazy" decoding="async">
-                <div>
-                  <span>גמיש</span>
-                  <h4>צ׳ק-אין וצ׳ק-אאוט מאוחר</h4>
-                  <p>אפשרויות הגעה ועזיבה גמישות, בכפוף לזמינות.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/reception-carousel.webp" alt="שמירת מזוודות ללא תשלום" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>קל</span>
-                  <h4>שמירת מזוודות ללא תשלום</h4>
-                  <p>השאירו את המזוודות ללא תשלום לפני הצ׳ק-אין או לאחר הצ׳ק-אאוט.</p>
-                </div>
-              </article>
-              <article class="service-card service-card--laundry">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/laundry-card.webp" alt="שירות כביסה במלון פלורום" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>קל</span>
-                  <h4>שירות כביסה</h4>
-                  <p>תמיכה נוחה לשהיות ארוכות יותר בווינה.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div class="service-editorial__showcase">
-            <article class="service-card service-card--feature">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-480.webp" srcset="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-480.webp 480w, /florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-800.webp 800w" sizes="(max-width: 760px) 92vw, 430px" alt="שהייה ידידותית לכשרות ולשבת" width="480" height="720" loading="lazy" decoding="async">
-              <div>
-                <span>תומך</span>
-                <h4>שהייה ידידותית לכשרות ולשבת</h4>
-                <p>המלון ממוקם ברובע השני של וינה, ואנו מציעים לאורחים יהודים לפי בקשה גם סידורים ידידותיים לכשרות.</p>
-              </div>
-            </article>
-
-            <div class="service-card-row service-card-row--home-services">
-              <article class="service-card">
-                <img class="service-card__image--pet" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/pet-thumb.webp" alt="שהייה ידידותית לחיות מחמד במלון פלורום" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>ידידותי לחיות מחמד</span>
-                  <h4>שהייה עם חיות מחמד</h4>
-                  <p>שהייה נוחה לאורחים הנוסעים עם חיות מחמד.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby1-carousel-760.webp" alt="גישה במעלית לכל החדרים" width="760" height="760" loading="lazy" decoding="async">
-                <div>
-                  <span>קל</span>
-                  <h4>גישה במעלית לכל החדרים</h4>
-                  <p>כל החדרים נגישים בנוחות באמצעות מעלית.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/roomDrinks-carousel.webp" alt="משקאות בשירות חדרים במלון פלורום" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>בחדר</span>
-                  <h4>שירות חדרים נבחר</h4>
-                  <p>תיהנו מכיבוד נבחר ישירות בחדר.</p>
-                </div>
-              </article>
-              <article class="service-card">
-                <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/drinks-thumb.webp" alt="משקאות בר במלון פלורום" width="1200" height="900" loading="lazy" decoding="async">
-                <div>
-                  <span>חברתי</span>
-                  <h4>בר וקייטרינג</h4>
-                  <p>משקאות, נשנושים קלים ואפשרויות קייטרינג לפי בקשה.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="breakfast-lobby-editorial reveal" aria-label="ארוחת בוקר ולובי בר">
-        <div class="breakfast-lobby-copy">
-          <h2>ארוחת בוקר ולובי בר</h2>
-          <div class="breakfast-lobby-intro">
-            <p>התחילו את היום במלון פלורום עם בופה ארוחת בוקר עשיר, קפה טרי, תה ואפשרויות ארוחת בוקר לדרך לפתיחה רגועה לפני שמגלים את וינה.</p>
-          </div>
-
-          <div class="breakfast-lobby-feature-list">
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>יומי</span>
-                <h4>7:30-10:30</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>סופי שבוע וחגים</span>
-                <h4>8:00-11:00</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>ארוחת בוקר לדרך</span>
-                <h4>זמין לפי בקשה</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>אפשרויות</span>
-                <h4>צמחוני, טבעוני וללא לקטוז</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-text-card">
-              <div>
-                <span>ידידותי לכשרות</span>
-                <h4>זמין לפי בקשה</h4>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="breakfast-lobby-showcase">
-          <article class="breakfast-lobby-image-card breakfast-lobby-image-card--large">
+      <div class="home-service-suite">
+        <article class="home-service-breakfast reveal delay-1">
+          <div class="home-service-breakfast__media">
             <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast-carousel.webp" alt="ארוחת בוקר במלון פלורום" width="1600" height="1200" loading="lazy" decoding="async">
+          </div>
+          <div class="home-service-breakfast__content">
+            <h3>ארוחת בוקר במלון פלורום</h3>
+            <p>התחילו את היום במלון פלורום עם בופה ארוחת בוקר עשיר, קפה טרי, תה ואפשרויות ארוחת בוקר לדרך לפתיחה רגועה לפני שמגלים את וינה.</p>
+            <div class="home-service-breakfast__facts">
+                              <div class="home-service-fact">
+                  <h4>יומי</h4>
+                  <p>7:30-10:30</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>סופי שבוע וחגים</h4>
+                  <p>8:00-11:00</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>ארוחת בוקר לדרך</h4>
+                  <p>זמין לפי בקשה</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>אפשרויות</h4>
+                  <p>צמחוני, טבעוני וללא לקטוז</p>
+                </div>
+                              <div class="home-service-fact">
+                  <h4>ידידותי לכשרות</h4>
+                  <p>זמין לפי בקשה</p>
+                </div>
+                          </div>
+            <a class="btn home-service-breakfast__cta" href="/florum-design-concepts/he/sherutim/">
+              לצפייה בארוחת בוקר ובר            </a>
+          </div>
+        </article>
+
+        <section class="home-service-list reveal" aria-labelledby="home-services-title">
+          <h3 id="home-services-title">שירותי המלון</h3>
+          <p class="body-copy home-service-list__intro">במלון פלורום אנו מתמקדים בפרטים המעשיים שמקלים על השהייה בווינה: אפשרויות הגעה גמישות, שמירת מזוודות ללא תשלום, שירות כביסה, אירוח ידידותי לחיות מחמד, כיבוד נבחר בחדר וסידורים מועילים לשהיות ארוכות.</p>
+          <div class="mobile-list-accordion" data-mobile-list-accordion>
+  <h3 class="mobile-list-accordion__heading">
+    <button class="mobile-list-accordion__trigger" id="feature-list-2-trigger" type="button" aria-expanded="false" aria-controls="feature-list-2-panel" data-mobile-list-trigger>
+      <span class="mobile-list-accordion__title">שירותי המלון</span>
+      <span class="mobile-list-accordion__chevron" aria-hidden="true"></span>
+    </button>
+  </h3>
+  <div class="mobile-list-accordion__panel" id="feature-list-2-panel" role="region" aria-labelledby="feature-list-2-trigger" data-mobile-list-panel hidden>
+    <ul class="editorial-feature-list sustainability-list home-service-feature-list" aria-label="שירותי המלון">
+                        <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>צ׳ק-אין וצ׳ק-אאוט מאוחר</h3></div>
+            <p>אפשרויות הגעה ועזיבה גמישות, בכפוף לזמינות.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-suitcase-rolling"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>שמירת מזוודות ללא תשלום</h3></div>
+            <p>השאירו את המזוודות ללא תשלום לפני הצ׳ק-אין או לאחר הצ׳ק-אאוט.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-shirt"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>שירות כביסה</h3></div>
+            <p>תמיכה נוחה לשהיות ארוכות יותר בווינה.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>שהייה עם חיות מחמד</h3></div>
+            <p>שהייה נוחה לאורחים הנוסעים עם חיות מחמד.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-elevator"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>גישה במעלית לכל החדרים</h3></div>
+            <p>כל החדרים נגישים בנוחות באמצעות מעלית.</p>
+          </li>
+                                <li class="editorial-feature-row sustainability-item">
+            <span class="editorial-feature-row__icon sustainability-item__icon" aria-hidden="true"><i class="fa-solid fa-bell-concierge"></i></span>
+            <div class="editorial-feature-row__title sustainability-item__title"><h3>שירות חדרים נבחר</h3></div>
+            <p>תיהנו מכיבוד נבחר ישירות בחדר.</p>
+          </li>
+                  </ul>
+  </div>
+</div>
+        </section>
+
+        <div class="home-service-featured-grid reveal">
+          <article class="home-service-feature-card">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby2-carousel.webp" alt="פינת ישיבה בלובי בר של מלון פלורום" width="1200" height="900" loading="lazy" decoding="async">
             <div>
-              <span>טרי</span>
-              <h4>ארוחת בוקר במלון פלורום</h4>
+              <h3>בר המלון</h3>
+              <p>משקאות, נשנושים קלים ואפשרויות קייטרינג לפי בקשה.</p>
             </div>
           </article>
-          <div class="breakfast-lobby-card-row">
-            <article class="breakfast-lobby-image-card">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/food-carousel.webp" alt="מבחר ארוחת בוקר טרי במלון פלורום" width="1600" height="1200" loading="lazy" decoding="async">
-              <div>
-                <span>קפה ותה</span>
-                <h4>ארוחת בוקר וקפה</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-image-card">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/Lobby2-carousel.webp" alt="פינת ישיבה בלובי בר של מלון פלורום" width="1200" height="900" loading="lazy" decoding="async">
-              <div>
-                <span>משקאות</span>
-                <h4>בר המלון</h4>
-              </div>
-            </article>
-            <article class="breakfast-lobby-image-card">
-              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/drinks-thumb.webp" alt="משקאות בלובי בר של פלורום" width="1200" height="900" loading="lazy" decoding="async">
-              <div>
-                <span>חברתי</span>
-                <h4>בר וקייטרינג</h4>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="breakfast-lobby-actions">
-          <a class="breakfast-lobby-cta" href="/florum-design-concepts/he/sherutim/">לצפייה בארוחת בוקר ובר</a>
+          <article class="home-service-feature-card">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/hebrew-800.webp" alt="שהייה ידידותית לכשרות ולשבת" width="800" height="1200" loading="lazy" decoding="async">
+            <div>
+              <h3>שהייה ידידותית לכשרות ולשבת</h3>
+              <p>המלון ממוקם ברובע השני של וינה, ואנו מציעים לאורחים יהודים לפי בקשה סידורים ידידותיים לכשרות ולשבת.</p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -960,7 +700,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <section class="section location-section">
     <div class="container">
       <div class="location-intro reveal">
-        <h2>מיקום ושהייה מודעת</h2>
+        <h2>מיקום</h2>
         <p class="location-subtitle">הגעה קלה ושהייה קרובה לעיר.</p>
         <div class="location-intro-copy">
           <p class="body-copy">פלורום ממוקם ברובע השני התוסס של וינה, קרוב למסעדות, ברים, חנויות, פארקים ירוקים וקווי תחבורה שמקלים על גילוי העיר.</p>
@@ -968,51 +708,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </div>
 
       <div class="location-distance-grid reveal delay-1" aria-label="מרחקים ממלון פלורום">
-        <article class="location-distance-card">
-          <span>נמל התעופה הבינלאומי של וינה</span>
-          <strong>20 km</strong>
-          <small>24 דק׳</small>
-        </article>
-        <article class="location-distance-card">
-          <span>התחנה המרכזית של וינה</span>
-          <strong>5 km</strong>
-          <small>17 דק׳</small>
-        </article>
-        <article class="location-distance-card">
-          <span>וינה ווסטבנהוף</span>
-          <strong>6 km</strong>
-          <small>18 דק׳</small>
-        </article>
-        <article class="location-distance-card">
-          <span>CAT Wien Mitte</span>
-          <strong>1.6 km</strong>
-          <small>6 דק׳</small>
-        </article>
-        <article class="location-distance-card">
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=St.%20Stephen%E2%80%99s%20Cathedral,%20Vienna&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="מסלול ממלון פלורום אל קתדרלת סטפנוס הקדוש / מרכז העיר">
           <span>קתדרלת סטפנוס הקדוש / מרכז העיר</span>
           <strong>1.2 km</strong>
           <small>15 דק׳ הליכה</small>
-        </article>
-        <article class="location-distance-card">
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Augarten%20Park,%20Vienna&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="מסלול ממלון פלורום אל פארק אוגארטן">
           <span>פארק אוגארטן</span>
           <strong>950 m</strong>
           <small>12 דק׳ הליכה</small>
-        </article>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Airport&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="מסלול ממלון פלורום אל נמל התעופה הבינלאומי של וינה">
+          <span>נמל התעופה הבינלאומי של וינה</span>
+          <strong>20 km</strong>
+          <small>24 דק׳</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20Central%20Station&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="מסלול ממלון פלורום אל התחנה המרכזית של וינה">
+          <span>התחנה המרכזית של וינה</span>
+          <strong>5 km</strong>
+          <small>17 דק׳</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20Westbahnhof&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="מסלול ממלון פלורום אל וינה ווסטבנהוף">
+          <span>וינה ווסטבנהוף</span>
+          <strong>6 km</strong>
+          <small>18 דק׳</small>
+        </a>
+        <a class="location-distance-card location-distance-card--route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=CAT%20Wien%20Mitte&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="מסלול ממלון פלורום אל CAT Wien Mitte">
+          <span>CAT Wien Mitte</span>
+          <strong>1.6 km</strong>
+          <small>6 דק׳</small>
+        </a>
       </div>
 
-      <div class="arrival-card-stack reveal delay-2" data-arrival-stack>
-        <article class="arrival-card is-active" data-arrival-card="public-transport">
-          <button class="arrival-card__switch" type="button" data-arrival-trigger="public-transport" aria-expanded="true">הגעה בתחבורה ציבורית</button>
+      <div class="arrival-layout reveal delay-2">
+        <article class="arrival-card arrival-card--primary">
           <a class="arrival-card__visual arrival-static-map arrival-static-map--hotel arrival-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer" aria-label="מפה למלון פלורום בתחבורה ציבורית">
-            <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/florum-map-preview.webp" alt="" width="1040" height="586" loading="lazy" decoding="async">
-            <span class="arrival-map-pin">פלורום</span>
+            <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/map-florum.webp" alt="מפה המציגה את מלון פלורום ואת קישורי התחבורה הציבורית הסמוכים." width="1536" height="1024" loading="lazy" decoding="async">
           </a>
           <div class="arrival-card__content">
             <h3 class="arrival-card__tab">הגעה בתחבורה ציבורית</h3>
             <p>חיבורים מהירים מציבים את פלורום קרוב למרכז וינה, לתחנות, לפארקים ולאתרי תרבות.</p>
             <ul class="arrival-detail-list">
-              <li><strong>U2 Taborstrasse</strong><span>200 מ׳, 2 דק׳ הליכה</span></li>
-              <li><strong>U1/U4 Schwedenplatz</strong><span>800 מ׳, 10 דק׳ הליכה</span></li>
+              <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U2%20Taborstra%C3%9Fe,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל U2 Taborstrasse">U2 Taborstrasse</a></strong><span>200 מ׳, 2 דק׳ הליכה</span></li>
+              <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U1/U4%20Schwedenplatz,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל U1/U4 Schwedenplatz">U1/U4 Schwedenplatz</a></strong><span>800 מ׳, 10 דק׳ הליכה</span></li>
               <li><strong>קישוריות עירונית</strong><span>גישה מצוינת ברחבי וינה</span></li>
             </ul>
             <p class="arrival-note">גלו את המסלול המהיר ביותר למלון פלורום לפני ההגעה.</p>
@@ -1020,77 +758,44 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </article>
 
-        <article class="arrival-card arrival-card--car" data-arrival-card="car">
-          <button class="arrival-card__switch" type="button" data-arrival-trigger="car" aria-expanded="false">הגעה ברכב</button>
-          <a class="arrival-card__visual arrival-static-map arrival-static-map--parking arrival-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer" aria-label="מפה לחניה סמוכה למלון פלורום">
-            <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/florum-map-preview.webp" alt="" width="1040" height="586" loading="lazy" decoding="async">
-            <span class="arrival-map-pin">פלורום</span>
-          </a>
-          <div class="arrival-card__content">
-            <h3 class="arrival-card__tab">הגעה ברכב</h3>
-            <p>למלון פלורום אין חניון פרטי, אך יש כמה אפשרויות חניה בקרבת מקום.</p>
-            <ul class="arrival-detail-list">
-              <li><strong>Parkgarage Rotensterngasse</strong><span>Rotensterngasse 23, 1020 Vienna</span></li>
-              <li><strong>Garage Karmelitermarkt</strong><span>Leopoldsgasse 39, 1020 Vienna</span></li>
-              <li><strong>Tiefgarage Odeongasse</strong><span>Odeongasse 2-4, 1020 Vienna</span></li>
-            </ul>
-            <p class="arrival-note">גלו את המסלול המהיר ביותר למלון פלורום לפני ההגעה.</p>
-            <a class="btn location-map-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer">לצפייה במפה והכוונה</a>
+        <section class="arrival-car-accordion" data-arrival-accordion>
+          <h3 class="arrival-car-accordion__heading">
+            <button class="arrival-car-accordion__trigger" type="button" aria-expanded="false" aria-controls="arrival-car-panel" id="arrival-car-trigger" data-arrival-accordion-trigger>
+              <span>הגעה ברכב</span>
+              <span class="arrival-car-accordion__chevron" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="arrival-car-accordion__panel" id="arrival-car-panel" role="region" aria-labelledby="arrival-car-trigger" data-arrival-accordion-panel hidden>
+            <div class="arrival-car-accordion__layout">
+              <div class="arrival-card__content">
+                <p>למלון פלורום אין חניון פרטי, אך יש כמה אפשרויות חניה בקרבת מקום.</p>
+                <ul class="arrival-detail-list">
+                          <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Parkgarage Rotensterngasse">Parkgarage Rotensterngasse</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Parkgarage Rotensterngasse">Rotensterngasse 23, 1020 Vienna</a></span>
+        </li>
+                <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Garage%20Karmelitermarkt,%20Leopoldsgasse%2039,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Garage Karmelitermarkt">Garage Karmelitermarkt</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Garage%20Karmelitermarkt,%20Leopoldsgasse%2039,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Garage Karmelitermarkt">Leopoldsgasse 39, 1020 Vienna</a></span>
+        </li>
+                <li>
+          <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Tiefgarage Odeongasse">Tiefgarage Odeongasse</a></strong>
+          <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Tiefgarage Odeongasse">Odeongasse 2–4, 1020 Vienna</a></span>
+        </li>
+                        </ul>
+                <p class="arrival-note">גלו את המסלול המהיר ביותר למלון פלורום לפני ההגעה.</p>
+                <a class="btn location-map-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer">לצפייה במפה והכוונה</a>
+              </div>
+              <a class="arrival-card__visual arrival-static-map arrival-static-map--parking arrival-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Florum%20Vienna" target="_blank" rel="noopener noreferrer" aria-label="מפה לחניה סמוכה למלון פלורום">
+                <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/map-parking.webp" alt="מפה המציגה את מלון פלורום ואת החניונים הסמוכים." width="1536" height="1024" loading="lazy" decoding="async">
+              </a>
+            </div>
           </div>
-        </article>
+        </section>
       </div>
     </div>
   </section>
 
-  <section class="section sustainability-section">
-    <div class="container">
-      <div class="sustainability-split">
-        <img class="sustainability-photo reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="פרט אירוח בר-קיימא במלון פלורום" width="1200" height="1500" loading="lazy" decoding="async">
-        <div class="sustainability-panel reveal delay-1">
-          <h2>מחויבות לקיימות</h2>
-          <p class="body-copy">אנו מתמקדים גם בצעדי קיימות מעשיים התומכים בשהייה מודעת יותר - מצמצום מוצרים חד-פעמיים והפרדת פסולת ועד תפעול יומיומי חסכוני באנרגיה ובמים.</p>
-          <div class="sustainability-list">
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-pump-soap"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>צמצום פסולת חד-פעמית</h3>
-              </div>
-              <p>מתקני מילוי וחלופות מעשיות עוזרים לצמצם אריזות חד-פעמיות.</p>
-            </article>
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-recycle"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>הפרדת פסולת</h3>
-              </div>
-              <p>תהליכים יומיומיים ברורים תומכים בתפעול מלונאי אחראי יותר.</p>
-            </article>
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-bolt"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>תפעול מודע לאנרגיה</h3>
-              </div>
-              <p>מערכות מחושבות מסייעות להפחית צריכת אנרגיה מיותרת.</p>
-            </article>
-            <article class="sustainability-item">
-              <span class="sustainability-item__icon" aria-hidden="true">
-                <i class="fa-solid fa-droplet"></i>
-              </span>
-              <div class="sustainability-item__title">
-                <h3>ניקיון מודע למים</h3>
-              </div>
-              <p>שגרות ניקיון יעילות תומכות בשימוש זהיר יותר במשאבים.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -1105,12 +810,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a href="/florum-design-concepts/he/tnaim-ve-hagbalot/">תנאים והגבלות</a>
       <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
     </nav>
+
+    <div class="footer-contact-links" aria-label="יצירת קשר עם מלון פלורום">
+      <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+4312126569" aria-label="Call Florum Hotel">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@florum-hotels.com" aria-label="Email Florum Hotel">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </footer>
+</div>
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783044158"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
 </body>
 </html>
