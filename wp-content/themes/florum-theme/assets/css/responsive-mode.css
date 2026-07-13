@@ -23,10 +23,26 @@
   body { padding-top: var(--active-header-height); overflow-x: clip; }
   .site-header { top: 0 !important; width: 100%; }
 
+  /* The compact booking bar is part of normal document flow. Reset every
+   * desktop sticky placeholder/wrapper constraint together so the stacked
+   * form, CTA and lower card radius determine the section's real height. */
+  .homepage-booking-sentinel,
+  .homepage-booking-bar,
+  .homepage-booking-bar.is-sticky,
+  .homepage-booking-bar__inner {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  .homepage-booking-sentinel {
+    width: 0;
+    margin: 0;
+  }
   .homepage-booking-bar,
   .homepage-booking-bar.is-sticky {
-    position: relative; top: auto; z-index: 1; width: 100%; height: auto;
-    min-height: 0; margin: 0; transform: none;
+    position: relative; top: auto; z-index: 5; width: 100%;
+    margin: 0; padding-bottom: 24px; transform: none;
   }
   .homepage-booking-bar__inner {
     width: min(calc(100% - (var(--page-gutter) * 2)), 1080px);
@@ -35,7 +51,8 @@
   .homepage-booking-strip,
   .booking-strip {
     position: relative; width: 100%; max-width: 1080px;
-    margin-inline: auto; transform: none;
+    height: auto; max-height: none; margin-inline: auto;
+    overflow: visible; transform: none;
   }
 
   .internal-page-hero > .container,
