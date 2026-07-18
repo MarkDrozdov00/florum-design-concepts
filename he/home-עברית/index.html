@@ -37,11 +37,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1783905505" media="all">
-<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1783942696" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1784319490" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1784335307" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/florum-design-concepts/wp-json/wp/v2/pages/17"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0.1">
+<meta name="generator" content="WordPress 7.0.2">
 <link rel="canonical" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/">
 <link rel="shortlink" href="/florum-design-concepts/">
 </head>
@@ -50,15 +50,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <header class="site-header">
   <div class="container header-inner">
-    <button class="menu-toggle" type="button" aria-label="פתח תפריט" data-label-open="פתח תפריט" data-label-close="סגור תפריט" aria-expanded="false" aria-controls="primary-navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <a href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/" class="logo logo-mobile" aria-label="עמוד הבית של מלון פלורום">
       <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/logo_white.webp" alt="Florum Hotel">
     </a>
+
+    <div class="mobile-header__actions">
+      <a class="header-book-now header-book-now--persistent reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
+      <button class="menu-toggle" type="button" aria-label="פתח תפריט" data-label-open="פתח תפריט" data-label-close="סגור תפריט" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
     <nav class="main-nav" id="primary-navigation">
       <div class="main-nav__side main-nav__side--left">
@@ -99,7 +102,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="main-nav__side main-nav__side--right">
         <a class="main-nav__b2b" href="/florum-design-concepts/he/asakim/">B2B</a>
         <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
-        <a class="header-book-now" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
+        <a class="header-book-now reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
         <div class="nav-dropdown nav-dropdown--language">
           <button class="nav-dropdown__trigger" type="button" aria-label="בחירת שפה" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
@@ -139,7 +142,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </div>
 
         <div class="urban-hero__intro reveal delay-1">
-          <p>שקט בוטני אורבני, אירוח חם וחדרים שנוצרו למגלי עיר, נסיעות עסקים, משפחות וסופי שבוע רגועים.</p>
+          <p>מלון 4 כוכבים שקט ברובע השני של וינה, המתאים לנסיעות עסקים, חופשות עירוניות, שהיות משפחתיות וסופי שבוע רגועים. הישארו קרוב למרכז העיר, תיהנו מאירוח חם וגלו חדרים נוחים, דירות סטודיו ושירותים שתוכננו לשהייה קלה ונעימה בווינה.</p>
         </div>
       </div>
 
@@ -193,7 +196,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
               <option value="4">4 אנשים • 2 חדרים</option>
             </select>
           </label>
-          <a class="btn booking-strip__button" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">בדיקת זמינות</a>
+          <a class="btn booking-strip__button reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">בדיקת זמינות</a>
         </form>
             </div>
   </section>
@@ -201,13 +204,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section section-spacing--compact direct-booking-section">
     <div class="container direct-booking-grid">
       <div class="direct-booking-copy reveal">
-        <h2>יתרונות ההזמנה הישירה</h2>
-        <p class="body-copy">יותר גמישות, מחירים טובים יותר ופרטים קטנים שהופכים את השהייה לנוחה יותר.</p>
+        <h2>Why book direct at Hotel Florum?</h2>
+        <p class="body-copy">Book directly with Hotel Florum in Vienna and enjoy exclusive benefits, added flexibility and small extras that make your stay easier from the moment you book.</p>
         <div class="direct-booking-glow" aria-hidden="true"></div>
         <div class="direct-booking-notes" aria-label="תנאי הזמנה ישירה">
-          <p>* בכפוף לתפוסה</p>
-          <p>** להזמנות ישירות</p>
-          <p>*** כלול לשהייה של שני לילות או יותר</p>
+          <p>* Subject to availability</p>
+          <p>** For bookings made less than 24 hours before arrival</p>
+          <p>*** Included for stays of 2 nights or more</p>
         </div>
       </div>
 
@@ -217,7 +220,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                               <i class="fa-solid fa-tag"></i>
                           </span>
             <div>
-              <h3>התחייבות למחיר הטוב ביותר</h3>
+              <h3>Best Rate Guaranteed</h3>
             </div>
           </article>
                   <article class="benefit-card">
@@ -249,7 +252,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                               <i class="fa-solid fa-martini-glass-citrus"></i>
                           </span>
             <div>
-              <h3>משקה קבלת פנים ללא תשלום***</h3>
+              <h3>Complimentary Welcome Drink***</h3>
             </div>
           </article>
               </div>
@@ -829,6 +832,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1783918050"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1784334863"></script>
 </body>
 </html>

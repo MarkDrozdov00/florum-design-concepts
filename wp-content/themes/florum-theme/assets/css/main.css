@@ -14665,6 +14665,21 @@ body.home .site-footer { padding-block: clamp(var(--space-5), 2.2vw, var(--space
 }
 
 @media (max-width: 620px) {
+  .home-page .direct-booking-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: calc(100vw - (var(--page-gutter) * 2));
+  }
+  .home-page .direct-booking-copy,
+  .home-page .direct-booking-notes,
+  .home-page .benefit-stack {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .home-page .direct-booking-notes p {
+    overflow-wrap: break-word;
+  }
   .home-page .benefit-card { min-height: 118px; }
   .home-page #services .home-service-feature-card,
   .home-page #services .home-service-feature-card img { min-height: 0; }

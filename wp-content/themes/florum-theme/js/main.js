@@ -171,10 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     triggers.forEach((dropdownTrigger) => {
       dropdownTrigger.addEventListener("click", (event) => {
-        const isResponsiveRoomsTrigger = dropdown.classList.contains("nav-dropdown--rooms")
-          && isCollapsedNavigation();
-
-        if (!isLanguageDropdown && !isResponsiveRoomsTrigger) {
+        if (!isLanguageDropdown) {
           return;
         }
 
