@@ -12,6 +12,114 @@
   inset-block-start: -20px;
 }
 
+@media (max-width: 1199px) {
+  .home-page .group-offers-copy .group-benefits-list li,
+  .home-page .group-offers-copy .group-benefits-list li:nth-child(-n + 3) {
+    min-height: 58px;
+    border-top: 0;
+    border-bottom: 1px solid rgba(24, 43, 34, 0.1);
+  }
+
+  .home-page .group-offers-copy .group-benefits-list li:last-child {
+    border-bottom-color: transparent;
+  }
+}
+
+/* B2B packages: one stable composition across portrait and landscape tablets. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  main.b2b-page .b2b-models-section > .container {
+    width: min(calc(100% - (var(--page-gutter) * 2)), 920px);
+    margin-inline: auto;
+  }
+
+  main.b2b-page .b2b-model-editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    gap: clamp(24px, 4vw, 40px);
+    width: 100%;
+    max-width: 920px;
+    margin-inline: auto;
+    padding: clamp(28px, 4.5vw, 44px);
+    overflow: hidden;
+  }
+
+  main.b2b-page .b2b-model-editorial > :is(
+    .service-editorial__intro,
+    .b2b-inline-photo-frame,
+    .b2b-rate-cards
+  ) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  main.b2b-page .b2b-model-editorial .service-editorial__intro {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  main.b2b-page .b2b-model-editorial .service-editorial__intro > :is(h2, p) {
+    width: min(100%, 720px);
+    margin-inline: auto;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  main.b2b-page .b2b-model-editorial .b2b-inline-photo-frame {
+    position: relative;
+    height: auto !important;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    align-self: auto;
+  }
+
+  main.b2b-page .b2b-model-editorial .b2b-inline-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+
+  main.b2b-page .b2b-model-editorial .b2b-rate-cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    grid-auto-rows: auto;
+    gap: clamp(18px, 2.8vw, 26px);
+    height: auto;
+    align-self: auto;
+  }
+
+  main.b2b-page .b2b-model-editorial .b2b-rate-card {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    align-self: auto;
+  }
+}
+
+/* Keep the homepage B2B benefits readable inside the right-hand copy column.
+ * Large-screen list utilities elsewhere may use four columns, but this list
+ * is intentionally limited to two. */
+@media (min-width: 1200px) {
+  .home-page .location-intro,
+  .home-page .location-intro-copy,
+  .home-page .location-intro .body-copy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .home-page .group-offers-section .group-offers-copy .group-benefits-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* An eight-pixel visual nudge preserves the booking bar's overlap geometry,
  * sticky calculations, dimensions, and internal field layout. */
 .home-page .homepage-booking-bar {
@@ -67,10 +175,13 @@
   .rooms-location-card,
   .arrival-card,
   .arrival-car-accordion__layout,
-  .location-page-route-grid,
-  .contact-info-grid {
+  .location-page-route-grid {
     grid-template-columns: minmax(0, 1fr);
     margin-inline: auto;
+  }
+
+  .contact-page .contact-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   :is(.group-offers-copy, .hospitality-copy, .sustainability-panel,
@@ -99,7 +210,7 @@
 
   .home-page .urban-hero {
     min-height: 0;
-    padding: clamp(44px, 6vw, 64px) 0 clamp(100px, 10vw, 132px);
+    padding: clamp(44px, 6vw, 64px) 0;
   }
 
   .home-page .urban-hero__content {
@@ -223,6 +334,32 @@
   }
 }
 
+@media (max-width: 680px) {
+  .contact-page .contact-info-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-info-row__button.btn {
+    width: 100%;
+  }
+
+  .contact-info-row--address {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .contact-info-row--address > div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-info-row--address .contact-info-row__map-link {
+    margin-top: var(--space-5);
+    white-space: normal;
+  }
+}
+
 @media (min-width: 900px) and (max-width: 1199px) {
   :root {
     --page-gutter: clamp(40px, 5vw, 56px);
@@ -329,7 +466,7 @@
     width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
   }
 
@@ -1174,7 +1311,7 @@
   .booking-strip__button, .benefit-card:nth-child(5) { grid-column: auto; width: 100%; }
   .home-page .urban-hero {
     padding-top: clamp(36px, 10vw, 52px);
-    padding-bottom: clamp(72px, 20vw, 96px);
+    padding-bottom: clamp(36px, 10vw, 52px);
   }
   .home-page .urban-hero__content {
     gap: clamp(40px, 12vw, 56px);
@@ -1797,6 +1934,8 @@
     .section-heading > h2,
     .direct-booking-copy > h2,
     .group-offers-copy h2,
+    .home-service-breakfast__content > h3,
+    .home-service-list > h3,
     .hospitality-intro__text,
     .location-intro h2,
     .location-page-intro h2,
@@ -2634,7 +2773,7 @@
   }
 
   .home-page > .direct-booking-section {
-    padding-top: calc(var(--booking-boundary-shift) + (64px * var(--header-wide-scale)));
+    padding-top: calc(64px * var(--header-wide-scale));
   }
 }
 
@@ -2675,6 +2814,370 @@
   :root {
     --header-wide-scale: clamp(1.3, calc(1.3 + ((100vw - 2560px) / 6285px)), 1.44);
   }
+}
+
+/* Header reservation panel */
+:root {
+  --booking-coral: var(--color-floral-muted);
+  --booking-coral-hover: #a96f69;
+}
+
+.site-header .header-book-now {
+  border: 1px solid rgba(255, 253, 248, .24) !important;
+  background: var(--booking-coral) !important;
+  color: var(--color-text-inverse) !important;
+  box-shadow: 0 4px 8px rgba(8, 27, 20, .14) !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0;
+}
+
+.site-header .header-book-now:hover,
+.site-header .header-book-now:focus-visible,
+.site-header .header-book-now.is-open {
+  background: var(--booking-coral-hover) !important;
+  color: var(--color-text-inverse) !important;
+  box-shadow: 0 5px 8px rgba(8, 27, 20, .18) !important;
+}
+
+.header-book-now [data-booking-toggle-close] { display: none; font-size: 1.15em; }
+.site-header .header-book-now::after { display: none !important; content: none !important; }
+.header-book-now.is-open [data-booking-toggle-label] { display: none; }
+.header-book-now.is-open [data-booking-toggle-close] { display: block; }
+
+.header-booking[hidden],
+.header-booking__calendar[hidden],
+.header-booking__guest-menu[hidden] { display: none !important; }
+
+.header-booking {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  pointer-events: none;
+}
+
+.header-booking__backdrop {
+  position: absolute;
+  inset: var(--site-header-height) 0 0;
+  background: rgba(8, 27, 20, .14);
+  opacity: 0;
+  pointer-events: auto;
+  animation: booking-fade-in 220ms cubic-bezier(.23, 1, .32, 1) forwards;
+}
+
+.header-booking__experience {
+  position: absolute;
+  top: calc(var(--site-header-height) + var(--wp-admin-bar-offset) + 10px);
+  right: max(var(--page-gutter), calc((100vw - 1440px) / 2));
+  display: flex;
+  max-width: calc(100vw - (var(--page-gutter) * 2));
+  align-items: flex-start;
+  gap: var(--space-3);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: booking-panel-in 220ms cubic-bezier(.23, 1, .32, 1) forwards;
+}
+
+.header-booking__panel,
+.header-booking__calendar {
+  border: var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-linen);
+  color: var(--color-green-ink);
+  box-shadow: var(--shadow-raised);
+}
+
+.header-booking__panel {
+  flex: 0 0 min(530px, calc(100vw - (var(--page-gutter) * 2)));
+  width: min(530px, calc(100vw - (var(--page-gutter) * 2)));
+  padding: var(--space-8);
+}
+
+.header-booking__panel > h2 {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-primary);
+  color: var(--color-green-ink);
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.header-booking__dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--color-surface-sage);
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.header-booking__dates > button {
+  display: flex;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-green-ink);
+  text-align: center;
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.header-booking__dates > button + button { border-inline-start: var(--border-subtle); }
+.header-booking__dates > button:hover,
+.header-booking__dates > button:focus-visible,
+.header-booking__dates > button[aria-expanded="true"] {
+  background: rgba(197, 215, 195, .4);
+  box-shadow: inset 0 0 0 2px var(--color-focus);
+  outline: 0;
+}
+
+.header-booking__dates span {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+}
+
+.header-booking__dates strong {
+  margin-block: 4px 0;
+  font-size: clamp(3.8rem, 5vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -.035em;
+  line-height: .98;
+}
+
+.header-booking__dates small {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.header-booking__guests {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--space-4);
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-warm);
+}
+
+.header-booking__guest { position: relative; min-width: 0; text-align: center; }
+.header-booking__guest + .header-booking__guest { border-inline-start: var(--border-subtle); }
+.header-booking__guest > span {
+  display: block;
+  padding: 11px 6px 2px;
+  color: var(--color-text-muted);
+  font-size: .82rem;
+  line-height: 1.2;
+}
+.header-booking__guest > button {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: 4px 10px 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-green-ink);
+}
+.header-booking__guest > button:hover,
+.header-booking__guest > button:focus-visible,
+.header-booking__guest > button[aria-expanded="true"] { background: var(--color-hover-sage); outline: 0; }
+.header-booking__guest > button strong { font-size: 1.15rem; font-weight: 500; }
+.header-booking__guest > button i { color: var(--color-text-muted); font-size: .7rem; transition: transform 180ms ease; }
+.header-booking__guest > button[aria-expanded="true"] i { transform: rotate(180deg); }
+
+.header-booking__guest-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 4px;
+  left: 4px;
+  z-index: 3;
+  max-height: 220px;
+  padding: 4px;
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--color-linen);
+  box-shadow: var(--shadow-surface);
+  overflow-y: auto;
+}
+.header-booking__guest-menu button {
+  width: 100%;
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--color-green-ink);
+}
+.header-booking__guest-menu button:hover,
+.header-booking__guest-menu button:focus-visible { background: var(--color-surface-sage); outline: 0; }
+
+.header-booking__submit,
+.header-booking__apply {
+  width: 100%;
+  min-height: 54px;
+  margin-top: var(--space-4);
+  border: 1px solid rgba(8, 27, 20, .16);
+  border-radius: var(--radius-sm);
+  background: var(--booking-coral);
+  color: var(--color-text-inverse);
+  font-size: var(--type-button);
+  font-weight: 700;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, transform 180ms cubic-bezier(.23, 1, .32, 1);
+}
+.header-booking__submit:hover,
+.header-booking__submit:focus-visible,
+.header-booking__apply:hover,
+.header-booking__apply:focus-visible { background: var(--booking-coral-hover); outline: 2px solid var(--color-focus); outline-offset: 2px; transform: translateY(-1px); }
+
+.header-booking__calendar {
+  flex: 0 1 620px;
+  width: clamp(540px, 45vw, 650px);
+  padding: var(--space-8);
+}
+.header-booking__calendar-mobile-head { display: none; }
+.header-booking__calendar-nav {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.header-booking__calendar-nav h2 {
+  margin: 0;
+  color: var(--color-green-ink);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  text-align: center;
+}
+.header-booking__calendar-nav button,
+.header-booking__calendar-close {
+  width: 44px;
+  height: 44px;
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-green-ink);
+}
+.header-booking__calendar-nav button:hover,
+.header-booking__calendar-nav button:focus-visible,
+.header-booking__calendar-close:hover,
+.header-booking__calendar-close:focus-visible { background: var(--color-surface-sage); outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.header-booking__weekdays,
+.header-booking__days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.header-booking__weekdays span {
+  padding-block: 8px;
+  color: var(--color-text-muted);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-align: center;
+}
+.header-booking__days { row-gap: 7px; }
+.header-booking__day {
+  position: relative;
+  min-width: 44px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-green-ink);
+  font-size: 1rem;
+  isolation: isolate;
+}
+.header-booking__day::before { position: absolute; inset: 3px; z-index: -1; border-radius: var(--radius-round); content: ""; }
+.header-booking__day:not(:disabled):hover::before,
+.header-booking__day:not(:disabled):focus-visible::before { background: var(--color-surface-sage); }
+.header-booking__day:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.header-booking__day.is-in-range { background: var(--color-floral-soft); }
+.header-booking__day.is-range-start,
+.header-booking__day.is-range-end { color: var(--color-text-inverse); font-weight: 700; }
+.header-booking__day.is-range-start::before,
+.header-booking__day.is-range-end::before { background: var(--booking-coral); }
+.header-booking__day:disabled { color: var(--color-text-muted); cursor: not-allowed; opacity: .38; }
+.header-booking__apply { display: none; }
+
+html.is-booking-locked,
+html.is-booking-locked body { overflow: hidden; }
+
+@keyframes booking-panel-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes booking-fade-in { to { opacity: 1; } }
+
+@media (max-width: 1199px) {
+  .header-booking__experience {
+    top: calc(var(--site-header-height) + 8px);
+    right: var(--page-gutter);
+  }
+  .header-booking__panel { flex-basis: min(470px, calc(100vw - (var(--page-gutter) * 2))); width: min(470px, calc(100vw - (var(--page-gutter) * 2))); }
+  .header-booking__calendar { width: min(520px, calc(100vw - 518px)); padding: var(--space-6); }
+}
+
+@media (max-width: 980px) {
+  .header-booking__experience { left: var(--page-gutter); justify-content: flex-end; }
+  .header-booking__calendar {
+    position: fixed;
+    top: calc(var(--site-header-height) + var(--space-3));
+    right: var(--page-gutter);
+    left: var(--page-gutter);
+    z-index: 2;
+    width: auto;
+    max-height: calc(100dvh - var(--site-header-height) - (var(--space-6)));
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-booking__backdrop { inset-top: var(--site-header-height); background: rgba(8, 27, 20, .32); }
+  .header-booking__experience {
+    top: calc(var(--site-header-height) + 6px);
+    right: 8px;
+    left: 8px;
+    max-width: none;
+  }
+  .header-booking__panel { width: 100%; flex-basis: 100%; max-height: calc(100dvh - var(--site-header-height) - 14px); padding: var(--space-5); overflow-y: auto; }
+  .header-booking__panel > h2 { margin-bottom: var(--space-4); font-size: 1.3rem; }
+  .header-booking__dates > button { min-height: 142px; padding: var(--space-3); }
+  .header-booking__dates strong { font-size: 3.5rem; }
+  .header-booking__guests { margin-top: var(--space-3); }
+  .header-booking__guest > span { font-size: .76rem; }
+  .header-booking__submit { margin-top: var(--space-3); }
+  .header-booking__calendar {
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    max-height: none;
+    padding: var(--space-5);
+  }
+  .header-booking__calendar-mobile-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4); }
+  .header-booking__calendar-mobile-head h2 { margin: 0; color: var(--color-green-ink); font-size: 1.25rem; font-weight: 500; }
+  .header-booking__calendar-nav { grid-template-columns: 44px 1fr 44px; gap: var(--space-2); }
+  .header-booking__calendar-nav h2 { font-size: 1.05rem; }
+  .header-booking__weekdays span { font-size: .64rem; letter-spacing: .02em; }
+  .header-booking__days { row-gap: 3px; }
+  .header-booking__day { min-width: 0; min-height: 44px; }
+  .header-booking__apply { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-booking__backdrop,
+  .header-booking__experience { animation-duration: 1ms; }
+  .header-booking__submit,
+  .header-booking__apply,
+  .header-booking__guest > button i { transition: none; }
 }
 
 /* Collapsed navigation uses two flat first-level columns. Accommodation links
@@ -2727,6 +3230,10 @@
 /* The primary reservation action stays in the collapsed header rather than
  * moving into the navigation panel. Desktop continues using the nav CTA. */
 .header-book-now--persistent {
+  display: none;
+}
+
+.site-header .main-nav .header-book-now--menu {
   display: none;
 }
 
@@ -3069,6 +3576,8 @@
     .slider-head h2,
     .direct-booking-copy > h2,
     .group-offers-copy h2,
+    .home-service-breakfast__content > h3,
+    .home-service-list > h3,
     .hospitality-intro__text,
     .location-intro h2,
     .location-page-intro h2,
@@ -3124,11 +3633,7 @@
   }
 
   .home-page > .direct-booking-section {
-    padding-top: max(
-      calc(var(--booking-boundary-shift) + (76px * var(--direct-wide-gap-scale))),
-      var(--page-wide-section-space)
-    );
-    padding-bottom: var(--page-wide-section-space);
+    padding-block: var(--page-wide-section-space);
   }
 
   .home-page > .direct-booking-section > .direct-booking-grid,
@@ -3197,7 +3702,7 @@
     font-size: calc(.92rem * var(--direct-wide-body-scale));
   }
 
-  .home-page .room-carousel-section :is(.slider-block, .rooms-standard-editorial, .room-showcase-shell) {
+  :is(.home-page, .b2b-page--expanded) :is(.room-carousel-section, .b2b-rooms-section) :is(.slider-block, .rooms-standard-editorial, .room-showcase-shell) {
     width: 100%;
     max-width: none;
   }
@@ -3223,33 +3728,54 @@
     font-size: var(--page-wide-support);
   }
 
-  .home-page .room-showcase-shell {
+  :is(.home-page, .b2b-page--expanded) .room-showcase-shell {
     width: min(100%, calc(1280px * var(--page-wide-scale)));
   }
 
-  .home-page .room-card__image {
+  :is(.home-page, .b2b-page--expanded) .room-card__image {
     height: calc(590px * var(--page-wide-scale));
   }
 
-  .home-page .room-card__content {
+  /* Serviced apartments reuse the homepage room-carousel frame exactly. The
+   * large-page container is otherwise wider, which creates a shallower crop. */
+  .apartments-page .apartments-list-section > .container {
+    width: var(--home-composition-width);
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .apartments-page .apartments-list-section .room-showcase-shell {
+    width: min(100%, calc(1280px * var(--page-wide-scale)));
+  }
+
+  .apartments-page .apartments-list-section .room-card__image {
+    height: calc(590px * var(--page-wide-scale));
+  }
+
+  :is(.home-page, .b2b-page--expanded) .room-card__content {
     min-height: calc(132px * var(--page-wide-scale));
     gap: calc(24px * var(--page-wide-scale));
     padding: calc(14px * var(--page-wide-scale)) calc(36px * var(--page-wide-scale));
   }
 
-  .home-page .room-card h3 {
+  .b2b-page--expanded .b2b-room-showcase .room-card__content {
+    min-height: 96px;
+    padding: 8px calc(24px * var(--page-wide-scale));
+  }
+
+  :is(.home-page, .b2b-page--expanded) .room-card h3 {
     font-size: calc(2rem * var(--page-wide-scale));
   }
 
-  .home-page :is(.room-fact-row dd, .room-extras-row dd) {
+  :is(.home-page, .b2b-page--expanded) :is(.room-fact-row dd, .room-extras-row dd) {
     font-size: calc(.96rem * var(--page-wide-scale));
   }
 
-  .home-page :is(.room-fact-row dt, .room-extras-row dt, .room-card__link) {
+  :is(.home-page, .b2b-page--expanded) :is(.room-fact-row dt, .room-extras-row dt, .room-card__link) {
     font-size: calc(.74rem * var(--page-wide-scale));
   }
 
-  .home-page .room-showcase-nav__button {
+  :is(.home-page, .b2b-page--expanded) .room-showcase-nav__button {
     width: calc(44px * var(--page-wide-scale));
     min-width: calc(44px * var(--page-wide-scale));
     min-height: calc(44px * var(--page-wide-scale));
@@ -3289,8 +3815,12 @@
     gap: calc(80px * var(--page-wide-scale));
   }
 
-  .home-page .home-service-breakfast__media img {
+  .home-page .home-service-breakfast__image--main {
     min-height: calc(470px * var(--page-wide-scale));
+  }
+
+  .home-page .home-service-breakfast__image--bar {
+    min-height: 0;
   }
 
   .home-page .home-service-breakfast__content,
@@ -3299,7 +3829,7 @@
     padding: calc(38px * var(--page-wide-scale));
   }
 
-  .home-page :is(.home-service-breakfast__content > h3, .home-service-feature-card h3, .home-service-list > h3) {
+  .home-page .home-service-feature-card h3 {
     font-size: calc(1.65rem * var(--page-wide-scale));
   }
 
@@ -3322,7 +3852,8 @@
   }
 
   .home-page .location-intro {
-    max-width: 64rem;
+    width: 100%;
+    max-width: none;
   }
 
   .home-page .location-subtitle {
@@ -3330,7 +3861,8 @@
   }
 
   .home-page .location-intro .body-copy {
-    max-width: 48rem;
+    width: 100%;
+    max-width: none;
   }
 
   .home-page .location-distance-grid {
@@ -3434,5 +3966,1129 @@
     --direct-wide-body-scale: clamp(1.19, calc(1.19 + ((100vw - 2560px) / 14666px)), 1.25);
     --direct-wide-icon-scale: clamp(1.25, calc(1.25 + ((100vw - 2560px) / 12571px)), 1.32);
     --direct-wide-gap-scale: clamp(1.2, calc(1.2 + ((100vw - 2560px) / 14666px)), 1.26);
+  }
+}
+
+/* Keep the interactive header action coral after legacy CTA overrides. */
+.site-header :is(.main-nav, .mobile-header__actions) .header-book-now {
+  border: 1px solid rgba(255, 253, 248, .24) !important;
+  background: var(--booking-coral) !important;
+  color: var(--color-text-inverse) !important;
+  box-shadow: 0 4px 8px rgba(8, 27, 20, .14) !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0;
+}
+
+.site-header :is(.main-nav, .mobile-header__actions) .header-book-now:is(:hover, :focus-visible, .is-open) {
+  background: var(--booking-coral-hover) !important;
+  color: var(--color-text-inverse) !important;
+  box-shadow: 0 5px 8px rgba(8, 27, 20, .18) !important;
+}
+
+/* Give the direct-booking fine print breathing room without changing card width or internals. */
+.home-page .benefit-card {
+  min-height: 184px;
+}
+
+@media (max-width: 620px) {
+  .home-page .benefit-card {
+    min-height: 168px;
+  }
+
+}
+
+@media (min-width: 1920px) {
+  .home-page .benefit-card {
+    min-height: calc(184px * var(--page-wide-scale));
+  }
+}
+
+@media (min-width: 2560px) {
+  .home-page .benefit-card {
+    min-height: calc(184px * var(--direct-wide-scale));
+  }
+}
+
+/* Room-category navigation: keep the image primary while making progression unmistakable. */
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav {
+  grid-template-columns: 42px auto minmax(116px, auto);
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous {
+  width: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  border-color: var(--color-border-strong);
+  color: var(--green-deep);
+  opacity: .82;
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous:disabled {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-warm);
+  color: var(--green-botanical);
+  opacity: .62;
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next {
+  display: inline-flex;
+  width: auto;
+  min-width: 116px;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-inline-start: 10px;
+  padding-inline: 12px;
+  border-color: var(--green-deep);
+  background: var(--green-deep);
+  color: var(--cream);
+  box-shadow: 0 2px 5px rgba(8, 27, 20, .1);
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next:hover,
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next:focus-visible {
+  border-color: var(--green-botanical);
+  background: var(--green-botanical);
+  color: var(--color-text-inverse);
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next:disabled {
+  border-color: var(--color-border-subtle);
+  background: var(--color-surface-warm);
+  color: var(--color-text-muted);
+  box-shadow: none;
+}
+
+.room-showcase-nav__label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .055em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-position {
+  min-width: 68px;
+  color: var(--color-text-muted);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+}
+
+:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous span {
+  font-size: 1.15rem;
+}
+
+@media (max-width: 480px) {
+  :is(.home-page, .b2b-page--expanded) .room-showcase-nav {
+    grid-template-columns: 42px auto minmax(112px, auto);
+    gap: 6px;
+  }
+
+  :is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous {
+    width: 42px;
+    min-width: 42px;
+    min-height: 42px;
+  }
+
+  :is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next {
+    min-width: 112px;
+    padding-inline: 10px;
+  }
+
+}
+
+/* Desktop header balance: three text links on the left, a viewport-centered
+ * logo, and Location plus the existing actions on the right. The duplicated
+ * Location link keeps the collapsed navigation's established ordering. */
+.main-nav__location--desktop {
+  display: none;
+}
+
+.nav-dropdown--language-mobile {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .site-header .main-nav > .logo,
+  body.has-sticky-booking .site-header .main-nav > .logo {
+    background: transparent;
+  }
+
+  .site-header .main-nav {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr) var(--logo-image-width, auto) minmax(0, 1fr);
+    gap: clamp(24px, 2vw, 34px);
+  }
+
+  .site-header .header-nav-left {
+    position: relative;
+    left: 30px;
+    justify-content: flex-end;
+    gap: clamp(20px, 1.7vw, 28px);
+    transform: none;
+  }
+
+  .site-header .header-nav-right {
+    position: relative;
+    right: 30px;
+    justify-content: flex-start;
+    gap: clamp(20px, 1.7vw, 28px);
+    transform: none;
+  }
+
+  .site-header .header-actions {
+    position: absolute;
+    top: 0;
+    right: calc(50% - 50vw + var(--page-gutter));
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-4);
+    white-space: nowrap;
+  }
+
+  .site-header .main-nav__location--collapsed {
+    display: none !important;
+  }
+
+  .site-header .main-nav__location--desktop {
+    display: inline-flex;
+  }
+
+  .site-header .header-nav-right {
+    padding-inline-end: 0;
+    white-space: nowrap;
+  }
+
+  .site-header .header-actions > .nav-dropdown--language {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    flex: 0 0 44px;
+    width: 44px;
+    min-width: 44px;
+    min-height: var(--site-header-height);
+    align-self: stretch;
+    transform: none;
+  }
+
+  .site-header .main-nav .nav-dropdown--language > .nav-dropdown__trigger {
+    display: inline-flex;
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+  }
+
+  .site-header .main-nav .nav-dropdown--language > .nav-dropdown__trigger > .nav-dropdown__language-label,
+  .site-header .main-nav .nav-dropdown--language > .nav-dropdown__trigger > .nav-dropdown__chevron {
+    display: none;
+  }
+
+  .site-header .main-nav .nav-dropdown--language > .nav-dropdown__trigger > i {
+    display: block;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .site-header .main-nav .nav-dropdown--language > .nav-dropdown__menu {
+    position: fixed;
+    top: calc(var(--site-header-height) + var(--wp-admin-bar-offset) + 9px);
+    right: 0 !important;
+    left: auto !important;
+    width: 188px !important;
+    min-width: 188px !important;
+    max-width: 188px;
+    margin: 0;
+  }
+
+  .site-header .main-nav .nav-dropdown:not(.nav-dropdown--language) > .nav-dropdown__menu {
+    position: fixed;
+    top: calc(var(--site-header-height) + var(--wp-admin-bar-offset));
+    right: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0;
+    background: var(--color-header);
+    box-shadow: none;
+  }
+
+  .site-header .main-nav .nav-dropdown:not(.nav-dropdown--language) .nav-dropdown__inner {
+    width: 100%;
+    justify-content: start;
+    margin-inline: auto;
+    padding-top: clamp(26px, 2vw, 34px);
+    padding-right: max(var(--page-gutter), calc((100vw - 1080px) / 2));
+    padding-bottom: clamp(30px, 2.4vw, 40px);
+    padding-left: max(var(--page-gutter), calc((100vw - 1080px) / 2));
+  }
+
+  .site-header .main-nav .nav-dropdown__column--rooms {
+    width: min(400px, 100%);
+    margin-inline-start: -53px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .site-header .header-actions {
+    display: contents;
+  }
+
+  .site-header .header-actions > .header-book-now {
+    display: none !important;
+  }
+
+  .site-header .main-nav__location--desktop {
+    display: none !important;
+  }
+
+  .site-header .main-nav__location--collapsed {
+    display: flex;
+  }
+}
+
+/* Phone navigation: keep both link columns visually balanced. Accommodation
+ * links are first-level destinations, so they use the same alignment, weight
+ * and spacing as Home, Service, B2B and Contact. */
+@media (max-width: 767px) {
+  .site-header .main-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(12px, 5vw, 24px);
+    padding-inline: clamp(16px, 6vw, 26px);
+  }
+
+  .site-header .main-nav__side--left,
+  .site-header .main-nav__side--right {
+    grid-column: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    gap: 4px;
+    justify-items: stretch;
+  }
+
+  .site-header .main-nav__side > a,
+  .site-header .main-nav .main-nav__tablet-room-link {
+    display: flex !important;
+    width: 100%;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 4px;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .site-header .main-nav__location--desktop,
+  .site-header .header-actions > .nav-dropdown--language {
+    display: none !important;
+  }
+
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile > .nav-dropdown__trigger {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr) 12px;
+    gap: 8px;
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 4px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__language-label {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__chevron {
+    margin: 0;
+    justify-self: end;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__menu a {
+    min-width: 0;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: clamp(.65rem, 2.8vw, .72rem);
+    letter-spacing: .04em;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .site-header .header-book-now--persistent {
+    display: inline-flex;
+  }
+
+  body.has-header-booking .site-header .header-book-now--persistent {
+    display: inline-flex;
+    width: 52px;
+    min-width: 52px;
+    min-height: 48px;
+    padding: 0;
+  }
+
+  .site-header .main-nav .header-book-now--menu {
+    display: none;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 52px;
+    margin: 14px 0 2px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Expanded B2B chapters always retain the site's centered content gutters.
+ * Some split layouts combine `.container` and `.hospitality-block`; this
+ * scoped contract prevents the shared full-width split rule from allowing
+ * those sections to touch either viewport edge. */
+.b2b-page--expanded > :is(.section, .service-page-hero) > .container {
+  width: var(
+    --wide-section-container,
+    min(calc(100% - (var(--page-gutter) * 2)), var(--content-max, 1180px))
+  ) !important;
+  max-width: none;
+  margin-inline: auto;
+}
+
+/* Business destinations reuse the location page's distance-card language,
+ * while remaining a distinct full-width chapter beneath the location intro. */
+.b2b-location-layout {
+  display: grid;
+  gap: clamp(30px, 3.5vw, 48px);
+}
+
+.b2b-business-venues > h3 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--green-ink);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.b2b-business-venue-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(18px, 2vw, 26px);
+}
+
+.b2b-business-venue-card {
+  min-height: 168px;
+}
+
+/* The B2B room photograph joins directly to its information panel. Only the
+ * outer top edge follows the card radius; the internal bottom edge is square. */
+.b2b-page--expanded .b2b-room-showcase .room-card__image,
+.b2b-page--expanded .b2b-room-showcase .room-card__photo {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+}
+
+@media (max-width: 980px) {
+  .b2b-business-venue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .b2b-business-venue-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .b2b-business-venue-card {
+    min-height: 142px;
+  }
+}
+
+@media (max-width: 680px) {
+  .b2b-page--expanded .b2b-room-showcase .room-fact-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: start;
+  }
+
+  .b2b-page--expanded .b2b-room-showcase .room-fact-list:has(> .room-fact-row:nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .b2b-page--expanded .b2b-room-showcase .room-fact-row {
+    align-content: start;
+  }
+
+  .b2b-page--expanded .b2b-room-showcase .room-fact-row dd {
+    line-height: 1.25;
+  }
+}
+
+/* All internal heroes share one centered tablet composition. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .home-page .home-service-alternating--kosher .home-service-alternating__content {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .home-page .home-service-alternating--kosher .home-service-alternating__content > :is(h3, p) {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .home-page .home-service-alternating--kosher .home-service-alternating__cta {
+    justify-self: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .home-page .home-service-breakfast__content {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .home-page .home-service-breakfast__content > :is(h3, p) {
+    width: 100%;
+    max-width: 920px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .home-page .home-service-breakfast__facts {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .home-page .home-service-breakfast__cta {
+    justify-self: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .site-header .header-actions > .nav-dropdown--language > .nav-dropdown__trigger {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .site-header .header-actions > .nav-dropdown--language > .nav-dropdown__trigger > i {
+    justify-self: end;
+  }
+
+  .site-header .header-actions > .nav-dropdown--language > .nav-dropdown__trigger > .nav-dropdown__language-label {
+    justify-self: center;
+  }
+
+  .site-header .header-actions > .nav-dropdown--language > .nav-dropdown__trigger > .nav-dropdown__chevron {
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  .internal-page-hero :is(
+    .inner-page-hero__copy,
+    .service-page-hero__copy,
+    .rooms-hero__copy,
+    .apartments-hero__copy,
+    .events-hero__copy,
+    .room-detail-hero__copy
+  ) {
+    width: min(100%, 760px);
+    max-width: 760px;
+    justify-items: center;
+    justify-self: center;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .internal-page-hero :is(
+    .inner-page-hero__copy,
+    .service-page-hero__copy,
+    .rooms-hero__copy,
+    .apartments-hero__copy,
+    .events-hero__copy,
+    .room-detail-hero__copy
+  ) > :is(h1, h2, p) {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .internal-page-hero :is(
+    .inner-page-hero__copy,
+    .service-page-hero__copy,
+    .rooms-hero__copy,
+    .apartments-hero__copy,
+    .events-hero__copy,
+    .room-detail-hero__copy
+  ) > p::before {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .internal-page-hero :is(.hero-actions, [class*="hero__actions"]) {
+    justify-content: center;
+    justify-self: center;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}
+
+.home-page .group-offers-actions {
+  justify-content: center;
+  justify-self: center;
+  width: 100%;
+}
+
+/* Preserve the native 3:2 room photography instead of zooming it into the
+ * wider shared hero crop. Keeping the focal point at the bottom retains beds
+ * and furniture across every carousel slide. */
+.rooms-page .rooms-hero__media.rooms-hero__gallery {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+}
+
+.rooms-page .rooms-hero__media.rooms-hero__gallery .hospitality-slide,
+.rooms-page .rooms-hero__media.rooms-hero__gallery .hospitality-slide > img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.rooms-page .rooms-hero__media.rooms-hero__gallery .hospitality-slide > img {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* Wide but unusually tall viewports (for example 1800 × 3000) must not use
+ * the viewport-height desktop hero, which leaves a large empty green field. */
+@media (min-width: 1200px) and (max-aspect-ratio: 4 / 5) {
+  .home-page .urban-hero {
+    min-height: 0;
+    height: auto;
+    padding-block: clamp(44px, 5vw, 72px);
+  }
+
+  .home-page .urban-hero__content {
+    align-items: center;
+  }
+}
+
+/* Mobile internal heroes need a clear pause below the fixed header. The
+ * shared desktop composition is lifted by 20px above; cancel that lift on
+ * phones and establish the spacing on the section itself. */
+@media (max-width: 768px) {
+  .internal-page-hero {
+    padding-top: clamp(48px, 12vw, 60px);
+  }
+
+  .internal-page-hero > .container {
+    inset-block-start: 0;
+  }
+
+  .room-preview-modal__details {
+    padding-right: max(26px, env(safe-area-inset-right)) !important;
+    padding-left: max(26px, env(safe-area-inset-left)) !important;
+  }
+
+  .room-preview-modal__amenities-toggle {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .room-preview-modal__actions {
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+
+  .rooms-page .rooms-amenities-accordion__trigger {
+    display: flex !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 24px 28px;
+    align-items: center;
+    justify-content: space-between !important;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .rooms-page .rooms-amenities-accordion__heading {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .rooms-page .rooms-amenities-accordion__title {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    text-align: left;
+  }
+
+  .rooms-page .rooms-amenities-accordion__chevron {
+    position: static;
+    top: auto;
+    right: auto;
+    align-self: center;
+    flex: 0 0 auto;
+    margin: 0;
+    transform: rotate(45deg);
+  }
+
+  .rooms-page .rooms-amenities-accordion.is-open .rooms-amenities-accordion__chevron {
+    transform: rotate(225deg);
+  }
+
+  .home-page .home-service-breakfast__facts {
+    width: min(100%, 600px);
+    margin-right: auto;
+    margin-left: auto;
+    justify-self: center;
+  }
+
+  .home-page .home-service-fact {
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .home-page .home-location-arrival-card .arrival-card__tab {
+    width: 100%;
+    max-width: none;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .apartments-page .apartments-hero__media {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--editorial-media-radius, var(--radius-lg));
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .apartments-page .apartments-hero__media > img,
+  .apartments-page .apartments-hero__media > img:first-child,
+  .apartments-page .apartments-hero__media > img:last-child {
+    position: static;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  main.service-page:not(.b2b-page) .service-page-hero__media {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--editorial-media-radius, var(--radius-lg));
+  }
+
+  main.service-page:not(.b2b-page) .service-page-hero__media > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: 50% 68%;
+    border-radius: inherit;
+  }
+
+  .b2b-page .b2b-business-venues > h3 {
+    width: 100%;
+    max-width: none;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}
+
+/* Center presentation content across portrait and landscape tablets. */
+@media (min-width: 681px) and (max-width: 1440px) {
+  .site-footer {
+    padding-block: clamp(28px, 4vw, 48px);
+  }
+
+  .site-footer .footer-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .site-footer .footer-logo {
+    justify-self: center;
+  }
+
+  .site-footer .footer-logo img {
+    width: 108px;
+  }
+
+  .site-footer .footer-links {
+    width: min(100%, 860px);
+    justify-content: center;
+    gap: 14px 30px;
+  }
+
+  .site-footer .footer-contact-links {
+    width: auto;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  .site-footer .footer-contact-links a {
+    width: 44px;
+    height: 44px;
+  }
+
+  .home-page .location-distance-grid .location-distance-card {
+    justify-items: center !important;
+    align-content: center;
+    text-align: center !important;
+  }
+
+  .home-page .location-distance-grid .location-distance-card > :is(span, strong, small) {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center !important;
+  }
+
+  .rooms-page .rooms-overview-group-offer {
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .rooms-page .rooms-overview-group-offer > p {
+    width: min(100%, 75ch);
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: center !important;
+  }
+
+  .rooms-page .rooms-overview-group-offer > .btn {
+    justify-self: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .rooms-page .rooms-location-card > div:first-child {
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .rooms-page .rooms-location-card > div:first-child > :is(h2, p) {
+    width: min(100%, 75ch);
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: center !important;
+  }
+
+  .rooms-page .rooms-location-card .rooms-location-cta {
+    justify-self: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .home-page #services .home-service-alternating--kosher .home-service-alternating__content {
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .home-page #services .home-service-alternating--kosher .home-service-alternating__content > h3,
+  .home-page #services .home-service-alternating--kosher .home-service-alternating__content > p {
+    width: min(100%, 1100px);
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: center !important;
+  }
+
+  .home-page #services .home-service-alternating--kosher .home-service-alternating__cta {
+    justify-self: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .home-page #services .home-service-breakfast__content {
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .home-page #services .home-service-breakfast__content > h3,
+  .home-page #services .home-service-breakfast__content > p {
+    width: min(100%, 1100px);
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: center !important;
+  }
+
+  .home-page #services .home-service-breakfast__content > .home-service-breakfast__facts {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .home-page #services .home-service-breakfast__content > .home-service-breakfast__cta {
+    justify-self: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+/* Final tablet-only alignment guard: this intentionally comes after every
+ * component override so 769–1199px matches the centered phone presentation. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  main :is(
+    .section-heading, .service-editorial__intro, .apartment-section-copy,
+    .rooms-intro-copy, .rooms-intro-centered, .hospitality-intro,
+    .location-intro, .location-page-intro, .direct-booking-copy,
+    .group-offers-copy, .hospitality-copy, .sustainability-panel,
+    .service-breakfast-copy, .service-amenities-content,
+    .home-service-alternating__content, .home-service-breakfast__content,
+    .apartments-vienna-content, .rooms-overview-group-offer
+  ) {
+    justify-items: center;
+    justify-self: center;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  main :is(
+    .section-heading, .service-editorial__intro, .apartment-section-copy,
+    .rooms-intro-copy, .rooms-intro-centered, .hospitality-intro,
+    .location-intro, .location-page-intro, .direct-booking-copy,
+    .group-offers-copy, .hospitality-copy, .sustainability-panel,
+    .service-breakfast-copy, .service-amenities-content,
+    .home-service-alternating__content, .home-service-breakfast__content,
+    .apartments-vienna-content, .rooms-overview-group-offer
+  ) > :is(h1, h2, h3, p, .body-copy, .location-subtitle, .location-intro-copy) {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  main .section > .container > :is(h2, h3, p),
+  main :is(
+    .hero-actions, [class*="hero__actions"], .group-offers-actions,
+    .home-service-alternating__cta, .home-service-breakfast__cta,
+    .rooms-location-cta
+  ) {
+    justify-content: center;
+    justify-self: center;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  main :is(
+    .section-heading, .service-editorial__intro, .apartment-section-copy,
+    .rooms-intro-copy, .rooms-intro-centered, .hospitality-intro,
+    .location-intro, .location-page-intro, .direct-booking-copy,
+    .group-offers-copy, .hospitality-copy, .sustainability-panel,
+    .service-breakfast-copy, .home-service-alternating__content,
+    .home-service-breakfast__content, .apartments-vienna-content,
+    .rooms-overview-group-offer
+  ) > :is(.btn, a[class*="cta"], button[class*="cta"]) {
+    justify-self: center;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  /* Every hero copy variant shares one centered tablet contract. */
+  main :is(
+    .urban-hero__copy,
+    .urban-hero__intro,
+    .inner-page-hero__copy,
+    .service-page-hero__copy,
+    .rooms-hero__copy,
+    .apartments-hero__copy,
+    .events-hero__copy,
+    .room-detail-hero__copy,
+    .hero-copy
+  ) {
+    justify-items: center !important;
+    justify-self: center !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  main :is(
+    .urban-hero__copy,
+    .urban-hero__intro,
+    .inner-page-hero__copy,
+    .service-page-hero__copy,
+    .rooms-hero__copy,
+    .apartments-hero__copy,
+    .events-hero__copy,
+    .room-detail-hero__copy,
+    .hero-copy
+  ) :is(h1, h2, h3, p, .hero-text) {
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  main :is(
+    .inner-page-hero__copy,
+    .service-page-hero__copy,
+    .rooms-hero__copy,
+    .apartments-hero__copy,
+    .events-hero__copy,
+    .room-detail-hero__copy
+  ) > p::before {
+    right: 0 !important;
+    left: 0 !important;
+    margin-inline: auto !important;
+  }
+}
+
+/* Tablets use the same balanced collapsed menu as phones. Keep this final so
+ * legacy 769px+ navigation rules cannot reintroduce staggered columns. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .site-header .main-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: clamp(20px, 6vw, 56px);
+    row-gap: 4px;
+    padding-inline: clamp(24px, 6vw, 72px);
+  }
+
+  .site-header .main-nav__side--left,
+  .site-header .main-nav__side--right {
+    grid-column: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    gap: 4px;
+    justify-items: stretch;
+    align-content: start;
+  }
+
+  .site-header .main-nav__side > a,
+  .site-header .main-nav .main-nav__tablet-room-link {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center !important;
+    padding: 10px 4px !important;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: 1.25;
+    text-align: center !important;
+    white-space: normal;
+  }
+
+  .site-header .main-nav__location--desktop,
+  .site-header .header-actions > .nav-dropdown--language {
+    display: none !important;
+  }
+
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile {
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile > .nav-dropdown__trigger {
+    display: grid !important;
+    grid-template-columns: 22px minmax(0, 1fr) 12px;
+    gap: 8px;
+    width: 100% !important;
+    min-height: 48px;
+    padding: 10px 4px !important;
+    align-items: center;
+    justify-content: stretch !important;
+    text-align: center !important;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__language-label {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__chevron {
+    justify-self: end;
+    margin: 0;
+  }
+}
+
+/* Mobile and tablet heroes share the same centered copy treatment. */
+@media (max-width: 1199px) {
+  main .internal-page-hero :is(
+    .inner-page-hero__copy, .service-page-hero__copy, .rooms-hero__copy,
+    .apartments-hero__copy, .events-hero__copy, .room-detail-hero__copy
+  ),
+  main .urban-hero :is(.urban-hero__copy, .urban-hero__intro),
+  main .hero .hero-copy {
+    width: min(100%, 760px) !important;
+    max-width: 760px !important;
+    justify-items: center !important;
+    justify-self: center !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  main .internal-page-hero :is(
+    .inner-page-hero__copy, .service-page-hero__copy, .rooms-hero__copy,
+    .apartments-hero__copy, .events-hero__copy, .room-detail-hero__copy
+  ) > :is(h1, h2, h3, p),
+  main .urban-hero :is(.urban-hero__copy, .urban-hero__intro) :is(h1, h2, h3, p),
+  main .hero .hero-copy :is(h1, h2, h3, p, .hero-text) {
+    width: 100% !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  main .internal-page-hero :is(
+    .inner-page-hero__copy, .service-page-hero__copy, .rooms-hero__copy,
+    .apartments-hero__copy, .events-hero__copy, .room-detail-hero__copy
+  ) > p::before {
+    right: 0 !important;
+    left: 0 !important;
+    margin-inline: auto !important;
   }
 }

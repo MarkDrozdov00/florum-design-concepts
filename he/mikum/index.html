@@ -28,11 +28,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1784319490" media="all">
-<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1784335307" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1786295852" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1786295270" media="all">
+<link rel="stylesheet" id="florum-booking-panel-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/booking-panel.css?ver=1786281405" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0.2">
+<meta name="generator" content="WordPress 7.0.3">
 </head>
 <body class="rtl blog wp-theme-florum-theme florum-rtl" dir="rtl">
 <div class="site-scale-shell">
@@ -44,7 +45,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </a>
 
     <div class="mobile-header__actions">
-      <a class="header-book-now header-book-now--persistent reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
+      <button class="header-book-now header-book-now--persistent reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="פתיחת חלונית ההזמנה" data-label-open="פתיחת חלונית ההזמנה" data-label-close="סגירת חלונית ההזמנה">
+        <span data-booking-toggle-label>הזמינו עכשיו</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
       <button class="menu-toggle" type="button" aria-label="פתח תפריט" data-label-open="פתח תפריט" data-label-close="סגור תפריט" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
         <span></span>
@@ -53,7 +57,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
 
     <nav class="main-nav" id="primary-navigation">
-      <div class="main-nav__side main-nav__side--left">
+      <div class="main-nav__side main-nav__side--left header-nav-left">
         <a class="main-nav__desktop-home" href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/">בית</a>
         <div class="main-nav__tablet-room-links">
           <a class="main-nav__tablet-room-link" href="/florum-design-concepts/he/chadarim/">חדרים</a>
@@ -80,22 +84,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             </div>
           </div>
         </div>
-                <a href="/florum-design-concepts/he/sherutim/">שירותים</a>
-        <a class="is-current" aria-current="page" href="/florum-design-concepts/he/mikum/">מיקום</a>
+        <a class="main-nav__service" href="/florum-design-concepts/he/sherutim/">שירותים</a>
+        <a class="main-nav__location main-nav__location--collapsed is-current" href="/florum-design-concepts/he/mikum/" aria-current="page">מיקום</a>
       </div>
 
-      <a href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/" class="logo" aria-label="עמוד הבית של מלון פלורום">
+      <a href="/florum-design-concepts/he/home-%D7%A2%D7%91%D7%A8%D7%99%D7%AA/" class="logo header-logo" aria-label="עמוד הבית של מלון פלורום">
         <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/logo_white.webp" alt="Florum Hotel">
       </a>
 
-      <div class="main-nav__side main-nav__side--right">
+      <div class="main-nav__side main-nav__side--right header-nav-right">
+        <a class="main-nav__location main-nav__location--desktop is-current" href="/florum-design-concepts/he/mikum/" aria-current="page">מיקום</a>
         <a class="main-nav__b2b" href="/florum-design-concepts/he/asakim/">B2B</a>
         <a href="/florum-design-concepts/he/kesher/">יצירת קשר</a>
-        <a class="header-book-now reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
+        <div class="nav-dropdown nav-dropdown--language nav-dropdown--language-mobile">
+          <button class="nav-dropdown__trigger" type="button" aria-label="בחירת שפה" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu-mobile">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span class="nav-dropdown__language-label">Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu-mobile" role="menu">
+            <div class="nav-dropdown__inner">
+              <div class="nav-dropdown__column">
+                <a role="menuitem" href="/florum-design-concepts/location/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/lage/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/lokaciya/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/posizione/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/ubicacion/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/mikum/" class="is-current" aria-current="page"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-nav__actions header-actions">
+        <button class="header-book-now reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="פתיחת חלונית ההזמנה" data-label-open="פתיחת חלונית ההזמנה" data-label-close="סגירת חלונית ההזמנה">
+          <span data-booking-toggle-label>הזמינו עכשיו</span>
+          <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+        </button>
         <div class="nav-dropdown nav-dropdown--language">
           <button class="nav-dropdown__trigger" type="button" aria-label="בחירת שפה" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
-            <span>Languages</span>
+            <span class="nav-dropdown__language-label">Languages</span>
             <span class="nav-dropdown__chevron" aria-hidden="true"></span>
           </button>
           <div class="nav-dropdown__menu" id="language-menu" role="menu">
@@ -112,7 +142,109 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
       </div>
+
+      <button class="header-book-now header-book-now--menu reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="פתיחת חלונית ההזמנה" data-label-open="פתיחת חלונית ההזמנה" data-label-close="סגירת חלונית ההזמנה">
+        <span data-booking-toggle-label>הזמינו עכשיו</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
     </nav>
+  </div>
+
+  <div class="header-booking" data-header-booking hidden>
+    <div class="header-booking__backdrop" data-booking-dismiss aria-hidden="true"></div>
+    <div class="header-booking__experience">
+      <section class="header-booking__calendar" id="header-booking-calendar" data-booking-calendar hidden aria-label="בחירת תאריכים">
+        <div class="header-booking__calendar-mobile-head">
+          <h2>בחירת תאריכים</h2>
+          <button type="button" class="header-booking__calendar-close" data-calendar-close aria-label="סגירת לוח השנה"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__calendar-nav">
+          <button type="button" data-calendar-prev aria-label="החודש הקודם"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <h2 data-calendar-heading aria-live="polite"></h2>
+          <button type="button" data-calendar-next aria-label="החודש הבא"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__weekdays" data-calendar-weekdays></div>
+        <div class="header-booking__days" data-calendar-days role="grid"></div>
+        <button type="button" class="header-booking__apply" data-calendar-apply>אישור תאריכים</button>
+      </section>
+
+      <section class="header-booking__panel" id="header-booking-panel" aria-label="ביצוע הזמנה">
+        <h2>ביצוע הזמנה</h2>
+        <div class="header-booking__dates">
+          <button type="button" data-date-panel="check-in" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>צ׳ק-אין</span>
+            <strong data-check-in-day></strong>
+            <small data-check-in-month></small>
+          </button>
+          <button type="button" data-date-panel="check-out" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>צ׳ק-אאוט</span>
+            <strong data-check-out-day></strong>
+            <small data-check-out-month></small>
+          </button>
+        </div>
+        <div class="header-booking__guests">
+                      <div class="header-booking__guest" data-guest-control="rooms">
+              <span>חדרים</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-rooms-menu" aria-label="חדרים: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-rooms-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="adults">
+              <span>מבוגרים</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-adults-menu" aria-label="מבוגרים: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-adults-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="children">
+              <span>ילדים</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-children-menu" aria-label="ילדים: 0">
+                <strong data-guest-value>0</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-children-menu" hidden>
+                                  <button type="button" data-guest-option="0">0</button>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                  </div>
+        <button type="button" class="header-booking__submit" data-booking-submit>הזמינו עכשיו</button>
+      </section>
+    </div>
   </div>
 
 </header>
@@ -135,9 +267,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section location-page-section">
     <div class="container">
       <div class="location-page-intro reveal">
-        <h2>מחובר לעיר, רגוע עם ההגעה</h2>
+        <h2>מרחקים לנקודות הציון המרכזיות</h2>
         <p class="body-copy">
-          פלורום נמצא במרחק קצר ממסעדות, ברים, חנויות, פארקים ירוקים וקווי תחבורה שמקלים על גילוי וינה.        </p>
+          מלון פלורום ממוקם ברחוב טאבורשטראסה, בלב הרובע השני של וינה.        </p>
+        <p class="body-copy">
+          מרכז וינה, חיבורים נוחים והיעדים החשובים בעיר במרחק נגיש.        </p>
       </div>
 
       <div class="location-page-map-panel reveal delay-1">
@@ -188,26 +322,66 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </a>
       </div>
 
-      <div class="location-page-route-grid">
-        <article class="location-route-card reveal">
-          <div>
-            <h3>הגעה בתחבורה ציבורית</h3>
-            <p>בדקו לפני ההגעה את המסלול המהיר ביותר למלון פלורום. תחנות הרכבת התחתית הסמוכות מחברות במהירות למרכז, לתחנות ולנתיבי שדה התעופה.</p>
+      <div class="location-guide-stack">
+        <article class="location-guide location-guide--public reveal">
+          <figure class="location-guide__media">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/tram.webp" alt="חשמלית בווינה" width="1036" height="1800" loading="lazy" decoding="async">
+          </figure>
+          <div class="location-guide__content">
+            <h2>הגעה בתחבורה ציבורית</h2>
+            <p>התחנה הקרובה ביותר היא U2 Taborstraße, במרחק 200 מטר או שתי דקות הליכה מהקבלה. גם תחנת U1/U4 Schwedenplatz קרובה, במרחק 800 מטר או עשר דקות הליכה.</p>
+            <p>מגיעים משדה התעופה, מתחנת רכבת או ממסוף האוטובוסים? המסלולים הבאים יביאו אתכם בבטחה למלון פלורום.</p>
+            <div class="location-transport-sources" aria-label="נקודות הגעה">
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Airport&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="מסלול בתחבורה ציבורית ממלון פלורום לנמל התעופה וינה">נמל התעופה וינה</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Wien%20Hauptbahnhof,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="מסלול בתחבורה ציבורית ממלון פלורום לתחנה המרכזית של וינה">התחנה המרכזית</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Wien%20Westbahnhof,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="מסלול בתחבורה ציבורית ממלון פלורום ל־Wien Westbahnhof">וסטבאנהוף</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Busterminal%20VIB,%20Erdbergstra%C3%9Fe%20200A,%201030%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="מסלול בתחבורה ציבורית ממלון פלורום למסוף האוטובוסים הבינלאומי של וינה">V.I.B.</a>
+            </div>
           </div>
-          <ul class="arrival-detail-list">
-            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U2%20Taborstra%C3%9Fe,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל U2 Taborstrasse">U2 Taborstrasse</a></strong><span>200 מ, 2 דקות הליכה</span></li>
-            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U1/U4%20Schwedenplatz,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל U1/U4 Schwedenplatz">U1/U4 Schwedenplatz</a></strong><span>800 מ, 10 דקות הליכה</span></li>
-            <li><strong>חיבור לעיר</strong><span>גישה מצוינת לכל רחבי וינה</span></li>
-          </ul>
         </article>
 
-        <article class="location-route-card location-route-card--sage reveal delay-1">
-          <div>
-            <h3>אפשרויות חניה בקרבת מקום</h3>
-            <p>למלון פלורום אין חניון פרטי, אך יש מספר אפשרויות חניה בקרבת מקום.</p>
+        <section class="location-airport-routes reveal" aria-labelledby="airport-routes-title">
+          <div class="location-airport-routes__intro">
+            <h2 id="airport-routes-title">מנמל התעופה וינה</h2>
+            <p>ניתן להגיע למלון פלורום באמצעות City Airport Train ‏(CAT), רכבת פרברית או Railjet.</p>
           </div>
-          <ul class="arrival-detail-list">
-                    <li>
+          <div class="location-airport-routes__grid">
+            <article>
+              <span class="location-airport-routes__icon" aria-hidden="true"><i class="fa-solid fa-train"></i></span>
+              <div class="location-airport-routes__content">
+                <h3>CAT</h3>
+                <p>האפשרות המהירה ביותר מגיעה ישירות ל־Wien Mitte. ממשיכים ב־U3 עד Volkstheater ומחליפים ל־U2 עד Taborstraße. כרטיסי CAT זמינים במכונות בשדה התעופה.</p>
+                <strong>CAT ➜ Wien Mitte ➜ U3 Volkstheater ➜ U2 Taborstraße</strong>
+              </div>
+            </article>
+            <article>
+              <span class="location-airport-routes__icon" aria-hidden="true"><i class="fa-solid fa-train-subway"></i></span>
+              <div class="location-airport-routes__content">
+                <h3>S7</h3>
+                <p>ברכבת S7 נדרשת החלפה אחת בלבד: ב־Praterstern עוברים ל־U2 עד Taborstraße.</p>
+                <strong>S7 ➜ Praterstern ➜ U2 Taborstraße</strong>
+              </div>
+            </article>
+            <article>
+              <span class="location-airport-routes__icon" aria-hidden="true"><i class="fa-solid fa-route"></i></span>
+              <div class="location-airport-routes__content">
+                <h3>Railjet</h3>
+                <p>נוסעים ב־Railjet לתחנה המרכזית של וינה, ממשיכים ב־U1 עד Karlsplatz ומחליפים ל־U2 עד Taborstraße.</p>
+                <strong>Railjet ➜ Wien Hauptbahnhof ➜ U1 Karlsplatz ➜ U2 Taborstraße</strong>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <article class="location-guide location-guide--reverse reveal">
+          <figure class="location-guide__media">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/parking.webp" alt="חניה בווינה ליד מלון פלורום" width="1200" height="1800" loading="lazy" decoding="async">
+          </figure>
+          <div class="location-guide__content">
+            <h2>הגעה ברכב</h2>
+            <p>קל להגיע למלון פלורום ברכב. למלון אין חניה פרטית, אך יש מספר חניונים בקרבת מקום.</p>
+            <ul class="arrival-detail-list">
+                      <li>
           <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Parkgarage Rotensterngasse">Parkgarage Rotensterngasse</a></strong>
           <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Parkgarage Rotensterngasse">Rotensterngasse 23, 1020 Vienna</a></span>
         </li>
@@ -219,16 +393,79 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Tiefgarage Odeongasse">Tiefgarage Odeongasse</a></strong>
           <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="פתיחת מסלול ממלון פלורום אל Tiefgarage Odeongasse">Odeongasse 2–4, 1020 Vienna</a></span>
         </li>
-                  </ul>
+                    </ul>
+          </div>
+        </article>
+
+        <article class="location-guide location-guide--jewish reveal">
+          <figure class="location-guide__media">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/judisches.webp" alt="וינה היהודית ליד מלון פלורום" width="1200" height="1800" loading="lazy" decoding="async">
+          </figure>
+          <div class="location-guide__content">
+            <h2>וינה היהודית</h2>
+            <p>בסביבת המלון ברובע השני של וינה פועלת קהילה יהודית צומחת ותשתית יהודית עשירה, הכוללת מסעדות וסופרמרקטים כשרים, בתי ספר יהודיים, בתי תפילה ומוסדות חברתיים. אנו מציעים גם שירותים המסייעים בשמירת השבת.</p>
+            <p>לשאלות בנוגע לשירותים ולמתקנים שלנו, נשמח אם תיצרו איתנו קשר.</p>
+            <a class="btn btn-primary" href="/florum-design-concepts/he/kesher/">צרו קשר</a>
+          </div>
         </article>
       </div>
+
+      <section class="location-tips-section" aria-labelledby="location-tips-title">
+        <div class="section-heading reveal">
+          <h2 id="location-tips-title">6 טיפים לחופשה בווינה</h2>
+        </div>
+        <div class="location-tips-grid">
+                      <article class="location-tip reveal">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/tram.webp" alt="השתמשו ברשת התחבורה המצוינת של וינה" width="1036" height="1800" loading="lazy" decoding="async">
+              <div>
+                <h3>השתמשו ברשת התחבורה המצוינת של וינה</h3>
+                <p>רשת המטרו והחשמליות מאפשרת להגיע במהירות ובקלות לכל רחבי וינה. כרטיסים זמינים במכונות בתחנות או באפליקציית WienMobil החינמית. Vienna City Card כוללת תחבורה ציבורית והנחות במוזיאונים רבים, וזמינה אונליין או בקבלה.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal delay-1">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/parking.webp" alt="חניה נכונה בווינה" width="1200" height="1800" loading="lazy" decoding="async">
+              <div>
+                <h3>חניה נכונה בווינה</h3>
+                <p>רוב רובעי וינה הם אזורי חניה קצרת־טווח בתשלום. שוברים נמכרים בקיוסקים, תחנות דלק, סניפי דואר ונקודות Wiener Linien. ברובע השני החניה ברחובות מגורים מוסדרת בדרך כלל בימים שני–שישי בין 9:00 ל־22:00, וברחובות ראשיים כגון Taborstraße בין 8:00 ל־18:00. משך החניה המרבי הוא שעתיים.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/taborstrasse.webp" alt="גלו את טאבורשטראסה ההיסטורית" width="1024" height="576" loading="lazy" decoding="async">
+              <div>
+                <h3>גלו את טאבורשטראסה ההיסטורית</h3>
+                <p>טאבורשטראסה תועדה לראשונה בשנת 1406 והיא מהרחובות העתיקים בווינה. כיום היא משתרעת לאורך 2.5 ק״מ מ־Vorgartenstraße ועד תעלת הדנובה. בין המבנים הבולטים: כנסיית האחים ההוספיטלרים, תיאטרון Odeon והכנסייה הכרמליטית של יוסף הקדוש.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal delay-1">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/prater.webp" alt="בקרו בפראטר של וינה" width="1003" height="1800" loading="lazy" decoding="async">
+              <div>
+                <h3>בקרו בפראטר של וינה</h3>
+                <p>הגלגל הענק בפראטר הוא אחד מסמליה הידועים של וינה. קל להגיע לפראטר ממלון פלורום, והוא משלב פארק שעשועים מסורתי עם מרחב ירוק ציבורי גדול לטיולים ולספורט.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/market.webp" alt="תכננו ביקור בשוק" width="1800" height="1200" loading="lazy" decoding="async">
+              <div>
+                <h3>תכננו ביקור בשוק</h3>
+                <p>את תרבות השווקים הווינאית הקלאסית תמצאו ב־Karmelitermarkt בלב הרובע השני. לצד פירות וירקות יש מאכלים מכל העולם, בתי קפה, ברים ומסעדות—והכול במרחק הליכה קצר ממלון פלורום.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal delay-1">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/augarten.webp" alt="גלו נאות מדבר ירוקות בעיר" width="1800" height="1200" loading="lazy" decoding="async">
+              <div>
+                <h3>גלו נאות מדבר ירוקות בעיר</h3>
+                <p>אוגארטן היפהפה נמצא במרחק דקות הליכה מהמלון. המדשאות, הספסלים והשבילים המישוריים מתאימים למנוחה, ריצה או הליכה, ושני מגדלי הנ״מ מעניקים לפארק אופי ייחודי.</p>
+              </div>
+            </article>
+                  </div>
+      </section>
     </div>
   </section>
 
   <section class="section sustainability-section">
   <div class="container">
     <div class="sustainability-split">
-      <img class="sustainability-photo reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="פרט אירוח בר-קיימא במלון פלורום" width="1200" height="1500" loading="lazy" decoding="async">
+      <img class="sustainability-photo sustainability-photo--hospitality reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="פרט אירוח בר-קיימא במלון פלורום" width="1200" height="1500" loading="lazy" decoding="async">
       <div class="sustainability-panel reveal delay-1">
         <h2>מחויבות לקיימות</h2>
         <p class="body-copy">אנו מתמקדים גם בצעדי קיימות מעשיים התומכים בשהייה מודעת יותר - מצמצום מוצרים חד-פעמיים והפרדת פסולת ועד תפעול יומיומי חסכוני באנרגיה ובמים.</p>
@@ -282,6 +519,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </nav>
 
     <div class="footer-contact-links" aria-label="יצירת קשר עם מלון פלורום">
+      <a href="https://wa.me/4312126569" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </a>
       <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
       </a>
@@ -299,6 +539,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1784334863"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1786281827"></script>
 </body>
 </html>

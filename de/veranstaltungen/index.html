@@ -28,11 +28,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1784319490" media="all">
-<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1784335307" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1786295852" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1786295270" media="all">
+<link rel="stylesheet" id="florum-booking-panel-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/booking-panel.css?ver=1786281405" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0.2">
+<meta name="generator" content="WordPress 7.0.3">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
 <div class="site-scale-shell">
@@ -44,7 +45,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </a>
 
     <div class="mobile-header__actions">
-      <a class="header-book-now header-book-now--persistent reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Jetzt buchen</a>
+      <button class="header-book-now header-book-now--persistent reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Buchungsbereich öffnen" data-label-open="Buchungsbereich öffnen" data-label-close="Buchungsbereich schließen">
+        <span data-booking-toggle-label>Jetzt buchen</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
       <button class="menu-toggle" type="button" aria-label="Menü öffnen" data-label-open="Menü öffnen" data-label-close="Menü schließen" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
         <span></span>
@@ -53,7 +57,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
 
     <nav class="main-nav" id="primary-navigation">
-      <div class="main-nav__side main-nav__side--left">
+      <div class="main-nav__side main-nav__side--left header-nav-left">
         <a class="main-nav__desktop-home" href="/florum-design-concepts/de/home-deutsch/">Startseite</a>
         <div class="main-nav__tablet-room-links">
           <a class="main-nav__tablet-room-link" href="/florum-design-concepts/de/zimmer/">Zimmer</a>
@@ -80,22 +84,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             </div>
           </div>
         </div>
-                <a href="/florum-design-concepts/de/leistungen/">Leistungen</a>
-        <a href="/florum-design-concepts/de/lage/">Lage</a>
+        <a class="main-nav__service" href="/florum-design-concepts/de/leistungen/">Leistungen</a>
+        <a class="main-nav__location main-nav__location--collapsed" href="/florum-design-concepts/de/lage/">Lage</a>
       </div>
 
-      <a href="/florum-design-concepts/de/home-deutsch/" class="logo" aria-label="Florum Hotel Startseite">
+      <a href="/florum-design-concepts/de/home-deutsch/" class="logo header-logo" aria-label="Florum Hotel Startseite">
         <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/logo_white.webp" alt="Florum Hotel">
       </a>
 
-      <div class="main-nav__side main-nav__side--right">
+      <div class="main-nav__side main-nav__side--right header-nav-right">
+        <a class="main-nav__location main-nav__location--desktop" href="/florum-design-concepts/de/lage/">Lage</a>
         <a class="main-nav__b2b" href="/florum-design-concepts/de/geschaeftskunden/">B2B</a>
         <a href="/florum-design-concepts/de/kontakt/">Kontakt</a>
-        <a class="header-book-now reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Jetzt buchen</a>
-        <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button" aria-label="Sprache wählen" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+        <div class="nav-dropdown nav-dropdown--language nav-dropdown--language-mobile">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Sprache auswählen" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu-mobile">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
-            <span>Languages</span>
+            <span class="nav-dropdown__language-label">Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu-mobile" role="menu">
+            <div class="nav-dropdown__inner">
+              <div class="nav-dropdown__column">
+                <a role="menuitem" href="/florum-design-concepts/events/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/veranstaltungen/" class="is-current" aria-current="page"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/meropriyatiya/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/eventi/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/eventos/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/eruim/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-nav__actions header-actions">
+        <button class="header-book-now reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Buchungsbereich öffnen" data-label-open="Buchungsbereich öffnen" data-label-close="Buchungsbereich schließen">
+          <span data-booking-toggle-label>Jetzt buchen</span>
+          <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+        </button>
+        <div class="nav-dropdown nav-dropdown--language">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Sprache auswählen" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span class="nav-dropdown__language-label">Languages</span>
             <span class="nav-dropdown__chevron" aria-hidden="true"></span>
           </button>
           <div class="nav-dropdown__menu" id="language-menu" role="menu">
@@ -112,120 +142,254 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
       </div>
+
+      <button class="header-book-now header-book-now--menu reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Buchungsbereich öffnen" data-label-open="Buchungsbereich öffnen" data-label-close="Buchungsbereich schließen">
+        <span data-booking-toggle-label>Jetzt buchen</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
     </nav>
+  </div>
+
+  <div class="header-booking" data-header-booking hidden>
+    <div class="header-booking__backdrop" data-booking-dismiss aria-hidden="true"></div>
+    <div class="header-booking__experience">
+      <section class="header-booking__calendar" id="header-booking-calendar" data-booking-calendar hidden aria-label="Reisedaten auswählen">
+        <div class="header-booking__calendar-mobile-head">
+          <h2>Reisedaten auswählen</h2>
+          <button type="button" class="header-booking__calendar-close" data-calendar-close aria-label="Kalender schließen"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__calendar-nav">
+          <button type="button" data-calendar-prev aria-label="Vorheriger Monat"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <h2 data-calendar-heading aria-live="polite"></h2>
+          <button type="button" data-calendar-next aria-label="Nächster Monat"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__weekdays" data-calendar-weekdays></div>
+        <div class="header-booking__days" data-calendar-days role="grid"></div>
+        <button type="button" class="header-booking__apply" data-calendar-apply>Daten übernehmen</button>
+      </section>
+
+      <section class="header-booking__panel" id="header-booking-panel" aria-label="Reservierung vornehmen">
+        <h2>Reservierung vornehmen</h2>
+        <div class="header-booking__dates">
+          <button type="button" data-date-panel="check-in" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>Anreise</span>
+            <strong data-check-in-day></strong>
+            <small data-check-in-month></small>
+          </button>
+          <button type="button" data-date-panel="check-out" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>Abreise</span>
+            <strong data-check-out-day></strong>
+            <small data-check-out-month></small>
+          </button>
+        </div>
+        <div class="header-booking__guests">
+                      <div class="header-booking__guest" data-guest-control="rooms">
+              <span>Zimmer</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-rooms-menu" aria-label="Zimmer: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-rooms-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="adults">
+              <span>Erwachsene</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-adults-menu" aria-label="Erwachsene: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-adults-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="children">
+              <span>Kinder</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-children-menu" aria-label="Kinder: 0">
+                <strong data-guest-value>0</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-children-menu" hidden>
+                                  <button type="button" data-guest-option="0">0</button>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                  </div>
+        <button type="button" class="header-booking__submit" data-booking-submit>Jetzt buchen</button>
+      </section>
+    </div>
   </div>
 
 </header>
 
-<main class="urban-botanical-page events-page">
+<main class="events-page events-page--rebuilt">
   <section class="events-hero internal-page-hero">
     <div class="container events-hero__grid">
       <div class="events-hero__copy reveal">
-        <h1>Tagungen und Veranstaltungen im Florum Hotel</h1>
-        <p>Im Florum Hotel wird jedes Event zu einem unvergesslichen Erlebnis. Von Firmenveranstaltungen bis zu privaten Feiern machen flexible Räume, kuratiertes Catering und beeindruckende Rooftop-Ausblicke jeden Anlass besonders. Genießen Sie voll ausgestattete Eventräume, individuelle Speisen- und Getränkeoptionen und eine stilvolle Atmosphäre für jeden besonderen Tag. Entdecken Sie Florum und lassen Sie uns Ihnen helfen, ein Event zu gestalten, das in Erinnerung bleibt.</p>
+        <h1>Meetings und Events im Florum Hotel</h1>
+        <p>Im Florum Hotel machen wir jede Veranstaltung zu einem unvergesslichen Erlebnis. Von Firmenveranstaltungen bis zu persönlichen Feiern machen unsere vielseitigen Räume, unser ausgewähltes Catering und der beeindruckende Blick von der Dachterrasse jeden Anlass außergewöhnlich. Genießen Sie den Komfort voll ausgestatteter Veranstaltungsräume, individueller Speisen- und Getränkeoptionen und einer stilvollen Atmosphäre für jeden besonderen Tag. Entdecken Sie Florum und lassen Sie uns Ihnen helfen, eine Veranstaltung auszurichten, die in Erinnerung bleibt.</p>
       </div>
-      <div class="events-hero__media reveal delay-1">
-        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="Eventbereich im Florum Hotel" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async">
-      </div>
-    </div>
-  </section>
-
-  <section class="section events-gallery-section">
-    <div class="container">
-      <div class="section-heading reveal">
-        <h2>Räume für unvergessliche Zusammenkünfte</h2>
-      </div>
-      <div class="events-gallery">
-                  <figure class="events-gallery__item is-tall reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-13.webp" alt="Event-Lounge-Detail im Florum Hotel" width="1080" height="1350" loading="eager" decoding="async">
-          </figure>
-                  <figure class="events-gallery__item  reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-29.webp" alt="Rooftop-Event-Atmosphäre im Florum Hotel" width="1067" height="1600" loading="lazy" decoding="async">
-          </figure>
-                  <figure class="events-gallery__item  reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-3.webp" alt="Event-Setting im Florum Hotel" width="1080" height="1350" loading="lazy" decoding="async">
-          </figure>
-                  <figure class="events-gallery__item is-wide reveal">
-            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="Lobby-Event-Setup im Florum Hotel" width="1800" height="1200" loading="lazy" decoding="async">
-          </figure>
-              </div>
+      <figure class="events-hero__media reveal delay-1">
+        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-19.webp" alt="Eventatmosphäre im Hotel Florum" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async">
+      </figure>
     </div>
   </section>
 
   <section class="section events-overview-section">
-    <div class="container events-overview-card reveal">
-      <div>
-        <h2>Feiern Sie Ihr Event im Florum</h2>
-      </div>
-      <div>
-        <p>Teilen Sie Ihre Pläne mit unserem Team - wir helfen bei Raumsetup, Catering, Musik und Ablauf.</p>
-        <a class="btn events-cta" href="/florum-design-concepts/de/kontakt/">Kontakt</a>
+    <div class="container events-editorial-split reveal">
+      <figure class="events-editorial-split__media">
+        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-13.webp" alt="Flexibles Event-Setup im Hotel Florum" width="1080" height="1350" loading="lazy" decoding="async">
+      </figure>
+      <div class="events-editorial-split__copy">
+        <h2 class="type-section-heading">Kapazität</h2>
+        <p class="body-copy">Unsere 100 m² große Aula mit Tageslicht durch Deckenfenster, Fischgrätparkett aus Holz und flexibler Bestuhlung für bis zu 100 Gäste verfügt über eine Bar und Sanitärbereiche. Eine zweite, 100 m² große Indoor-Lounge bietet ohne Tageslicht einen gemütlichen, intimen Rahmen und Platz für ebenfalls bis zu 100 Gäste. Die Rooftop Bar eignet sich ideal für kleinere Veranstaltungen und bietet einen beeindruckenden Ausblick für bis zu 50 Gäste.</p>
       </div>
     </div>
   </section>
 
-  <section class="section events-details-section">
-    <div class="container events-details-grid">
-      <div class="events-details-copy reveal">
-        <h2>Alles bedacht für ein reibungsloses Event</h2>
-        <img class="events-details-photo" src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-16.webp" alt="Eventdetail in der Lobby des Florum Hotels" width="1080" height="1350" loading="lazy" decoding="async">
-      </div>
-      <div class="events-detail-list">
-                  <article class="events-detail-row reveal">
-            <h3>Food &amp; Drinks</h3>
-            <p>Das Florum Catering bietet vielfältige Menüoptionen, auf Anfrage auch halal und koscher.</p>
-          </article>
-                  <article class="events-detail-row reveal">
-            <h3>Musik</h3>
-            <p>Radio Florum steht kostenlos zur Verfügung; DJ-Equipment und Lautsprecher sind gegen Aufpreis verfügbar.</p>
-          </article>
-                  <article class="events-detail-row reveal">
-            <h3>Mindestkonsumation</h3>
-            <p>Wir orientieren uns an den üblichen Mindestkonsumationsrichtlinien für Hotel-Eventlocations in Wien.</p>
-          </article>
-                  <article class="events-detail-row reveal">
-            <h3>Stornierung</h3>
-            <p>Bis 14 Tage vor dem Event kostenfrei stornieren. Bei Stornierungen 7-14 Tage vorher fallen 50% an, innerhalb von 6 Tagen der volle Betrag.</p>
-          </article>
-                  <article class="events-detail-row reveal">
-            <h3>Zahlung</h3>
-            <p>Bitte überweisen Sie den vereinbarten Betrag 7 Tage vor dem Event. Zusätzliche Käufe vor Ort können per Karte bezahlt oder an die vereinbarte E-Mail-Adresse verrechnet werden.</p>
-          </article>
-              </div>
-    </div>
-  </section>
-
-  <section class="section events-capacity-section">
+  <section class="section events-spaces-section" aria-labelledby="event-spaces-title">
     <div class="container">
       <div class="section-heading reveal">
-        <h2>Kapazität</h2>
-        <p>Unsere 100 m² grosse Indoor Aula mit Tageslicht durch Deckenfenster, Fischgratparkett und flexibler Bestuhlung für bis zu 100 Gäste umfasst Bar und Sanitärbereiche. Eine zweite 100 m² grosse Indoor Lounge bietet ein gemütliches, intimes Ambiente ohne Tageslicht und ebenfalls Platz für bis zu 100 Gäste. Die Rooftop Bar ist perfekt für kleinere Events und bietet beeindruckende Ausblicke für bis zu 50 Gäste.</p>
+        <h2 id="event-spaces-title">Unsere Veranstaltungsräume</h2>
       </div>
-      <div class="events-capacity-grid">
-                  <article class="events-capacity-card reveal">
-            <p>100 m² · bis zu 100 Gäste</p>
-            <h3>Indoor Aula</h3>
-            <span>Unsere 100 m² grosse Indoor Aula bietet Tageslicht durch Deckenfenster, Fischgratparkett, flexible Bestuhlung, Bar und Sanitärbereiche.</span>
+      <div class="events-space-grid">
+                  <article class="events-space-card reveal">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-16.webp" alt="Aula-Eventraum im Hotel Florum" width="1080" height="1350" loading="lazy" decoding="async">
+            <div class="events-space-card__body">
+              <div class="events-space-card__heading">
+                <h3>Aula</h3>
+                <p>100 m²</p>
+              </div>
+              <ul>
+                                  <li>Tageslicht</li>
+                                  <li>Deckenfenster</li>
+                                  <li>Fischgrätparkett aus Holz</li>
+                                  <li>Flexible Bestuhlung</li>
+                                  <li>Bis zu 100 Gäste</li>
+                                  <li>Bar</li>
+                                  <li>Sanitärbereiche</li>
+                              </ul>
+            </div>
           </article>
-                  <article class="events-capacity-card reveal">
-            <p>100 m² · bis zu 100 Gäste</p>
-            <h3>Indoor Lounge</h3>
-            <span>Eine zweite 100 m² grosse Indoor Lounge bietet ein gemütliches, intimes Ambiente ohne Tageslicht und Platz für bis zu 100 Gäste.</span>
+                  <article class="events-space-card reveal delay-1">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-3.webp" alt="Lounge-Eventraum im Hotel Florum" width="1080" height="1350" loading="lazy" decoding="async">
+            <div class="events-space-card__body">
+              <div class="events-space-card__heading">
+                <h3>Lounge</h3>
+                <p>100 m²</p>
+              </div>
+              <ul>
+                                  <li>Gemütliche Atmosphäre</li>
+                                  <li>Kein Tageslicht</li>
+                                  <li>Flexible Bestuhlung</li>
+                                  <li>Bis zu 100 Gäste</li>
+                              </ul>
+            </div>
           </article>
-                  <article class="events-capacity-card reveal">
-            <p>Bis zu 50 Gäste</p>
-            <h3>Rooftop Bar</h3>
-            <span>Die Rooftop Bar ist ideal für kleinere Events und bietet beeindruckende Ausblicke für bis zu 50 Gäste.</span>
+                  <article class="events-space-card reveal delay-2">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/events/lobby-29.webp" alt="Rooftop Bar im Hotel Florum" width="1067" height="1600" loading="lazy" decoding="async">
+            <div class="events-space-card__body">
+              <div class="events-space-card__heading">
+                <h3>Rooftop Bar</h3>
+                <p>Bis zu 50 Gäste</p>
+              </div>
+              <ul>
+                                  <li>Lage auf dem Dach</li>
+                                  <li>Panoramablick über Wien</li>
+                                  <li>Ideal für Empfänge</li>
+                                  <li>Bis zu 50 Gäste</li>
+                              </ul>
+            </div>
           </article>
               </div>
+    </div>
+  </section>
+
+  <section class="section events-catering-section">
+    <div class="container events-editorial-split events-editorial-split--reverse reveal">
+      <figure class="events-editorial-split__media">
+        <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast-carousel.webp" alt="Frühstück und Event-Catering im Hotel Florum" width="1200" height="900" loading="lazy" decoding="async">
+      </figure>
+      <div class="events-editorial-split__copy">
+        <h2 class="type-section-heading">Speisen &amp; Getränke</h2>
+        <p class="body-copy">Das Florum Catering bietet vielfältige Menüoptionen, einschließlich Halal- und koscherer Speisen auf Anfrage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section events-information-section" aria-labelledby="event-information-title">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 id="event-information-title">Veranstaltungsinformationen</h2>
+      </div>
+      <ul class="events-information-list reveal">
+                  <li class="events-information-item">
+            <span class="events-information-item__icon" aria-hidden="true"><i class="fa-solid fa-music"></i></span>
+            <div>
+              <h3>Musik</h3>
+                              <p>Radio-Florum-Musik ist kostenlos verfügbar; DJ-Equipment und Lautsprecher sind gegen Aufpreis erhältlich.</p>
+                          </div>
+          </li>
+                  <li class="events-information-item">
+            <span class="events-information-item__icon" aria-hidden="true"><i class="fa-solid fa-receipt"></i></span>
+            <div>
+              <h3>Mindestkonsumation</h3>
+                              <p>Wir halten uns an die in Wien üblichen Mindestkonsumationsrichtlinien für Hotel-Eventlocations.</p>
+                          </div>
+          </li>
+                  <li class="events-information-item">
+            <span class="events-information-item__icon" aria-hidden="true"><i class="fa-solid fa-calendar-xmark"></i></span>
+            <div>
+              <h3>Stornierung</h3>
+                              <p>Bis 14 Tage vor Ihrer Veranstaltung können Sie kostenlos stornieren. Bei Stornierungen innerhalb von 7–14 Tagen fallen 50 % an, bei Stornierungen innerhalb von 6 Tagen der volle Betrag.</p>
+                          </div>
+          </li>
+                  <li class="events-information-item">
+            <span class="events-information-item__icon" aria-hidden="true"><i class="fa-solid fa-credit-card"></i></span>
+            <div>
+              <h3>Zahlung</h3>
+                              <p>Bitte überweisen Sie den vereinbarten Betrag 7 Tage vor der Veranstaltung. Zusätzliche Einkäufe vor Ort können per Karte bezahlt werden; unbezahlte Positionen werden an die vereinbarte E-Mail-Adresse fakturiert.</p>
+                          </div>
+          </li>
+              </ul>
     </div>
   </section>
 
   <section class="section events-final-section">
-    <div class="container events-final-cta reveal">
-      <h2>Planen Sie Ihr Event im Florum</h2>
-      <p>Erzählen Sie uns von Ihren Plänen - unser Team hilft bei Setup, Catering und Atmosphäre.</p>
-      <a class="btn events-cta" href="/florum-design-concepts/de/kontakt/">Anfrage senden</a>
+    <div class="container events-final-cta events-final-cta--dual reveal">
+      <h2>Planen Sie eine Veranstaltung?</h2>
+      <p>Unser Team unterstützt Sie gerne bei der Planung von Meetings, Feiern und Firmenveranstaltungen, die auf Ihre Bedürfnisse zugeschnitten sind.</p>
+      <div class="events-final-actions">
+        <a class="btn events-cta" href="/florum-design-concepts/de/kontakt/">Kontaktieren Sie uns</a>
+        <a class="btn events-cta events-cta--secondary" href="/florum-design-concepts/de/kontakt/">Event-Angebot anfragen</a>
+      </div>
     </div>
   </section>
 </main>
@@ -244,6 +408,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </nav>
 
     <div class="footer-contact-links" aria-label="Florum Hotel kontaktieren">
+      <a href="https://wa.me/4312126569" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </a>
       <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
       </a>
@@ -261,6 +428,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1784334863"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1786281827"></script>
 </body>
 </html>

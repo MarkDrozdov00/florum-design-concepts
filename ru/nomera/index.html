@@ -28,11 +28,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1784319490" media="all">
-<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1784335307" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1786295852" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1786295270" media="all">
+<link rel="stylesheet" id="florum-booking-panel-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/booking-panel.css?ver=1786281405" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0.2">
+<meta name="generator" content="WordPress 7.0.3">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
 <div class="site-scale-shell">
@@ -44,7 +45,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </a>
 
     <div class="mobile-header__actions">
-      <a class="header-book-now header-book-now--persistent reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Забронировать</a>
+      <button class="header-book-now header-book-now--persistent reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Открыть форму бронирования" data-label-open="Открыть форму бронирования" data-label-close="Закрыть форму бронирования">
+        <span data-booking-toggle-label>Забронировать</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
       <button class="menu-toggle" type="button" aria-label="Открыть меню" data-label-open="Открыть меню" data-label-close="Закрыть меню" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
         <span></span>
@@ -53,7 +57,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
 
     <nav class="main-nav" id="primary-navigation">
-      <div class="main-nav__side main-nav__side--left">
+      <div class="main-nav__side main-nav__side--left header-nav-left">
         <a class="main-nav__desktop-home" href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/">Главная</a>
         <div class="main-nav__tablet-room-links">
           <a class="main-nav__tablet-room-link is-current" href="/florum-design-concepts/ru/nomera/" aria-current="page">Номера</a>
@@ -80,22 +84,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             </div>
           </div>
         </div>
-                <a href="/florum-design-concepts/ru/uslugi/">Услуги</a>
-        <a href="/florum-design-concepts/ru/lokaciya/">Расположение</a>
+        <a class="main-nav__service" href="/florum-design-concepts/ru/uslugi/">Услуги</a>
+        <a class="main-nav__location main-nav__location--collapsed" href="/florum-design-concepts/ru/lokaciya/">Расположение</a>
       </div>
 
-      <a href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/" class="logo" aria-label="Главная отель Florum">
+      <a href="/florum-design-concepts/ru/home-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9/" class="logo header-logo" aria-label="Главная отель Florum">
         <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/logo_white.webp" alt="Florum Hotel">
       </a>
 
-      <div class="main-nav__side main-nav__side--right">
+      <div class="main-nav__side main-nav__side--right header-nav-right">
+        <a class="main-nav__location main-nav__location--desktop" href="/florum-design-concepts/ru/lokaciya/">Расположение</a>
         <a class="main-nav__b2b" href="/florum-design-concepts/ru/biznes/">B2B</a>
         <a href="/florum-design-concepts/ru/kontakty/">Контакты</a>
-        <a class="header-book-now reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Забронировать</a>
+        <div class="nav-dropdown nav-dropdown--language nav-dropdown--language-mobile">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Выбрать язык" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu-mobile">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span class="nav-dropdown__language-label">Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu-mobile" role="menu">
+            <div class="nav-dropdown__inner">
+              <div class="nav-dropdown__column">
+                <a role="menuitem" href="/florum-design-concepts/rooms/"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/zimmer/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/nomera/" class="is-current" aria-current="page"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/camere/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/habitaciones/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/chadarim/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-nav__actions header-actions">
+        <button class="header-book-now reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Открыть форму бронирования" data-label-open="Открыть форму бронирования" data-label-close="Закрыть форму бронирования">
+          <span data-booking-toggle-label>Забронировать</span>
+          <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+        </button>
         <div class="nav-dropdown nav-dropdown--language">
           <button class="nav-dropdown__trigger" type="button" aria-label="Выбрать язык" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
-            <span>Languages</span>
+            <span class="nav-dropdown__language-label">Languages</span>
             <span class="nav-dropdown__chevron" aria-hidden="true"></span>
           </button>
           <div class="nav-dropdown__menu" id="language-menu" role="menu">
@@ -112,7 +142,109 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
       </div>
+
+      <button class="header-book-now header-book-now--menu reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Открыть форму бронирования" data-label-open="Открыть форму бронирования" data-label-close="Закрыть форму бронирования">
+        <span data-booking-toggle-label>Забронировать</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
     </nav>
+  </div>
+
+  <div class="header-booking" data-header-booking hidden>
+    <div class="header-booking__backdrop" data-booking-dismiss aria-hidden="true"></div>
+    <div class="header-booking__experience">
+      <section class="header-booking__calendar" id="header-booking-calendar" data-booking-calendar hidden aria-label="Выберите даты">
+        <div class="header-booking__calendar-mobile-head">
+          <h2>Выберите даты</h2>
+          <button type="button" class="header-booking__calendar-close" data-calendar-close aria-label="Закрыть календарь"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__calendar-nav">
+          <button type="button" data-calendar-prev aria-label="Предыдущий месяц"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <h2 data-calendar-heading aria-live="polite"></h2>
+          <button type="button" data-calendar-next aria-label="Следующий месяц"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__weekdays" data-calendar-weekdays></div>
+        <div class="header-booking__days" data-calendar-days role="grid"></div>
+        <button type="button" class="header-booking__apply" data-calendar-apply>Применить даты</button>
+      </section>
+
+      <section class="header-booking__panel" id="header-booking-panel" aria-label="Забронировать номер">
+        <h2>Забронировать номер</h2>
+        <div class="header-booking__dates">
+          <button type="button" data-date-panel="check-in" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>Заезд</span>
+            <strong data-check-in-day></strong>
+            <small data-check-in-month></small>
+          </button>
+          <button type="button" data-date-panel="check-out" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>Выезд</span>
+            <strong data-check-out-day></strong>
+            <small data-check-out-month></small>
+          </button>
+        </div>
+        <div class="header-booking__guests">
+                      <div class="header-booking__guest" data-guest-control="rooms">
+              <span>Номера</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-rooms-menu" aria-label="Номера: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-rooms-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="adults">
+              <span>Взрослые</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-adults-menu" aria-label="Взрослые: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-adults-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="children">
+              <span>Дети</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-children-menu" aria-label="Дети: 0">
+                <strong data-guest-value>0</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-children-menu" hidden>
+                                  <button type="button" data-guest-option="0">0</button>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                  </div>
+        <button type="button" class="header-booking__submit" data-booking-submit>Забронировать</button>
+      </section>
+    </div>
   </div>
 
 </header>
@@ -121,8 +253,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="rooms-hero internal-page-hero internal-page-hero--gallery">
     <div class="container rooms-hero__grid">
       <div class="rooms-hero__copy reveal">
-        <h1>Номера в отеле Florum</h1>
-        <p>Оцените номера отеля Florum с цветочными оттенками розового и шалфейно-зеленого, натуральными деревянными полами, стильной мебелью и очень удобными кроватями с пружинным основанием.</p>
+        <h1>Номера и студии в отеле Florum</h1>
+        <p class="rooms-hero__intro">Комфортные номера и студии в Вене для городского отдыха, деловых поездок, семей и длительного проживания.<br>В отеле Florum тёплый дизайн, продуманные детали и практичный комфорт создают лёгкий отдых во 2-м районе Вены. Выбирайте уютные номера, просторные студии и варианты для семей.</p>
       </div>
       <div class="rooms-hero__media rooms-hero__gallery hospitality-fade-carousel reveal delay-1" data-fade-carousel aria-label="Галерея номеров">
                   <div class="hospitality-slide is-active-slide" style="--rooms-hero-focal-y: 68%;">
@@ -151,20 +283,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <div class="container">
       <div class="section-heading reveal">
         <h2>Наши номера</h2>
-        <p class="rooms-overview-intro">Найдите номер, который лучше всего подходит для вашего пребывания.</p>
+        <p class="rooms-overview-intro">Выбирайте комфортные номера и просторные студии для коротких поездок, деловых визитов, семейного и длительного проживания в Вене.</p>
+        <div class="rooms-overview-group-offer">
+          <p><strong>Бронируете более 9 номеров?</strong> Запросите индивидуальное предложение для группы или компании перед онлайн-бронированием.</p>
+          <a class="btn btn-primary" href="/florum-design-concepts/ru/kontakty/">Запросить групповое предложение</a>
+        </div>
       </div>
       <div class="rooms-overview-grid">
-                  <article class="rooms-overview-card reveal" id="room-single-room" data-room-key="single-room" data-room-title="Одноместный номер" data-room-size="15 кв. м" data-room-capacity="1 гость" data-room-description="Идеально для индивидуальных путешественников: светлый номер с двуспальной кроватью, телевизором с плоским экраном и минибаром. Без коврового покрытия, подходит для аллергиков и обеспечивает комфорт и чистоту.">
+                  <article class="rooms-overview-card reveal" id="room-single-room" data-room-preview-card data-room-key="single-room" data-room-title="Одноместный номер" data-room-size="15 кв. м" data-room-capacity="1 гость" data-room-description="Компактный и удобный номер для индивидуальных путешественников, деловых гостей и коротких поездок в Вену. Практичная планировка и все необходимые удобства обеспечивают спокойный отдых.">
             <a class="rooms-overview-card__media" href="#room-single-room" data-room-preview-trigger aria-label="Посмотреть Одноместный номер">
               <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp" alt="Одноместный номер в отеле Florum" width="1200" height="800" loading="eager" decoding="async">
             </a>
             <div class="rooms-overview-card__body">
               <h3><a href="#room-single-room" data-room-preview-trigger>Одноместный номер</a></h3>
+              <p class="rooms-overview-card__summary">
+                <span>15 м²</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>1 гость</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Односпальная кровать</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Индивидуальные поездки</span>              </p>
               <div class="rooms-overview-card__footer-row">
-                <div class="rooms-overview-card__facts" aria-label="Характеристики Одноместный номер">
-                  <span>15 кв. м</span>
-                  <span>1 гость</span>
-                </div>
                 <a class="rooms-explore-link" href="#room-single-room" data-room-preview-trigger>
                   <span>Посмотреть номер</span>
                   <span aria-hidden="true">→</span>
@@ -172,17 +306,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal" id="room-standard-room" data-room-key="standard-room" data-room-title="Стандартный номер" data-room-size="22 кв. м" data-room-capacity="2 гостя" data-room-description="Идеально для пар или индивидуальных гостей: номер с двуспальной кроватью, минибаром и телевизором с плоским экраном для стильного отдыха.">
+                  <article class="rooms-overview-card reveal" id="room-standard-room" data-room-preview-card data-room-key="standard-room" data-room-title="Стандартный номер" data-room-size="22 кв. м" data-room-capacity="2 гостя" data-room-description="Комфортный выбор для индивидуальных путешественников или пар. Стандартный номер просторнее одноместного и подходит для отдыха в городе, деловых и коротких поездок.">
             <a class="rooms-overview-card__media" href="#room-standard-room" data-room-preview-trigger aria-label="Посмотреть Стандартный номер">
               <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp" alt="Стандартный номер в отеле Florum" width="1200" height="800" loading="eager" decoding="async">
             </a>
             <div class="rooms-overview-card__body">
               <h3><a href="#room-standard-room" data-room-preview-trigger>Стандартный номер</a></h3>
+              <p class="rooms-overview-card__summary">
+                <span>22 м²</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>1–2 гостя</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Кровать размера queen-size</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Деловые поездки и отдых в городе</span>              </p>
               <div class="rooms-overview-card__footer-row">
-                <div class="rooms-overview-card__facts" aria-label="Характеристики Стандартный номер">
-                  <span>22 кв. м</span>
-                  <span>2 гостя</span>
-                </div>
                 <a class="rooms-explore-link" href="#room-standard-room" data-room-preview-trigger>
                   <span>Посмотреть номер</span>
                   <span aria-hidden="true">→</span>
@@ -190,17 +322,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal" id="room-superior-room" data-room-key="superior-room" data-room-title="Номер Супериор" data-room-size="29 кв. м" data-room-capacity="2-3 гостя" data-room-description="Идеально для небольших групп: номер с двуспальной кроватью и диваном-кроватью, современными удобствами и уютной атмосферой.">
+                  <article class="rooms-overview-card reveal" id="room-superior-room" data-room-preview-card data-room-key="superior-room" data-room-title="Номер Супериор" data-room-size="29 кв. м" data-room-capacity="2-3 гостя" data-room-description="Просторный номер для пар, небольших семей и гостей, предпочитающих дополнительный комфорт. Кровать шириной 180 см и диван-кровать обеспечивают гибкую планировку.">
             <a class="rooms-overview-card__media" href="#room-superior-room" data-room-preview-trigger aria-label="Посмотреть Номер Супериор">
               <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp" alt="Номер Супериор в отеле Florum" width="1200" height="800" loading="lazy" decoding="async">
             </a>
             <div class="rooms-overview-card__body">
               <h3><a href="#room-superior-room" data-room-preview-trigger>Номер Супериор</a></h3>
+              <p class="rooms-overview-card__summary">
+                <span>29 м²</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>1–3 гостя</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Кровать размера king-size</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Диван-кровать</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Пары и небольшие семьи</span>              </p>
               <div class="rooms-overview-card__footer-row">
-                <div class="rooms-overview-card__facts" aria-label="Характеристики Номер Супериор">
-                  <span>29 кв. м</span>
-                  <span>2-3 гостя</span>
-                </div>
                 <a class="rooms-explore-link" href="#room-superior-room" data-room-preview-trigger>
                   <span>Посмотреть номер</span>
                   <span aria-hidden="true">→</span>
@@ -208,17 +338,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal" id="room-studio" data-room-key="studio" data-room-title="Студия" data-room-size="29 кв. м" data-room-capacity="2-3 гостя" data-room-description="Эта студия создана для длительного проживания и включает мини-кухню, кофемашину и уютную зону отдыха. Отличный вариант для длительного проживания или апартаменты с гостиничным сервисом для продолжительных корпоративных поездок.">
+                  <article class="rooms-overview-card reveal" id="room-studio" data-room-preview-card data-room-key="studio" data-room-title="Студия" data-room-size="29 кв. м" data-room-capacity="2-3 гостя" data-room-description="Студия создана для длительного проживания, деловых поездок и гостей, ценящих самостоятельность. Здесь есть удобная спальная зона, мини-кухня, диван-кровать и практичные дополнения.">
             <a class="rooms-overview-card__media" href="#room-studio" data-room-preview-trigger aria-label="Посмотреть Студия">
               <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp" alt="Студия в отеле Florum" width="1200" height="800" loading="lazy" decoding="async">
             </a>
             <div class="rooms-overview-card__body">
               <h3><a href="#room-studio" data-room-preview-trigger>Студия</a></h3>
+              <p class="rooms-overview-card__summary">
+                <span>29 м²</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>1–3 гостя</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Кровать размера king-size</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Мини-кухня</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Длительное проживание</span>              </p>
               <div class="rooms-overview-card__footer-row">
-                <div class="rooms-overview-card__facts" aria-label="Характеристики Студия">
-                  <span>29 кв. м</span>
-                  <span>2-3 гостя</span>
-                </div>
                 <a class="rooms-explore-link" href="#room-studio" data-room-preview-trigger>
                   <span>Посмотреть номер</span>
                   <span aria-hidden="true">→</span>
@@ -226,17 +354,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal" id="room-deluxe-studio" data-room-key="deluxe-studio" data-room-title="Студия Делюкс" data-room-size="35 кв. м" data-room-capacity="4-5 гостей" data-room-description="Этот просторный роскошный люкс включает двуспальная кровать, диван-кровать и кухонную зону с удобствами высокого уровня. Идеально для семей, а также подходит для длительного проживания или апартаменты с гостиничным сервисом.">
+                  <article class="rooms-overview-card reveal" id="room-deluxe-studio" data-room-preview-card data-room-key="deluxe-studio" data-room-title="Студия Делюкс" data-room-size="35 кв. м" data-room-capacity="4-5 гостей" data-room-description="Просторная студия для семей, небольших групп и совместных поездок. Две кровати queen-size, мини-кухня и дополнительное пространство подходят для семейного и длительного проживания.">
             <a class="rooms-overview-card__media" href="#room-deluxe-studio" data-room-preview-trigger aria-label="Посмотреть Студия Делюкс">
               <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp" alt="Студия Делюкс в отеле Florum" width="1200" height="800" loading="lazy" decoding="async">
             </a>
             <div class="rooms-overview-card__body">
               <h3><a href="#room-deluxe-studio" data-room-preview-trigger>Студия Делюкс</a></h3>
+              <p class="rooms-overview-card__summary">
+                <span>35 м²</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>1–4 гостя</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>2 кровати размера queen-size</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Мини-кухня</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Семьи и небольшие группы</span>              </p>
               <div class="rooms-overview-card__footer-row">
-                <div class="rooms-overview-card__facts" aria-label="Характеристики Студия Делюкс">
-                  <span>35 кв. м</span>
-                  <span>4-5 гостей</span>
-                </div>
                 <a class="rooms-explore-link" href="#room-deluxe-studio" data-room-preview-trigger>
                   <span>Посмотреть номер</span>
                   <span aria-hidden="true">→</span>
@@ -244,17 +370,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
               </div>
             </div>
           </article>
-                  <article class="rooms-overview-card reveal" id="room-panorama-studio" data-room-key="panorama-studio" data-room-title="Панорамная студия" data-room-size="29 кв. м" data-room-capacity="2-3 гостя" data-room-description="Идеально для романтического отдыха: студия с эксклюзивной террасой с видом на город, полностью оборудованной мини-кухней и стильным интерьером.">
+                  <article class="rooms-overview-card reveal" id="room-panorama-studio" data-room-preview-card data-room-key="panorama-studio" data-room-title="Панорамная студия" data-room-size="29 кв. м" data-room-capacity="2-3 гостя" data-room-description="Светлая студия для особенного отдыха в Вене. Дополнительный комфорт, мини-кухня и красивый панорамный вид на город идеально подходят для пар.">
             <a class="rooms-overview-card__media" href="#room-panorama-studio" data-room-preview-trigger aria-label="Посмотреть Панорамная студия">
               <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp" alt="Панорамная студия в отеле Florum" width="1200" height="800" loading="lazy" decoding="async">
             </a>
             <div class="rooms-overview-card__body">
               <h3><a href="#room-panorama-studio" data-room-preview-trigger>Панорамная студия</a></h3>
+              <p class="rooms-overview-card__summary">
+                <span>29 м²</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>1–2 гостя</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Кровать размера king-size</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Мини-кухня</span><span class="rooms-overview-card__separator" aria-hidden="true"> · </span><span>Панорамный вид на город</span>              </p>
               <div class="rooms-overview-card__footer-row">
-                <div class="rooms-overview-card__facts" aria-label="Характеристики Панорамная студия">
-                  <span>29 кв. м</span>
-                  <span>2-3 гостя</span>
-                </div>
                 <a class="rooms-explore-link" href="#room-panorama-studio" data-room-preview-trigger>
                   <span>Посмотреть номер</span>
                   <span aria-hidden="true">→</span>
@@ -266,7 +390,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
   </section>
 
-  <script type="application/json" data-room-preview-catalog>{"single-room":{"title":"Одноместный номер","description":"Идеально для индивидуальных путешественников: светлый номер с двуспальной кроватью, телевизором с плоским экраном и минибаром. Без коврового покрытия, подходит для аллергиков и обеспечивает комфорт и чистоту.","facts":[{"label":"Гости","value":"1 человек"},{"label":"Площадь","value":"13-16 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 140 см"}],"highlights":["Компактная планировка для одного гостя","Номер, подходящий для аллергиков","Пол без ковролина","Минибар и телевизор с плоским экраном"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp","srcset":"","alt":"Одноместный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/Single1-carousel.webp","srcset":"","alt":"Одноместный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/Single2-carousel.webp","srcset":"","alt":"Одноместный номер в отеле Florum"}]},"standard-room":{"title":"Стандартный номер","description":"Идеально для пар или индивидуальных гостей: номер с двуспальной кроватью, минибаром и телевизором с плоским экраном для стильного отдыха.","facts":[{"label":"Гости","value":"1–2 человека"},{"label":"Площадь","value":"18-22 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 160 см"}],"highlights":["Кровать шириной 160 см","18-22 м²","Минибар и набор для кофе/чая","Вид на улицу или во двор"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp","srcset":"","alt":"Стандартный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris2-carousel.webp","srcset":"","alt":"Стандартный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris3-carousel.webp","srcset":"","alt":"Стандартный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris4-carousel.webp","srcset":"","alt":"Стандартный номер в отеле Florum"}]},"superior-room":{"title":"Номер Супериор","description":"Идеально для небольших групп: номер с двуспальной кроватью и диваном-кроватью, современными удобствами и уютной атмосферой.","facts":[{"label":"Гости","value":"1–3 человека"},{"label":"Площадь","value":"24-28 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 180 см"},{"label":"Дополнительно","value":"Диван-кровать"}],"highlights":["Диван-кровать","24-28 м²","Кровать шириной 180 см","Вид на улицу или во двор"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior2-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior3-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior4-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior5-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior6-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior7-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior8-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"}]},"studio":{"title":"Студия","description":"Эта студия создана для длительного проживания и включает мини-кухню, кофемашину и уютную зону отдыха. Отличный вариант для длительного проживания или апартаменты с гостиничным сервисом для продолжительных корпоративных поездок.","facts":[{"label":"Гости","value":"1–3 человека"},{"label":"Площадь","value":"24-28 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 180 см"},{"label":"Дополнительно","value":"Кухня, диван-кровать, халат"}],"highlights":["Кухня","Диван-кровать","Халат","Вид на улицу или во двор"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp","srcset":"","alt":"Студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia2-carousel.webp","srcset":"","alt":"Студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp","srcset":"","alt":"Студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia4-carousel.webp","srcset":"","alt":"Студия в отеле Florum"}]},"deluxe-studio":{"title":"Студия Делюкс","description":"Этот просторный роскошный люкс включает двуспальная кровать, диван-кровать и кухонную зону с удобствами высокого уровня. Идеально для семей, а также подходит для длительного проживания или апартаменты с гостиничным сервисом.","facts":[{"label":"Гости","value":"1–4 человека"},{"label":"Площадь","value":"30-35 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"2 кровати шириной 160 см"},{"label":"Дополнительно","value":"Кухня, халат"}],"highlights":["Кухня","2 кровати шириной 160 см","Халат","Вид на улицу или во двор"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe2-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe3-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe4-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe5-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe6-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe7-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe8-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"}]},"panorama-studio":{"title":"Панорамная студия","description":"Идеально для романтического отдыха: студия с эксклюзивной террасой с видом на город, полностью оборудованной мини-кухней и стильным интерьером.","facts":[{"label":"Гости","value":"1–2 человека"},{"label":"Площадь","value":"24-28 м²"},{"label":"Вид","value":"Панорамный вид на город"},{"label":"Кровать","value":"Кровать шириной 180 см"},{"label":"Дополнительно","value":"Кухня, халат"}],"highlights":["Терраса","Панорамный вид на город","Кухня","Халат"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose2-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose3-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose4-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose6-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose7-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose8-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose9-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose10-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose11-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose12-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose13-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose14-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose15-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"}]}}</script>
+  <script type="application/json" data-room-preview-catalog>{"single-room":{"title":"Одноместный номер","description":"Компактный и удобный номер для индивидуальных путешественников, деловых гостей и коротких поездок в Вену. Практичная планировка и все необходимые удобства обеспечивают спокойный отдых.","facts":[{"label":"Гости","value":"1 человек"},{"label":"Площадь","value":"13-16 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 140 см"}],"highlights":["Для индивидуальных путешественников","Компактная приватная планировка","Кровать шириной 140 см","Идеально для коротких и деловых поездок"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"amenityGroups":[{"title":"Сон и комфорт","items":["Кровать box-spring с премиальным матрасом","Постельное бельё","Подушки и одеяла","Светонепроницаемые шторы","Пол без ковролина"]},{"title":"Всё необходимое в ванной","items":["Собственная ванная комната с душем или ванной","Банные полотенца и полотенца для рук","Фен","Полный набор туалетных принадлежностей"]},{"title":"Оснащение номера","items":["Высокоскоростной Wi-Fi","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Сейф","Кондиционер и отопление"]}],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/SingleBett-card.webp","srcset":"","alt":"Одноместный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/Single1-carousel.webp","srcset":"","alt":"Одноместный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/single/Single2-carousel.webp","srcset":"","alt":"Одноместный номер в отеле Florum"}]},"standard-room":{"title":"Стандартный номер","description":"Комфортный выбор для индивидуальных путешественников или пар. Стандартный номер просторнее одноместного и подходит для отдыха в городе, деловых и коротких поездок.","facts":[{"label":"Гости","value":"1–2 человека"},{"label":"Площадь","value":"18-22 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 160 см"}],"highlights":["Подходит для 1–2 гостей","Кровать шириной 160 см","Больше места, чем в одноместном номере","Идеально для пар, городского отдыха и деловых поездок"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"amenityGroups":[{"title":"Сон и комфорт","items":["Кровать box-spring с премиальным матрасом","Постельное бельё","Подушки и одеяла","Светонепроницаемые шторы","Пол без ковролина"]},{"title":"Всё необходимое в ванной","items":["Собственная ванная комната с душем или ванной","Банные полотенца и полотенца для рук","Фен","Полный набор туалетных принадлежностей"]},{"title":"Оснащение номера","items":["Высокоскоростной Wi-Fi","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Сейф","Кондиционер и отопление"]}],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris1-card.webp","srcset":"","alt":"Стандартный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris2-carousel.webp","srcset":"","alt":"Стандартный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris3-carousel.webp","srcset":"","alt":"Стандартный номер в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/standard/Iris4-carousel.webp","srcset":"","alt":"Стандартный номер в отеле Florum"}]},"superior-room":{"title":"Номер Супериор","description":"Просторный номер для пар, небольших семей и гостей, предпочитающих дополнительный комфорт. Кровать шириной 180 см и диван-кровать обеспечивают гибкую планировку.","facts":[{"label":"Гости","value":"1–3 человека"},{"label":"Площадь","value":"24-28 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 180 см"},{"label":"Дополнительно","value":"Диван-кровать"}],"highlights":["Кровать шириной 180 см","Диван-кровать для дополнительного гостя","Больше места, чем в стандартном номере","Идеально для пар и небольших семей"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"amenityGroups":[{"title":"Сон и комфорт","items":["Кровать box-spring с премиальным матрасом","Постельное бельё","Подушки и одеяла","Светонепроницаемые шторы","Пол без ковролина"]},{"title":"Всё необходимое в ванной","items":["Собственная ванная комната с душем или ванной","Банные полотенца и полотенца для рук","Фен","Полный набор туалетных принадлежностей"]},{"title":"Оснащение номера","items":["Высокоскоростной Wi-Fi","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Сейф","Кондиционер и отопление"]}],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior1-card.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior2-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior3-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior4-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior5-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior6-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior7-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/superior/Superior8-carousel.webp","srcset":"","alt":"Номер Супериор в отеле Florum"}]},"studio":{"title":"Студия","description":"Студия создана для длительного проживания, деловых поездок и гостей, ценящих самостоятельность. Здесь есть удобная спальная зона, мини-кухня, диван-кровать и практичные дополнения.","facts":[{"label":"Гости","value":"1–3 человека"},{"label":"Площадь","value":"24-28 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"Кровать шириной 180 см"},{"label":"Дополнительно","value":"Кухня, диван-кровать, халат"}],"highlights":["Мини-кухня для большей самостоятельности","Диван-кровать для дополнительного гостя","Кровать шириной 180 см","Идеально для длительного проживания и деловых поездок"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"amenityGroups":[{"title":"Сон и комфорт","items":["Кровать box-spring с премиальным матрасом","Постельное бельё","Подушки и одеяла","Светонепроницаемые шторы","Пол без ковролина"]},{"title":"Всё необходимое в ванной","items":["Собственная ванная комната с душем или ванной","Банные полотенца и полотенца для рук","Фен","Полный набор туалетных принадлежностей"]},{"title":"Оснащение номера","items":["Высокоскоростной Wi-Fi","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Сейф","Кондиционер и отопление"]}],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia1-card.webp","srcset":"","alt":"Студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia2-carousel.webp","srcset":"","alt":"Студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia3-carousel.webp","srcset":"","alt":"Студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/studio/Camelia4-carousel.webp","srcset":"","alt":"Студия в отеле Florum"}]},"deluxe-studio":{"title":"Студия Делюкс","description":"Просторная студия для семей, небольших групп и совместных поездок. Две кровати queen-size, мини-кухня и дополнительное пространство подходят для семейного и длительного проживания.","facts":[{"label":"Гости","value":"1–4 человека"},{"label":"Площадь","value":"30-35 м²"},{"label":"Вид","value":"Вид на улицу или во двор"},{"label":"Кровать","value":"2 кровати шириной 160 см"},{"label":"Дополнительно","value":"Кухня, халат"}],"highlights":["2 кровати queen-size","До 4 гостей","Мини-кухня для длительного проживания","Идеально для семей и небольших групп"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"amenityGroups":[{"title":"Сон и комфорт","items":["Кровать box-spring с премиальным матрасом","Постельное бельё","Подушки и одеяла","Светонепроницаемые шторы","Пол без ковролина"]},{"title":"Всё необходимое в ванной","items":["Собственная ванная комната с душем или ванной","Банные полотенца и полотенца для рук","Фен","Полный набор туалетных принадлежностей"]},{"title":"Оснащение номера","items":["Высокоскоростной Wi-Fi","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Сейф","Кондиционер и отопление"]}],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe1-card.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe2-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe3-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe4-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe5-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe6-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe7-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/deluxe/Deluxe8-carousel.webp","srcset":"","alt":"Студия Делюкс в отеле Florum"}]},"panorama-studio":{"title":"Панорамная студия","description":"Светлая студия для особенного отдыха в Вене. Дополнительный комфорт, мини-кухня и красивый панорамный вид на город идеально подходят для пар.","facts":[{"label":"Гости","value":"1–2 человека"},{"label":"Площадь","value":"24-28 м²"},{"label":"Вид","value":"Панорамный вид на город"},{"label":"Кровать","value":"Кровать шириной 180 см"},{"label":"Дополнительно","value":"Кухня, халат"}],"highlights":["Панорамный вид на город","Кровать шириной 180 см","Мини-кухня для дополнительного комфорта","Идеально для пар и особенных поездок"],"amenities":["Высокоскоростной Wi-Fi","Кровать box-spring с премиальным матрасом","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Кондиционер и отопление","Сейф","Пол без ковролина","Полный набор туалетных принадлежностей","Фен"],"amenityGroups":[{"title":"Сон и комфорт","items":["Кровать box-spring с премиальным матрасом","Постельное бельё","Подушки и одеяла","Светонепроницаемые шторы","Пол без ковролина"]},{"title":"Всё необходимое в ванной","items":["Собственная ванная комната с душем или ванной","Банные полотенца и полотенца для рук","Фен","Полный набор туалетных принадлежностей"]},{"title":"Оснащение номера","items":["Высокоскоростной Wi-Fi","Телевизор с плоским экраном","Минибар","Набор для кофе и чая","Сейф","Кондиционер и отопление"]}],"images":[{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose1-card.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose2-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose3-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose4-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose5-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose6-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose7-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose8-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose9-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose10-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose11-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose12-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose13-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose14-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"},{"src":"/florum-design-concepts/wp-content/themes/florum-theme/images/rooms/panorama-studio-rose/Rose15-carousel.webp","srcset":"","alt":"Панорамная студия в отеле Florum"}]}}</script>
 
   <dialog class="room-preview-modal" data-room-preview-modal aria-labelledby="room-preview-title">
     <div class="room-preview-modal__shell">
@@ -295,22 +419,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <dl class="room-preview-modal__room-facts" data-room-preview-room-facts></dl>
           <p class="room-preview-modal__description" data-room-preview-description></p>
           <section class="room-preview-modal__feature-group">
-            <h3>Особенности номера</h3>
+            <h3>Что делает этот номер особенным</h3>
             <ul class="room-preview-modal__check-list" data-room-preview-highlights></ul>
           </section>
           <section class="room-preview-modal__feature-group room-preview-modal__feature-group--amenities">
-            <h3>Включенные удобства</h3>
-            <button class="room-preview-modal__amenities-toggle" id="room-preview-amenities-trigger" type="button" data-room-preview-amenities-toggle data-label-open="Посмотреть все удобства" data-label-close="Скрыть удобства" aria-expanded="false" aria-controls="room-preview-amenities-panel">
-              <span data-room-preview-amenities-label>Посмотреть все удобства</span>
+            <button class="room-preview-modal__amenities-toggle" id="room-preview-amenities-trigger" type="button" data-room-preview-amenities-toggle data-label-open="Включенные удобства" data-label-close="Включенные удобства" aria-expanded="false" aria-controls="room-preview-amenities-panel">
+              <span data-room-preview-amenities-label>Включенные удобства</span>
               <span class="room-preview-modal__amenities-chevron" aria-hidden="true"></span>
             </button>
             <div class="room-preview-modal__amenities-panel" id="room-preview-amenities-panel" role="region" aria-labelledby="room-preview-amenities-trigger" data-room-preview-amenities-panel hidden>
-              <ul class="room-preview-modal__check-list" data-room-preview-included-amenities></ul>
+              <div class="room-preview-modal__amenity-groups" data-room-preview-included-amenities></div>
+            </div>
+          </section>
+          <section class="room-preview-modal__feature-group room-preview-modal__feature-group--complimentary">
+            <button class="room-preview-modal__amenities-toggle" id="room-preview-complimentary-trigger" type="button" data-room-preview-complimentary-toggle aria-expanded="false" aria-controls="room-preview-complimentary-panel">
+              <span>Бесплатные принадлежности по запросу</span>
+              <span class="room-preview-modal__amenities-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="room-preview-modal__amenities-panel" id="room-preview-complimentary-panel" role="region" aria-labelledby="room-preview-complimentary-trigger" data-room-preview-complimentary-panel hidden>
+              <div class="room-preview-modal__complimentary">
+                <p>Дополнительные дорожные принадлежности можно бесплатно получить на стойке регистрации по запросу, включая тапочки, зубные наборы, ложки для обуви, шапочки для душа, швейные наборы, ватные палочки и диски.</p>
+                <p class="room-preview-modal__availability-note">Наличие может меняться.</p>
+              </div>
             </div>
           </section>
           <div class="room-preview-modal__divider" aria-hidden="true"></div>
           <div class="room-preview-modal__actions">
-            <a class="btn room-preview-modal__booking reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Проверить наличие</a>
+            <a class="btn btn-primary room-preview-modal__booking" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Проверить наличие</a>
           </div>
         </div>
       </div>
@@ -332,11 +467,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <div class="container">
       <div class="rooms-amenities-band rooms-amenities-band--overview rooms-amenities-accordion mobile-list-accordion reveal" data-mobile-list-accordion>
         <div class="rooms-amenities-heading rooms-amenities-heading--desktop">
-          <h2 class="type-section-heading">Что есть в каждом номере?</h2>
+          <h2 class="type-section-heading">Стандартные удобства номера</h2>
         </div>
         <h2 class="rooms-amenities-accordion__heading">
           <button class="rooms-amenities-accordion__trigger" id="rooms-amenities-trigger" type="button" aria-expanded="false" aria-controls="rooms-amenities-panel" data-mobile-list-trigger>
-            <span class="rooms-amenities-accordion__title">Что есть в каждом номере?</span>
+            <span class="rooms-amenities-accordion__title">Стандартные удобства номера</span>
             <span class="rooms-amenities-accordion__chevron" aria-hidden="true"></span>
           </button>
         </h2>
@@ -352,14 +487,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <li>Пожарный датчик</li>
       <li>Сейф</li>
       <li>Полы без коврового покрытия</li>
-      <li>Ванна</li>
+      <li>Ванна или душ</li>
       <li>Письменный стол</li>
       <li>Полотенца и постельное белье</li>
       <li>Полный набор туалетных принадлежностей</li>
       <li>Фен</li>
       <li>Тапочки</li>
       <li>Утюг по запросу</li>
-      <li>Электронный и механический доступ с ключом</li>
+      <li>Электронный доступ с ключом</li>
+      <li>Механический доступ с ключом</li>
   </ul>
           <div class="rooms-amenities-divider" aria-hidden="true"></div>
           <div class="rooms-amenities-heading rooms-amenities-heading--hotel">
@@ -385,10 +521,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   <section class="section rooms-corporate-section">
     <div class="container rooms-support-card apartments-corporate-card events-final-cta reveal">
-      <h2>Эксклюзивные предложения для групп и компаний</h2>
-      <p>Отель Florum, премиальный 4-звездочный отель в Вене, предлагает специальные тарифы и услуги для корпоративных групп: резерв номеров, кейтеринг и удобный доступ.</p>
+      <h2>Групповое или корпоративное проживание в Вене?</h2>
+      <p>При бронировании более 9 номеров Hotel Florum предлагает индивидуальные условия для компаний, групп и проектных команд.</p>
       <div class="corporate-card-actions rooms-corporate-actions">
-        <a class="btn events-cta rooms-support-cta" href="/florum-design-concepts/ru/biznes/">Узнать больше</a>
+        <a class="btn events-cta rooms-support-cta" href="/florum-design-concepts/ru/biznes/">Посмотреть B2B-предложения</a>
       </div>
     </div>
   </section>
@@ -398,8 +534,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <img class="reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/services/breakfast.webp" alt="Завтрак в отеле Florum" width="1024" height="683" loading="lazy" decoding="async">
       <div class="reveal delay-1">
         <h2>Начните день с завтрака в отеле Florum</h2>
-        <p>Насладитесь завтраком с сырами, мясными деликатесами, сезонными фруктами, хлебом и свежесваренным кофе.</p>
-        <a class="apartments-text-link rooms-breakfast-link" href="/florum-design-concepts/ru/uslugi/">Посмотреть варианты завтрака и бара</a>
+        <p>Сделайте проживание удобнее благодаря завтраку, бесплатному хранению багажа, гибкому времени прибытия и практичным услугам отеля.</p>
+        <a class="apartments-text-link rooms-breakfast-link" href="/florum-design-concepts/ru/uslugi/">Посмотреть услуги отеля</a>
       </div>
     </div>
   </section>
@@ -407,26 +543,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section rooms-location-section">
     <div class="container apartments-split-card rooms-location-card">
       <div class="reveal">
-        <h2>Расположение</h2>
-        <p>отель Отель Florum расположен в оживленном втором районе Вены, рядом с ресторанами, барами и парками; приветливый персонал всегда готов помочь.</p>
+        <h2>Остановитесь рядом с центром Вены</h2>
+        <p>Hotel Florum во 2-м районе Вены обеспечивает удобный доступ к транспорту, ресторанам, паркам и главным достопримечательностям — идеально для деловых, городских и длительных поездок.</p>
         <a class="btn location-map-cta rooms-location-cta" href="/florum-design-concepts/ru/lokaciya/">Расположение и прибытие</a>
       </div>
-      <a class="arrival-card__visual location-map-preview rooms-location-preview reveal delay-1" href="/florum-design-concepts/ru/lokaciya/" aria-label="Статический предварительный просмотр карты отель Florum в Вене">
-        <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/florum-map-preview.webp" alt="" width="1040" height="586" loading="lazy" decoding="async">
-        <span class="arrival-map-pin">Florum</span>
+      <a class="arrival-card__visual location-map-preview rooms-location-preview arrival-static-map--hotel reveal delay-1" href="/florum-design-concepts/ru/lokaciya/" aria-label="Статический предварительный просмотр карты отель Florum в Вене">
+        <img class="arrival-static-map__image" src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/map-florum.webp" alt="Иллюстрированная карта с отелем Florum, достопримечательностями и общественным транспортом Вены поблизости." width="1536" height="1024" loading="lazy" decoding="async">
       </a>
     </div>
   </section>
 
-  <section class="section rooms-final-cta-section">
-    <div class="container rooms-final-cta apartments-final-card events-final-cta reveal">
-      <h2>Готовы остановиться в отеле Florum?</h2>
-      <p>Выберите номер и забронируйте проживание в Вене напрямую у нас.</p>
-      <div class="apartments-final-actions">
-        <a class="btn events-cta rooms-hero__cta reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Забронировать</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -443,6 +569,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </nav>
 
     <div class="footer-contact-links" aria-label="Связаться с отель Florum">
+      <a href="https://wa.me/4312126569" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </a>
       <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
       </a>
@@ -460,6 +589,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1784334863"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1786281827"></script>
 </body>
 </html>

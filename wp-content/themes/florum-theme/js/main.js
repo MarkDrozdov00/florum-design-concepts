@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const fadeCarousels = document.querySelectorAll("[data-fade-carousel]");
   const bookingStrips = document.querySelectorAll(".booking-strip");
   const sliderTracks = document.querySelectorAll("[data-slider]");
-  const arrivalAccordions = document.querySelectorAll("[data-arrival-accordion]");
   const mobileListAccordions = document.querySelectorAll("[data-mobile-list-accordion]");
   const contactForms = document.querySelectorAll("[data-contact-form]");
   const hospitalityTabs = document.querySelectorAll("[data-hospitality-tabs], .hospitality-tabs");
@@ -13,6 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const siteHeader = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const mainNav = document.querySelector(".main-nav");
+  const revealPageContent = () => {
+    reveals.forEach((item) => item.classList.add("is-visible"));
+  };
+
+  // Reveals are progressive enhancement, never a rendering dependency.
+  // Schedule them before initializing interactive components so an unrelated
+  // runtime error cannot leave the page hidden on its light background.
+  window.requestAnimationFrame(revealPageContent);
+  window.setTimeout(revealPageContent, 1200);
+
   const syncAdminBarOffset = () => {
     if (isCollapsedNavigation()) {
       document.documentElement.style.setProperty("--wp-admin-bar-offset", "0px");
@@ -77,6 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mainNav.querySelectorAll("a:not(.nav-dropdown__trigger)").forEach((link) => {
       link.addEventListener("click", closeMenu);
+    });
+
+    mainNav.querySelectorAll("[data-booking-toggle]").forEach((button) => {
+      button.addEventListener("click", closeMenu);
     });
 
     window.addEventListener("resize", () => {
@@ -201,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const roomPreviewModal = document.querySelector("[data-room-preview-modal]");
   const roomPreviewTriggers = document.querySelectorAll("[data-room-preview-trigger]");
+  const roomPreviewCards = document.querySelectorAll("[data-room-preview-card]");
 
   if (roomPreviewModal && roomPreviewTriggers.length > 0) {
     const catalogElement = document.querySelector("[data-room-preview-catalog]");
@@ -216,6 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const amenitiesToggle = roomPreviewModal.querySelector("[data-room-preview-amenities-toggle]");
     const amenitiesLabel = roomPreviewModal.querySelector("[data-room-preview-amenities-label]");
     const amenitiesPanel = roomPreviewModal.querySelector("[data-room-preview-amenities-panel]");
+    const complimentaryToggle = roomPreviewModal.querySelector("[data-room-preview-complimentary-toggle]");
+    const complimentaryPanel = roomPreviewModal.querySelector("[data-room-preview-complimentary-panel]");
     const highlightsGroup = highlights?.closest(".room-preview-modal__feature-group");
     const amenitiesGroup = includedAmenities?.closest(".room-preview-modal__feature-group");
     const track = roomPreviewModal.querySelector("[data-room-preview-track]");
@@ -258,6 +274,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const unlockPage = () => {
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
       document.body.classList.remove("is-room-preview-open");
       document.body.style.position = "";
       document.body.style.top = "";
@@ -265,6 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.left = "";
       document.body.style.width = "";
       window.scrollTo(0, lockedScrollY);
+      window.requestAnimationFrame(() => {
+        root.style.scrollBehavior = previousScrollBehavior;
+      });
     };
 
     const renderLightboxImage = () => {
@@ -273,9 +295,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const image = activeImages[activeIndex];
+      // The room preview deliberately stretches some portrait photographs to
+      // fill its split panel. The fullscreen viewer must instead render the
+      // untouched asset at its natural aspect ratio, so do not carry its
+      // responsive/cropped source set into the lightbox.
+      lightboxImage.removeAttribute("srcset");
+      lightboxImage.removeAttribute("sizes");
       lightboxImage.src = image.src;
-      lightboxImage.srcset = image.srcset || "";
       lightboxImage.alt = image.alt;
+      if (lightboxStage) {
+        lightboxStage.style.backgroundImage = `url(${JSON.stringify(image.src)})`;
+      }
       lightboxCounter.textContent = `${activeIndex + 1} / ${activeImages.length}`;
       const multipleImages = activeImages.length > 1;
       lightboxPrevious.hidden = !multipleImages;
@@ -358,6 +388,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }));
     };
 
+    const renderAmenityGroups = (container, groups) => {
+      container.replaceChildren(...groups.map((group) => {
+        const section = document.createElement("section");
+        const heading = document.createElement("h4");
+        const list = document.createElement("ul");
+        section.className = "room-preview-modal__amenity-group";
+        heading.textContent = group.title;
+        list.className = "room-preview-modal__check-list";
+        renderCheckList(list, group.items);
+        section.append(heading, list);
+        return section;
+      }));
+    };
+
     const getPreviewData = (trigger, roomKey) => {
       const card = trigger?.closest(".rooms-overview-card");
       return {
@@ -375,13 +419,17 @@ document.addEventListener("DOMContentLoaded", () => {
       description.textContent = preview.description || room.description;
       renderRoomFacts(room.facts);
       renderCheckList(highlights, room.highlights);
-      renderCheckList(includedAmenities, room.amenities);
+      renderAmenityGroups(includedAmenities, room.amenityGroups || []);
       highlightsGroup.hidden = room.highlights.length === 0;
-      amenitiesGroup.hidden = room.amenities.length === 0;
+      amenitiesGroup.hidden = (room.amenityGroups || []).length === 0;
       amenitiesPanel.hidden = true;
-      amenitiesToggle.hidden = room.amenities.length === 0;
+      amenitiesToggle.hidden = (room.amenityGroups || []).length === 0;
       amenitiesToggle.setAttribute("aria-expanded", "false");
       amenitiesLabel.textContent = amenitiesToggle.dataset.labelOpen;
+      complimentaryToggle?.setAttribute("aria-expanded", "false");
+      if (complimentaryPanel) {
+        complimentaryPanel.hidden = true;
+      }
 
       activeImages = room.images;
       track.replaceChildren(...room.images.map((image, index) => {
@@ -392,6 +440,17 @@ document.addEventListener("DOMContentLoaded", () => {
         figure.setAttribute("role", "button");
         figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
         photo.src = image.src;
+        figure.classList.add("room-preview-gallery__slide--contained");
+        figure.style.backgroundImage = `url(${JSON.stringify(image.src)})`;
+        photo.style.position = "absolute";
+        photo.style.top = "50%";
+        photo.style.left = "0";
+        photo.style.width = "100%";
+        photo.style.height = "100%";
+        photo.style.maxHeight = "none";
+        photo.style.objectFit = "contain";
+        photo.style.objectPosition = "center";
+        photo.style.transform = "translateY(-50%)";
         if (image.srcset) {
           photo.srcset = image.srcset;
         }
@@ -432,6 +491,10 @@ document.addEventListener("DOMContentLoaded", () => {
       amenitiesGroup.hidden = true;
       amenitiesPanel.hidden = true;
       amenitiesToggle.hidden = true;
+      complimentaryToggle?.setAttribute("aria-expanded", "false");
+      if (complimentaryPanel) {
+        complimentaryPanel.hidden = true;
+      }
       activeImages = cardImage ? [{
         src: cardImage.currentSrc || cardImage.src,
         srcset: cardImage.srcset || "",
@@ -440,11 +503,12 @@ document.addEventListener("DOMContentLoaded", () => {
       track.replaceChildren(...activeImages.map((image) => {
         const figure = document.createElement("figure");
         const photo = document.createElement("img");
-        figure.className = "room-preview-gallery__slide is-active";
+        figure.className = "room-preview-gallery__slide room-preview-gallery__slide--contained is-active";
         figure.setAttribute("aria-hidden", "false");
         figure.tabIndex = 0;
         figure.setAttribute("role", "button");
         figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
+        figure.style.backgroundImage = `url(${JSON.stringify(image.src)})`;
         photo.src = image.src;
         if (image.srcset) {
           photo.srcset = image.srcset;
@@ -452,6 +516,15 @@ document.addEventListener("DOMContentLoaded", () => {
         photo.alt = image.alt;
         photo.loading = "eager";
         photo.decoding = "async";
+        photo.style.position = "absolute";
+        photo.style.top = "50%";
+        photo.style.left = "0";
+        photo.style.width = "100%";
+        photo.style.height = "100%";
+        photo.style.maxHeight = "none";
+        photo.style.objectFit = "contain";
+        photo.style.objectPosition = "center";
+        photo.style.transform = "translateY(-50%)";
         figure.append(photo);
         return figure;
       }));
@@ -485,10 +558,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const requestClose = () => {
       if (window.history.state?.florumRoomPreview) {
-        window.history.back();
-      } else {
-        finishClose();
+        const nextState = { ...window.history.state };
+        delete nextState.florumRoomPreview;
+        delete nextState.roomKey;
+
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.hash = "";
+        window.history.replaceState(nextState, "", cleanUrl.href);
       }
+
+      finishClose();
     };
 
     const openPreview = (roomKey, trigger = null, updateHistory = true) => {
@@ -527,7 +606,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    closeButton?.addEventListener("click", requestClose);
+    roomPreviewCards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button, input, select, textarea")) {
+          return;
+        }
+
+        const roomKey = card.dataset.roomKey;
+        const returnTarget = card.querySelector("[data-room-preview-trigger]");
+        openPreview(roomKey, returnTarget, true);
+      });
+    });
+
+    closeButton?.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      requestClose();
+    });
     previousButton?.addEventListener("click", () => showSlide(activeIndex - 1));
     nextButton?.addEventListener("click", () => showSlide(activeIndex + 1));
     track.addEventListener("click", (event) => {
@@ -549,6 +644,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ? amenitiesToggle.dataset.labelOpen
         : amenitiesToggle.dataset.labelClose;
       amenitiesPanel.hidden = expanded;
+    });
+    complimentaryToggle?.addEventListener("click", () => {
+      const expanded = complimentaryToggle.getAttribute("aria-expanded") === "true";
+      complimentaryToggle.setAttribute("aria-expanded", String(!expanded));
+      complimentaryPanel.hidden = expanded;
     });
 
     roomPreviewModal.addEventListener("click", (event) => {
@@ -679,50 +779,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.history.replaceState({ ...window.history.state, florumRoomPreviewBase: true }, "", baseUrl);
     }
   }
-
-  const homepageBookingBar = document.querySelector(".homepage-booking-bar");
-  const homepageBookingSentinel = document.querySelector("[data-booking-sticky-sentinel]");
-
-  if (homepageBookingBar && homepageBookingSentinel && siteHeader && "IntersectionObserver" in window) {
-    let bookingStickyObserver;
-
-    const setBookingStickyState = (isSticky) => {
-      homepageBookingBar.classList.toggle("is-sticky", isSticky);
-      document.body.classList.toggle("has-sticky-booking", isSticky);
-    };
-
-    const observeBookingStickyState = () => {
-      bookingStickyObserver?.disconnect();
-
-      if (isCollapsedNavigation()) {
-        setBookingStickyState(false);
-        return;
-      }
-
-      const headerBottom = Math.ceil(siteHeader.getBoundingClientRect().bottom);
-      const stickyLift = Number.parseFloat(
-        window.getComputedStyle(document.documentElement).getPropertyValue("--booking-sticky-lift")
-      ) || 0;
-      const stickyLine = headerBottom - stickyLift;
-      bookingStickyObserver = new IntersectionObserver(([entry]) => {
-        const isSticky = !entry.isIntersecting && entry.boundingClientRect.top <= stickyLine;
-        setBookingStickyState(isSticky);
-      }, {
-        rootMargin: `-${stickyLine}px 0px 0px 0px`,
-        threshold: 0,
-      });
-
-      bookingStickyObserver.observe(homepageBookingSentinel);
-    };
-
-    observeBookingStickyState();
-    window.addEventListener("resize", observeBookingStickyState);
-  }
-
-
-  window.requestAnimationFrame(() => {
-    reveals.forEach((item) => item.classList.add("is-visible"));
-  });
 
   if (serviceCards.length > 0) {
     serviceCards.forEach((card, index) => {
@@ -1770,32 +1826,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setActivePanel(getTriggerTarget(activeTrigger));
   });
 
-  arrivalAccordions.forEach((accordion) => {
-    const trigger = accordion.querySelector("[data-arrival-accordion-trigger]");
-    const panel = accordion.querySelector("[data-arrival-accordion-panel]");
-
-    if (!trigger || !panel) {
-      return;
-    }
-
-    const setOpen = (isOpen) => {
-      trigger.setAttribute("aria-expanded", String(isOpen));
-      panel.hidden = !isOpen;
-      accordion.classList.toggle("is-open", isOpen);
-    };
-
-    trigger.addEventListener("click", () => {
-      setOpen(trigger.getAttribute("aria-expanded") !== "true");
-    });
-
-    accordion.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && trigger.getAttribute("aria-expanded") === "true") {
-        setOpen(false);
-        trigger.focus();
-      }
-    });
-  });
-
   const initializeMobileAccordion = (accordion, triggerSelector, panelSelector) => {
     const trigger = accordion.querySelector(triggerSelector);
     const panel = accordion.querySelector(panelSelector);
@@ -1955,4 +1985,285 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 450);
     });
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const booking = document.querySelector("[data-header-booking]");
+  const toggles = Array.from(document.querySelectorAll("[data-booking-toggle]"));
+
+  if (!booking || toggles.length === 0) {
+    return;
+  }
+
+  const panel = booking.querySelector(".header-booking__panel");
+  const calendar = booking.querySelector("[data-booking-calendar]");
+  const daysGrid = booking.querySelector("[data-calendar-days]");
+  const weekdaysGrid = booking.querySelector("[data-calendar-weekdays]");
+  const calendarHeading = booking.querySelector("[data-calendar-heading]");
+  const dateButtons = Array.from(booking.querySelectorAll("[data-date-panel]"));
+  const language = (document.documentElement.lang || "en").split("-")[0].toLowerCase();
+  const locale = document.documentElement.lang || "en";
+  const isMobile = () => window.innerWidth <= 767;
+  const todayValue = new Date();
+  const today = new Date(todayValue.getFullYear(), todayValue.getMonth(), todayValue.getDate());
+  const addDays = (date, amount) => {
+    const next = new Date(date);
+    next.setDate(next.getDate() + amount);
+    return next;
+  };
+  const toIso = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+  const sameDay = (first, second) => first && second && toIso(first) === toIso(second);
+  const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" });
+  const shortMonthFormatter = new Intl.DateTimeFormat(locale, { month: "short" });
+  const fullDateFormatter = new Intl.DateTimeFormat(locale, { dateStyle: "full" });
+  const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: "short" });
+  const weekdayBase = new Date(2026, 7, 2);
+  const state = {
+    checkIn: today,
+    checkOut: addDays(today, 1),
+    visibleMonth: new Date(today.getFullYear(), today.getMonth(), 1),
+    selecting: "check-in",
+    awaitingEnd: false,
+    rooms: 1,
+    adults: 1,
+    children: 0,
+  };
+
+  const positionExperience = () => {
+    const activeToggle = toggles.find((toggle) => toggle.offsetParent !== null);
+    if (!activeToggle || window.innerWidth <= 1199) {
+      booking.style.removeProperty("--booking-anchor-right");
+      return;
+    }
+
+    const toggleRect = activeToggle.getBoundingClientRect();
+    const anchoredOffset = Math.max(16, window.innerWidth - toggleRect.right);
+    const experienceWidth = booking.querySelector(".header-booking__experience")?.scrollWidth || 0;
+    const maximumOffset = Math.max(16, window.innerWidth - experienceWidth - 16);
+    const rightOffset = Math.min(anchoredOffset, maximumOffset);
+    booking.style.setProperty("--booking-anchor-right", `${rightOffset}px`);
+  };
+
+  const setScrollLock = () => {
+    document.documentElement.classList.toggle("is-booking-locked", !booking.hidden && isMobile());
+  };
+
+  const updateDateSummary = () => {
+    const values = [
+      ["check-in", state.checkIn],
+      ["check-out", state.checkOut],
+    ];
+
+    values.forEach(([key, date]) => {
+      booking.querySelector(`[data-${key}-day]`).textContent = String(date.getDate()).padStart(2, "0");
+      booking.querySelector(`[data-${key}-month]`).textContent = shortMonthFormatter.format(date).replace(".", "").toUpperCase();
+    });
+  };
+
+  const renderCalendar = () => {
+    const monthStart = new Date(state.visibleMonth.getFullYear(), state.visibleMonth.getMonth(), 1);
+    const leadingDays = monthStart.getDay();
+    const gridStart = addDays(monthStart, -leadingDays);
+    calendarHeading.textContent = monthFormatter.format(monthStart).toUpperCase();
+    weekdaysGrid.innerHTML = Array.from({ length: 7 }, (_, index) => {
+      const label = weekdayFormatter.format(addDays(weekdayBase, index)).replace(".", "").toUpperCase();
+      return `<span aria-hidden="true">${label}</span>`;
+    }).join("");
+
+    daysGrid.innerHTML = Array.from({ length: 42 }, (_, index) => {
+      const date = addDays(gridStart, index);
+      const iso = toIso(date);
+      const isOutside = date.getMonth() !== monthStart.getMonth();
+      const isPast = date < today;
+      const isStart = sameDay(date, state.checkIn);
+      const isEnd = sameDay(date, state.checkOut);
+      const isInRange = date > state.checkIn && date < state.checkOut;
+      const classes = [
+        "header-booking__day",
+        isOutside ? "is-outside" : "",
+        isStart ? "is-range-start" : "",
+        isEnd ? "is-range-end" : "",
+        isInRange ? "is-in-range" : "",
+      ].filter(Boolean).join(" ");
+      const disabled = isPast || isOutside;
+
+      return `<button type="button" class="${classes}" data-calendar-date="${iso}" role="gridcell" aria-label="${fullDateFormatter.format(date)}" aria-selected="${isStart || isEnd}" aria-disabled="${disabled}"${disabled ? " disabled" : ""}>${date.getDate()}</button>`;
+    }).join("");
+  };
+
+  const setCalendarOpen = (open, source = null) => {
+    if (open) closeGuestMenus();
+    calendar.hidden = !open;
+    booking.classList.toggle("is-calendar-open", open);
+    dateButtons.forEach((button) => button.setAttribute("aria-expanded", String(open && button.dataset.datePanel === state.selecting)));
+
+    if (open) {
+      state.selecting = source || state.selecting;
+      state.awaitingEnd = false;
+      state.visibleMonth = new Date((state.selecting === "check-out" ? state.checkOut : state.checkIn).getFullYear(), (state.selecting === "check-out" ? state.checkOut : state.checkIn).getMonth(), 1);
+      renderCalendar();
+      window.requestAnimationFrame(() => {
+        positionExperience();
+        calendar.querySelector("[data-calendar-date]:not(:disabled)")?.focus({ preventScroll: true });
+      });
+    }
+  };
+
+  const closeGuestMenus = (except = null) => {
+    booking.querySelectorAll("[data-guest-control]").forEach((control) => {
+      if (control === except) return;
+      control.querySelector(":scope > button").setAttribute("aria-expanded", "false");
+      control.querySelector(".header-booking__guest-menu").hidden = true;
+    });
+  };
+
+  const setPanelOpen = (open, returnFocus = false) => {
+    booking.hidden = !open;
+    document.body.classList.toggle("has-header-booking", open);
+    toggles.forEach((toggle) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? toggle.dataset.labelClose : toggle.dataset.labelOpen);
+      toggle.classList.toggle("is-open", open);
+    });
+    if (!open) {
+      setCalendarOpen(false);
+      closeGuestMenus();
+      if (returnFocus) toggles.find((toggle) => toggle.offsetParent !== null)?.focus();
+    } else {
+      positionExperience();
+      window.requestAnimationFrame(() => panel?.focus({ preventScroll: true }));
+    }
+    setScrollLock();
+  };
+
+  toggles.forEach((toggle) => toggle.addEventListener("click", () => setPanelOpen(booking.hidden)));
+  booking.querySelector("[data-booking-dismiss]").addEventListener("click", () => {
+    if (!calendar.hidden) {
+      setCalendarOpen(false);
+      return;
+    }
+    setPanelOpen(false);
+  });
+  booking.querySelector("[data-calendar-close]").addEventListener("click", () => setCalendarOpen(false));
+  booking.querySelector("[data-calendar-apply]").addEventListener("click", () => setCalendarOpen(false));
+
+  dateButtons.forEach((button) => button.addEventListener("click", () => {
+    const requested = button.dataset.datePanel;
+    if (!calendar.hidden && state.selecting === requested) {
+      setCalendarOpen(false);
+      return;
+    }
+    state.selecting = requested;
+    setCalendarOpen(true, requested);
+  }));
+
+  booking.querySelector("[data-calendar-prev]").addEventListener("click", () => {
+    const previous = new Date(state.visibleMonth.getFullYear(), state.visibleMonth.getMonth() - 1, 1);
+    const currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    if (previous >= currentMonth) state.visibleMonth = previous;
+    renderCalendar();
+  });
+  booking.querySelector("[data-calendar-next]").addEventListener("click", () => {
+    state.visibleMonth = new Date(state.visibleMonth.getFullYear(), state.visibleMonth.getMonth() + 1, 1);
+    renderCalendar();
+  });
+
+  daysGrid.addEventListener("click", (event) => {
+    const day = event.target.closest("[data-calendar-date]");
+    if (!day || day.disabled) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const [year, month, date] = day.dataset.calendarDate.split("-").map(Number);
+    const selected = new Date(year, month - 1, date);
+
+    if (state.selecting === "check-out" && selected > state.checkIn) {
+      state.checkOut = selected;
+      state.awaitingEnd = false;
+      state.selecting = "check-in";
+    } else if (!state.awaitingEnd || selected <= state.checkIn) {
+      state.checkIn = selected;
+      state.checkOut = addDays(selected, 1);
+      state.awaitingEnd = true;
+      state.selecting = "check-out";
+    } else {
+      state.checkOut = selected;
+      state.awaitingEnd = false;
+      state.selecting = "check-in";
+    }
+
+    updateDateSummary();
+    renderCalendar();
+    // Date selection never dismisses the calendar. The first click starts the
+    // range and the second completes it; Apply Dates owns dismissal.
+    calendar.hidden = false;
+    booking.classList.add("is-calendar-open");
+    dateButtons.forEach((button) => {
+      button.setAttribute("aria-expanded", String(button.dataset.datePanel === state.selecting));
+    });
+  });
+
+  booking.querySelectorAll("[data-guest-control]").forEach((control) => {
+    const trigger = control.querySelector(":scope > button");
+    const menu = control.querySelector(".header-booking__guest-menu");
+    const key = control.dataset.guestControl;
+    trigger.addEventListener("click", () => {
+      const opening = menu.hidden;
+      if (opening) setCalendarOpen(false);
+      closeGuestMenus(opening ? control : null);
+      menu.hidden = !opening;
+      trigger.setAttribute("aria-expanded", String(opening));
+    });
+    menu.addEventListener("click", (event) => {
+      const option = event.target.closest("[data-guest-option]");
+      if (!option) return;
+      state[key] = Number(option.dataset.guestOption);
+      control.querySelector("[data-guest-value]").textContent = String(state[key]);
+      trigger.setAttribute("aria-label", `${control.querySelector(":scope > span").textContent}: ${state[key]}`);
+      menu.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.focus();
+    });
+  });
+
+  booking.querySelector("[data-booking-submit]").addEventListener("click", () => {
+    const destination = new URL("https://reservations.hotel-spider.com/02S612795b139dec");
+    destination.searchParams.set("checkIn", toIso(state.checkIn));
+    destination.searchParams.set("checkOut", toIso(state.checkOut));
+    destination.searchParams.set("nbAdults", String(state.adults));
+    destination.searchParams.set("nbChildren", String(state.children));
+    destination.searchParams.set("lang", ["de", "ru", "it", "es", "he"].includes(language) ? language : "en");
+    window.open(destination.toString(), "_blank", "noopener,noreferrer");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (booking.hidden || event.target.closest("[data-booking-toggle]") || booking.querySelector(".header-booking__experience").contains(event.target)) return;
+    if (!calendar.hidden) {
+      setCalendarOpen(false);
+    } else {
+      setPanelOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || booking.hidden) return;
+    event.preventDefault();
+    if (!calendar.hidden) {
+      setCalendarOpen(false);
+      dateButtons.find((button) => button.dataset.datePanel === state.selecting)?.focus();
+    } else {
+      setPanelOpen(false, true);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    setScrollLock();
+    if (!booking.hidden) positionExperience();
+  });
+  updateDateSummary();
+  renderCalendar();
 });

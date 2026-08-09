@@ -28,11 +28,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="stylesheet" id="florum-fonts-css" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Sacramento&amp;display=swap" media="all">
-<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1784319490" media="all">
-<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1784335307" media="all">
+<link rel="stylesheet" id="florum-main-style-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/main.css?ver=1786295852" media="all">
+<link rel="stylesheet" id="florum-responsive-mode-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/responsive-mode.css?ver=1786295270" media="all">
+<link rel="stylesheet" id="florum-booking-panel-css" href="/florum-design-concepts/wp-content/themes/florum-theme/assets/css/booking-panel.css?ver=1786281405" media="all">
 <link rel="stylesheet" id="font-awesome-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css?ver=6.5.2" media="all">
 <link rel="https://api.w.org/" href="/florum-design-concepts/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/florum-design-concepts/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.0.2">
+<meta name="generator" content="WordPress 7.0.3">
 </head>
 <body class="blog wp-theme-florum-theme florum-ltr" dir="ltr">
 <div class="site-scale-shell">
@@ -44,7 +45,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </a>
 
     <div class="mobile-header__actions">
-      <a class="header-book-now header-book-now--persistent reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
+      <button class="header-book-now header-book-now--persistent reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Open booking panel" data-label-open="Open booking panel" data-label-close="Close booking panel">
+        <span data-booking-toggle-label>Book Now</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
       <button class="menu-toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
         <span></span>
@@ -53,7 +57,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </div>
 
     <nav class="main-nav" id="primary-navigation">
-      <div class="main-nav__side main-nav__side--left">
+      <div class="main-nav__side main-nav__side--left header-nav-left">
         <a class="main-nav__desktop-home" href="/florum-design-concepts/">Home</a>
         <div class="main-nav__tablet-room-links">
           <a class="main-nav__tablet-room-link" href="/florum-design-concepts/rooms/">Rooms</a>
@@ -80,22 +84,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             </div>
           </div>
         </div>
-                <a href="/florum-design-concepts/service/">Service</a>
-        <a class="is-current" aria-current="page" href="/florum-design-concepts/location/">Location</a>
+        <a class="main-nav__service" href="/florum-design-concepts/service/">Service</a>
+        <a class="main-nav__location main-nav__location--collapsed is-current" href="/florum-design-concepts/location/" aria-current="page">Location</a>
       </div>
 
-      <a href="/florum-design-concepts/" class="logo" aria-label="Florum Hotel home">
+      <a href="/florum-design-concepts/" class="logo header-logo" aria-label="Florum Hotel home">
         <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/logo_white.webp" alt="Florum Hotel">
       </a>
 
-      <div class="main-nav__side main-nav__side--right">
+      <div class="main-nav__side main-nav__side--right header-nav-right">
+        <a class="main-nav__location main-nav__location--desktop is-current" href="/florum-design-concepts/location/" aria-current="page">Location</a>
         <a class="main-nav__b2b" href="/florum-design-concepts/business/">B2B</a>
         <a href="/florum-design-concepts/contact/">Contact</a>
-        <a class="header-book-now reservation-cta" href="https://reservations.hotel-spider.com/02S612795b139dec" target="_blank" rel="noopener noreferrer">Book Now</a>
-        <div class="nav-dropdown nav-dropdown--language">
-          <button class="nav-dropdown__trigger" type="button" aria-label="Choose language" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+        <div class="nav-dropdown nav-dropdown--language nav-dropdown--language-mobile">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Select language" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu-mobile">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
-            <span>Languages</span>
+            <span class="nav-dropdown__language-label">Languages</span>
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown__menu" id="language-menu-mobile" role="menu">
+            <div class="nav-dropdown__inner">
+              <div class="nav-dropdown__column">
+                <a role="menuitem" href="/florum-design-concepts/location/" class="is-current" aria-current="page"><span>English</span><small>English</small></a>
+                <a role="menuitem" href="/florum-design-concepts/de/lage/"><span>German</span><small lang="de">Deutsch</small></a>
+                <a role="menuitem" href="/florum-design-concepts/ru/lokaciya/"><span>Russian</span><small lang="ru">Русский</small></a>
+                <a role="menuitem" href="/florum-design-concepts/it/posizione/"><span>Italian</span><small lang="it">Italiano</small></a>
+                <a role="menuitem" href="/florum-design-concepts/es/ubicacion/"><span>Spanish</span><small lang="es">Español</small></a>
+                <a role="menuitem" href="/florum-design-concepts/he/mikum/"><span>Hebrew</span><small lang="he" dir="rtl">עברית</small></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-nav__actions header-actions">
+        <button class="header-book-now reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Open booking panel" data-label-open="Open booking panel" data-label-close="Close booking panel">
+          <span data-booking-toggle-label>Book Now</span>
+          <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+        </button>
+        <div class="nav-dropdown nav-dropdown--language">
+          <button class="nav-dropdown__trigger" type="button" aria-label="Select language" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span class="nav-dropdown__language-label">Languages</span>
             <span class="nav-dropdown__chevron" aria-hidden="true"></span>
           </button>
           <div class="nav-dropdown__menu" id="language-menu" role="menu">
@@ -112,7 +142,109 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
       </div>
+
+      <button class="header-book-now header-book-now--menu reservation-cta" type="button" data-booking-toggle aria-expanded="false" aria-controls="header-booking-panel" aria-label="Open booking panel" data-label-open="Open booking panel" data-label-close="Close booking panel">
+        <span data-booking-toggle-label>Book Now</span>
+        <i class="fa-solid fa-xmark" data-booking-toggle-close aria-hidden="true"></i>
+      </button>
     </nav>
+  </div>
+
+  <div class="header-booking" data-header-booking hidden>
+    <div class="header-booking__backdrop" data-booking-dismiss aria-hidden="true"></div>
+    <div class="header-booking__experience">
+      <section class="header-booking__calendar" id="header-booking-calendar" data-booking-calendar hidden aria-label="Choose your dates">
+        <div class="header-booking__calendar-mobile-head">
+          <h2>Select your dates</h2>
+          <button type="button" class="header-booking__calendar-close" data-calendar-close aria-label="Close calendar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__calendar-nav">
+          <button type="button" data-calendar-prev aria-label="Previous month"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <h2 data-calendar-heading aria-live="polite"></h2>
+          <button type="button" data-calendar-next aria-label="Next month"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="header-booking__weekdays" data-calendar-weekdays></div>
+        <div class="header-booking__days" data-calendar-days role="grid"></div>
+        <button type="button" class="header-booking__apply" data-calendar-apply>Apply dates</button>
+      </section>
+
+      <section class="header-booking__panel" id="header-booking-panel" aria-label="Make a reservation">
+        <h2>Make a reservation</h2>
+        <div class="header-booking__dates">
+          <button type="button" data-date-panel="check-in" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>Check in</span>
+            <strong data-check-in-day></strong>
+            <small data-check-in-month></small>
+          </button>
+          <button type="button" data-date-panel="check-out" aria-expanded="false" aria-controls="header-booking-calendar">
+            <span>Check out</span>
+            <strong data-check-out-day></strong>
+            <small data-check-out-month></small>
+          </button>
+        </div>
+        <div class="header-booking__guests">
+                      <div class="header-booking__guest" data-guest-control="rooms">
+              <span>Rooms</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-rooms-menu" aria-label="Rooms: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-rooms-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="adults">
+              <span>Adults</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-adults-menu" aria-label="Adults: 1">
+                <strong data-guest-value>1</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-adults-menu" hidden>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                      <div class="header-booking__guest" data-guest-control="children">
+              <span>Children</span>
+              <button type="button" aria-expanded="false" aria-controls="booking-children-menu" aria-label="Children: 0">
+                <strong data-guest-value>0</strong>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="header-booking__guest-menu" id="booking-children-menu" hidden>
+                                  <button type="button" data-guest-option="0">0</button>
+                                  <button type="button" data-guest-option="1">1</button>
+                                  <button type="button" data-guest-option="2">2</button>
+                                  <button type="button" data-guest-option="3">3</button>
+                                  <button type="button" data-guest-option="4">4</button>
+                                  <button type="button" data-guest-option="5">5</button>
+                                  <button type="button" data-guest-option="6">6</button>
+                                  <button type="button" data-guest-option="7">7</button>
+                                  <button type="button" data-guest-option="8">8</button>
+                                  <button type="button" data-guest-option="9">9</button>
+                                  <button type="button" data-guest-option="10">10</button>
+                              </div>
+            </div>
+                  </div>
+        <button type="button" class="header-booking__submit" data-booking-submit>Book Now</button>
+      </section>
+    </div>
   </div>
 
 </header>
@@ -135,9 +267,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <section class="section location-page-section">
     <div class="container">
       <div class="location-page-intro reveal">
-        <h2>Connected to the city, calm on arrival</h2>
+        <h2>Distances to key landmarks</h2>
         <p class="body-copy">
-          Florum is moments from restaurants, bars, shops, green parks, and the transport links that make Vienna effortless to explore.        </p>
+          Hotel Florum is located on Taborstraße in the heart of Vienna’s 2nd district.        </p>
+        <p class="body-copy">
+          Central Vienna, convenient connections and the city’s most important destinations within easy reach.        </p>
       </div>
 
       <div class="location-page-map-panel reveal delay-1">
@@ -188,26 +322,66 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </a>
       </div>
 
-      <div class="location-page-route-grid">
-        <article class="location-route-card reveal">
-          <div>
-            <h3>Arriving by public transportation</h3>
-            <p>Discover the quickest route to Florum Hotel before you arrive. The nearby underground stations connect you quickly to the city center, stations, and airport routes.</p>
+      <div class="location-guide-stack">
+        <article class="location-guide location-guide--public reveal">
+          <figure class="location-guide__media">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/tram.webp" alt="Vienna tram" width="1036" height="1800" loading="lazy" decoding="async">
+          </figure>
+          <div class="location-guide__content">
+            <h2>Arriving by public transportation</h2>
+            <p>The nearest stop is the U2 underground station Taborstraße, only 200 m or a 2-minute walk from reception. The U1/U4 station Schwedenplatz is almost as close at 800 m or a 10-minute walk.</p>
+            <p>Coming from the airport, railway station or bus terminal? The following routes will bring you safely to Hotel Florum.</p>
+            <div class="location-transport-sources" aria-label="Arrival points">
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Airport&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Get transit directions from Hotel Florum to Vienna Airport">Vienna Airport</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Wien%20Hauptbahnhof,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Get transit directions from Hotel Florum to Vienna Central Station">Central Station</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Wien%20Westbahnhof,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Get transit directions from Hotel Florum to Vienna Westbahnhof">Westbahnhof</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Vienna%20International%20Busterminal%20VIB,%20Erdbergstra%C3%9Fe%20200A,%201030%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Get transit directions from Hotel Florum to Vienna International Busterminal">V.I.B.</a>
+            </div>
           </div>
-          <ul class="arrival-detail-list">
-            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U2%20Taborstra%C3%9Fe,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Open directions from Florum Hotel to U2 Taborstrasse">U2 Taborstrasse</a></strong><span>200 m, 2-minute walk</span></li>
-            <li><strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=U1/U4%20Schwedenplatz,%20Vienna&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" aria-label="Open directions from Florum Hotel to U1/U4 Schwedenplatz">U1/U4 Schwedenplatz</a></strong><span>800 m, 10-minute walk</span></li>
-            <li><strong>City connectivity</strong><span>Excellent access across Vienna</span></li>
-          </ul>
         </article>
 
-        <article class="location-route-card location-route-card--sage reveal delay-1">
-          <div>
-            <h3>Nearby parking options</h3>
-            <p>Hotel Florum does not have its own parking garage, but several parking options are close by.</p>
+        <section class="location-airport-routes reveal" aria-labelledby="airport-routes-title">
+          <div class="location-airport-routes__intro">
+            <h2 id="airport-routes-title">From Vienna Airport</h2>
+            <p>Reach Hotel Florum by City Airport Train (CAT), suburban railway or Railjet.</p>
           </div>
-          <ul class="arrival-detail-list">
-                    <li>
+          <div class="location-airport-routes__grid">
+            <article>
+              <span class="location-airport-routes__icon" aria-hidden="true"><i class="fa-solid fa-train"></i></span>
+              <div class="location-airport-routes__content">
+                <h3>CAT</h3>
+                <p>The fastest option takes you directly to Wien Mitte. Continue on U3 to Volkstheater, then change to U2 for Taborstraße. CAT tickets are available from airport ticket machines.</p>
+                <strong>CAT ➜ Wien Mitte ➜ U3 Volkstheater ➜ U2 Taborstraße</strong>
+              </div>
+            </article>
+            <article>
+              <span class="location-airport-routes__icon" aria-hidden="true"><i class="fa-solid fa-train-subway"></i></span>
+              <div class="location-airport-routes__content">
+                <h3>S7</h3>
+                <p>With the S7 suburban train, change only once at Praterstern and take U2 to Taborstraße.</p>
+                <strong>S7 ➜ Praterstern ➜ U2 Taborstraße</strong>
+              </div>
+            </article>
+            <article>
+              <span class="location-airport-routes__icon" aria-hidden="true"><i class="fa-solid fa-route"></i></span>
+              <div class="location-airport-routes__content">
+                <h3>Railjet</h3>
+                <p>Take the Railjet to Vienna Central Station, continue on U1 to Karlsplatz and change to U2 for Taborstraße.</p>
+                <strong>Railjet ➜ Wien Hauptbahnhof ➜ U1 Karlsplatz ➜ U2 Taborstraße</strong>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <article class="location-guide location-guide--reverse reveal">
+          <figure class="location-guide__media">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/parking.webp" alt="Parking in Vienna near Hotel Florum" width="1200" height="1800" loading="lazy" decoding="async">
+          </figure>
+          <div class="location-guide__content">
+            <h2>Arriving by car</h2>
+            <p>Hotel Florum is easy to reach by car. Although the hotel does not have its own parking space, several garages are located nearby.</p>
+            <ul class="arrival-detail-list">
+                      <li>
           <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Open directions from Florum Hotel to Parkgarage Rotensterngasse">Parkgarage Rotensterngasse</a></strong>
           <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Parkgarage%20Rotensterngasse,%20Rotensterngasse%2023,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Open directions from Florum Hotel to Parkgarage Rotensterngasse">Rotensterngasse 23, 1020 Vienna</a></span>
         </li>
@@ -219,16 +393,79 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <strong><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Open directions from Florum Hotel to Tiefgarage Odeongasse">Tiefgarage Odeongasse</a></strong>
           <span><a class="arrival-destination-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Florum%20Hotel,%20Taborstra%C3%9Fe%2025,%201020%20Vienna&amp;destination=Tiefgarage%20Odeongasse,%20Odeongasse%202%E2%80%934,%201020%20Vienna&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Open directions from Florum Hotel to Tiefgarage Odeongasse">Odeongasse 2–4, 1020 Vienna</a></span>
         </li>
-                  </ul>
+                    </ul>
+          </div>
+        </article>
+
+        <article class="location-guide location-guide--jewish reveal">
+          <figure class="location-guide__media">
+            <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/judisches.webp" alt="Jewish Vienna near Hotel Florum" width="1200" height="1800" loading="lazy" decoding="async">
+          </figure>
+          <div class="location-guide__content">
+            <h2>Jewish Vienna</h2>
+            <p>The hotel’s surroundings in Vienna’s 2nd district are home to a growing Jewish community and rich Jewish infrastructure, including kosher restaurants and supermarkets, Jewish schools, prayer houses and social institutions. We also offer a range of services designed to support Shabbat observance.</p>
+            <p>If you have questions about our services and facilities, please contact us.</p>
+            <a class="btn btn-primary" href="/florum-design-concepts/contact/">Contact us</a>
+          </div>
         </article>
       </div>
+
+      <section class="location-tips-section" aria-labelledby="location-tips-title">
+        <div class="section-heading reveal">
+          <h2 id="location-tips-title">6 tips for your Vienna stay</h2>
+        </div>
+        <div class="location-tips-grid">
+                      <article class="location-tip reveal">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/tram.webp" alt="Use Vienna’s excellent transport network" width="1036" height="1800" loading="lazy" decoding="async">
+              <div>
+                <h3>Use Vienna’s excellent transport network</h3>
+                <p>Vienna’s underground and tram network takes you quickly and easily throughout the city. Tickets are available from station machines or online through the free WienMobil app. The Vienna City Card includes public transport and discounts at many museums and is available online or at reception.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal delay-1">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/parking.webp" alt="Parking correctly in Vienna" width="1200" height="1800" loading="lazy" decoding="async">
+              <div>
+                <h3>Parking correctly in Vienna</h3>
+                <p>Most districts are paid short-stay parking zones. Parking vouchers are sold at tobacconists, petrol stations, post offices, Wiener Linien advance-sale points and ticket machines. In the 2nd district, residential streets are generally regulated Monday to Friday from 9:00 to 22:00; on main roads such as Taborstraße, from 8:00 to 18:00. The maximum stay is two hours.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/taborstrasse.webp" alt="Discover historic Taborstraße" width="1024" height="576" loading="lazy" decoding="async">
+              <div>
+                <h3>Discover historic Taborstraße</h3>
+                <p>First documented in 1406, Taborstraße is one of Vienna’s oldest streets. Today it runs 2.5 km from Vorgartenstraße to the Danube Canal. Notable buildings include the Church of the Brothers Hospitallers, the Odeon Theater and the Carmelite Church of St. Joseph.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal delay-1">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/prater.webp" alt="Visit the Vienna Prater" width="1003" height="1800" loading="lazy" decoding="async">
+              <div>
+                <h3>Visit the Vienna Prater</h3>
+                <p>The Giant Ferris Wheel in the Vienna Prater is one of the city’s best-known landmarks. The Prater is easy to reach from Hotel Florum and combines a traditional amusement park with a vast public green space for walks and sport.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/market.webp" alt="Plan a market visit" width="1800" height="1200" loading="lazy" decoding="async">
+              <div>
+                <h3>Plan a market visit</h3>
+                <p>Vienna’s classic market culture can be experienced at Karmelitermarkt in the heart of the 2nd district. Alongside fruit and vegetables, you will find international specialties, cafés, bars and restaurants—and it is only a short walk from Hotel Florum.</p>
+              </div>
+            </article>
+                      <article class="location-tip reveal delay-1">
+              <img src="/florum-design-concepts/wp-content/themes/florum-theme/images/location/augarten.webp" alt="Discover green city oases" width="1800" height="1200" loading="lazy" decoding="async">
+              <div>
+                <h3>Discover green city oases</h3>
+                <p>Beautiful Augarten is only a few minutes’ walk from the hotel. Its lawns, benches and level paths are ideal for relaxing, jogging or walking, while the two flak towers give the park its distinctive character.</p>
+              </div>
+            </article>
+                  </div>
+      </section>
     </div>
   </section>
 
   <section class="section sustainability-section">
   <div class="container">
     <div class="sustainability-split">
-      <img class="sustainability-photo reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="Sustainable hospitality detail at Hotel Florum" width="1200" height="1500" loading="lazy" decoding="async">
+      <img class="sustainability-photo sustainability-photo--hospitality reveal" src="/florum-design-concepts/wp-content/themes/florum-theme/images/sustainability.webp" alt="Sustainable hospitality detail at Hotel Florum" width="1200" height="1500" loading="lazy" decoding="async">
       <div class="sustainability-panel reveal delay-1">
         <h2>Sustainability Commitment</h2>
         <p class="body-copy">We also focus on practical sustainability measures that support a more conscious stay — from reduced single-use amenities and waste separation to energy- and water-conscious daily operations.</p>
@@ -282,6 +519,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </nav>
 
     <div class="footer-contact-links" aria-label="Contact Florum Hotel">
+      <a href="https://wa.me/4312126569" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </a>
       <a href="https://www.instagram.com/hotelflorum/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
       </a>
@@ -299,6 +539,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/florum-design-concepts/wp-content/uploads/*","/florum-design-concepts/wp-content/*","/florum-design-concepts/wp-content/plugins/*","/florum-design-concepts/wp-content/themes/florum-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1784334863"></script>
+<script id="florum-main-script-js" src="/florum-design-concepts/wp-content/themes/florum-theme/js/main.js?ver=1786281827"></script>
 </body>
 </html>
