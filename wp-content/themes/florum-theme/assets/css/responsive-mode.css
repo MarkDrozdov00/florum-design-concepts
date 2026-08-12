@@ -3419,6 +3419,30 @@ html.is-booking-locked body { overflow: hidden; }
   }
 }
 
+/* Keep translated booking labels contained in the persistent tablet action.
+ * Russian is the longest label; the remaining locales share a smaller allowance. */
+@media (min-width: 621px) and (max-width: 1199px) {
+  :is(.florum-lang-de, .florum-lang-it, .florum-lang-es, .florum-lang-he) .site-header .header-book-now--persistent {
+    width: clamp(132px, 18vw, 168px);
+  }
+
+  .florum-lang-ru .site-header .header-book-now--persistent {
+    width: clamp(164px, 21vw, 196px);
+    padding-inline: 14px;
+    font-size: clamp(.68rem, 1.35vw, .78rem);
+    letter-spacing: .035em;
+  }
+}
+
+@media (max-width: 620px) {
+  .florum-lang-ru .site-header .header-book-now--persistent {
+    width: clamp(124px, 37vw, 150px);
+    padding-inline: 8px;
+    font-size: clamp(.58rem, 2.55vw, .68rem);
+    letter-spacing: .025em;
+  }
+}
+
 /* A single reservation-action material across the header, booking strip,
  * room modal and final booking CTAs. The illumination stays close to the
  * surface: a crisp inner highlight, a one-pixel ambient edge and soft depth. */
@@ -4078,127 +4102,265 @@ html.is-booking-locked body { overflow: hidden; }
   box-shadow: 0 5px 8px rgba(8, 27, 20, .18) !important;
 }
 
-/* Give the direct-booking fine print breathing room without changing card width or internals. */
+/* Improve direct-booking card legibility while preserving the existing 3+2 composition. */
+.home-page .benefit-stack {
+  grid-auto-rows: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 1200px) and (max-width: 1799px) {
+  .home-page .direct-booking-grid {
+    grid-template-columns: minmax(0, .65fr) minmax(560px, 1fr);
+  }
+
+  .home-page .benefit-stack {
+    width: min(100%, 702px);
+  }
+}
+
 .home-page .benefit-card {
-  min-height: 184px;
+  height: 220px;
+  min-height: 220px;
+  align-content: start;
+  padding: 24px 20px 20px;
+  row-gap: 0;
+}
+
+.home-page .benefit-card__icon {
+  width: 60px;
+  height: 60px;
+}
+
+.home-page .benefit-card__icon i {
+  font-size: 1.5rem;
+}
+
+.home-page .benefit-card::after {
+  margin-top: 12px;
+}
+
+.home-page .benefit-card h3 {
+  display: flex;
+  min-height: 2.5em;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: clamp(.95rem, 1vw, 1.05rem);
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.home-page .benefit-card > div {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+}
+
+.home-page .benefit-card:nth-child(2) h3 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.home-page .benefit-card:nth-child(2) h3 {
+  display: block;
+}
+
+.home-page .benefit-card:nth-child(n + 4) h3 {
+  min-height: 3.75em;
+}
+
+.home-page .benefit-card__condition {
+  position: static;
+  width: 100%;
+  max-width: calc(100% - 16px);
+  justify-self: center;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* Russian benefit titles can occupy three lines. Reserve that shared title
+ * row across all five cards and leave 24px below the longest caption. */
+.florum-lang-ru.home-page .benefit-card {
+  height: 280px;
+  min-height: 280px;
+}
+
+.florum-lang-ru.home-page .benefit-card h3 {
+  min-height: 3.75em;
 }
 
 @media (max-width: 620px) {
   .home-page .benefit-card {
-    min-height: 168px;
+    height: 220px;
+    min-height: 220px;
+  }
+
+  .florum-lang-ru.home-page .benefit-card {
+    height: 260px;
+    min-height: 260px;
   }
 
 }
 
 @media (min-width: 1920px) {
   .home-page .benefit-card {
-    min-height: calc(184px * var(--page-wide-scale));
+    height: calc(220px * var(--page-wide-scale));
+    min-height: calc(220px * var(--page-wide-scale));
+  }
+
+  .florum-lang-ru.home-page .benefit-card {
+    height: calc(280px * var(--page-wide-scale));
+    min-height: calc(280px * var(--page-wide-scale));
+  }
+}
+
+@media (min-width: 1800px) {
+  .home-page .benefit-card__icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .home-page .benefit-card__icon i {
+    font-size: 1.72rem;
+  }
+
+  .home-page .benefit-card h3 {
+    font-size: 1.12rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-page .benefit-card__condition {
+    font-size: 13px;
   }
 }
 
 @media (min-width: 2560px) {
   .home-page .benefit-card {
-    min-height: calc(184px * var(--direct-wide-scale));
+    height: calc(220px * var(--direct-wide-scale));
+    min-height: calc(220px * var(--direct-wide-scale));
+  }
+
+
+  .florum-lang-ru.home-page .benefit-card {
+    height: calc(280px * var(--direct-wide-scale));
+    min-height: calc(280px * var(--direct-wide-scale));
   }
 }
 
-/* Room-category navigation: keep the image primary while making progression unmistakable. */
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav {
-  grid-template-columns: 42px auto minmax(116px, auto);
-  gap: 8px;
-  align-items: center;
-  margin-top: 10px;
+/* Let localized content define the required row height. The 1fr implicit
+ * grid rows keep every card equal while this padding guarantees breathing
+ * room beneath whichever translated caption is longest. */
+.home-page .benefit-card,
+.florum-lang-ru.home-page .benefit-card {
+  height: auto;
+  padding-bottom: 24px;
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous {
-  width: 42px;
-  min-width: 42px;
-  min-height: 42px;
-  border-color: var(--color-border-strong);
-  color: var(--green-deep);
-  opacity: .82;
+/* The overlapping homepage bar photo sits directly on the composition. */
+.home-page .home-service-breakfast__image--bar {
+  border: 0;
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous:disabled {
-  border-color: var(--color-border-strong);
-  background: var(--color-surface-warm);
-  color: var(--green-botanical);
-  opacity: .62;
+/* Shared room-carousel controls: arrows flank the active card on homepage,
+ * serviced apartments, and B2B while the position counter stays below. */
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-shell {
+  position: relative;
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next {
-  display: inline-flex;
-  width: auto;
-  min-width: 116px;
-  min-height: 42px;
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav {
+  display: flex;
+  min-height: 32px;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  margin-inline-start: 10px;
-  padding-inline: 12px;
-  border-color: var(--green-deep);
-  background: var(--green-deep);
-  color: var(--cream);
-  box-shadow: 0 2px 5px rgba(8, 27, 20, .1);
+  margin-top: 14px;
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next:hover,
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next:focus-visible {
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  margin: 0;
+  padding: 0;
+  border-color: var(--color-border-strong);
+  border-radius: 50%;
+  background: var(--color-surface-raised);
+  color: var(--green-deep);
+  box-shadow: 0 4px 8px rgba(8, 27, 20, .12);
+  transform: translateY(-50%);
+}
+
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--previous {
+  left: -68px;
+}
+
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--next {
+  right: -68px;
+}
+
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button:is(:hover, :focus-visible) {
   border-color: var(--green-botanical);
-  background: var(--green-botanical);
+  background: var(--green-deep);
   color: var(--color-text-inverse);
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next:disabled {
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button:disabled {
   border-color: var(--color-border-subtle);
-  background: var(--color-surface-warm);
+  background: var(--color-surface-raised);
   color: var(--color-text-muted);
   box-shadow: none;
+  opacity: .48;
 }
 
-.room-showcase-nav__label {
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .055em;
-  line-height: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__arrow {
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button span,
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__arrow {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  align-items: center;
+  justify-content: center;
   font-size: 1rem;
   line-height: 1;
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-position {
-  min-width: 68px;
-  color: var(--color-text-muted);
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .06em;
+:is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__arrow i {
+  display: block;
+  font-size: .9em;
+  line-height: 1;
 }
 
-:is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous span {
-  font-size: 1.15rem;
+@media (max-width: 1339px) {
+  :is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--previous {
+    left: 14px;
+  }
+
+  :is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--next {
+    right: 14px;
+  }
 }
 
-@media (max-width: 480px) {
-  :is(.home-page, .b2b-page--expanded) .room-showcase-nav {
-    grid-template-columns: 42px auto minmax(112px, auto);
-    gap: 6px;
+@media (max-width: 680px) {
+  :is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button {
+    top: 32%;
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
-  :is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--previous {
-    width: 42px;
-    min-width: 42px;
-    min-height: 42px;
+  :is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--previous {
+    left: 8px;
   }
 
-  :is(.home-page, .b2b-page--expanded) .room-showcase-nav .room-showcase-nav__button--next {
-    min-width: 112px;
-    padding-inline: 10px;
+  :is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--next {
+    right: 8px;
   }
-
 }
 
 /* Desktop header balance: three text links on the left, a viewport-centered
