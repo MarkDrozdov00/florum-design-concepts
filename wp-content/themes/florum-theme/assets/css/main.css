@@ -4217,17 +4217,6 @@ html[dir="rtl"] .slider-track {
   will-change: opacity, transform;
 }
 
-.room-card--panorama-studio .room-card__photo {
-  object-position: 50% 50% !important;
-}
-
-/* Keep the guest's full head in frame in the serviced-apartment Rose Studio
- * carousel. This portrait source needs a higher focal point in the wide card. */
-.apartments-page .apartments-list-section
-  .room-card--panorama-studio .room-card__photo[src*="Rose5-carousel.webp"] {
-  object-position: 50% 20% !important;
-}
-
 .room-card.is-switching-image .room-card__photo {
   opacity: 0.66;
   transform: scale(1.006);
@@ -5050,6 +5039,20 @@ html[dir="rtl"] .slider-track {
   width: 100%;
   height: clamp(170px, 16vw, 230px);
   object-fit: cover;
+}
+
+.apartments-hero__media > .florum-responsive-picture:only-child > img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+  border-width: 1px;
+  border-color: rgba(246, 238, 226, 0.16);
+  border-radius: var(--hero-media-radius);
+}
+
+.b2b-room-service-card > .florum-responsive-picture > img {
+  border-radius: 0;
 }
 
 .breakfast-lobby-image-card--large {
@@ -16818,5 +16821,176 @@ body.home .site-footer { padding-block: clamp(var(--space-5), 2.2vw, var(--space
     .b2b-hero-carousel img
   ) {
     object-position: center;
+  }
+}
+/* Approved responsive crops already contain their final composition. */
+.florum-responsive-picture {
+  display: contents;
+}
+
+img[data-florum-responsive="true"] {
+  object-position: center !important;
+  transform: none !important;
+}
+
+.room-card__photo,
+.home-service-breakfast img,
+.home-service-feature-card img,
+.service-card img,
+.rooms-overview-card__media img {
+  transform: none !important;
+}
+
+/* A picture wrapper must not change the original media-box contract. */
+:is(
+  .hospitality-slide,
+  .events-space-card,
+  .b2b-room-service-card,
+  .inner-page-hero__media,
+  .service-page-hero__media,
+  .events-hero__media,
+  .room-detail-hero__media,
+  .apartments-hero__media
+) > .florum-responsive-picture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  :is(
+    .inner-page-hero__media,
+    .service-page-hero__media,
+    .events-hero__media,
+    .room-detail-hero__media,
+    .apartments-hero__media
+  ) > .florum-responsive-picture > img {
+    position: static;
+    inset: auto;
+  }
+}
+
+/* Art-directed crops: these frames match the delivered crop ratios exactly,
+ * so the browser never performs a second crop with object-fit: cover. */
+.location-page-hero .inner-page-hero__media {
+  align-self: center;
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 8 / 5;
+}
+
+.location-page-hero .inner-page-hero__media img,
+.location-page-hero .inner-page-hero__media > .florum-responsive-picture > img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .location-page-hero .inner-page-hero__media {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Preserve the original Vienna-tip split cards after responsive images are
+ * wrapped in <picture>. The wrapper, not its <source> children, owns the grid
+ * cell so the image once again fills the complete media column. */
+.location-tips-section .location-tip > .florum-responsive-picture {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  min-height: 310px;
+}
+
+.location-tips-section .location-tip:nth-child(even) > .florum-responsive-picture {
+  grid-column: 2;
+}
+
+.location-tips-section .location-tip > .florum-responsive-picture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 310px;
+  object-fit: cover;
+}
+
+@media (max-width: 680px) {
+  .location-tips-section .location-tip:nth-child(even) > .florum-responsive-picture {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .location-tips-section .location-tip > .florum-responsive-picture,
+  .location-tips-section .location-tip > .florum-responsive-picture > img {
+    height: 260px;
+    min-height: 0;
+  }
+}
+
+/* B2B hero: match the frame to its approved crop and pass the card's exact
+ * corner geometry through the responsive <picture> wrapper. */
+.b2b-page--expanded .b2b-hero__media {
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 8 / 5;
+}
+
+.b2b-page--expanded .b2b-hero__media > .florum-responsive-picture > img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: inherit;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .b2b-page--expanded .b2b-hero__media {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* B2B room panoramas were cropped for the original 1280 × 590 showcase.
+ * Matching that ratio prevents object-fit from applying a second crop. */
+.b2b-page--expanded .b2b-room-showcase .room-card__image {
+  height: auto;
+  aspect-ratio: 2400 / 1106;
+}
+
+.b2b-page--expanded .b2b-room-showcase .room-card__photo,
+.b2b-page--expanded .b2b-room-showcase .room-card__image > .florum-responsive-picture > img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+@media (max-width: 680px) {
+  .b2b-page--expanded .b2b-room-showcase .room-card__image {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+/* Serviced-apartments hero: its approved desktop crop is 8:5. Keep the frame
+ * on that ratio and show the supplied composition without a second crop. */
+.apartments-page .apartments-hero__media {
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 8 / 5;
+}
+
+.apartments-page .apartments-hero__media > .florum-responsive-picture > img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: inherit;
+  object-fit: contain;
+}
+
+@media (max-width: 899px) {
+  .apartments-page .apartments-hero__media {
+    aspect-ratio: 4 / 3;
   }
 }

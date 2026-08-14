@@ -1,6 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
   const COLLAPSED_NAV_MAX = 1199;
   const isCollapsedNavigation = () => window.innerWidth <= COLLAPSED_NAV_MAX;
+  const responsiveImageDevice = () => window.innerWidth <= 767
+    ? "mobile"
+    : (window.innerWidth <= 1199 ? "tablet" : "desktop");
+  const responsiveImageUrl = (src, profile = "standard") => {
+    if (!src) {
+      return src;
+    }
+
+    const marker = "/images/";
+    const markerIndex = src.indexOf(marker);
+    if (markerIndex < 0) {
+      return src;
+    }
+
+    const relative = decodeURIComponent(src.slice(markerIndex + marker.length).split(/[?#]/)[0])
+      .replace(/--(?:desktop|tablet|mobile)--\d+x\d+(?=\.[^.]+$)/, "");
+    const deviceCrops = window.florumResponsiveImages?.[relative]?.[responsiveImageDevice()];
+    const selectedCrop = typeof deviceCrops === "string"
+      ? deviceCrops
+      : (deviceCrops?.[profile] || deviceCrops?.standard);
+    return selectedCrop ? `${src.slice(0, markerIndex + marker.length)}${selectedCrop}` : src;
+  };
   const reveals = document.querySelectorAll(".reveal");
   const fadeCarousels = document.querySelectorAll("[data-fade-carousel]");
   const bookingStrips = document.querySelectorAll(".booking-strip");
@@ -301,10 +323,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // responsive/cropped source set into the lightbox.
       lightboxImage.removeAttribute("srcset");
       lightboxImage.removeAttribute("sizes");
-      lightboxImage.src = image.src;
+      const responsiveSrc = responsiveImageUrl(image.src, window.innerWidth <= 760 ? "standard" : "wide");
+      lightboxImage.src = responsiveSrc;
       lightboxImage.alt = image.alt;
       if (lightboxStage) {
-        lightboxStage.style.backgroundImage = `url(${JSON.stringify(image.src)})`;
+        lightboxStage.style.backgroundImage = `url(${JSON.stringify(responsiveSrc)})`;
       }
       lightboxCounter.textContent = `${activeIndex + 1} / ${activeImages.length}`;
       const multipleImages = activeImages.length > 1;
@@ -439,9 +462,10 @@ document.addEventListener("DOMContentLoaded", () => {
         figure.tabIndex = 0;
         figure.setAttribute("role", "button");
         figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
-        photo.src = image.src;
+        const responsiveSrc = responsiveImageUrl(image.src, window.innerWidth <= 760 ? "standard" : "wide");
+        photo.src = responsiveSrc;
         figure.classList.add("room-preview-gallery__slide--contained");
-        figure.style.backgroundImage = `url(${JSON.stringify(image.src)})`;
+        figure.style.backgroundImage = `url(${JSON.stringify(responsiveSrc)})`;
         photo.style.position = "absolute";
         photo.style.top = "50%";
         photo.style.left = "0";
@@ -508,8 +532,9 @@ document.addEventListener("DOMContentLoaded", () => {
         figure.tabIndex = 0;
         figure.setAttribute("role", "button");
         figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
-        figure.style.backgroundImage = `url(${JSON.stringify(image.src)})`;
-        photo.src = image.src;
+        const responsiveSrc = responsiveImageUrl(image.src, window.innerWidth <= 760 ? "standard" : "wide");
+        figure.style.backgroundImage = `url(${JSON.stringify(responsiveSrc)})`;
+        photo.src = responsiveSrc;
         if (image.srcset) {
           photo.srcset = image.srcset;
         }
@@ -1431,7 +1456,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const normalizedImageIndex = ((imageIndex % images.length) + images.length) % images.length;
-      const nextSrc = images[normalizedImageIndex];
+      const usesPreparedShowcaseCrop = image.matches(
+        ".room-card__photo--apartments, .room-card__photo--b2b"
+      );
+      const nextSrc = responsiveImageUrl(
+        images[normalizedImageIndex],
+        usesPreparedShowcaseCrop ? "wide" : "standard"
+      );
 
       if (image.getAttribute("src") === nextSrc) {
         return;
@@ -1796,7 +1827,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const activeTrigger = triggers.find((trigger) => getTriggerTarget(trigger) === target);
 
       if (currentImage && activeTrigger) {
-        const nextImageSrc = activeTrigger.getAttribute("data-hospitality-image-src");
+        const nextImageSrc = responsiveImageUrl(activeTrigger.getAttribute("data-hospitality-image-src"));
         const nextImageAlt = activeTrigger.getAttribute("data-hospitality-image-alt");
 
         if (nextImageSrc && currentImage.getAttribute("src") !== nextImageSrc) {
