@@ -1441,6 +1441,30 @@ document.addEventListener("DOMContentLoaded", () => {
       preloader.src = src;
     });
 
+    const syncRoomImageBackdrop = (slide, src) => {
+      const media = slide?.querySelector(".room-card__image");
+
+      if (!media || !src || !document.querySelector("main.home-page")) {
+        return;
+      }
+
+      media.style.setProperty("--room-image-backdrop", `url(${JSON.stringify(src)})`);
+    };
+
+    if (isRoomSlider) {
+      originalSlides.forEach((slide) => {
+        const image = slide.querySelector(".room-card__photo");
+        if (!image) return;
+
+        const syncInitialBackdrop = () => syncRoomImageBackdrop(slide, image.currentSrc || image.src);
+        if (image.complete) {
+          syncInitialBackdrop();
+        } else {
+          image.addEventListener("load", syncInitialBackdrop, { once: true });
+        }
+      });
+    }
+
     const finishRoomImageSwap = (slide) => {
       window.requestAnimationFrame(() => {
         slide.classList.remove("is-switching-image");
@@ -1459,9 +1483,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const usesPreparedShowcaseCrop = image.matches(
         ".room-card__photo--apartments, .room-card__photo--b2b"
       );
+      const isHomepageRoomImage = Boolean(image.closest("main.home-page"));
       const nextSrc = responsiveImageUrl(
         images[normalizedImageIndex],
-        usesPreparedShowcaseCrop ? "wide" : "standard"
+        usesPreparedShowcaseCrop ? "wide" : (isHomepageRoomImage ? "landscape" : "standard")
       );
 
       if (image.getAttribute("src") === nextSrc) {
@@ -1472,6 +1497,12 @@ document.addEventListener("DOMContentLoaded", () => {
         clearRoomImageSwap();
         slide.classList.remove("is-switching-image");
         image.setAttribute("src", nextSrc);
+        const syncInstantImage = () => syncRoomImageBackdrop(slide, image.currentSrc || nextSrc);
+        if (image.complete) {
+          syncInstantImage();
+        } else {
+          image.addEventListener("load", syncInstantImage, { once: true });
+        }
         return;
       }
 
@@ -1493,12 +1524,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
           image.setAttribute("src", nextSrc);
 
-          if (image.decode) {
-            image.decode().catch(() => {}).finally(() => finishRoomImageSwap(slide));
-          } else if (image.complete) {
+          const completeImageSwap = () => {
+            syncRoomImageBackdrop(slide, image.currentSrc || nextSrc);
             finishRoomImageSwap(slide);
+          };
+
+          if (image.decode) {
+            image.decode().catch(() => {}).finally(completeImageSwap);
+          } else if (image.complete) {
+            completeImageSwap();
           } else {
-            image.addEventListener("load", () => finishRoomImageSwap(slide), { once: true });
+            image.addEventListener("load", completeImageSwap, { once: true });
           }
         }, 180);
       });

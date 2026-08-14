@@ -73,6 +73,18 @@
 }
 
 /* B2B packages: one stable composition across portrait and landscape tablets. */
+@media (min-width: 1200px) {
+  main.b2b-page .b2b-model-editorial .b2b-inline-photo-frame {
+    position: relative;
+  }
+
+  main.b2b-page .b2b-model-editorial .b2b-inline-photo,
+  main.b2b-page .b2b-model-editorial .b2b-inline-photo-frame > .florum-responsive-picture > .b2b-inline-photo {
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   main.b2b-page .b2b-models-section > .container {
     width: min(calc(100% - (var(--page-gutter) * 2)), 920px);
@@ -4532,6 +4544,109 @@ html.is-booking-locked body { overflow: hidden; }
 
   :is(.home-page, .apartments-page, .b2b-page--expanded) .room-showcase-nav__button--next {
     right: 14px;
+  }
+}
+
+/* Tablet room carousel: the card is intentionally capped at 760px, so the
+ * positioning shell must use that same measure. Otherwise the arrows anchor
+ * to the wider page container and the next control floats outside the card. */
+@media (min-width: 681px) and (max-width: 1199px) {
+  .home-page .room-showcase-shell {
+    width: min(100%, 760px);
+  }
+
+  .home-page .room-slider,
+  .home-page .room-slider > .room-card {
+    width: 100%;
+  }
+
+  .home-page .room-slider {
+    grid-auto-columns: 100%;
+    scroll-padding-inline: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  :is(.home-page, .apartments-page) .room-showcase--b2b-layout {
+    width: min(100%, calc(1280px * var(--page-wide-scale)));
+  }
+
+  :is(.home-page, .apartments-page) .room-showcase--b2b-layout .room-card__image {
+    height: calc(590px * var(--page-wide-scale));
+    aspect-ratio: auto;
+  }
+
+  :is(.home-page, .apartments-page) .room-showcase--b2b-layout .room-card__content {
+    min-height: 96px;
+    padding: 8px calc(24px * var(--page-wide-scale));
+  }
+
+  .home-page .room-showcase--b2b-layout .room-card__image {
+    height: calc(560px * var(--page-wide-scale));
+  }
+
+  .home-page .room-showcase--b2b-layout .room-card__content {
+    padding-inline: clamp(34px, 2.5vw, 46px);
+  }
+
+  .apartments-page .room-showcase--b2b-layout .room-card__content {
+    padding-inline: clamp(34px, 2.5vw, 46px);
+  }
+
+  .home-page .room-showcase--b2b-layout .room-card__photo,
+  .home-page .room-showcase--b2b-layout .room-card__image > .florum-responsive-picture > img {
+    object-fit: cover;
+    object-position: center 70% !important;
+  }
+}
+
+/* Homepage room photography uses the balanced 3:2 crop inside the established
+ * wide showcase. A softened, green-tinted copy fills the side space, matching
+ * the contained-image treatment used by the room preview gallery. */
+@media (min-width: 681px) {
+  .home-page .room-card__image {
+    position: relative;
+    isolation: isolate;
+    background: var(--green-deep);
+  }
+
+  .home-page .room-card__image::before,
+  .home-page .room-card__image::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+  }
+
+  .home-page .room-card__image::before {
+    z-index: -2;
+    inset: -28px;
+    background-image: var(--room-image-backdrop, none);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(22px);
+    opacity: .56;
+    transform: scale(1.04);
+    transition: opacity 420ms cubic-bezier(.23, 1, .32, 1);
+  }
+
+  .home-page .room-card.is-switching-image .room-card__image::before {
+    opacity: .38;
+  }
+
+  .home-page .room-card__image::after {
+    z-index: -1;
+    inset: 0;
+    background: rgba(5, 31, 24, .34);
+  }
+
+  .home-page .room-card__photo,
+  .home-page .room-card__image > .florum-responsive-picture,
+  .home-page .room-card__image > .florum-responsive-picture > img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
   }
 }
 
