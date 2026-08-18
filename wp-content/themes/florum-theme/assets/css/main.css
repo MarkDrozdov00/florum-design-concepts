@@ -2034,6 +2034,28 @@ textarea.florum-form-control,
 
 .florum-form-submit {
   min-width: 160px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-color: var(--color-green-primary) !important;
+  background-color: var(--color-green-primary) !important;
+  background-image: none !important;
+  color: var(--color-text-inverse) !important;
+  -webkit-text-fill-color: var(--color-text-inverse);
+}
+
+.florum-form-submit:hover,
+.florum-form-submit:focus-visible,
+.florum-form-submit:active {
+  border-color: var(--color-green-botanical) !important;
+  background-color: var(--color-green-botanical) !important;
+  background-image: none !important;
+  color: var(--color-text-inverse) !important;
+  -webkit-text-fill-color: var(--color-text-inverse);
+}
+
+.florum-form-submit:focus-visible {
+  outline: 3px solid rgba(49, 91, 69, 0.28);
+  outline-offset: 3px;
 }
 
 .florum-form-submit:disabled,
