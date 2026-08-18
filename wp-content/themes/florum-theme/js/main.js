@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingStrips = document.querySelectorAll(".booking-strip");
   const sliderTracks = document.querySelectorAll("[data-slider]");
   const mobileListAccordions = document.querySelectorAll("[data-mobile-list-accordion]");
+  const responsivePictures = document.querySelectorAll(".florum-responsive-picture");
+  const contactCopyButtons = document.querySelectorAll("[data-contact-copy]");
   const contactForms = document.querySelectorAll("[data-contact-form]");
   const hospitalityTabs = document.querySelectorAll("[data-hospitality-tabs], .hospitality-tabs");
   const serviceCards = document.querySelectorAll(".service-card, .service-reveal-item");
@@ -56,6 +58,93 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealPageContent = () => {
     reveals.forEach((item) => item.classList.add("is-visible"));
   };
+
+  const copyTextToClipboard = async (value) => {
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(value);
+        return;
+      } catch (error) {
+        // Continue to the compatibility fallback below. Clipboard access can
+        // be blocked in HTTP previews or by browser permission policy.
+      }
+    }
+
+    const temporaryInput = document.createElement("textarea");
+    temporaryInput.value = value;
+    temporaryInput.setAttribute("readonly", "");
+    temporaryInput.setAttribute("aria-hidden", "true");
+    temporaryInput.style.position = "fixed";
+    temporaryInput.style.opacity = "0";
+    temporaryInput.style.pointerEvents = "none";
+    document.body.appendChild(temporaryInput);
+    temporaryInput.select();
+    temporaryInput.setSelectionRange(0, temporaryInput.value.length);
+
+    const copied = document.execCommand("copy");
+    temporaryInput.remove();
+    if (!copied) {
+      throw new Error("Clipboard copy was rejected");
+    }
+  };
+
+  contactCopyButtons.forEach((button) => {
+    let resetTimer;
+    const feedback = button.querySelector("[data-copy-feedback]");
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      window.clearTimeout(resetTimer);
+      try {
+        await copyTextToClipboard(button.dataset.copyValue);
+        feedback.textContent = button.dataset.labelCopied;
+        button.classList.add("is-copied");
+      } catch (error) {
+        feedback.textContent = button.dataset.labelError;
+        button.classList.remove("is-copied");
+      }
+
+      resetTimer = window.setTimeout(() => {
+        feedback.textContent = button.dataset.labelCopy;
+        button.classList.remove("is-copied");
+        button.blur();
+      }, 1800);
+    });
+  });
+
+  const recoverResponsiveImage = (picture, image) => {
+    if (image.dataset.florumFallbackApplied === "true") {
+      return;
+    }
+
+    const fallbackSrc = image.dataset.florumFallbackSrc;
+    if (!fallbackSrc) {
+      return;
+    }
+
+    image.dataset.florumFallbackApplied = "true";
+    picture.querySelectorAll("source").forEach((source) => source.remove());
+    image.removeAttribute("srcset");
+    image.src = fallbackSrc;
+  };
+
+  responsivePictures.forEach((picture) => {
+    const image = picture.querySelector("img[data-florum-fallback-src]");
+    if (!image) {
+      return;
+    }
+
+    image.addEventListener("error", () => recoverResponsiveImage(picture, image));
+
+    // Eager images may fail before DOMContentLoaded. Lazy images deliberately
+    // skip this check: an unloaded lazy image can report naturalWidth === 0
+    // without having failed, which was the source of the prior crop bug.
+    if (image.loading !== "lazy" && image.complete && image.naturalWidth === 0) {
+      recoverResponsiveImage(picture, image);
+    }
+  });
 
   // Reveals are progressive enhancement, never a rendering dependency.
   // Schedule them before initializing interactive components so an unrelated

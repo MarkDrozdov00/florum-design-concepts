@@ -44,6 +44,94 @@
     font-weight: 700;
     -webkit-text-stroke: .3px currentColor;
   }
+
+}
+
+.contact-copy-control {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.contact-copy-control__popover {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 50%;
+  z-index: 112;
+  padding: 0;
+  border: 1px solid rgba(247, 240, 230, .2);
+  border-radius: 7px;
+  background: #0c2018;
+  box-shadow: 0 5px 8px rgba(4, 18, 13, .18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -3px);
+  transition: opacity 140ms ease, transform 180ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.contact-copy-control:hover .contact-copy-control__popover,
+.contact-copy-control:focus-within .contact-copy-control__popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.contact-copy-control__popover::before {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 7px;
+  content: "";
+}
+
+.footer-contact-links .contact-copy-control__popover {
+  top: calc(100% - 4px);
+  bottom: auto;
+}
+
+.contact-copy-control__copy,
+.site-header .contact-copy-control__copy {
+  display: inline-flex;
+  min-width: 58px;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #f7f0e6;
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.contact-copy-control__copy:hover,
+.contact-copy-control__copy:focus-visible {
+  background: rgba(247, 240, 230, .1);
+  color: #fff;
+}
+
+.contact-copy-control__copy:focus-visible {
+  outline: 2px solid rgba(247, 240, 230, .78);
+  outline-offset: 2px;
+}
+
+.contact-copy-control__copy.is-copied {
+  color: #d9eadf;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-copy-control__popover,
+  .contact-copy-control__copy {
+    transition: none;
+  }
 }
 
 /* Longer Russian and Spanish labels need a little more breathing room between
