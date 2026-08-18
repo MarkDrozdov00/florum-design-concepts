@@ -419,6 +419,30 @@
   }
 }
 
+/* Keep every homepage room card the same height on compact desktops. The
+ * carousel's default start alignment lets cards with an Extras row grow taller
+ * than their neighbours; stretching the shared grid row equalizes them while
+ * still allowing longer translations to determine the required height. */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .home-page .room-showcase--b2b-layout .room-slider {
+    align-items: stretch;
+  }
+
+  .home-page .room-showcase--b2b-layout .room-slider > .room-card {
+    grid-template-rows: 560px minmax(0, 1fr);
+    height: auto;
+    align-self: stretch;
+  }
+
+  .home-page .room-showcase--b2b-layout .room-card__image {
+    height: 100%;
+  }
+
+  .home-page .room-showcase--b2b-layout .room-card__content {
+    align-self: stretch;
+  }
+}
+
 /* Serviced apartments breakfast card: mirror the pet-friendly card while
  * keeping the image flush with, and clipped by, the card boundary. */
 .apartments-page .apartments-breakfast-card {
