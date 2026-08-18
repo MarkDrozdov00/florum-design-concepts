@@ -3734,9 +3734,27 @@ html.is-booking-locked body { overflow: hidden; }
 }
 
 /* Keep translated booking labels contained in the persistent tablet action.
- * Russian is the longest label; the remaining locales share a smaller allowance. */
+ * Give each longer locale enough width instead of clipping its final letters. */
 @media (min-width: 621px) and (max-width: 1199px) {
-  :is(.florum-lang-de, .florum-lang-it, .florum-lang-es, .florum-lang-he) .site-header .header-book-now--persistent {
+  :is(.florum-lang-de, .florum-lang-it, .florum-lang-es) .site-header .header-book-now--persistent {
+    padding-inline: 12px;
+    font-size: clamp(.66rem, 1.28vw, .74rem);
+    letter-spacing: .025em;
+  }
+
+  .florum-lang-it .site-header .header-book-now--persistent {
+    width: clamp(148px, 20vw, 176px);
+  }
+
+  .florum-lang-de .site-header .header-book-now--persistent {
+    width: clamp(158px, 21vw, 186px);
+  }
+
+  .florum-lang-es .site-header .header-book-now--persistent {
+    width: clamp(172px, 23vw, 202px);
+  }
+
+  .florum-lang-he .site-header .header-book-now--persistent {
     width: clamp(132px, 18vw, 168px);
   }
 
@@ -3749,6 +3767,24 @@ html.is-booking-locked body { overflow: hidden; }
 }
 
 @media (max-width: 620px) {
+  :is(.florum-lang-de, .florum-lang-it, .florum-lang-es) .site-header .header-book-now--persistent {
+    padding-inline: 7px;
+    font-size: clamp(.56rem, 2.35vw, .65rem);
+    letter-spacing: .015em;
+  }
+
+  .florum-lang-it .site-header .header-book-now--persistent {
+    width: clamp(112px, 32vw, 130px);
+  }
+
+  .florum-lang-de .site-header .header-book-now--persistent {
+    width: clamp(120px, 34vw, 138px);
+  }
+
+  .florum-lang-es .site-header .header-book-now--persistent {
+    width: clamp(132px, 37vw, 150px);
+  }
+
   .florum-lang-ru .site-header .header-book-now--persistent {
     width: clamp(124px, 37vw, 150px);
     padding-inline: 8px;
@@ -5312,6 +5348,34 @@ html.is-booking-locked body { overflow: hidden; }
 .rooms-page .rooms-hero__media.rooms-hero__gallery .hospitality-slide > img {
   object-fit: cover;
   object-position: center bottom;
+}
+
+/* The responsive image rewriter inserts a <picture> between each carousel
+ * slide and its image. Make that generated layer inherit the frame exactly,
+ * and restore the per-photo focal point overridden by the global image rule. */
+.rooms-page .rooms-hero__media.rooms-hero__gallery .hospitality-slide,
+.rooms-page .rooms-hero__media.rooms-hero__gallery .florum-responsive-picture {
+  border-radius: inherit;
+}
+
+.rooms-page .rooms-hero__media.rooms-hero__gallery .florum-responsive-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.rooms-page .rooms-hero__media.rooms-hero__gallery .rooms-hero__image,
+.rooms-page .rooms-hero__media.rooms-hero__gallery .florum-responsive-picture > img[data-florum-responsive="true"] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: 50% var(--rooms-hero-focal-y, 62%) !important;
 }
 
 /* Wide but unusually tall viewports (for example 1800 × 3000) must not use
