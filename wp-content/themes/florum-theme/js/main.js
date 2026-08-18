@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingStrips = document.querySelectorAll(".booking-strip");
   const sliderTracks = document.querySelectorAll("[data-slider]");
   const mobileListAccordions = document.querySelectorAll("[data-mobile-list-accordion]");
-  const responsivePictures = document.querySelectorAll(".florum-responsive-picture");
   const contactForms = document.querySelectorAll("[data-contact-form]");
   const hospitalityTabs = document.querySelectorAll("[data-hospitality-tabs], .hospitality-tabs");
   const serviceCards = document.querySelectorAll(".service-card, .service-reveal-item");
@@ -57,34 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealPageContent = () => {
     reveals.forEach((item) => item.classList.add("is-visible"));
   };
-
-  // A failed art-directed mobile crop must not leave an empty frame. Removing
-  // the matching <source> candidates lets the browser retry the verified
-  // desktop crop carried by the <img> element.
-  responsivePictures.forEach((picture) => {
-    const image = picture.querySelector("img[data-florum-fallback-src]");
-    if (!image) {
-      return;
-    }
-
-    const applyResponsiveImageFallback = () => {
-      if (image.dataset.florumFallbackApplied === "true") {
-        return;
-      }
-
-      image.dataset.florumFallbackApplied = "true";
-      picture.querySelectorAll("source").forEach((source) => source.remove());
-      const fallbackSrc = image.dataset.florumFallbackSrc;
-      if (fallbackSrc && image.src !== fallbackSrc) {
-        image.src = fallbackSrc;
-      }
-    };
-
-    image.addEventListener("error", applyResponsiveImageFallback);
-    if (image.complete && image.naturalWidth === 0) {
-      applyResponsiveImageFallback();
-    }
-  });
 
   // Reveals are progressive enhancement, never a rendering dependency.
   // Schedule them before initializing interactive components so an unrelated
