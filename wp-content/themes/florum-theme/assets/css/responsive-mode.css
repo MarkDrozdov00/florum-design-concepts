@@ -5146,7 +5146,13 @@ html.is-booking-locked body { overflow: hidden; }
 }
 
 .b2b-business-venue-card {
+  grid-template-rows: minmax(3.1rem, auto) auto minmax(2.7rem, auto);
+  gap: var(--space-3);
   min-height: 168px;
+}
+
+.b2b-business-venue-card > :is(span, strong, small) {
+  align-self: start;
 }
 
 /* The B2B room photograph joins directly to its information panel. Only the
@@ -5168,6 +5174,7 @@ html.is-booking-locked body { overflow: hidden; }
   }
 
   .b2b-business-venue-card {
+    grid-template-rows: auto;
     min-height: 142px;
   }
 }
@@ -5192,8 +5199,42 @@ html.is-booking-locked body { overflow: hidden; }
   }
 }
 
+@media (max-width: 767px) {
+  .b2b-page--expanded :is(
+    .b2b-tailored-section,
+    .b2b-location-section
+  ) .b2b-copy-stack > div > h3 {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
 /* All internal heroes share one centered tablet composition. */
 @media (min-width: 768px) and (max-width: 1199px) {
+  .b2b-page--expanded .b2b-business-venues > h3 {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .b2b-page--expanded .b2b-business-venue-card {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .b2b-page--expanded .b2b-business-venue-card > :is(span, strong, small) {
+    width: 100%;
+    text-align: center;
+  }
+
+  .b2b-page--expanded .b2b-location-section .b2b-copy-stack > div > h3 {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
   .b2b-page--expanded .b2b-location-section .hospitality-block {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
