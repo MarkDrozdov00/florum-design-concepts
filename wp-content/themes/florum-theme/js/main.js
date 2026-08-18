@@ -1476,6 +1476,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let roomTouchStartX = 0;
     let roomTouchStartY = 0;
     let isAdjustingLoop = false;
+    let roomScrollAnimationFrame = 0;
+    let isRoomScrollAnimating = false;
     const originalSlides = Array.from(track.querySelectorAll(".slider-slide"));
     const preferredCloneCount = isRoomSlider ? 0 : 2;
     const loopCloneCount = Math.min(preferredCloneCount, originalSlides.length);
@@ -1538,6 +1540,57 @@ document.addEventListener("DOMContentLoaded", () => {
       return ((adjustedIndex % originalSlides.length) + originalSlides.length) % originalSlides.length;
     };
 
+    const stopRoomScrollAnimation = () => {
+      if (roomScrollAnimationFrame) {
+        window.cancelAnimationFrame(roomScrollAnimationFrame);
+        roomScrollAnimationFrame = 0;
+      }
+      isRoomScrollAnimating = false;
+      track.style.removeProperty("scroll-snap-type");
+      track.style.removeProperty("scroll-behavior");
+    };
+
+    const animateRoomScroll = (targetLeft, behavior) => {
+      stopRoomScrollAnimation();
+
+      if (behavior !== "smooth" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        track.scrollLeft = targetLeft;
+        return;
+      }
+
+      const startLeft = track.scrollLeft;
+      const distance = targetLeft - startLeft;
+      const duration = 440;
+      const startTime = performance.now();
+      isRoomScrollAnimating = true;
+      track.style.setProperty("scroll-snap-type", "none");
+      track.style.setProperty("scroll-behavior", "auto");
+
+      const tick = (now) => {
+        const progress = Math.min(1, (now - startTime) / duration);
+        const eased = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - (Math.pow(-2 * progress + 2, 3) / 2);
+        track.scrollLeft = startLeft + (distance * eased);
+
+        if (progress < 1) {
+          roomScrollAnimationFrame = window.requestAnimationFrame(tick);
+          return;
+        }
+
+        track.scrollLeft = targetLeft;
+        roomScrollAnimationFrame = 0;
+        isRoomScrollAnimating = false;
+        track.style.removeProperty("scroll-behavior");
+        window.requestAnimationFrame(() => {
+          track.style.removeProperty("scroll-snap-type");
+          updateActiveMeta();
+        });
+      };
+
+      roomScrollAnimationFrame = window.requestAnimationFrame(tick);
+    };
+
     const scrollToSlide = (index, behavior = "smooth") => {
       if (originalSlides.length === 0) {
         return 0;
@@ -1547,10 +1600,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ? Math.max(0, Math.min(index, originalSlides.length - 1))
         : ((index % originalSlides.length) + originalSlides.length) % originalSlides.length;
 
-      track.scrollTo({
-        left: getStep() * (loopCloneCount + normalizedIndex),
-        behavior,
-      });
+      const targetLeft = getStep() * (loopCloneCount + normalizedIndex);
+      if (isRoomSlider) {
+        animateRoomScroll(targetLeft, behavior);
+      } else {
+        track.scrollTo({ left: targetLeft, behavior });
+      }
 
       return normalizedIndex;
     };
@@ -1748,6 +1803,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const updateActiveMeta = () => {
+      if (isRoomScrollAnimating) {
+        return;
+      }
+
       if (originalSlides.length === 0) {
         return;
       }
@@ -1909,6 +1968,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       track.addEventListener("touchstart", (event) => {
+        stopRoomScrollAnimation();
         const touch = event.touches[0];
 
         if (!touch) {
