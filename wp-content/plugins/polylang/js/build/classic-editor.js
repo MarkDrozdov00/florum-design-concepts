@@ -190,7 +190,7 @@ jQuery(
 					}
 
 					// @see code from WordPress core https://github.com/WordPress/WordPress/blob/5.2.2/wp-admin/js/tags-box.js#L291
-					// @see wp_generate_tag_cloud function which generate the escaped HTML https://github.com/WordPress/WordPress/blob/a02b5cc2a8eecb8e076fbb7cf4de7bd2ec8a8eb1/florum-design-concepts/wp-includes/category-template.php#L966-L975
+					// @see wp_generate_tag_cloud function which generate the escaped HTML https://github.com/WordPress/WordPress/blob/a02b5cc2a8eecb8e076fbb7cf4de7bd2ec8a8eb1/wp-includes/category-template.php#L966-L975
 					r = $( '<div />' ).addClass( 'the-tagcloud' ).attr( 'id', 'tagcloud-' + tax ).html( r ); // phpcs:ignore WordPressVIPMinimum.JS.HTMLExecutingFunctions.html
 					$( 'a', r ).on(
 						'click',
@@ -296,14 +296,14 @@ jQuery(
 												$( '#' + tax + 'checklist' ).html( this.supplemental.all ); // phpcs:ignore WordPressVIPMinimum.JS.HTMLExecutingFunctions.html
 												// @see wp_popular_terms_checklist https://github.com/WordPress/WordPress/blob/5.2.2/wp-admin/includes/template.php#L236
 												$( '#' + tax + 'checklist-pop' ).html( this.supplemental.populars ); // phpcs:ignore WordPressVIPMinimum.JS.HTMLExecutingFunctions.html
-												// @see wp_dropdown_categories https://github.com/WordPress/WordPress/blob/5.5.1/florum-design-concepts/wp-includes/category-template.php#L336
+												// @see wp_dropdown_categories https://github.com/WordPress/WordPress/blob/5.5.1/wp-includes/category-template.php#L336
 												// which is called by PLL_Admin_Classic_Editor::post_lang_choice to generate supplemental.dropdown
 												$( '#new' + tax + '_parent' ).replaceWith( this.supplemental.dropdown ); // phpcs:ignore WordPressVIPMinimum.JS.HTMLExecutingFunctions.replaceWith
 												$( '#' + tax + '-lang' ).val( $( '.post_lang_choice' ).val() ); // hidden field
 											break;
 											case 'pages': // parent dropdown list for pages
-												// @see wp_dropdown_pages https://github.com/WordPress/WordPress/blob/5.2.2/florum-design-concepts/wp-includes/post-template.php#L1186-L1208
-												// @see https://github.com/WordPress/WordPress/blob/5.2.2/florum-design-concepts/wp-includes/class-walker-page-dropdown.php#L88
+												// @see wp_dropdown_pages https://github.com/WordPress/WordPress/blob/5.2.2/wp-includes/post-template.php#L1186-L1208
+												// @see https://github.com/WordPress/WordPress/blob/5.2.2/wp-includes/class-walker-page-dropdown.php#L88
 												$( '#parent_id' ).html( this.data ); // phpcs:ignore WordPressVIPMinimum.JS.HTMLExecutingFunctions.html
 											break;
 											case 'flag': // flag in front of the select dropdown

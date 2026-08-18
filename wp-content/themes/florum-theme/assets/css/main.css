@@ -9571,6 +9571,12 @@ body.is-room-preview-open {
 
 .room-preview-gallery__slide--contained img {
   z-index: 1;
+  opacity: 0;
+  transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.room-preview-gallery__slide--contained.is-image-loaded img {
+  opacity: 1;
 }
 
 .room-preview-gallery__slide:focus-visible {
@@ -11434,7 +11440,7 @@ html[dir="rtl"] .service-check-item::before {
   padding-block: clamp(24px, 2.2vw, 32px);
 }
 
-@media (min-width: 981px) {
+@media (min-width: 1200px) {
   .b2b-tailored-section .hospitality-block {
     align-items: stretch;
   }
@@ -16993,4 +16999,93 @@ img[data-florum-responsive="true"] {
   .apartments-page .apartments-hero__media {
     aspect-ratio: 4 / 3;
   }
+}
+
+/* Keep the booking CTA in its own space without changing the established
+ * desktop navigation geometry. */
+.mobile-header__actions {
+  display: none;
+}
+
+.main-nav .header-book-now,
+.header-book-now--persistent {
+  position: relative;
+  min-width: 0;
+  max-width: min(210px, 24vw);
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-align: center;
+  white-space: normal;
+}
+
+.main-nav .header-book-now [data-booking-toggle-label],
+.header-book-now--persistent [data-booking-toggle-label] {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .mobile-header__actions {
+    display: inline-flex;
+    order: 2;
+    min-width: 0;
+    align-items: center;
+    gap: clamp(8px, 2vw, 14px);
+    margin-inline-start: auto;
+  }
+
+  .mobile-header__actions .header-book-now--persistent {
+    display: inline-flex;
+    width: auto;
+    max-width: min(42vw, 180px);
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding-inline: clamp(12px, 2.5vw, 20px);
+    font-size: clamp(0.68rem, 1.8vw, 0.8rem);
+    line-height: 1;
+  }
+
+  .mobile-header__actions .menu-toggle {
+    flex: 0 0 44px;
+    order: initial;
+  }
+
+  .main-nav > .main-nav__actions,
+  .main-nav > .header-book-now--menu {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .mobile-header__actions {
+    gap: 6px;
+  }
+
+  .mobile-header__actions .header-book-now--persistent {
+    max-width: min(40vw, 132px);
+    min-height: 40px;
+    padding-inline: 10px;
+    font-size: 0.64rem;
+    letter-spacing: 0.035em;
+  }
+}
+
+/* B2B pricing photo focal point: retain both subjects across generated crops. */
+.b2b-model-editorial .b2b-inline-photo,
+.b2b-model-editorial .b2b-inline-photo-frame img[data-florum-responsive="true"],
+.b2b-model-editorial .b2b-inline-photo-frame .florum-responsive-picture > img {
+  object-position: center 18% !important;
+}
+
+@media (min-width: 981px) {
+  .b2b-model-editorial .b2b-inline-photo-frame {
+    min-height: clamp(360px, 32vw, 500px);
+    align-self: start;
+  }
+
 }

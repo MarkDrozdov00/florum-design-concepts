@@ -1122,7 +1122,7 @@
 
 	// If wpApiSettings is unavailable, try the default.
 	if ( _.isEmpty( wpApiSettings ) ) {
-		wpApiSettings.root = window.location.origin + '/florum-design-concepts/wp-json/';
+		wpApiSettings.root = window.location.origin + '/wp-json/';
 	}
 
 	Endpoint = Backbone.Model.extend(/** @lends Endpoint.prototype */{
@@ -1509,7 +1509,7 @@
 
 		args                      = args || {};
 		attributes.nonce          = _.isString( args.nonce ) ? args.nonce : ( wpApiSettings.nonce || '' );
-		attributes.apiRoot        = args.apiRoot || wpApiSettings.root || '/florum-design-concepts/wp-json';
+		attributes.apiRoot        = args.apiRoot || wpApiSettings.root || '/wp-json';
 		attributes.versionString  = args.versionString || wpApiSettings.versionString || 'wp/v2/';
 		attributes.schema         = args.schema || null;
 		attributes.modelEndpoints = args.modelEndpoints || [ 'me', 'settings' ];

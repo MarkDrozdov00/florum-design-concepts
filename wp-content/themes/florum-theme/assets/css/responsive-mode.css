@@ -85,7 +85,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 681px) and (max-width: 1199px) {
   main.b2b-page .b2b-models-section > .container {
     width: min(calc(100% - (var(--page-gutter) * 2)), 920px);
     margin-inline: auto;
@@ -1310,7 +1310,7 @@
 
   main.service-page:not(.b2b-page) .service-price-row > span {
     min-width: 0;
-    text-align: left;
+    text-align: start;
   }
 
   main.service-page:not(.b2b-page) .service-price-row > strong {
@@ -1470,6 +1470,7 @@
     width: 100%;
     height: 0;
     min-height: 0;
+    align-items: flex-start;
     justify-content: flex-end;
     padding-right: max(var(--space-3), env(safe-area-inset-right));
     pointer-events: none;
@@ -4551,16 +4552,16 @@ html.is-booking-locked body { overflow: hidden; }
  * positioning shell must use that same measure. Otherwise the arrows anchor
  * to the wider page container and the next control floats outside the card. */
 @media (min-width: 681px) and (max-width: 1199px) {
-  .home-page .room-showcase-shell {
+  :is(.home-page, .b2b-page--expanded) .room-showcase-shell {
     width: min(100%, 760px);
   }
 
-  .home-page .room-slider,
-  .home-page .room-slider > .room-card {
+  :is(.home-page, .b2b-page--expanded) .room-slider,
+  :is(.home-page, .b2b-page--expanded) .room-slider > .room-card {
     width: 100%;
   }
 
-  .home-page .room-slider {
+  :is(.home-page, .b2b-page--expanded) .room-slider {
     grid-auto-columns: 100%;
     scroll-padding-inline: 0;
   }
@@ -4568,21 +4569,17 @@ html.is-booking-locked body { overflow: hidden; }
 
 @media (min-width: 1200px) {
   :is(.home-page, .apartments-page) .room-showcase--b2b-layout {
-    width: min(100%, calc(1280px * var(--page-wide-scale)));
+    width: min(100%, calc(1280px * var(--page-wide-scale, 1)));
   }
 
   :is(.home-page, .apartments-page) .room-showcase--b2b-layout .room-card__image {
-    height: calc(590px * var(--page-wide-scale));
+    height: calc(560px * var(--page-wide-scale));
     aspect-ratio: auto;
   }
 
   :is(.home-page, .apartments-page) .room-showcase--b2b-layout .room-card__content {
     min-height: 96px;
     padding: 8px calc(24px * var(--page-wide-scale));
-  }
-
-  .home-page .room-showcase--b2b-layout .room-card__image {
-    height: calc(560px * var(--page-wide-scale));
   }
 
   .home-page .room-showcase--b2b-layout .room-card__content {
@@ -4600,24 +4597,53 @@ html.is-booking-locked body { overflow: hidden; }
   }
 }
 
+/* Wide desktops keep the same full-width, tall room-showcase proportion used
+ * by standard desktop instead of retaining the old 1280px presentation cap. */
+@media (min-width: 1920px) {
+  :is(.home-page, .apartments-page) .room-showcase--b2b-layout {
+    width: 100%;
+    max-width: none;
+  }
+
+  :is(.home-page, .apartments-page) .room-showcase--b2b-layout .room-card__image {
+    height: auto;
+    aspect-ratio: 1180 / 560;
+  }
+
+}
+
+/* Desktop map frames are panoramic. Keep the complete hotel pin and its label
+ * inside the crop instead of centering the much taller source image. */
+@media (min-width: 1200px) {
+  .home-page .home-location-arrivals__map .arrival-static-map__image {
+    object-position: 50% 30% !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .home-page .home-location-arrivals__map .arrival-static-map__image {
+    object-position: 50% 40% !important;
+  }
+}
+
 /* Homepage room photography uses the balanced 3:2 crop inside the established
  * wide showcase. A softened, green-tinted copy fills the side space, matching
  * the contained-image treatment used by the room preview gallery. */
 @media (min-width: 681px) {
-  .home-page .room-card__image {
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image {
     position: relative;
     isolation: isolate;
     background: var(--green-deep);
   }
 
-  .home-page .room-card__image::before,
-  .home-page .room-card__image::after {
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::before,
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::after {
     position: absolute;
     content: "";
     pointer-events: none;
   }
 
-  .home-page .room-card__image::before {
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::before {
     z-index: -2;
     inset: -28px;
     background-image: var(--room-image-backdrop, none);
@@ -4630,19 +4656,19 @@ html.is-booking-locked body { overflow: hidden; }
     transition: opacity 420ms cubic-bezier(.23, 1, .32, 1);
   }
 
-  .home-page .room-card.is-switching-image .room-card__image::before {
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card.is-switching-image .room-card__image::before {
     opacity: .38;
   }
 
-  .home-page .room-card__image::after {
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::after {
     z-index: -1;
     inset: 0;
     background: rgba(5, 31, 24, .34);
   }
 
-  .home-page .room-card__photo,
-  .home-page .room-card__image > .florum-responsive-picture,
-  .home-page .room-card__image > .florum-responsive-picture > img {
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__photo,
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image > .florum-responsive-picture,
+  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image > .florum-responsive-picture > img {
     width: 100%;
     height: 100%;
     min-height: 0;
@@ -4679,6 +4705,10 @@ html.is-booking-locked body { overflow: hidden; }
 }
 
 @media (min-width: 1200px) {
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile {
+    display: none !important;
+  }
+
   .site-header .main-nav > .logo,
   body.has-sticky-booking .site-header .main-nav > .logo {
     background: transparent;
@@ -4793,14 +4823,22 @@ html.is-booking-locked body { overflow: hidden; }
     justify-content: start;
     margin-inline: auto;
     padding-top: clamp(26px, 2vw, 34px);
-    padding-right: max(var(--page-gutter), calc((100vw - 1080px) / 2));
+    padding-right: max(var(--page-gutter), calc((100vw - 1180px) / 2));
     padding-bottom: clamp(30px, 2.4vw, 40px);
-    padding-left: max(var(--page-gutter), calc((100vw - 1080px) / 2));
+    padding-left: max(var(--page-gutter), calc((100vw - 1180px) / 2));
   }
 
   .site-header .main-nav .nav-dropdown__column--rooms {
     width: min(400px, 100%);
-    margin-inline-start: -53px;
+    margin-inline-start: 0;
+  }
+}
+
+@media (min-width: 1800px) {
+  /* Match the dropdown copy to the fluid internal-hero rail on wide screens. */
+  .site-header .main-nav .nav-dropdown:not(.nav-dropdown--language) .nav-dropdown__inner {
+    padding-right: max(var(--page-gutter), calc((100vw - var(--content-max)) / 2));
+    padding-left: max(var(--page-gutter), calc((100vw - var(--content-max)) / 2));
   }
 }
 
@@ -5008,6 +5046,19 @@ html.is-booking-locked body { overflow: hidden; }
 
 /* All internal heroes share one centered tablet composition. */
 @media (min-width: 768px) and (max-width: 1199px) {
+  .b2b-page--expanded .b2b-location-section .hospitality-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .b2b-page--expanded .b2b-location-section .hospitality-media {
+    order: 1;
+  }
+
+  .b2b-page--expanded .b2b-location-section .hospitality-copy {
+    order: 2;
+  }
+
   .home-page .home-service-alternating--kosher .home-service-alternating__content {
     justify-items: center;
     text-align: center;
@@ -5652,6 +5703,84 @@ html.is-booking-locked body { overflow: hidden; }
   }
 }
 
+/* Final tablet navigation contract. Legacy tablet rules can otherwise restore
+ * horizontal flex rows inside the open panel and duplicate Location. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .site-header .main-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: clamp(28px, 6vw, 72px);
+    row-gap: 0;
+    padding-inline: clamp(36px, 7vw, 84px);
+  }
+
+  .site-header .main-nav__side--left,
+  .site-header .main-nav__side--right {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-flow: row;
+    grid-auto-rows: minmax(48px, auto);
+    gap: 4px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-content: start;
+    justify-items: stretch;
+    border: 0 !important;
+  }
+
+  .site-header .main-nav__side--left {
+    grid-column: 1;
+  }
+
+  .site-header .main-nav__side--right {
+    grid-column: 2;
+  }
+
+  .site-header .main-nav__side > a,
+  .site-header .main-nav .main-nav__tablet-room-link {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center !important;
+    padding: 10px 8px !important;
+    text-align: center !important;
+    white-space: normal;
+  }
+
+  .site-header .main-nav__location--desktop {
+    display: none !important;
+  }
+
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile {
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-header .main-nav__side--right > .nav-dropdown--language-mobile > .nav-dropdown__trigger {
+    display: grid !important;
+    grid-template-columns: 22px minmax(0, 1fr) 12px;
+    gap: 8px;
+    width: 100% !important;
+    min-height: 48px;
+    padding: 10px 8px !important;
+    align-items: center;
+    justify-content: stretch !important;
+    text-align: center !important;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__language-label {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .site-header .nav-dropdown--language-mobile .nav-dropdown__chevron {
+    justify-self: end;
+    margin: 0;
+  }
+}
+
 /* The apartments hero uses its complete delivered 4:3 crop on wide tablets. */
 @media (min-width: 900px) and (max-width: 1199px) {
   .apartments-page .apartments-hero__media {
@@ -5661,11 +5790,11 @@ html.is-booking-locked body { overflow: hidden; }
   }
 }
 
-/* Apartment showcase: match the supplied panorama and keep both carousel
- * controls perfectly circular despite the older wide "next" button rule. */
+/* Apartment showcase uses the same bounded media height as the homepage;
+ * contained photos preserve people and room details without growing the card. */
 .apartments-page .apartments-list-section .room-card__image {
-  height: auto;
-  aspect-ratio: 2400 / 1106;
+  height: clamp(406px, calc(100svh - 317px), 592px);
+  aspect-ratio: auto;
 }
 
 .apartments-page .apartments-list-section .room-card__photo,
@@ -5673,21 +5802,64 @@ html.is-booking-locked body { overflow: hidden; }
   width: 100%;
   height: 100%;
   min-height: 0;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+/* Large desktop displays can report less than 1920 CSS pixels because of
+ * display scaling. Expand the B2B showcase before the ultra-wide breakpoint
+ * while preserving the standard smaller-desktop composition. */
+@media (min-width: 1440px) {
+  .b2b-page--expanded .b2b-rooms-section > .container {
+    width: min(1700px, calc(100% - (var(--page-gutter) * 2)));
+    max-width: none;
+  }
+
+  .b2b-page--expanded .b2b-rooms-section .b2b-room-showcase {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .apartments-page .apartments-list-section > .container {
+    width: var(--wide-section-container);
+    max-width: none;
+  }
+
+  .apartments-page .apartments-list-section .room-showcase--b2b-layout {
+    width: 100%;
+    max-width: none;
+  }
+
+  .apartments-page .apartments-list-section .room-card__image {
+    height: auto;
+    aspect-ratio: 1180 / 560;
+  }
+
+  .b2b-page--expanded .b2b-rooms-section > .container {
+    width: var(--wide-section-container);
+    max-width: none;
+  }
+
+  .b2b-page--expanded .b2b-rooms-section .b2b-room-showcase {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .apartments-page .apartments-list-section .room-showcase-nav__button {
-  width: 52px;
-  min-width: 52px;
-  max-width: 52px;
-  height: 52px;
-  min-height: 52px;
+  width: calc(44px * var(--page-wide-scale, 1));
+  min-width: calc(44px * var(--page-wide-scale, 1));
+  max-width: calc(44px * var(--page-wide-scale, 1));
+  height: calc(44px * var(--page-wide-scale, 1));
+  min-height: calc(44px * var(--page-wide-scale, 1));
   padding: 0;
   border-radius: 50%;
 }
 
 @media (max-width: 680px) {
   .apartments-page .apartments-list-section .room-card__image {
+    height: auto;
     aspect-ratio: 3 / 2;
   }
 
@@ -6002,5 +6174,221 @@ html.is-booking-locked body { overflow: hidden; }
     height: auto;
     min-height: 0;
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* Keep the Rooms amenities disclosure as a conventional single-row control
+ * throughout tablet widths. This comes after the legacy accordion rules that
+ * otherwise center and constrain the title. */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .rooms-page .rooms-amenities-accordion__heading {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .rooms-page .rooms-amenities-accordion__trigger {
+    display: flex !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between !important;
+    gap: clamp(20px, 3vw, 32px);
+    padding: 20px clamp(24px, 4vw, 40px) !important;
+    text-align: left !important;
+  }
+
+  .rooms-page .rooms-amenities-accordion__title {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0;
+    margin: 0 !important;
+    text-align: left !important;
+    text-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .rooms-page .rooms-amenities-accordion__chevron {
+    position: static !important;
+    inset: auto !important;
+    flex: 0 0 auto;
+    margin: 0 !important;
+    transform: rotate(45deg) !important;
+  }
+
+  .rooms-page .rooms-amenities-accordion.is-open .rooms-amenities-accordion__chevron {
+    transform: rotate(225deg) !important;
+  }
+}
+
+/* On phones the apartment amenities list is the active disclosure; its outer
+ * section is only a wrapper. Never retain a measured max-height on that outer
+ * panel, otherwise opening the nested list lets rows escape the rounded card. */
+@media (max-width: 767px) {
+  .apartments-page .rooms-amenities-accordion__panel,
+  .apartments-page .rooms-amenities-accordion__panel[hidden] {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
+  .apartments-page .rooms-amenities-accordion .rooms-amenities-content {
+    height: auto;
+    min-height: 0;
+  }
+}
+
+/* The serviced-apartment breakfast card needs a denser tablet composition:
+ * copy and photography share one row instead of forming a tall loose stack. */
+@media (min-width: 768px) and (max-width: 980px) {
+  main.apartments-page .apartments-breakfast-section .apartments-split-card {
+    grid-template-columns: minmax(0, 0.44fr) minmax(0, 0.56fr) !important;
+    gap: clamp(26px, 4vw, 38px) !important;
+    width: min(100%, 920px);
+    align-items: stretch;
+    padding: clamp(28px, 4vw, 40px) !important;
+  }
+
+  main.apartments-page .apartments-breakfast-section .apartments-split-card > div:first-child {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  main.apartments-page .apartments-breakfast-section .apartments-split-card > div:first-child > :is(h2, p) {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  main.apartments-page .apartments-breakfast-section .rooms-breakfast-link {
+    align-self: flex-start;
+    margin-top: clamp(20px, 3vw, 28px);
+    text-align: left;
+  }
+
+  main.apartments-page .apartments-breakfast-section .apartments-vienna-content,
+  main.apartments-page .apartments-breakfast-section .apartments-vienna-content > .florum-responsive-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: clamp(320px, 43vw, 400px);
+  }
+
+  main.apartments-page .apartments-breakfast-section .apartments-vienna-content img,
+  main.apartments-page .apartments-breakfast-section .apartments-vienna-content > .florum-responsive-picture > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Native select popovers can exceed a phone viewport because browsers size
+ * them from the longest option. The enhanced control keeps that menu in-page. */
+.florum-contained-select__trigger,
+.florum-contained-select__menu {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .florum-contained-select.is-enhanced {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .florum-contained-select.is-enhanced > select {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .florum-contained-select.is-enhanced .florum-contained-select__trigger {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px;
+    width: 100%;
+    min-height: 50px;
+    align-items: center;
+    padding: 12px 14px;
+    border: var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    font: 400 var(--type-body)/1.4 var(--font-primary);
+    text-align: start;
+  }
+
+  .florum-contained-select__chevron {
+    width: 9px;
+    height: 9px;
+    margin-inline-end: 3px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+  }
+
+  .florum-contained-select.is-open .florum-contained-select__chevron {
+    transform: rotate(225deg);
+  }
+
+  .florum-contained-select.is-enhanced .florum-contained-select__menu {
+    position: absolute;
+    z-index: 30;
+    top: calc(100% + 6px);
+    right: 0;
+    left: 0;
+    display: grid;
+    max-width: 100%;
+    max-height: min(52dvh, 360px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 6px;
+    border: var(--border-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    box-shadow: 0 16px 38px rgba(5, 31, 24, 0.18);
+    overscroll-behavior: contain;
+  }
+
+  .florum-contained-select.is-enhanced .florum-contained-select__menu[hidden] {
+    display: none;
+  }
+
+  .florum-contained-select__option {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-text);
+    font: 400 var(--type-body)/1.35 var(--font-primary);
+    text-align: start;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .florum-contained-select__option:is(:hover, :focus-visible),
+  .florum-contained-select__option.is-selected {
+    background: rgba(49, 91, 69, 0.1);
+    outline: 0;
   }
 }

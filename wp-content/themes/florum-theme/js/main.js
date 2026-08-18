@@ -23,6 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
       : (deviceCrops?.[profile] || deviceCrops?.standard);
     return selectedCrop ? `${src.slice(0, markerIndex + marker.length)}${selectedCrop}` : src;
   };
+  const roomOriginalImageUrl = (src) => {
+    if (!src || !src.includes("/images/rooms/")) {
+      return src;
+    }
+
+    const [path, suffix = ""] = src.split(/(?=[?#])/u, 2);
+    const uncroppedPath = decodeURIComponent(path)
+      .replace(/--(?:desktop|tablet|mobile)--\d+x\d+(?=\.webp$)/u, "")
+      .replace(/-(card|carousel)(?!-original)(?=\.webp$)/u, "-$1-original");
+    return `${uncroppedPath}${suffix}`;
+  };
+  const roomOptimizedImageUrl = (src) => {
+    const optimizedSrc = src.replace(/-(card|carousel)-original(?=\.webp(?:[?#]|$))/u, "-$1");
+    return responsiveImageUrl(optimizedSrc, window.innerWidth <= 760 ? "standard" : "wide");
+  };
+  const roomPreviewImageUrl = (src) => src?.replace(
+    /-(card|carousel)-original(?=\.webp(?:[?#]|$))/u,
+    "-$1-preview"
+  );
   const reveals = document.querySelectorAll(".reveal");
   const fadeCarousels = document.querySelectorAll("[data-fade-carousel]");
   const bookingStrips = document.querySelectorAll(".booking-strip");
@@ -279,6 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let lightboxTouchStartX = 0;
     let lightboxTouchStartY = 0;
     let lightboxReturnFocus = null;
+    let lightboxRenderId = 0;
     let previewScrollPosition = 0;
 
     const getPreviewScrollContainer = () => window.matchMedia("(max-width: 767px)").matches
@@ -317,22 +337,105 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const image = activeImages[activeIndex];
-      // The room preview deliberately stretches some portrait photographs to
-      // fill its split panel. The fullscreen viewer must instead render the
-      // untouched asset at its natural aspect ratio, so do not carry its
-      // responsive/cropped source set into the lightbox.
+      const renderId = ++lightboxRenderId;
+      const previewSrc = image.src;
+      const originalSrc = image.originalSrc || previewSrc;
+      // The fullscreen viewer first reuses the already cached, uncropped popup
+      // preview. The untouched original replaces it only after decoding, so
+      // navigating never exposes an empty black stage on slower connections.
       lightboxImage.removeAttribute("srcset");
       lightboxImage.removeAttribute("sizes");
-      const responsiveSrc = responsiveImageUrl(image.src, window.innerWidth <= 760 ? "standard" : "wide");
-      lightboxImage.src = responsiveSrc;
       lightboxImage.alt = image.alt;
-      if (lightboxStage) {
-        lightboxStage.style.backgroundImage = `url(${JSON.stringify(responsiveSrc)})`;
-      }
+      const preview = new Image();
+      preview.decoding = "async";
+      const revealPreview = () => {
+        if (renderId !== lightboxRenderId || !imageLightbox.open) return;
+        lightboxImage.src = previewSrc;
+        if (lightboxStage) {
+          lightboxStage.style.backgroundImage = `url(${JSON.stringify(previewSrc)})`;
+        }
+      };
+      preview.addEventListener("load", () => {
+        if (typeof preview.decode === "function") {
+          preview.decode().catch(() => {}).finally(revealPreview);
+        } else {
+          revealPreview();
+        }
+      }, { once: true });
+      preview.src = previewSrc;
+      if (preview.complete && preview.naturalWidth > 0) revealPreview();
       lightboxCounter.textContent = `${activeIndex + 1} / ${activeImages.length}`;
       const multipleImages = activeImages.length > 1;
       lightboxPrevious.hidden = !multipleImages;
       lightboxNext.hidden = !multipleImages;
+
+      if (multipleImages) {
+        const adjacentIndexes = [
+          (activeIndex + 1) % activeImages.length,
+          (activeIndex - 1 + activeImages.length) % activeImages.length,
+        ];
+        adjacentIndexes.forEach((index) => {
+          const preload = new Image();
+          preload.decoding = "async";
+          preload.src = activeImages[index].src;
+        });
+      }
+
+      if (originalSrc !== previewSrc) {
+        window.setTimeout(() => {
+          if (renderId !== lightboxRenderId || !imageLightbox.open) return;
+          const original = new Image();
+          original.decoding = "async";
+          original.addEventListener("load", () => {
+            const revealOriginal = () => {
+              if (renderId !== lightboxRenderId || !imageLightbox.open) return;
+              lightboxImage.src = originalSrc;
+              if (lightboxStage) {
+                lightboxStage.style.backgroundImage = `url(${JSON.stringify(originalSrc)})`;
+              }
+            };
+            if (typeof original.decode === "function") {
+              original.decode().catch(() => {}).finally(revealOriginal);
+            } else {
+              revealOriginal();
+            }
+          }, { once: true });
+          original.src = originalSrc;
+        }, 650);
+      }
+    };
+
+    const loadPreviewSlideImage = (slide) => {
+      const photo = slide?.querySelector("img[data-original-src]");
+      if (!photo || photo.hasAttribute("src")) {
+        return;
+      }
+
+      const revealOriginal = () => {
+        slide.classList.add("is-image-loaded");
+
+        if (!slide.classList.contains("is-active")) {
+          return;
+        }
+
+        const slides = [...track.querySelectorAll(".room-preview-gallery__slide")];
+        const nextSlide = slides[(slides.indexOf(slide) + 1) % slides.length];
+        const preloadNext = () => loadPreviewSlideImage(nextSlide);
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(preloadNext, { timeout: 1200 });
+        } else {
+          window.setTimeout(preloadNext, 300);
+        }
+      };
+
+      photo.addEventListener("load", () => {
+        if (typeof photo.decode === "function") {
+          photo.decode().catch(() => {}).finally(revealOriginal);
+        } else {
+          revealOriginal();
+        }
+      }, { once: true });
+      photo.src = photo.dataset.originalSrc;
     };
 
     const showSlide = (index) => {
@@ -346,6 +449,9 @@ document.addEventListener("DOMContentLoaded", () => {
         slide.classList.toggle("is-active", active);
         slide.setAttribute("aria-hidden", String(!active));
         slide.tabIndex = active ? 0 : -1;
+        if (active) {
+          loadPreviewSlideImage(slide);
+        }
       });
       indicators.querySelectorAll("button").forEach((indicator, indicatorIndex) => {
         const active = indicatorIndex === activeIndex;
@@ -454,18 +560,26 @@ document.addEventListener("DOMContentLoaded", () => {
         complimentaryPanel.hidden = true;
       }
 
-      activeImages = room.images;
-      track.replaceChildren(...room.images.map((image, index) => {
+      activeImages = room.images.map((image) => {
+        const originalSrc = roomOriginalImageUrl(image.src);
+        return {
+          ...image,
+          src: roomPreviewImageUrl(originalSrc),
+          originalSrc,
+          srcset: "",
+        };
+      });
+      track.replaceChildren(...activeImages.map((image, index) => {
         const figure = document.createElement("figure");
         const photo = document.createElement("img");
         figure.className = "room-preview-gallery__slide";
         figure.tabIndex = 0;
         figure.setAttribute("role", "button");
         figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
-        const responsiveSrc = responsiveImageUrl(image.src, window.innerWidth <= 760 ? "standard" : "wide");
-        photo.src = responsiveSrc;
+        const previewSrc = image.src;
+        const placeholderSrc = roomOptimizedImageUrl(image.originalSrc || previewSrc);
         figure.classList.add("room-preview-gallery__slide--contained");
-        figure.style.backgroundImage = `url(${JSON.stringify(responsiveSrc)})`;
+        figure.style.backgroundImage = `url(${JSON.stringify(placeholderSrc)})`;
         photo.style.position = "absolute";
         photo.style.top = "50%";
         photo.style.left = "0";
@@ -475,16 +589,14 @@ document.addEventListener("DOMContentLoaded", () => {
         photo.style.objectFit = "contain";
         photo.style.objectPosition = "center";
         photo.style.transform = "translateY(-50%)";
-        if (image.srcset) {
-          photo.srcset = image.srcset;
-        }
+        photo.dataset.originalSrc = previewSrc;
         photo.alt = image.alt;
         photo.loading = index === 0 ? "eager" : "lazy";
         photo.decoding = "async";
         figure.append(photo);
         return figure;
       }));
-      indicators.replaceChildren(...room.images.map((image, index) => {
+      indicators.replaceChildren(...activeImages.map((image, index) => {
         const indicator = document.createElement("button");
         indicator.type = "button";
         indicator.setAttribute("aria-label", `${preview.title || room.title}: ${index + 1} / ${room.images.length}`);
@@ -520,8 +632,8 @@ document.addEventListener("DOMContentLoaded", () => {
         complimentaryPanel.hidden = true;
       }
       activeImages = cardImage ? [{
-        src: cardImage.currentSrc || cardImage.src,
-        srcset: cardImage.srcset || "",
+        src: roomOriginalImageUrl(cardImage.currentSrc || cardImage.src),
+        srcset: "",
         alt: cardImage.alt || preview.title,
       }] : [];
       track.replaceChildren(...activeImages.map((image) => {
@@ -532,12 +644,10 @@ document.addEventListener("DOMContentLoaded", () => {
         figure.tabIndex = 0;
         figure.setAttribute("role", "button");
         figure.setAttribute("aria-label", imageLightbox?.dataset.openLabel || "Open image in fullscreen");
-        const responsiveSrc = responsiveImageUrl(image.src, window.innerWidth <= 760 ? "standard" : "wide");
-        figure.style.backgroundImage = `url(${JSON.stringify(responsiveSrc)})`;
-        photo.src = responsiveSrc;
-        if (image.srcset) {
-          photo.srcset = image.srcset;
-        }
+        const originalSrc = roomOriginalImageUrl(image.src);
+        const placeholderSrc = cardImage.currentSrc || cardImage.src;
+        figure.style.backgroundImage = `url(${JSON.stringify(placeholderSrc)})`;
+        photo.src = placeholderSrc;
         photo.alt = image.alt;
         photo.loading = "eager";
         photo.decoding = "async";
@@ -550,6 +660,8 @@ document.addEventListener("DOMContentLoaded", () => {
         photo.style.objectFit = "contain";
         photo.style.objectPosition = "center";
         photo.style.transform = "translateY(-50%)";
+        photo.dataset.originalSrc = originalSrc;
+        figure.classList.add("is-image-loaded");
         figure.append(photo);
         return figure;
       }));
@@ -620,7 +732,37 @@ document.addEventListener("DOMContentLoaded", () => {
       renderRoom(room, preview);
     };
 
+    const preloadedRoomPreviews = new Set();
+    const preloadRoomPreview = (roomKey) => {
+      const firstImage = roomCatalog[roomKey]?.images?.[0];
+      if (!firstImage) return;
+
+      const previewSrc = roomPreviewImageUrl(roomOriginalImageUrl(firstImage.src));
+      if (!previewSrc || preloadedRoomPreviews.has(previewSrc)) return;
+
+      preloadedRoomPreviews.add(previewSrc);
+      const image = new Image();
+      image.decoding = "async";
+      image.src = previewSrc;
+    };
+
+    if ("IntersectionObserver" in window) {
+      const previewObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const roomKey = entry.target.dataset.roomKey;
+          preloadRoomPreview(roomKey);
+          observer.unobserve(entry.target);
+        });
+      }, { rootMargin: "500px 0px" });
+      roomPreviewCards.forEach((card) => previewObserver.observe(card));
+    }
+
     roomPreviewTriggers.forEach((trigger) => {
+      const warmPreview = () => preloadRoomPreview(trigger.closest(".rooms-overview-card")?.dataset.roomKey);
+      trigger.addEventListener("pointerenter", warmPreview, { passive: true });
+      trigger.addEventListener("focus", warmPreview, { passive: true });
+      trigger.addEventListener("touchstart", warmPreview, { passive: true, once: true });
       trigger.addEventListener("click", (event) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
           return;
@@ -1444,7 +1586,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const syncRoomImageBackdrop = (slide, src) => {
       const media = slide?.querySelector(".room-card__image");
 
-      if (!media || !src || !document.querySelector("main.home-page")) {
+      if (!media || !src || !document.querySelector("main.home-page, main.apartments-page")) {
         return;
       }
 
@@ -1480,14 +1622,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const normalizedImageIndex = ((imageIndex % images.length) + images.length) % images.length;
-      const usesPreparedShowcaseCrop = image.matches(
-        ".room-card__photo--apartments, .room-card__photo--b2b"
-      );
+      const usesPreparedShowcaseCrop = image.matches(".room-card__photo--b2b");
+      const isApartmentRoomImage = image.matches(".room-card__photo--apartments");
       const isHomepageRoomImage = Boolean(image.closest("main.home-page"));
-      const nextSrc = responsiveImageUrl(
-        images[normalizedImageIndex],
-        usesPreparedShowcaseCrop ? "wide" : (isHomepageRoomImage ? "landscape" : "standard")
-      );
+      const nextSrc = isApartmentRoomImage
+        ? images[normalizedImageIndex]
+        : responsiveImageUrl(
+            images[normalizedImageIndex],
+            usesPreparedShowcaseCrop ? "wide" : (isHomepageRoomImage ? "landscape" : "standard")
+          );
 
       if (image.getAttribute("src") === nextSrc) {
         return;
@@ -1958,6 +2101,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mobileListAccordions.forEach((accordion) => {
     initializeMobileAccordion(accordion, "[data-mobile-list-trigger]", "[data-mobile-list-panel]");
+  });
+
+  document.querySelectorAll("[data-contained-select]").forEach((wrapper) => {
+    const select = wrapper.querySelector("select");
+    const trigger = wrapper.querySelector("[data-contained-select-trigger]");
+    const label = wrapper.querySelector("[data-contained-select-label]");
+    const menu = wrapper.querySelector("[data-contained-select-menu]");
+    const mobileQuery = window.matchMedia("(max-width: 680px)");
+
+    if (!select || !trigger || !label || !menu) return;
+
+    const options = Array.from(select.options);
+    const closeMenu = () => {
+      wrapper.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      menu.hidden = true;
+    };
+    const syncLabel = () => {
+      const selected = select.options[select.selectedIndex] || options[0];
+      label.textContent = selected ? selected.textContent.trim() : "";
+      menu.querySelectorAll("[data-contained-select-option]").forEach((optionButton) => {
+        const isSelected = optionButton.dataset.value === select.value;
+        optionButton.classList.toggle("is-selected", isSelected);
+        optionButton.setAttribute("aria-selected", String(isSelected));
+      });
+    };
+
+    options.filter((option) => option.value && !option.disabled).forEach((option) => {
+      const optionButton = document.createElement("button");
+      optionButton.type = "button";
+      optionButton.className = "florum-contained-select__option";
+      optionButton.dataset.containedSelectOption = "";
+      optionButton.dataset.value = option.value;
+      optionButton.setAttribute("role", "option");
+      optionButton.textContent = option.textContent.trim();
+      optionButton.addEventListener("click", () => {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        syncLabel();
+        closeMenu();
+        trigger.focus();
+      });
+      menu.appendChild(optionButton);
+    });
+
+    wrapper.classList.add("is-enhanced");
+    trigger.hidden = false;
+    syncLabel();
+
+    trigger.addEventListener("click", () => {
+      const willOpen = !wrapper.classList.contains("is-open");
+      closeMenu();
+      if (willOpen) {
+        wrapper.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        menu.hidden = false;
+      }
+    });
+    wrapper.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        trigger.focus();
+      }
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (!wrapper.contains(event.target)) closeMenu();
+    });
+    select.addEventListener("change", syncLabel);
+    select.addEventListener("focus", () => {
+      if (mobileQuery.matches) trigger.focus();
+    });
+    select.form?.addEventListener("reset", () => requestAnimationFrame(syncLabel));
   });
 
   contactForms.forEach((form) => {
