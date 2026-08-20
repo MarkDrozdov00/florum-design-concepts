@@ -47,93 +47,6 @@
 
 }
 
-.contact-copy-control {
-  position: relative;
-  display: inline-flex;
-  flex: 0 0 auto;
-}
-
-.contact-copy-control__popover {
-  position: absolute;
-  top: calc(100% + 7px);
-  left: 50%;
-  z-index: 112;
-  padding: 0;
-  border: 1px solid rgba(247, 240, 230, .2);
-  border-radius: 7px;
-  background: #0c2018;
-  box-shadow: 0 5px 8px rgba(4, 18, 13, .18);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -3px);
-  transition: opacity 140ms ease, transform 180ms cubic-bezier(.22, 1, .36, 1);
-}
-
-.contact-copy-control:hover .contact-copy-control__popover,
-.contact-copy-control:focus-within .contact-copy-control__popover {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
-}
-
-.contact-copy-control__popover::before {
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-  left: 0;
-  height: 7px;
-  content: "";
-}
-
-.footer-contact-links .contact-copy-control__popover {
-  top: calc(100% - 4px);
-  bottom: auto;
-}
-
-.contact-copy-control__copy,
-.site-header .contact-copy-control__copy {
-  display: inline-flex;
-  min-width: 58px;
-  min-height: 30px;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 10px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: #f7f0e6;
-  cursor: pointer;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .01em;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  transition: background-color 140ms ease, color 140ms ease;
-}
-
-.contact-copy-control__copy:hover,
-.contact-copy-control__copy:focus-visible {
-  background: rgba(247, 240, 230, .1);
-  color: #fff;
-}
-
-.contact-copy-control__copy:focus-visible {
-  outline: 2px solid rgba(247, 240, 230, .78);
-  outline-offset: 2px;
-}
-
-.contact-copy-control__copy.is-copied {
-  color: #d9eadf;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-copy-control__popover,
-  .contact-copy-control__copy {
-    transition: none;
-  }
-}
-
 /* Longer Russian and Spanish labels need a little more breathing room between
  * the right navigation cluster and the independently positioned booking CTA. */
 @media (min-width: 1200px) {
@@ -2915,6 +2828,15 @@
   }
 }
 
+/* The desktop language trigger mirrors to the left in RTL via the header grid;
+ * anchor its fixed popover to that same physical edge. */
+@media (min-width: 1200px) {
+  html[dir="rtl"] .site-header .main-nav .nav-dropdown--language > .nav-dropdown__menu {
+    right: auto !important;
+    left: 0 !important;
+  }
+}
+
 @media (min-width: 1400px) and (max-width: 1599px) {
   .main-nav__side--right {
     padding-inline-end: 80px;
@@ -3448,6 +3370,19 @@
 .header-booking__submit:focus-visible,
 .header-booking__apply:hover,
 .header-booking__apply:focus-visible { background: var(--booking-coral-hover); outline: 2px solid var(--color-focus); outline-offset: 2px; transform: translateY(-1px); }
+
+.header-booking__submit:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.header-booking__submit:disabled:hover,
+.header-booking__submit:disabled:focus-visible,
+.header-booking__submit:disabled:active {
+  background: var(--booking-coral);
+  outline: 0;
+  transform: none;
+}
 
 .header-booking__calendar {
   flex: 0 1 620px;
@@ -6607,5 +6542,96 @@ html.is-booking-locked body { overflow: hidden; }
   .florum-contained-select__option.is-selected {
     background: rgba(49, 91, 69, 0.1);
     outline: 0;
+  }
+}
+
+/* Compact desktop keeps the same five-part composition as the full desktop:
+ * social links / primary links / logo / secondary links / actions. At this
+ * width those groups must participate in one grid; absolutely positioning the
+ * outer groups made them overlap translated navigation labels. */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .site-header .main-nav {
+    display: grid;
+    grid-template-columns: 150px minmax(190px, 1fr) 130px minmax(160px, 1fr) 200px;
+    gap: 14px;
+    width: 100%;
+    font-size: clamp(.7rem, .76vw, .78rem);
+  }
+
+  .site-header .header-social-links {
+    position: static;
+    grid-column: 1;
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  .site-header .header-social-links a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .site-header .main-nav > .logo,
+  .site-header .main-nav > .logo img {
+    grid-column: 3;
+    width: 130px;
+  }
+
+  .site-header .header-nav-left {
+    position: static;
+    grid-column: 2;
+    left: 0;
+    justify-content: center;
+    gap: clamp(12px, 1.15vw, 16px);
+  }
+
+  .site-header .header-nav-right {
+    position: static;
+    grid-column: 4;
+    right: 0;
+    justify-content: center;
+    gap: clamp(10px, 1vw, 14px);
+    min-width: 0;
+    padding-inline-end: 0;
+  }
+
+  .site-header :is(.header-nav-left, .header-nav-right) > a {
+    flex: 0 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .site-header .header-actions {
+    position: static;
+    grid-column: 5;
+    display: flex;
+    width: 100%;
+    align-self: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .site-header .main-nav .header-book-now {
+    min-height: 44px;
+    padding-inline: 16px;
+    font-size: .76rem;
+    letter-spacing: .055em;
+  }
+
+  .site-header .header-actions > .nav-dropdown--language {
+    position: static;
+    flex-basis: 40px;
+    width: 40px;
+    min-width: 40px;
+    min-height: 44px;
+  }
+
+  .site-header .main-nav .header-actions .nav-dropdown--language > .nav-dropdown__trigger {
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
   }
 }

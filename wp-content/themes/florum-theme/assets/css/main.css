@@ -3666,7 +3666,9 @@ textarea {
   transform: none;
 }
 
-@media (min-width: 981px) {
+/* Desktop header geometry starts with the desktop navigation, not while the
+ * tablet/burger layout is still active. */
+@media (min-width: 1200px) {
   :root {
     --site-header-height: 126px;
   }
@@ -14037,7 +14039,9 @@ html[lang^="he"] .hero-neon-title {
   background: rgba(197, 215, 195, 0.16);
 }
 
-@media (min-width: 981px) {
+/* Keep this later desktop-header refinement on the same breakpoint contract.
+ * At 981px it previously overrode the tablet header height and page offset. */
+@media (min-width: 1200px) {
   :root {
     --site-header-height: 104px;
   }

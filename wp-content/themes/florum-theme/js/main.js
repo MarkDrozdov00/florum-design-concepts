@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sliderTracks = document.querySelectorAll("[data-slider]");
   const mobileListAccordions = document.querySelectorAll("[data-mobile-list-accordion]");
   const responsivePictures = document.querySelectorAll(".florum-responsive-picture");
-  const contactCopyButtons = document.querySelectorAll("[data-contact-copy]");
   const contactForms = document.querySelectorAll("[data-contact-form]");
   const hospitalityTabs = document.querySelectorAll("[data-hospitality-tabs], .hospitality-tabs");
   const serviceCards = document.querySelectorAll(".service-card, .service-reveal-item");
@@ -58,61 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealPageContent = () => {
     reveals.forEach((item) => item.classList.add("is-visible"));
   };
-
-  const copyTextToClipboard = async (value) => {
-    if (navigator.clipboard?.writeText) {
-      try {
-        await navigator.clipboard.writeText(value);
-        return;
-      } catch (error) {
-        // Continue to the compatibility fallback below. Clipboard access can
-        // be blocked in HTTP previews or by browser permission policy.
-      }
-    }
-
-    const temporaryInput = document.createElement("textarea");
-    temporaryInput.value = value;
-    temporaryInput.setAttribute("readonly", "");
-    temporaryInput.setAttribute("aria-hidden", "true");
-    temporaryInput.style.position = "fixed";
-    temporaryInput.style.opacity = "0";
-    temporaryInput.style.pointerEvents = "none";
-    document.body.appendChild(temporaryInput);
-    temporaryInput.select();
-    temporaryInput.setSelectionRange(0, temporaryInput.value.length);
-
-    const copied = document.execCommand("copy");
-    temporaryInput.remove();
-    if (!copied) {
-      throw new Error("Clipboard copy was rejected");
-    }
-  };
-
-  contactCopyButtons.forEach((button) => {
-    let resetTimer;
-    const feedback = button.querySelector("[data-copy-feedback]");
-
-    button.addEventListener("click", async (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-
-      window.clearTimeout(resetTimer);
-      try {
-        await copyTextToClipboard(button.dataset.copyValue);
-        feedback.textContent = button.dataset.labelCopied;
-        button.classList.add("is-copied");
-      } catch (error) {
-        feedback.textContent = button.dataset.labelError;
-        button.classList.remove("is-copied");
-      }
-
-      resetTimer = window.setTimeout(() => {
-        feedback.textContent = button.dataset.labelCopy;
-        button.classList.remove("is-copied");
-        button.blur();
-      }, 1800);
-    });
-  });
 
   const recoverResponsiveImage = (picture, image) => {
     if (image.dataset.florumFallbackApplied === "true") {
@@ -2432,8 +2376,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const weekdaysGrid = booking.querySelector("[data-calendar-weekdays]");
   const calendarHeading = booking.querySelector("[data-calendar-heading]");
   const dateButtons = Array.from(booking.querySelectorAll("[data-date-panel]"));
-  const language = (document.documentElement.lang || "en").split("-")[0].toLowerCase();
+  const bookingSubmit = booking.querySelector("[data-booking-submit]");
   const locale = document.documentElement.lang || "en";
+  const hotelSpiderLanguageMap = Object.freeze({
+    en: "en",
+    de: "de",
+    it: "it",
+    es: "es",
+    ru: "en",
+    he: "en",
+  });
+  const getHotelSpiderLanguage = () => {
+    const activeLanguage = (document.documentElement.lang || "en")
+      .split("-")[0]
+      .toLowerCase();
+    return hotelSpiderLanguageMap[activeLanguage] || "en";
+  };
+  const HOTEL_SPIDER_BASE_URL = "https://reservations.hotel-spider.com";
+  const HOTEL_SPIDER_HOTEL_ID = "02S612795b139dec";
+  const MAX_ADULTS_PER_ROOM = 4;
   const isMobile = () => window.innerWidth <= 767;
   const todayValue = new Date();
   const today = new Date(todayValue.getFullYear(), todayValue.getMonth(), todayValue.getDate());
@@ -2455,8 +2416,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: "short" });
   const weekdayBase = new Date(2026, 7, 2);
   const state = {
-    checkIn: today,
-    checkOut: addDays(today, 1),
+    checkIn: null,
+    checkOut: null,
     visibleMonth: new Date(today.getFullYear(), today.getMonth(), 1),
     selecting: "check-in",
     awaitingEnd: false,
@@ -2491,9 +2452,23 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     values.forEach(([key, date]) => {
-      booking.querySelector(`[data-${key}-day]`).textContent = String(date.getDate()).padStart(2, "0");
-      booking.querySelector(`[data-${key}-month]`).textContent = shortMonthFormatter.format(date).replace(".", "").toUpperCase();
+      booking.querySelector(`[data-${key}-day]`).textContent = date
+        ? String(date.getDate()).padStart(2, "0")
+        : "";
+      booking.querySelector(`[data-${key}-month]`).textContent = date
+        ? shortMonthFormatter.format(date).replace(".", "").toUpperCase()
+        : "";
     });
+  };
+
+  const hasValidBookingRange = () => (
+    state.checkIn instanceof Date
+    && state.checkOut instanceof Date
+    && state.checkOut > state.checkIn
+  );
+
+  const updateBookingSubmitState = () => {
+    bookingSubmit.disabled = !hasValidBookingRange();
   };
 
   const renderCalendar = () => {
@@ -2536,7 +2511,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (open) {
       state.selecting = source || state.selecting;
       state.awaitingEnd = false;
-      state.visibleMonth = new Date((state.selecting === "check-out" ? state.checkOut : state.checkIn).getFullYear(), (state.selecting === "check-out" ? state.checkOut : state.checkIn).getMonth(), 1);
+      const activeDate = (state.selecting === "check-out" ? state.checkOut : state.checkIn) || state.checkIn || today;
+      state.visibleMonth = new Date(activeDate.getFullYear(), activeDate.getMonth(), 1);
       renderCalendar();
       window.requestAnimationFrame(() => {
         positionExperience();
@@ -2612,13 +2588,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const [year, month, date] = day.dataset.calendarDate.split("-").map(Number);
     const selected = new Date(year, month - 1, date);
 
-    if (state.selecting === "check-out" && selected > state.checkIn) {
+    if (state.selecting === "check-out" && state.checkIn && selected > state.checkIn) {
       state.checkOut = selected;
       state.awaitingEnd = false;
       state.selecting = "check-in";
-    } else if (!state.awaitingEnd || selected <= state.checkIn) {
+    } else if (!state.checkIn || !state.awaitingEnd || selected <= state.checkIn) {
       state.checkIn = selected;
-      state.checkOut = addDays(selected, 1);
+      state.checkOut = null;
       state.awaitingEnd = true;
       state.selecting = "check-out";
     } else {
@@ -2628,6 +2604,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     updateDateSummary();
+    updateBookingSubmitState();
     renderCalendar();
     // Date selection never dismisses the calendar. The first click starts the
     // range and the second completes it; Apply Dates owns dismissal.
@@ -2638,7 +2615,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  booking.querySelectorAll("[data-guest-control]").forEach((control) => {
+  const guestControls = Object.fromEntries(
+    Array.from(booking.querySelectorAll("[data-guest-control]"))
+      .map((control) => [control.dataset.guestControl, control])
+  );
+
+  const updateGuestControlValue = (key) => {
+    const control = guestControls[key];
+    if (!control) return;
+
+    const trigger = control.querySelector(":scope > button");
+    control.querySelector("[data-guest-value]").textContent = String(state[key]);
+    trigger.setAttribute("aria-label", `${control.querySelector(":scope > span").textContent}: ${state[key]}`);
+  };
+
+  const syncAdultOccupancy = () => {
+    const adultControl = guestControls.adults;
+    if (!adultControl) return;
+
+    const maximumAdults = state.rooms * MAX_ADULTS_PER_ROOM;
+    state.adults = Math.max(1, Math.min(state.adults, maximumAdults));
+
+    const adultMenu = adultControl.querySelector(".header-booking__guest-menu");
+    const options = document.createDocumentFragment();
+    for (let adults = 1; adults <= maximumAdults; adults += 1) {
+      const option = document.createElement("button");
+      option.type = "button";
+      option.dataset.guestOption = String(adults);
+      option.textContent = String(adults);
+      options.appendChild(option);
+    }
+    adultMenu.replaceChildren(options);
+    updateGuestControlValue("adults");
+  };
+
+  Object.values(guestControls).forEach((control) => {
     const trigger = control.querySelector(":scope > button");
     const menu = control.querySelector(".header-booking__guest-menu");
     const key = control.dataset.guestControl;
@@ -2653,21 +2664,27 @@ document.addEventListener("DOMContentLoaded", () => {
       const option = event.target.closest("[data-guest-option]");
       if (!option) return;
       state[key] = Number(option.dataset.guestOption);
-      control.querySelector("[data-guest-value]").textContent = String(state[key]);
-      trigger.setAttribute("aria-label", `${control.querySelector(":scope > span").textContent}: ${state[key]}`);
+      updateGuestControlValue(key);
+      if (key === "rooms") syncAdultOccupancy();
       menu.hidden = true;
       trigger.setAttribute("aria-expanded", "false");
       trigger.focus();
     });
   });
 
-  booking.querySelector("[data-booking-submit]").addEventListener("click", () => {
-    const destination = new URL("https://reservations.hotel-spider.com/02S612795b139dec");
+  syncAdultOccupancy();
+
+  bookingSubmit.addEventListener("click", () => {
+    if (!hasValidBookingRange()) return;
+
+    const destination = new URL(HOTEL_SPIDER_BASE_URL);
+    destination.searchParams.set("hotelId", HOTEL_SPIDER_HOTEL_ID);
     destination.searchParams.set("checkIn", toIso(state.checkIn));
     destination.searchParams.set("checkOut", toIso(state.checkOut));
+    destination.searchParams.set("nbRooms", String(state.rooms));
     destination.searchParams.set("nbAdults", String(state.adults));
     destination.searchParams.set("nbChildren", String(state.children));
-    destination.searchParams.set("lang", ["de", "ru", "it", "es", "he"].includes(language) ? language : "en");
+    destination.searchParams.set("lang", getHotelSpiderLanguage());
     window.open(destination.toString(), "_blank", "noopener,noreferrer");
   });
 
@@ -2696,5 +2713,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!booking.hidden) positionExperience();
   });
   updateDateSummary();
+  updateBookingSubmitState();
   renderCalendar();
 });
