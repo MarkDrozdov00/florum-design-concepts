@@ -1674,7 +1674,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const syncRoomImageBackdrop = (slide, src) => {
       const media = slide?.querySelector(".room-card__image");
 
-      if (!media || !src || !document.querySelector("main.home-page, main.apartments-page")) {
+      if (!media || !src || !document.querySelector("main.home-page, main.apartments-page, main.b2b-page--expanded")) {
         return;
       }
 

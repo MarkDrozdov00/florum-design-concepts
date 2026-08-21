@@ -4713,20 +4713,20 @@ html.is-booking-locked body { overflow: hidden; }
  * wide showcase. A softened, green-tinted copy fills the side space, matching
  * the contained-image treatment used by the room preview gallery. */
 @media (min-width: 681px) {
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image {
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image {
     position: relative;
     isolation: isolate;
     background: var(--green-deep);
   }
 
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::before,
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::after {
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image::before,
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image::after {
     position: absolute;
     content: "";
     pointer-events: none;
   }
 
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::before {
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image::before {
     z-index: -2;
     inset: -28px;
     background-image: var(--room-image-backdrop, none);
@@ -4739,23 +4739,41 @@ html.is-booking-locked body { overflow: hidden; }
     transition: opacity 420ms cubic-bezier(.23, 1, .32, 1);
   }
 
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card.is-switching-image .room-card__image::before {
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card.is-switching-image .room-card__image::before {
     opacity: .38;
   }
 
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image::after {
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image::after {
     z-index: -1;
     inset: 0;
     background: rgba(5, 31, 24, .34);
   }
 
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__photo,
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image > .florum-responsive-picture,
-  :is(.home-page, .apartments-page .apartments-list-section) .room-card__image > .florum-responsive-picture > img {
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__photo,
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image > .florum-responsive-picture,
+  :is(.home-page, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image > .florum-responsive-picture > img {
     width: 100%;
     height: 100%;
     min-height: 0;
     object-fit: contain;
+  }
+
+  /* Approved room-media treatment: keep the complete photograph and its
+   * atmospheric blurred side fill, softened with the room-details beige. */
+  :is(.home-page .room-showcase--b2b-layout, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image {
+    background: var(--color-surface-raised);
+  }
+
+  :is(.home-page .room-showcase--b2b-layout, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image::before {
+    opacity: .76;
+  }
+
+  :is(.home-page .room-showcase--b2b-layout, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card.is-switching-image .room-card__image::before {
+    opacity: .52;
+  }
+
+  :is(.home-page .room-showcase--b2b-layout, .apartments-page .apartments-list-section, .b2b-page--expanded .b2b-room-showcase) .room-card__image::after {
+    background: rgba(251, 247, 239, .38);
   }
 }
 

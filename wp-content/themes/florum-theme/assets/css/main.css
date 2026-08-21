@@ -9548,7 +9548,7 @@ body.is-room-preview-open {
   overflow: hidden;
   min-width: 0;
   min-height: 0;
-  background: var(--green-deep);
+  background: var(--color-surface-raised);
   touch-action: pan-y;
 }
 
@@ -9588,7 +9588,7 @@ body.is-room-preview-open {
   position: absolute;
   z-index: 0;
   inset: -24px;
-  background: rgba(5, 31, 24, 0.38);
+  background: rgba(251, 247, 239, 0.38);
   content: "";
   backdrop-filter: blur(18px);
 }
